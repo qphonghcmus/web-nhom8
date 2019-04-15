@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trang thông tin điện tử</title>
+    <meta charset="utf-8">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- file css style -->
+    <link rel="stylesheet" href="resource/CSS/style.css">
+    <link rel="stylesheet" href="vendors/css/grid.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header class="main_header">
+        <div class="main-nav">
+            <!-- Image and text -->
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <!-- logo -->
+                    <img src="https://previews.123rf.com/images/volkoff/volkoff1302/volkoff130200017/18159365-number-8-symbol-with-multicolored-mosaic-tiles-isolated-on-white-background.jpg" width="40" height="40" class="d-inline-block align-top" alt="">
+                    Web8 News
+                </a>
+                <!-- nav -->
+                <ul class="main-caterogy">
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Thời sự</button>
+                            <div class="dropdown-content">
+                                <a href="#">Chính trị</a>
+                                <a href="#">Giao thông</a>
+                                <a href="#">Đô thị</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Giải trí</button>
+                            <div class="dropdown-content">
+                                <a href="#">Sao Việt</a>
+                                <a href="#">Sao Châu Á</a>
+                                <a href="#">Sao Hollywood</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Thời trang</button>
+                            <div class="dropdown-content">
+                                <a href="#">Thời trang sao</a>
+                                <a href="#">Mặc đẹp</a>
+                                <a href="#">Làm đẹp</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 frm_search">
+                    <input class="form-control mr-sm-2 input_search" type="search" placeholder="Search" aria-label="Search">
+                    <i class="fas fa-search icon_search"></i>
+                </form>
+                <div class="log">
+                    <div class="dropdown">
+                        <button class="dropbtn">Đăng nhập</button>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Đăng ký</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="main_news_most_view">
+        <div class="container">
+            <h3>Tin nổi bật</h3>
+            <!-- carousel -->
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active img_title">
+                        <img src="https://i-vnexpress.vnecdn.net/2019/04/13/PhamNhatVu42381555136639-15551-8468-9402-1555148019_500x300.jpg" alt="Los Angeles">
+                        <div class="carousel-caption description">
+                            <h3>Ông Phạm Nhật Vũ bị bắt với cáo buộc đưa hối lộ</h3>
+                            <p>Bộ Công an khởi tố bị can, quyết định bắt ông Phạm Nhật Vũ (Chủ tịch Công ty Cổ phần Nghe Nhìn Toàn cầu – AVG).</p>
+                        </div>
+                    </div>
+                    <div class="item img_title">
+                        <img src="https://vcdn-vnexpress.vnecdn.net/2019/04/13/56956465-337440926973971-67103-8532-8659-1555151432.jpg" alt="Chicago">
+                        <div class="carousel-caption description">
+                            <h3>Hai cựu bộ trưởng Thông tin và Truyền thông bị khởi tố thêm tội Nhận hối lộ</h3>
+                            <p>Ông Nguyễn Bắc Son, Trương Minh Tuấn bị khởi tố thêm tội danh thứ hai, sau hai tháng vướng lao lý.</p>
+                        </div>
+                    </div>
+                    <div class="item img_title">
+                        <img src="https://vnn-imgs-f.vgcloud.vn/2019/04/13/19/van-toan.jpg" alt="New York">
+                        <div class="carousel-caption description">
+                            <h3>Văn Toàn lập cú đúp, HAGL hạ Quảng Ninh</h3>
+                            <p>
+                                Đội bóng phố núi thắng 3-2 ở vòng 5 V-League 2019, chiều 13/4. </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col span-1-of-2 list_col">
+                <h2>Xem nhiều nhất</h2>
+                <ul class="news_list">
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/photo-3-15552146990157623579-crop-1555216148476163459667.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Vì sao MV “Boy with Luv” mãi chưa leo lên top trending Việt Nam dù đã oanh tạc Youtube toàn thế giới?"> Vì sao MV “Boy with Luv” mãi chưa leo lên top trending Việt Nam dù đã oanh tạc Youtube toàn thế giới?</a> </h3>
+                                <a href="#" class="category_news">Sao Châu Á</a> -
+                                <span class="time">
+                                    2 giờ trước
+                                </span>
+                                <br> <br>
+                                <p class="description">Một thắc mắc to đùng cho chiếc MV đang “làm mưa làm gió”...s
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/000055-1555202231783191349238-crop-15552022727991155659036.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Cuộc đua vòng eo dưới 60cm của dàn mỹ nhân 9x Vbiz: Đáng ngưỡng mộ nhất là nhân vật đầu tiên!">Cuộc đua vòng eo dưới 60cm của dàn mỹ nhân 9x Vbiz: Đáng ngưỡng mộ nhất là nhân vật đầu tiên!
+                                    </a> </h3>
+                                <a href="#" class="category_news">Sao Việt</a> -
+                                <span class="time">
+                                    3 giờ trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ"> Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
+                                <a href="#" class="category_news">Giao thông</a> -
+                                <span class="time">
+                                    12 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào đuôi xe tải chạy phía trước, chết ...
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col span-1-of-2 list_col">
+                <h2>Tin mới nhất</h2>
+                <ul class="news_list">
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ"> Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
+                                <a href="#" class="category_news">Giao thông</a> -
+                                <span class="time">
+                                    12 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào đuôi xe tải chạy phía trước, chết ...
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/jdj-15552181002591130083436-crop-1555218105275784760006.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai"> Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai</a> </h3>
+                                <a href="#" class="category_news">Giải trí</a> -
+                                <span class="time">
+                                    20 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Sau tin đồn về việc Ming Xi - bạn gái của thiếu gia Hà Du Quân mang thai, anh chàng đã có phản ứng mạnh mẽ.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/pham-huong-7-15552082260421933763892-crop-15552082318431780838642.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!"> Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!</a> </h3>
+                                <a href="#" class="category_news">Sao Việt</a> -
+                                <span class="time">
+                                    35 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Chỉ với chi tiết này, nhiều người cho rằng Phạm Hương sắp trở về Việt Nam sau thời gian dài ở Mỹ.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="main_news_category">
+        <div class="col span-1-of-2 new_zone">
+            <div class="box">
+               <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Thời sự</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chính trị</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giao thông</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Đô thị</a>
+                    </li>
+                </ul>
+                <div class="content">
+                	<ul class="news_list">
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ"> Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
+                                <a href="#" class="category_news">Giao thông</a> -
+                                <span class="time">
+                                    12 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào đuôi xe tải chạy phía trước, chết ...
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/jdj-15552181002591130083436-crop-1555218105275784760006.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai"> Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai</a> </h3>
+                                <a href="#" class="category_news">Giải trí</a> -
+                                <span class="time">
+                                    20 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Sau tin đồn về việc Ming Xi - bạn gái của thiếu gia Hà Du Quân mang thai, anh chàng đã có phản ứng mạnh mẽ.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/pham-huong-7-15552082260421933763892-crop-15552082318431780838642.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!"> Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!</a> </h3>
+                                <a href="#" class="category_news">Sao Việt</a> -
+                                <span class="time">
+                                    35 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Chỉ với chi tiết này, nhiều người cho rằng Phạm Hương sắp trở về Việt Nam sau thời gian dài ở Mỹ.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col span-1-of-2 new_zone">
+            <div class="box">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Giải trí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sao Việt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sao Châu Á</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sao Hollywood</a>
+                    </li>
+                </ul>
+                <br>
+                <div class="content">
+                   <ul class="news_list">
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ"> Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
+                                <a href="#" class="category_news">Giao thông</a> -
+                                <span class="time">
+                                    12 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào đuôi xe tải chạy phía trước, chết ...
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/jdj-15552181002591130083436-crop-1555218105275784760006.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai"> Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai</a> </h3>
+                                <a href="#" class="category_news">Giải trí</a> -
+                                <span class="time">
+                                    20 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Sau tin đồn về việc Ming Xi - bạn gái của thiếu gia Hà Du Quân mang thai, anh chàng đã có phản ứng mạnh mẽ.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/pham-huong-7-15552082260421933763892-crop-15552082318431780838642.jpg" alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!"> Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!</a> </h3>
+                                <a href="#" class="category_news">Sao Việt</a> -
+                                <span class="time">
+                                    35 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Chỉ với chi tiết này, nhiều người cho rằng Phạm Hương sắp trở về Việt Nam sau thời gian dài ở Mỹ.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
