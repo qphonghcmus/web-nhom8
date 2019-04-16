@@ -19,6 +19,8 @@ body {
 
 /*----------------------------*/
 /*--------My_Header------------*/
+
+
 .dropbtn {
     background-color: #F8F8F8;
     color: black;
@@ -158,7 +160,7 @@ body {
 }
 
 .meta p {
-    background-color: #F2F2F2;
+    background-color: rgb(255, 255, 255);
 }
 
 .meta h3 {
@@ -167,14 +169,20 @@ body {
 
 .list_col h2 {
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 150%;
 }
 
 .new_news {
-    background-color: #F4ECEC;
+    background-color: rgb(255, 254, 254);
     height: 250px;
     padding: 10px;
+    margin-top: 10px;
+    border-top: .5px solid;
+}
+
+.new_news a{
+    font-size: 90%;
 }
 
 /*------------------------------------*/
@@ -240,3 +248,9 @@ body {
 .box{
 	height: 200%;
 }
+
+.main_news_category{
+    margin-top: 20px;
+}
+
+
