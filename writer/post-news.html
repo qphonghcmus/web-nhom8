@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="css/style-post-article.css">
+	<script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+
+
+</head>
+<body>
+	
+	<header class="main_header">
+        <div class="main-nav">
+            <!-- Image and text -->
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <!-- logo -->
+                    <img src="https://previews.123rf.com/images/volkoff/volkoff1302/volkoff130200017/18159365-number-8-symbol-with-multicolored-mosaic-tiles-isolated-on-white-background.jpg" width="40" height="40" class="d-inline-block align-top" alt="">
+                    Web8 News
+                </a>
+            </nav>
+        </div>
+    </header>
+
+	<div class="post-article-div">
+		<h3>Thêm bài viết</h3>
+		<form action="" method="POST" >
+			<input type="text" class="title-name" placeholder="Nhập tiêu đề bài viết">
+			<br/><br/>
+			<textarea name="editor1">
+			</textarea>
+			<br/>
+			CHUYÊN MỤC: <select name="chuyenmuc" id="">
+				<option value="thethao">Thể thao</option>
+				<option value="thoitrang">Thời trang</option>
+			</select>
+			<br/><br/>
+			TAG: <input type="text" id="tags">
+			<button onclick="return AddTags()">Thêm Tag</button>
+			<div id="add-tag-div"></div>
+		</form>
+		<br/>
+		<button class="btn-post">POST</button>
+	</div>
+	<script>
+		CKEDITOR.replace('editor1');
+
+		function AddTags(){
+			var _tag = document.getElementById('tags').value;
+			if(_tag != null){
+				var para = document.createElement("p");
+				var node = document.createTextNode(_tag);
+				para.appendChild(node);
+
+				document.getElementById('add-tag-div').appendChild(para)
+			}
+			return false;
+		}
+
+	</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
