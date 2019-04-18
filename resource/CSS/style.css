@@ -97,6 +97,153 @@ body {
 .log .dropdown {
     display: inline-block;
 }
+header
+{
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.nav
+{
+    background-color: #eeeeee;
+    height: 40px;
+    width:100%;
+}
+.nav img
+{
+    height: 30px;
+    width: 30px;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-top:5px;
+}
+.nav ul{
+    margin-left: 0px;
+    padding: 0px;
+    list-style: none;
+    display: inline-block;
+    
+}
+.nav ul li
+{
+    float: left;
+    width: 100px;
+    height: 40px;
+    background-color:#eeeeee;
+    opacity: 0.8;
+    line-height: 40px;
+    text-align: center;
+    font-size: 13px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+.nav ul li a
+{
+    text-decoration: none;
+    color: black;
+    display: block;
+    transition: all .1s;
+    font-weight: bold;
+}
+
+.nav ul li a:hover
+{
+    height: 40px;
+    background-color: #e11b1e;
+  
+}
+.nav ul li ul li
+{
+    display: none;
+    border-bottom: 1px solid gray;
+}
+
+.nav ul li:hover ul li
+{
+    
+    display: block;
+    text-transform: none;
+    background-color: #fff;
+}
+.nav ul li:hover ul li a:hover
+{
+    background-color: #4285f4;
+    border-bottom: 1px solid gray;
+}
+.fas
+{
+    color:black;
+    font-weight: bold;
+    font-size: 16px;
+}
+.otherChoose
+{
+    width: 50px;
+}
+
+.nav div
+{
+    display: inline-block;
+    position: relative;
+    height: 40px;
+}
+#listToolbox
+{
+    list-style-type: none;
+    padding: 0px;
+    display: inline-block;
+    margin-left: 250px;
+}
+
+#listToolbox-search
+{
+    line-height: 40px;
+    width: 250px;
+    display: inline-block;
+}
+
+.search-box
+{
+    transform: translate(-50%, -50%);
+    height: 30px;
+}
+.search-txt
+{
+    height: 30px;
+    padding: 0px 5px;
+    margin-top: 5px;
+    float: left;
+    margin-right: 10px;
+    transition: 0.9s;
+    background-color: #fff; 
+    line-height: 30px;
+    width: 200px;
+    border-radius: 6px;
+	border:hidden;
+	transition: all .10s;
+}
+#search-btn
+{
+    width: 13px;
+    float:right;
+    height: 40px;
+    width: 30px;
+}
+
+#listToolbox-search div a:hover
+{
+  background-color:#4285f4; 
+   
+}
+#listToolbox-login
+{
+    width: 30px;
+}
+#listToolbox-login a:hover
+{
+    background-color: green;
+}
+
 
 /*-----------------------------*/
 /*---------main_news--------*/
@@ -192,6 +339,8 @@ body {
 .new_news a{
     font-size: 90%;
 }
+
+
 
 /*------------------------------------*/
 /*-------------main-category-------------*/

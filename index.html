@@ -18,73 +18,66 @@
 </head>
 
 <body>
-    <header class="main_header">
-        <div class="main-nav">
-            <!-- Image and text -->
-            <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">
-                    <!-- logo -->
-                    <img src="https://previews.123rf.com/images/volkoff/volkoff1302/volkoff130200017/18159365-number-8-symbol-with-multicolored-mosaic-tiles-isolated-on-white-background.jpg" width="40" height="40" class="d-inline-block align-top" alt="">
-                    Web8 News
-                </a>
-                <!-- nav -->
-                <ul class="main-caterogy">
+   <header>
+            <nav class="nav">
+                <img src="https://img.icons8.com/material-rounded/24/000000/home.png">
+                <ul>
                     <li>
-                        <div class="dropdown">
-                            <button class="dropbtn">Thời sự</button>
-                            <div class="dropdown-content">
-                                <a href="#">Chính trị</a>
-                                <a href="#">Giao thông</a>
-                                <a href="#">Đô thị</a>
-                            </div>
+                        <a href="#">Thể thao</a>
+                     
+                            <ul>
+                                <li><a href="#">Trong nước</a></li>
+                                <li><a href="#">Ngoài nước</a></li>
+                            </ul>
+                    </li>
+                   
+                    <li>
+                        <a href="#">Kinh doanh</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Nông sản</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hải sản</a>
+                                </li>
+                            </ul>
+                    </li>
+
+                    <li>
+                        <a href="#">Pháp luật</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Công nghệ</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Giải trí</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Du lịch</a>
+                    </li>
+                    <li class="otherChoose">
+                        <a href="#"><i class="fas fa-align-justify"></i></a>
+                    </li>
+                   
+                </ul>
+                <ul id="listToolbox">
+                    <li id="listToolbox-search">
+                        <div class="searchBox">
+                            <input class="search-txt" type="text" placeholder="Nhập nội dung cần tìm">
+                            <a id="search-btn" href="#">
+                                <i class="fas fa-search"></i>
+                            </a>
                         </div>
                     </li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="dropbtn">Giải trí</button>
-                            <div class="dropdown-content">
-                                <a href="#">Sao Việt</a>
-                                <a href="#">Sao Châu Á</a>
-                                <a href="#">Sao Hollywood</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="dropbtn">Thời trang</button>
-                            <div class="dropdown-content">
-                                <a href="#">Thời trang sao</a>
-                                <a href="#">Mặc đẹp</a>
-                                <a href="#">Làm đẹp</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="dropbtn">Thể thao</button>
-                            <div class="dropdown-content">
-                                <a href="#">Thể thao Việt Nam</a>
-                                <a href="#">Thể thao thế giới</a>
-                                <a href="#">Bóng đá Anh</a>
-                            </div>
-                        </div>
+                    <li id="listToolbox-login">
+                        <a href="#"><i class="far fa-user"></i></a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0 frm_search">
-                    <input class="form-control mr-sm-2 input_search" type="search" placeholder="Search" aria-label="Search">
-                    <i class="fas fa-search icon_search"></i>
-                </form>
-                <div class="log">
-                    <div class="dropdown">
-                        <button class="dropbtn">Đăng nhập</button>
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropbtn">Đăng ký</button>
-                    </div>
-                </div>
             </nav>
-        </div>
-    </header>
+        </header>
     <section class="main_news_most_view">
         <div class="container">
             <h3>Tin nổi bật</h3>
