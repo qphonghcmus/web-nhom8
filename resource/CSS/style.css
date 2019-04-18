@@ -19,8 +19,6 @@ body {
 
 /*----------------------------*/
 /*--------My_Header------------*/
-
-
 .dropbtn {
     background-color: #F8F8F8;
     color: black;
@@ -167,16 +165,26 @@ body {
     font-size: 150%;
 }
 
-.list_col h2 {
+.row{
+    width: 95%;
+    position: relative;
+    left: 40px;
+}
+.list_col{
+    height: 540px;
+    overflow-y: scroll;
+    margin-right: 30px;
+}
+
+.list_title h2{
     text-align: center;
     margin-top: 20px;
     font-size: 150%;
 }
-
 .new_news {
     background-color: rgb(255, 254, 254);
-    height: 250px;
-    padding: 10px;
+    height: 270px;
+    padding: 20px;
     margin-top: 10px;
     border-top: .5px solid;
 }
@@ -251,6 +259,7 @@ body {
 
 .main_news_category{
     margin-top: 20px;
+    display: block;
 }
 
 
