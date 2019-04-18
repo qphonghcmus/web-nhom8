@@ -195,6 +195,10 @@ body {
 
 /*------------------------------------*/
 /*-------------main-category-------------*/
+.main_news_most_view{
+    border-bottom: .5px solid orangered;
+}
+
 .box {
     background-position: 0 -48px;
     background-repeat: no-repeat;
@@ -248,13 +252,8 @@ body {
 	 border-radius: 2px;
 }
 
-.content{
-	background-color: #861616;
-	height: 100px;
-}
-
 .box{
-	height: 200%;
+	height: 100%;
 }
 
 .main_news_category{
@@ -262,4 +261,63 @@ body {
     display: block;
 }
 
+/* ------------------------------------------- */
+/* ------------------Contact Section------------------ */
+.contact-section{
+    background-color: rgb(217, 218, 224);
+}
+.information li{
+    list-style: none;
+    font-size: 120%;
+    margin-top: 15px;
+}
 
+.information li  i{
+    margin-right: 20px;
+}
+
+.social-icon li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.social-icon{
+    position: relative;
+    left: 560px;
+}
+
+.information{
+    position: relative;
+    left: 450px;
+    margin-bottom: 30px;
+}
+.information .small-icon
+{
+    transition: all .5s;
+}
+.information .small-icon:hover,
+.information .small-iocn:active{
+	font-size: 150%;
+}
+
+.social-icon li i{
+    transition: all .3s;
+    font-size: 220%;
+	cursor: pointer;
+}
+
+.social-icon li i:hover,
+.social-icon li i:active{
+	transform: scale(1.3);
+	color: #FFD338;
+}
+/* -------------------------------------- */
+/* -----------------Footer----------------- */
+footer{
+	text-align: center;
+	background-color: #747474;
+	color: #FFFFFF;
+    padding: 10px;
+    font-size: 120%;
+}
