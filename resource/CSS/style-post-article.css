@@ -292,6 +292,25 @@ footer{
 	padding: 20px;
 }
 
+.post-article-div h3{
+    text-transform: uppercase;
+}
+
 .title-name{
 	width: 500px;
 }
+
+.post-article-div .head{
+    display: flex;
+}
+
+.chuyenmuc-tag{
+    margin-left: 70px;
+}
+
+#tags{
+    margin-left: 70px;
+    width: 100px;
+}
+
+
