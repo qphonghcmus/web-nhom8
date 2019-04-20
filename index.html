@@ -5,10 +5,12 @@
     <title>Trang thông tin điện tử</title>
     <meta charset="utf-8">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <!-- font-awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- file css style -->
     <link rel="stylesheet" href="resource/CSS/style.css">
     <link rel="stylesheet" href="vendors/css/grid.css">
@@ -18,66 +20,109 @@
 </head>
 
 <body>
-   <header>
-            <nav class="nav">
-                <img src="https://img.icons8.com/material-rounded/24/000000/home.png">
-                <ul>
-                    <li>
-                        <a href="#">Thể thao</a>
-                     
-                            <ul>
-                                <li><a href="#">Trong nước</a></li>
-                                <li><a href="#">Ngoài nước</a></li>
-                            </ul>
-                    </li>
-                   
-                    <li>
-                        <a href="#">Kinh doanh</a>
-                            <ul>
-                                <li>
-                                    <a href="#">Nông sản</a>
-                                </li>
-                                <li>
-                                    <a href="#">Hải sản</a>
-                                </li>
-                            </ul>
-                    </li>
+    <!-- Login Form hidden -->
+    <div id="id01" class="modal">
+         <form class="modal-content animate" action="#">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="http://cliparts.co/cliparts/riL/noA/riLnoAAeT.png" alt="Avatar" class="avatar">
+            </div>
 
-                    <li>
-                        <a href="#">Pháp luật</a>
-                    </li>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
 
-                    <li>
-                        <a href="#">Công nghệ</a>
-                    </li>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
 
-                    <li>
-                        <a href="#">Giải trí</a>
-                    </li>
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
 
-                    <li>
-                        <a href="#">Du lịch</a>
-                    </li>
-                    <li class="otherChoose">
-                        <a href="#"><i class="fas fa-align-justify"></i></a>
-                    </li>
-                   
-                </ul>
-                <ul id="listToolbox">
-                    <li id="listToolbox-search">
-                        <div class="searchBox">
-                            <input class="search-txt" type="text" placeholder="Nhập nội dung cần tìm">
-                            <a id="search-btn" href="#">
-                                <i class="fas fa-search"></i>
-                            </a>
-                        </div>
-                    </li>
-                    <li id="listToolbox-login">
-                        <a href="#"><i class="far fa-user"></i></a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <header>
+        <nav class="nav_header">
+            <img src="https://img.icons8.com/material-rounded/24/000000/home.png">
+            <ul>
+                <li>
+                    <a href="#">Thể thao</a>
+
+                    <ul>
+                        <li><a href="#">Trong nước</a></li>
+                        <li><a href="#">Ngoài nước</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Kinh doanh</a>
+                    <ul>
+                        <li>
+                            <a href="#">Nông sản</a>
+                        </li>
+                        <li>
+                            <a href="#">Hải sản</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Pháp luật</a>
+                </li>
+
+                <li>
+                    <a href="#">Công nghệ</a>
+                </li>
+
+                <li>
+                    <a href="#">Giải trí</a>
+                </li>
+
+                <li>
+                    <a href="#">Du lịch</a>
+                </li>
+                <li class="otherChoose">
+                    <a href="#"><i class="fas fa-align-justify"></i></a>
+                </li>
+
+            </ul>
+            <ul id="listToolbox">
+                <li id="listToolbox-search">
+                    <div class="searchBox">
+                        <input class="search-txt" type="text" placeholder="Nhập nội dung cần tìm">
+                        <a id="search-btn" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
+                </li>
+                <li id="listToolbox-login">
+                    <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;" href="#"><i
+                            class="far fa-user"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <section class="main_news_most_view">
         <div class="container">
             <h3>Tin nổi bật</h3>
@@ -92,17 +137,21 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active img_title">
-                        <img src="https://i-vnexpress.vnecdn.net/2019/04/13/PhamNhatVu42381555136639-15551-8468-9402-1555148019_500x300.jpg" alt="Los Angeles">
+                        <img src="https://i-vnexpress.vnecdn.net/2019/04/13/PhamNhatVu42381555136639-15551-8468-9402-1555148019_500x300.jpg"
+                            alt="Los Angeles">
                         <div class="carousel-caption description">
                             <h3>Ông Phạm Nhật Vũ bị bắt với cáo buộc đưa hối lộ</h3>
-                            <p>Bộ Công an khởi tố bị can, quyết định bắt ông Phạm Nhật Vũ (Chủ tịch Công ty Cổ phần Nghe Nhìn Toàn cầu – AVG).</p>
+                            <p>Bộ Công an khởi tố bị can, quyết định bắt ông Phạm Nhật Vũ (Chủ tịch Công ty Cổ phần Nghe
+                                Nhìn Toàn cầu – AVG).</p>
                         </div>
                     </div>
                     <div class="item img_title">
-                        <img src="https://vcdn-vnexpress.vnecdn.net/2019/04/13/56956465-337440926973971-67103-8532-8659-1555151432.jpg" alt="Chicago">
+                        <img src="https://vcdn-vnexpress.vnecdn.net/2019/04/13/56956465-337440926973971-67103-8532-8659-1555151432.jpg"
+                            alt="Chicago">
                         <div class="carousel-caption description">
                             <h3>Hai cựu bộ trưởng Thông tin và Truyền thông bị khởi tố thêm tội Nhận hối lộ</h3>
-                            <p>Ông Nguyễn Bắc Son, Trương Minh Tuấn bị khởi tố thêm tội danh thứ hai, sau hai tháng vướng lao lý.</p>
+                            <p>Ông Nguyễn Bắc Son, Trương Minh Tuấn bị khởi tố thêm tội danh thứ hai, sau hai tháng
+                                vướng lao lý.</p>
                         </div>
                     </div>
                     <div class="item img_title">
@@ -125,24 +174,28 @@
                 </a>
             </div>
         </div>
-        
-       <div class="row">
-           <div class="col span-1-of-2 list_title">
-               <h2>Xem nhiều nhất</h2>
-           </div>
-           <div class="col span-1-of-2 list_title">
+
+        <div class="row">
+            <div class="col span-1-of-2 list_title">
+                <h2>Xem nhiều nhất</h2>
+            </div>
+            <div class="col span-1-of-2 list_title">
                 <h2>Tin mới nhất</h2>
             </div>
-       </div>
+        </div>
         <div class="row">
-            <div class="col span-1-of-2 list_col">    
+            <div class="col span-1-of-2 list_col">
                 <ul class="news_list">
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/photo-3-15552146990157623579-crop-1555216148476163459667.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/photo-3-15552146990157623579-crop-1555216148476163459667.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Vì sao MV “Boy with Luv” mãi chưa leo lên top trending Việt Nam dù đã oanh tạc Youtube toàn thế giới?"> Vì sao MV “Boy with Luv” mãi chưa leo lên top trending Việt Nam dù đã oanh tạc Youtube toàn thế giới?</a> </h3>
+                                    <a href="#"
+                                        title="Vì sao MV “Boy with Luv” mãi chưa leo lên top trending Việt Nam dù đã oanh tạc Youtube toàn thế giới?">
+                                        Vì sao MV “Boy with Luv” mãi chưa leo lên top trending Việt Nam dù đã oanh tạc
+                                        Youtube toàn thế giới?</a> </h3>
                                 <a href="#" class="category_news">Sao Châu Á</a> -
                                 <span class="time">
                                     2 giờ trước
@@ -155,10 +208,14 @@
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/000055-1555202231783191349238-crop-15552022727991155659036.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/000055-1555202231783191349238-crop-15552022727991155659036.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Cuộc đua vòng eo dưới 60cm của dàn mỹ nhân 9x Vbiz: Đáng ngưỡng mộ nhất là nhân vật đầu tiên!">Cuộc đua vòng eo dưới 60cm của dàn mỹ nhân 9x Vbiz: Đáng ngưỡng mộ nhất là nhân vật đầu tiên!
+                                    <a href="#"
+                                        title="Cuộc đua vòng eo dưới 60cm của dàn mỹ nhân 9x Vbiz: Đáng ngưỡng mộ nhất là nhân vật đầu tiên!">Cuộc
+                                        đua vòng eo dưới 60cm của dàn mỹ nhân 9x Vbiz: Đáng ngưỡng mộ nhất là nhân vật
+                                        đầu tiên!
                                     </a> </h3>
                                 <a href="#" class="category_news">Sao Việt</a> -
                                 <span class="time">
@@ -172,140 +229,174 @@
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/149662533220176-nn-15555490992191423585938-crop-15555491727121124413220.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/149662533220176-nn-15555490992191423585938-crop-15555491727121124413220.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Miền Bắc bước vào đợt nắng nóng kinh hoàng, có nơi trên 40 độ C"> Miền Bắc bước vào đợt nắng nóng kinh hoàng, có nơi trên 40 độ C</a> </h3>
+                                    <a href="#" title="Miền Bắc bước vào đợt nắng nóng kinh hoàng, có nơi trên 40 độ C">
+                                        Miền Bắc bước vào đợt nắng nóng kinh hoàng, có nơi trên 40 độ C</a> </h3>
                                 <a href="#" class="category_news">Thời sự</a> -
                                 <span class="time">
                                     4 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Trong hôm nay, nắng nóng sẽ mở rộng ra các tỉnh Trung Bộ và khu vực phía Tây Bắc Bộ với nhiệt độ cao nhất phổ biến ...
+                                    Trong hôm nay, nắng nóng sẽ mở rộng ra các tỉnh Trung Bộ và khu vực phía Tây Bắc Bộ
+                                    với nhiệt độ cao nhất phổ biến ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/screen-shot-2019-04-17-at-232413-1555518268523790129102-crop-15555183631152062490104.png" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/screen-shot-2019-04-17-at-232413-1555518268523790129102-crop-15555183631152062490104.png"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Người ấy là ai: Ngồi cạnh chồng, Lâm Vỹ Dạ liên tục công kích tình cũ Anh Đức"> Người ấy là ai: Ngồi cạnh chồng, Lâm Vỹ Dạ liên tục công kích tình cũ Anh Đức</a> </h3>
+                                    <a href="#"
+                                        title="Người ấy là ai: Ngồi cạnh chồng, Lâm Vỹ Dạ liên tục công kích tình cũ Anh Đức">
+                                        Người ấy là ai: Ngồi cạnh chồng, Lâm Vỹ Dạ liên tục công kích tình cũ Anh
+                                        Đức</a> </h3>
                                 <a href="#" class="category_news">Sao Việt</a> -
                                 <span class="time">
                                     3 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Màn đấu khẩu giữa Lâm Vỹ Dạ - Anh Đức khiến Trấn Thành ra sức can ngăn, còn Hương Giang câm nín không biết nói gì trong ...
+                                    Màn đấu khẩu giữa Lâm Vỹ Dạ - Anh Đức khiến Trấn Thành ra sức can ngăn, còn Hương
+                                    Giang câm nín không biết nói gì trong ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/5718024922849976817649882784991433361195008n-15555502981131586963924-crop-15555504502291662994979.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/5718024922849976817649882784991433361195008n-15555502981131586963924-crop-15555504502291662994979.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="2 vợ chồng cùng con gái 12 tuổi tử vong thương tâm trong căn nhà bốc cháy ngùn ngụt lúc rạng sáng"> 2 vợ chồng cùng con gái 12 tuổi tử vong thương tâm trong căn nhà bốc cháy ngùn ngụt lúc rạng sáng</a> </h3>
+                                    <a href="#"
+                                        title="2 vợ chồng cùng con gái 12 tuổi tử vong thương tâm trong căn nhà bốc cháy ngùn ngụt lúc rạng sáng">
+                                        2 vợ chồng cùng con gái 12 tuổi tử vong thương tâm trong căn nhà bốc cháy ngùn
+                                        ngụt lúc rạng sáng</a> </h3>
                                 <a href="#" class="category_news">Giao thông</a> -
                                 <span class="time">
                                     7 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Vụ cháy kinh hoàng xảy ra tại cửa hàng bán phụ tùng xe đạp điện trên đường An Dương Vương (phường An Cựu, TP Huế), ...
+                                    Vụ cháy kinh hoàng xảy ra tại cửa hàng bán phụ tùng xe đạp điện trên đường An Dương
+                                    Vương (phường An Cựu, TP Huế), ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/img8374-155555073947478258039-crop-1555550760714578569762.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/img8374-155555073947478258039-crop-1555550760714578569762.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Nữ bác sĩ xứ Đài chứng minh: Makeup sương sương mà đẹp như thần tiên tỉ tỉ là có thật!"> Nữ bác sĩ xứ Đài chứng minh: Makeup sương sương mà đẹp như thần tiên tỉ tỉ là có thật!</a> </h3>
+                                    <a href="#"
+                                        title="Nữ bác sĩ xứ Đài chứng minh: Makeup sương sương mà đẹp như thần tiên tỉ tỉ là có thật!">
+                                        Nữ bác sĩ xứ Đài chứng minh: Makeup sương sương mà đẹp như thần tiên tỉ tỉ là có
+                                        thật!</a> </h3>
                                 <a href="#" class="category_news">Làm đẹp</a> -
                                 <span class="time">
                                     6 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Mặt mộc thì đẹp trong trẻo, thuần khiết nhưng chỉ cần makeup nhẹ nhàng lên thì lại thần thái chắc khác gì một ngôi sao.
+                                    Mặt mộc thì đẹp trong trẻo, thuần khiết nhưng chỉ cần makeup nhẹ nhàng lên thì lại
+                                    thần thái chắc khác gì một ngôi sao.
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/12337744-6927513-image-a-221555410596165-15555325854531157019935-crop-1555532903272300083720.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/12337744-6927513-image-a-221555410596165-15555325854531157019935-crop-1555532903272300083720.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Bé gái bị nhầm là búp bê vì vừa chào đời đã có mái tóc dày bồng bềnh đến khó tin"> Bé gái bị nhầm là búp bê vì vừa chào đời đã có mái tóc dày bồng bềnh đến khó tin</a> </h3>
+                                    <a href="#"
+                                        title="Bé gái bị nhầm là búp bê vì vừa chào đời đã có mái tóc dày bồng bềnh đến khó tin">
+                                        Bé gái bị nhầm là búp bê vì vừa chào đời đã có mái tóc dày bồng bềnh đến khó
+                                        tin</a> </h3>
                                 <a href="#" class="category_news">Làm đẹp</a> -
                                 <span class="time">
                                     6 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Mẹ em bé, cũng là một thợ làm tóc cho biết cô dường như đã "tiên đoán" được rằng con mình sẽ có rất nhiều tóc từ khi ...
+                                    Mẹ em bé, cũng là một thợ làm tóc cho biết cô dường như đã "tiên đoán" được rằng con
+                                    mình sẽ có rất nhiều tóc từ khi ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/5cb7a9bf08e5b-15555404457171017266209-crop-1555540452397875809220.png" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/5cb7a9bf08e5b-15555404457171017266209-crop-1555540452397875809220.png"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Son Heung-min sung sướng đến nỗi loạn ngôn sau khi loại Man City khỏi Champions League"> Son Heung-min sung sướng đến nỗi loạn ngôn sau khi loại Man City khỏi Champions League</a> </h3>
+                                    <a href="#"
+                                        title="Son Heung-min sung sướng đến nỗi loạn ngôn sau khi loại Man City khỏi Champions League">
+                                        Son Heung-min sung sướng đến nỗi loạn ngôn sau khi loại Man City khỏi Champions
+                                        League</a> </h3>
                                 <a href="#" class="category_news">Thể thao thế giới</a> -
                                 <span class="time">
                                     3 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Tiền đạo người Hàn Quốc đã có một trận đấu đáng nhớ. Anh thiết lập nên những kỷ lục cá nhân mới và giúp đội bóng mình ...
+                                    Tiền đạo người Hàn Quốc đã có một trận đấu đáng nhớ. Anh thiết lập nên những kỷ lục
+                                    cá nhân mới và giúp đội bóng mình ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555521593366-1555521593574-crop-15555216315431664623072.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555521593366-1555521593574-crop-15555216315431664623072.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
                                     <a href="#" title="
-                                    Nữ sinh Hòa Bình bị học viện An ninh trả về là con, cháu cán bộ nào?"> 
-                                    Nữ sinh Hòa Bình bị học viện An ninh trả về là con, cháu cán bộ nào?</a> </h3>
+                                    Nữ sinh Hòa Bình bị học viện An ninh trả về là con, cháu cán bộ nào?">
+                                        Nữ sinh Hòa Bình bị học viện An ninh trả về là con, cháu cán bộ nào?</a> </h3>
                                 <a href="#" class="category_news">Thời sự</a> -
                                 <span class="time">
                                     3 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Đinh Ngọc Thảo bị học viện An Ninh trả về Hòa Bình sau khi xác định gian lận điểm thi trong kỳ thi THPT Quốc gia năm ...
+                                    Đinh Ngọc Thảo bị học viện An Ninh trả về Hòa Bình sau khi xác định gian lận điểm
+                                    thi trong kỳ thi THPT Quốc gia năm ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/screen-shot-2019-04-17-at-225143-15555163218691299487813-crop-15555165972752130309487.png" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/screen-shot-2019-04-17-at-225143-15555163218691299487813-crop-15555165972752130309487.png"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="
-                                    Xem BLACKPINK phỏng vấn mà thấy tội cho Jisoo: Ngồi nửa tiếng nói được vài giây vì kém tiếng Anh!"> 
-                                    Xem BLACKPINK phỏng vấn mà thấy tội cho Jisoo: Ngồi nửa tiếng nói được vài giây vì kém tiếng Anh!</a> </h3>
+                                    <a href="#"
+                                        title="
+                                    Xem BLACKPINK phỏng vấn mà thấy tội cho Jisoo: Ngồi nửa tiếng nói được vài giây vì kém tiếng Anh!">
+                                        Xem BLACKPINK phỏng vấn mà thấy tội cho Jisoo: Ngồi nửa tiếng nói được vài giây
+                                        vì kém tiếng Anh!</a> </h3>
                                 <a href="#" class="category_news">Sao Châu Á</a> -
                                 <span class="time">
                                     10 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Khả năng tiếng Anh hạn chế khiến Jisoo đành phải chấp nhận chịu cảnh "vai phụ mờ nhạt" bên cạnh các thành viên ...
+                                    Khả năng tiếng Anh hạn chế khiến Jisoo đành phải chấp nhận chịu cảnh "vai phụ mờ
+                                    nhạt" bên cạnh các thành viên ...
                                 </p>
                             </div>
                         </div>
@@ -316,129 +407,166 @@
                 <ul class="news_list">
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ"> Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
+                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ">
+                                        Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
                                 <a href="#" class="category_news">Giao thông</a> -
                                 <span class="time">
                                     12 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào đuôi xe tải chạy phía trước, chết ...
+                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào
+                                    đuôi xe tải chạy phía trước, chết ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/jdj-15552181002591130083436-crop-1555218105275784760006.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/jdj-15552181002591130083436-crop-1555218105275784760006.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai"> Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai</a> </h3>
+                                    <a href="#"
+                                        title="Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài Victoria's Secret mang thai">
+                                        Thiếu gia trùm sòng bạc Macau treo thưởng 350 tỷ sau tin đồn khiến chân dài
+                                        Victoria's Secret mang thai</a> </h3>
                                 <a href="#" class="category_news">Giải trí</a> -
                                 <span class="time">
                                     20 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Sau tin đồn về việc Ming Xi - bạn gái của thiếu gia Hà Du Quân mang thai, anh chàng đã có phản ứng mạnh mẽ.
+                                    Sau tin đồn về việc Ming Xi - bạn gái của thiếu gia Hà Du Quân mang thai, anh chàng
+                                    đã có phản ứng mạnh mẽ.
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/pham-huong-7-15552082260421933763892-crop-15552082318431780838642.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/14/pham-huong-7-15552082260421933763892-crop-15552082318431780838642.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!"> Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!</a> </h3>
+                                    <a href="#"
+                                        title="Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng lẫy một thời không xa nữa!">
+                                        Đang ở Mỹ Phạm Hương lại khoe nhà mới tậu ở Việt Nam, ngày về của nàng hậu lừng
+                                        lẫy một thời không xa nữa!</a> </h3>
                                 <a href="#" class="category_news">Sao Việt</a> -
                                 <span class="time">
                                     35 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Chỉ với chi tiết này, nhiều người cho rằng Phạm Hương sắp trở về Việt Nam sau thời gian dài ở Mỹ.
+                                    Chỉ với chi tiết này, nhiều người cho rằng Phạm Hương sắp trở về Việt Nam sau thời
+                                    gian dài ở Mỹ.
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555525584161-1555525584420-crop-1555525654581836195692.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555525584161-1555525584420-crop-1555525654581836195692.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Nghèo khó chưa chắc đã hủy hoại một người nhưng cứ lạc đường trong 4 trạng thái sai lầm sau là tàn phá cả tương lai"> Nghèo khó chưa chắc đã hủy hoại một người nhưng cứ lạc đường trong 4 trạng thái sai lầm sau là tàn phá cả tương lai</a> </h3>
+                                    <a href="#"
+                                        title="Nghèo khó chưa chắc đã hủy hoại một người nhưng cứ lạc đường trong 4 trạng thái sai lầm sau là tàn phá cả tương lai">
+                                        Nghèo khó chưa chắc đã hủy hoại một người nhưng cứ lạc đường trong 4 trạng thái
+                                        sai lầm sau là tàn phá cả tương lai</a> </h3>
                                 <a href="#" class="category_news">Thời sự</a> -
                                 <span class="time">
                                     50 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Một suy nghĩ có thể quyết định thành bại của cả đời người, mãi mãi nghèo khó hay thay đổi cả tương lai là tùy vào chính ...
+                                    Một suy nghĩ có thể quyết định thành bại của cả đời người, mãi mãi nghèo khó hay
+                                    thay đổi cả tương lai là tùy vào chính ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/5cb7aa8219955-15555408532861577483472-crop-15555408721621454713469-crop-15555413529661314262035.png" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/18/5cb7aa8219955-15555408532861577483472-crop-15555408721621454713469-crop-15555413529661314262035.png"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Xúc động hình ảnh niềm tự hào châu Á Son Heung-min mếu máo, gần như bật khóc sau khi giúp đội nhà tạo nên kỳ tích lịch sử"> Xúc động hình ảnh niềm tự hào châu Á Son Heung-min mếu máo, gần như bật khóc sau khi giúp đội nhà tạo nên kỳ tích lịch sử</a> </h3>
+                                    <a href="#"
+                                        title="Xúc động hình ảnh niềm tự hào châu Á Son Heung-min mếu máo, gần như bật khóc sau khi giúp đội nhà tạo nên kỳ tích lịch sử">
+                                        Xúc động hình ảnh niềm tự hào châu Á Son Heung-min mếu máo, gần như bật khóc sau
+                                        khi giúp đội nhà tạo nên kỳ tích lịch sử</a> </h3>
                                 <a href="#" class="category_news">Thể thao thế giới</a> -
                                 <span class="time">
                                     52 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Tiền đạo Son Heung-min đã không giấu được niềm vui sướng vỡ òa sau khi cùng đồng đội vượt qua Man City để lọt đến vòng ...
+                                    Tiền đạo Son Heung-min đã không giấu được niềm vui sướng vỡ òa sau khi cùng đồng đội
+                                    vượt qua Man City để lọt đến vòng ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555524846192-1555524846354-crop-155552490134123626580.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555524846192-1555524846354-crop-155552490134123626580.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Thủ khoa Học viện Cảnh sát nhân dân là thí sinh Hòa Bình được nâng 16,5 điểm"> Thủ khoa Học viện Cảnh sát nhân dân là thí sinh Hòa Bình được nâng 16,5 điểm</a> </h3>
+                                    <a href="#"
+                                        title="Thủ khoa Học viện Cảnh sát nhân dân là thí sinh Hòa Bình được nâng 16,5 điểm">
+                                        Thủ khoa Học viện Cảnh sát nhân dân là thí sinh Hòa Bình được nâng 16,5 điểm</a>
+                                </h3>
                                 <a href="#" class="category_news">Thời sự</a> -
                                 <span class="time">
                                     55 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Thí sinh T.A.Đ., thi THPT quốc gia 2018 tại tỉnh Hòa Bình, đã trở thành thủ khoa của Học viện Cảnh sát nhân dân khi có ...
+                                    Thí sinh T.A.Đ., thi THPT quốc gia 2018 tại tỉnh Hòa Bình, đã trở thành thủ khoa của
+                                    Học viện Cảnh sát nhân dân khi có ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/9/56439090316386012358406825575164778381312o-15547361886061701545114-1554797261155298545767-crop-15547974993701648606329.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/9/56439090316386012358406825575164778381312o-15547361886061701545114-1554797261155298545767-crop-15547974993701648606329.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Bỏ qua trai đẹp Đặng Luân, có đến tận 3 lí do để bạn không cần phải xem Phong Thần Diễn Nghĩa?"> Bỏ qua "trai đẹp" Đặng Luân, có đến tận 3 lí do để bạn không cần phải xem "Phong Thần Diễn Nghĩa"?</a> </h3>
+                                    <a href="#"
+                                        title="Bỏ qua trai đẹp Đặng Luân, có đến tận 3 lí do để bạn không cần phải xem Phong Thần Diễn Nghĩa?">
+                                        Bỏ qua "trai đẹp" Đặng Luân, có đến tận 3 lí do để bạn không cần phải xem "Phong
+                                        Thần Diễn Nghĩa"?</a> </h3>
                                 <a href="#" class="category_news">Sao Châu Á</a> -
                                 <span class="time">
                                     56 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    “Hồ yêu” bá khí Đặng Luân và “Đát Kỷ” Vương Lệ Khôn cũng không đủ sức để níu chân khán giả?
+                                    “Hồ yêu” bá khí Đặng Luân và “Đát Kỷ” Vương Lệ Khôn cũng không đủ sức để níu chân
+                                    khán giả?
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/avabts-15555203686351420805670-crop-1555520387556995498461.png" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/avabts-15555203686351420805670-crop-1555520387556995498461.png"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="BTS lại tạo nên lịch sử: Làm được điều ngay cả Black Pink hay sao châu Á khác cũng chưa thể làm được trong năm nay"> BTS lại tạo nên lịch sử: Làm được điều ngay cả Black Pink hay sao châu Á khác cũng chưa thể làm được trong năm nay?</a> </h3>
+                                    <a href="#"
+                                        title="BTS lại tạo nên lịch sử: Làm được điều ngay cả Black Pink hay sao châu Á khác cũng chưa thể làm được trong năm nay">
+                                        BTS lại tạo nên lịch sử: Làm được điều ngay cả Black Pink hay sao châu Á khác
+                                        cũng chưa thể làm được trong năm nay?</a> </h3>
                                 <a href="#" class="category_news">Sao Châu Á</a> -
                                 <span class="time">
                                     59 phút trước
@@ -451,34 +579,44 @@
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/photo-1-1555513889696397649651-crop-1555513996207256936149.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/photo-1-1555513889696397649651-crop-1555513996207256936149.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Loạt thủ khoa, á khoa gian lận điểm thi là con em nhiều cán bộ máu mặt ở Sơn La, Hà Giang"> Loạt thủ khoa, á khoa gian lận điểm thi là con em nhiều cán bộ "máu mặt" ở Sơn La, Hà Giang</a> </h3>
+                                    <a href="#"
+                                        title="Loạt thủ khoa, á khoa gian lận điểm thi là con em nhiều cán bộ máu mặt ở Sơn La, Hà Giang">
+                                        Loạt thủ khoa, á khoa gian lận điểm thi là con em nhiều cán bộ "máu mặt" ở Sơn
+                                        La, Hà Giang</a> </h3>
                                 <a href="#" class="category_news">Thời sự</a> -
                                 <span class="time">
                                     57 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Tại các tỉnh gian lận điểm thi như Sơn La, Hà Giang, Hòa Bình, nhiều thí sinh là con em của lãnh đạo tỉnh, cán bộ ngành ...
+                                    Tại các tỉnh gian lận điểm thi như Sơn La, Hà Giang, Hòa Bình, nhiều thí sinh là con
+                                    em của lãnh đạo tỉnh, cán bộ ngành ...
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/pjimage-1-15554950008091492030711-crop-15554950052481573347050.jpg" alt="">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/4/17/pjimage-1-15554950008091492030711-crop-15554950052481573347050.jpg"
+                                alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Không thể nhận ra đây chính là Du học sinh Mỹ - chàng vlogger đình đám MXH một thời"> Không thể nhận ra đây chính là Du học sinh Mỹ - chàng vlogger đình đám MXH một thời</a> </h3>
+                                    <a href="#"
+                                        title="Không thể nhận ra đây chính là Du học sinh Mỹ - chàng vlogger đình đám MXH một thời">
+                                        Không thể nhận ra đây chính là Du học sinh Mỹ - chàng vlogger đình đám MXH một
+                                        thời</a> </h3>
                                 <a href="#" class="category_news">Giải trí</a> -
                                 <span class="time">
                                     58 phút trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Im hơi lặng tiếng một thời gian dài, mới đây, vlogger Du học sinh Mỹ (duhocsinhmy) đã khiến nhiều người bất ngờ với ...
+                                    Im hơi lặng tiếng một thời gian dài, mới đây, vlogger Du học sinh Mỹ (duhocsinhmy)
+                                    đã khiến nhiều người bất ngờ với ...
                                 </p>
                             </div>
                         </div>
@@ -487,16 +625,17 @@
             </div>
         </div>
     </section>
+
     <section class="main_news_category">
         <div class="row">
             <div class="col span-1-of-2 list_category">
                 <div class="box">
-                     <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">Thời sự</a>
                         </li>
                         <li class="nav-item">
-                             <a class="nav-link" href="#">Chính trị</a>
+                            <a class="nav-link" href="#">Chính trị</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giao thông</a>
@@ -507,84 +646,92 @@
                     </ul>
                     <div class="content">
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg" alt="">
-                                <div class="meta">
-                                    <h3 class="news_title">
-                                        <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ"> Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
-                                        <a href="#" class="category_news">Giao thông</a> -
-                                        <span class="time">
-                                            12 phút trước
-                                        </span>
-                                        <br> <br>
-                                        <p class="description">
-                                            Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào đuôi xe tải chạy phía trước, chết ...
-                                        </p>
-                                </div>
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg"
+                                alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ">
+                                        Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
+                                <a href="#" class="category_news">Giao thông</a> -
+                                <span class="time">
+                                    12 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào
+                                    đuôi xe tải chạy phía trước, chết ...
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-                    <div class="col span-1-of-2 list_category">
-                            <div class="box">
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#">Giải trí</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Sao Việt</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Sao Châu Á</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Sao Hollywood</a>
-                                    </li>
-                                </ul>
-                             
-                                <div class="content">
-                                        <div class="new_news">
-                                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg" alt="">
-                                            <div class="meta">
-                                                <h3 class="news_title">
-                                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ"> Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
-                                                <a href="#" class="category_news">Giao thông</a> -
-                                                <span class="time">
-                                                    12 phút trước
-                                                </span>
-                                                <br> <br>
-                                                <p class="description">
-                                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào đuôi xe tải chạy phía trước, chết ...
-                                                </p>
-                                            </div>
-                                        </div>
-    
-                                </div>
+            <div class="col span-1-of-2 list_category">
+                <div class="box">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Giải trí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sao Việt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sao Châu Á</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sao Hollywood</a>
+                        </li>
+                    </ul>
+
+                    <div class="content">
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg"
+                                alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ">
+                                        Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
+                                <a href="#" class="category_news">Giao thông</a> -
+                                <span class="time">
+                                    12 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào
+                                    đuôi xe tải chạy phía trước, chết ...
+                                </p>
                             </div>
                         </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
- 
+
     <section class="contact-section" id="contact">
-		<div class="row">
+        <div class="row">
             <ul class="information">
-					<li><i class="fas fa-map-marker-alt small-icon"></i>Address: 227 Nguyễn Văn Cừ, phường 4, Quận 5, TP Hồ Chí Minh</li>
-					<li><i class="fas fa-envelope small-icon"></i>Email: web8team@edu.com</li>
-					<li><i class="fas fa-phone small-icon"></i>SĐT: (+084 )099-923-232-320</li>
-                </ul>
-            </div>
-            <div class="row">
-                    <ul class="social-icon">
-                            <li><i class="fab fa-twitter"></i></li>
-                            <li><i class="fab fa-facebook"></i></li>
-                            <li><i class="fab fa-instagram"></i></li>
-                            <li><i class="fab fa-google-plus-g"></i></li>
-                    </ul>	
-            </div>
+                <li><i class="fas fa-map-marker-alt small-icon"></i>Address: 227 Nguyễn Văn Cừ, phường 4, Quận 5, TP Hồ
+                    Chí Minh</li>
+                <li><i class="fas fa-envelope small-icon"></i>Email: web8team@edu.com</li>
+                <li><i class="fas fa-phone small-icon"></i>SĐT: (+084 )099-923-232-320</li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul class="social-icon">
+                <li><i class="fab fa-twitter"></i></li>
+                <li><i class="fab fa-facebook"></i></li>
+                <li><i class="fab fa-instagram"></i></li>
+                <li><i class="fab fa-google-plus-g"></i></li>
+            </ul>
+        </div>
     </section>
     <footer>
-            <p>
-                Copy right &copy; 2019 . We are Web8 Team
-            </p>
-        </footer>
+        <p>
+            Copy right &copy; 2019 . We are Web8 Team
+        </p>
+    </footer>
 </body>
+
 </html>
