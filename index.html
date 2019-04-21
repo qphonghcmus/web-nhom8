@@ -22,7 +22,7 @@
 <body>
     <!-- Login Form hidden -->
     <div id="id01" class="modal">
-         <form class="modal-content animate" action="#">
+        <form class="modal-content animate" action="#">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                     title="Close Modal">&times;</span>
@@ -630,36 +630,106 @@
         <div class="row">
             <div class="col span-1-of-2 list_category">
                 <div class="box">
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs tab">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Thời sự</a>
+                            <button class="tablinks" onclick="opentab(event, 'Thoisu')" id="defaultOpen">Thời
+                                sự</button>
+                              </li>
+                        <li class="nav-item">
+                            <button class="tablinks" onclick="opentab(event, 'Chinhtri')">Chính trị</button>
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Chính trị</a>
+                            <button class="tablinks" onclick="opentab(event, 'Giaothong')">Giao thông</button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giao thông</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đô thị</a>
+                            <button class="tablinks" onclick="opentab(event, 'Dothi')">Đô thị</button>
                         </li>
                     </ul>
-                    <div class="content">
+                    <div class="tabcontent" id="Thoisu">
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg"
+                            <img src="http://kenh14cdn.com/thumb_w/300/2019/4/21/a1-15558106987051051358299-crop-15558107512611706816921.jpg"
                                 alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ">
-                                        Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
-                                <a href="#" class="category_news">Giao thông</a> -
+                                    <a href="#"
+                                        title="Bao tải chứa ma túy để giữa cánh đồng muối: Truy nã quốc tế 3 đối tượng quốc tịch Đài Loan">
+                                        Bao tải chứa ma túy để giữa cánh đồng muối: Truy nã quốc tế 3 đối tượng quốc
+                                        tịch Đài Loan</a> </h3>
+                                <a href="#" class="category_news">Thời sự</a> -
                                 <span class="time">
-                                    12 phút trước
+                                    5 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào
-                                    đuôi xe tải chạy phía trước, chết ...
+                                    Cơ quan CSĐT Công an tỉnh Nghệ An sẽ tiếp tục củng cố hồ sơ, tài liệu để khởi tố bị
+                                    can và truy nã Quốc tế 3 người đàn ông mang quốc tịch Đài Loan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabcontent" id="Chinhtri">
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/300/2019/4/20/6413a4f9d7a132ff6bb0-1555774322136672087859-crop-1555774336212629077890.jpg"
+                                alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#"
+                                        title="Cảnh cáo nhóm thanh niên ở Đà Nẵng tung tin “bò khô làm từ thịt người” để câu like bán hàng">
+                                        Cảnh cáo nhóm thanh niên ở Đà Nẵng tung tin “bò khô làm từ thịt người” để câu
+                                        like bán hàng</a> </h3>
+                                <a href="#" class="category_news">Chính trị</a> -
+                                <span class="time">
+                                    50 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Nhằm câu like cho trang Facebook bán hàng của vợ, nam thanh niên ở Đà Nẵng cùng bạn
+                                    bè đã tung tin bịa đặt về việc bò ...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabcontent" id="Giaothong">
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/300/2019/4/20/nong3-1555745167304973210224-crop-1555745172029903642528.jpg"
+                                alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#"
+                                        title="Hà Nội bước vào mùa vắng những bóng râm: Đừng nắng nóng nữa, em mệt rồi!">
+                                        Hà Nội bước vào mùa vắng những bóng râm: Đừng nắng nóng nữa, em mệt rồi!</a>
+                                </h3>
+                                <a href="#" class="category_news">Giao thông</a> -
+                                <span class="time">
+                                    5 giờ trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Nếu không muốn biến thành mực một nắng, đừng dại ra đường vào những ngày nắng nóng
+                                    đổ lửa như thế này.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabcontent" id="Dothi">
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/300/2019/4/21/ngang-1555795631500992174837-crop-15557956517642129063254.jpg"
+                                alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#"
+                                        title="Giàu nhà quê không bằng ngồi lê thành phố: Một thế hệ gạt nước mắt giữa phố thị, chênh vênh ở hay về">
+                                        Giàu nhà quê không bằng ngồi lê thành phố: Một thế hệ gạt nước mắt giữa phố thị,
+                                        chênh vênh ở hay về</a> </h3>
+                                <a href="#" class="category_news">Đô thị</a> -
+                                <span class="time">
+                                    1 giờ trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Phố thị đôi khi không yêu thương người ta như vùng quê yên ả, nhưng ở lại hay đi
+                                    cũng chẳng vì chuyện cảm xúc cá nhân. ...
                                 </p>
                             </div>
                         </div>
@@ -668,41 +738,109 @@
             </div>
             <div class="col span-1-of-2 list_category">
                 <div class="box">
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs tab">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Giải trí</a>
+                            <button class="tablinks_" onclick="opentab_(event, 'Giaitri')" id="defaultOpen_">Giải
+                                trí</button>
+                              </li>
+                        <li class="nav-item">
+                            <button class="tablinks_" onclick="opentab_(event, 'Saoviet')">Sao Việt</button>
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sao Việt</a>
+                            <button class="tablinks_" onclick="opentab_(event, 'Saochaua')">Sao Châu Á</button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sao Châu Á</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sao Hollywood</a>
+                            <button class="tablinks_" onclick="opentab_(event, 'Saohollywood')">Sao Hollywood</button>
                         </li>
                     </ul>
-
-                    <div class="content">
+                    <div class="tabcontent_" id="Giaitri">
                         <div class="new_news">
-                            <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg"
+                            <img src="http://kenh14cdn.com/thumb_w/300/2019/4/21/collage1-1555819092167298909191-crop-1555819115603545058492.png"
                                 alt="">
                             <div class="meta">
                                 <h3 class="news_title">
-                                    <a href="#" title="Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ">
-                                        Nam thanh niên chạy xe máy tông vào đuôi xe tải chết tại chỗ</a> </h3>
-                                <a href="#" class="category_news">Giao thông</a> -
+                                    <a href="#"
+                                        title="Màn đọ sắc rực lửa tại sự kiện: Seohyun lấn át 2 mỹ nhân Hàn đình đám, Hyuna quá sexy nhưng sao trông sợ thế này?">
+                                        Màn đọ sắc "rực lửa" tại sự kiện: Seohyun lấn át 2 mỹ nhân Hàn đình đám, Hyuna
+                                        quá sexy nhưng sao trông sợ thế này?</a> </h3>
+                                <a href="#" class="category_news">Giải trí</a> -
                                 <span class="time">
-                                    12 phút trước
+                                    2 giờ trước
                                 </span>
                                 <br> <br>
                                 <p class="description">
-                                    Nam thanh niên chạy xe trên đường Mỹ Phước - Tân Vạn (TP Thủ Dầu Một) thì tông vào
-                                    đuôi xe tải chạy phía trước, chết ...
+                                    Seohyun (SNSD), Hyuna và Kim Ha Neul cùng tham dự một sự kiện vào tối qua mà gây chú
+                                    ý với màn đọ sắc lung linh, tràn ...
                                 </p>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="tabcontent_" id="Saoviet">
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/300/2019/4/21/hai8449-1555821128621239038628-crop-15558213671631003992450.jpg"
+                                alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#"
+                                        title="Nhã Phương - Trường Giang tay đan tay, lần đầu lộ diện cùng nhau sau nửa năm tổ chức đám cưới">
+                                        Nhã Phương - Trường Giang "tay đan tay", lần đầu lộ diện cùng nhau sau nửa năm
+                                        tổ chức đám cưới</a> </h3>
+                                <a href="#" class="category_news">Sao Việt</a> -
+                                <span class="time">
+                                    50 phút trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Đây là lần đầu tiên, cả hai vợ chồng Nhã Phương - Trường Giang xuất hiện cùng nhau
+                                    sau "đám cưới thế kể" tháng 10/2018.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabcontent_" id="Saochaua">
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/300/2019/4/20/collage-15557794598981676925912-crop-15557794923451317823219.png"
+                                alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#"
+                                        title="Phát hiện chatroom 60 phóng viên Hàn chia sẻ clip nhạy cảm của bê bối Seungri: Cợt nhả, giới thiệu nhà thổ cho nhau">
+                                        Phát hiện chatroom 60 phóng viên Hàn chia sẻ clip nhạy cảm của bê bối Seungri:
+                                        Cợt nhả, giới thiệu nhà thổ cho nhau</a> </h3>
+                                <a href="#" class="category_news">Sao Châu Á</a> -
+                                <span class="time">
+                                    1 giờ trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Thông tin về chatroom "trá hình" gồm 60 phóng viên Hàn chia sẻ và bình luận thô tục
+                                    về bằng chứng trong bê bối của ...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabcontent_" id="Saohollywood">
+                        <div class="new_news">
+                            <img src="http://kenh14cdn.com/thumb_w/300/2019/4/21/page-15558160629641847987352-crop-1555816073275155171160.jpg"
+                                alt="">
+                            <div class="meta">
+                                <h3 class="news_title">
+                                    <a href="#"
+                                        title="Thiên thần Victoria's Secret diện bikini khoe body đốt mắt: Nhìn vòng eo, đường cong này ai ngờ đã là gái 2 con">
+                                        Thiên thần Victoria's Secret diện bikini khoe body "đốt mắt": Nhìn vòng eo,
+                                        đường cong này ai ngờ đã là gái 2 con</a> </h3>
+                                <a href="#" class="category_news">Sao Hollywood</a> -
+                                <span class="time">
+                                    1 giờ trước
+                                </span>
+                                <br> <br>
+                                <p class="description">
+                                    Loạt ảnh bikini xinh đẹp và nóng bỏng của thiên thần Victoria's Secret Candice
+                                    Swanepoel khiến cộng đồng mạng đứng ngồi ...
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -732,6 +870,9 @@
             Copy right &copy; 2019 . We are Web8 Team
         </p>
     </footer>
+
+    <script src="resource/JS/main.js">
+    </script>
 </body>
 
 </html>
