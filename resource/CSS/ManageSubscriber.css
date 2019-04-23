@@ -235,6 +235,14 @@ a.article, a.article:hover {
 
 }
 
+
+
+#inputGroupSearch
+{
+    width: 30%;
+    margin-bottom: 15px;
+    float:right;
+}
 /*Custom for line in table*/
 .table td p
 {
@@ -317,15 +325,15 @@ a.article, a.article:hover {
     }
   }
 
-.form-control
+.form-group .form-control
 {
-    width: 98%;
-    margin-left: 1%;
+    width: 96%;
+    margin-left: 2%;
     margin-bottom: 15px;
 }
 .form-group label
 {
-    margin-left: 1%;
+    margin-left: 2%;
 }
 .form-group input[type="button"]
 {
