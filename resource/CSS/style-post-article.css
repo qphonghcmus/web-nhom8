@@ -286,31 +286,62 @@ footer{
 }
 
 
-.post-article-div{
-	margin: 30px;
-	background-color: #f1f1f1;
-	padding: 20px;
+/* ---------------------------------------------- */
+/* ------------------- Body --------------------- */
+.main-body{
+    margin-top: 30px;
 }
 
-.post-article-div h3{
-    text-transform: uppercase;
+.main-body h1{
+    margin-left: 50px;
 }
 
-.title-name{
-	width: 500px;
+.col-right{
+    background-color: #f4f4f4;
+    width: 250px;
+    border: 2px solid #ece9e9;
+    border-radius: 5px;
+    /* margin-left: 50px; */
+    margin-bottom: 30px;
+    /* padding: 5px; */
 }
 
-.post-article-div .head{
-    display: flex;
+.col-right h3{
+    background-color: #eeeded;
+    padding: 5px;
+    padding-left: 10px;
+    border-bottom: 2px solid  #ece9e9;
+    
 }
 
-.chuyenmuc-tag{
-    margin-left: 70px;
+.col-right-content{
+    padding: 5px;
+    padding-left: 10px;
+    margin: 5px;
 }
 
-#tags{
-    margin-left: 70px;
+.col-right-content button{
     width: 100px;
+}
+
+.col-right-content .btn-add-tags{
+    margin: 5px;
+}
+
+.form-categories{
+    margin-left: 20px;
+}
+
+.col-left{
+    margin-left: 50px;
+}
+
+.col-left .form-add-post .title-name,
+#tomtat{
+    width: 600px;
+    margin-bottom: 10px;
+    border: 2px solid #ece9e9;
+    border-radius: 5px;
 }
 
 

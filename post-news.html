@@ -1,68 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 
 	<!-- bootstrap -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 	<!-- css -->
 	<link rel="stylesheet" href="resource/CSS/style-post-article.css">
-    <!-- <link rel="stylesheet" href="resource/CSS/style.css"> -->
+	<!-- <link rel="stylesheet" href="resource/CSS/style.css"> -->
 	<!-- ckeditor -->
 	<script src="https://cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
 	<!-- font-awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+	<link rel="stylesheet" href="vendors/css/grid.css">
 
 </head>
+
 <body>
-	
+
 	<header>
 		<nav class="nav">
 			<img src="https://img.icons8.com/material-rounded/24/000000/home.png">
 			<ul>
 				<li>
 					<a href="#">Thể thao</a>
-				 
-						<ul>
-							<li><a href="#">Trong nước</a></li>
-							<li><a href="#">Ngoài nước</a></li>
-						</ul>
+
+					<ul>
+						<li><a href="#">Trong nước</a></li>
+						<li><a href="#">Ngoài nước</a></li>
+					</ul>
 				</li>
-			   
+
 				<li>
 					<a href="#">Kinh doanh</a>
-						<ul>
-							<li>
-								<a href="#">Nông sản</a>
-							</li>
-							<li>
-								<a href="#">Hải sản</a>
-							</li>
-						</ul>
+					<ul>
+						<li>
+							<a href="#">Nông sản</a>
+						</li>
+						<li>
+							<a href="#">Hải sản</a>
+						</li>
+					</ul>
 				</li>
-	
+
 				<li>
 					<a href="#">Pháp luật</a>
 				</li>
-	
+
 				<li>
 					<a href="#">Công nghệ</a>
 				</li>
-	
+
 				<li>
 					<a href="#">Giải trí</a>
 				</li>
-	
+
 				<li>
 					<a href="#">Du lịch</a>
 				</li>
 				<li class="otherChoose">
 					<a href="#"><i class="fas fa-align-justify"></i></a>
 				</li>
-			   
+
 			</ul>
 			<ul id="listToolbox">
 				<li id="listToolbox-search">
@@ -78,55 +83,88 @@
 				</li>
 			</ul>
 		</nav>
-	  </header>
+	</header>
 
-	<div class="post-article-div">
-		<h3>Thêm bài viết</h3>
-		<br/>
-		<form action="" method="POST" >
-			<div class="head">
-				<div>
-					<input type="text" class="title-name" placeholder="Tiêu đề bài viết">
-					<br/><br/>
-					<textarea name="tomtat" id="tomtat" cols="68" rows="2" placeholder="Tóm tắt của bài viết"></textarea>
+
+	<div class="main-body">
+		<h1>Add new Post</h1>
+		<div class="row">
+			<div class="col span-1-of-2">
+				<div class="col-left">
+					<form action="" class="form-add-post">
+						<input type="text" class="title-name" placeholder="Tiêu đề bài viết">
+						<textarea name="tomtat" id="tomtat" cols="10" rows="2"
+							placeholder="Tóm tắt của bài viết"></textarea>
+						<textarea name="editor1" class="ckeditor">
+								</textarea>
+					</form>
 				</div>
-				<br/><br/>
-				<div class="chuyenmuc-tag">
-					CHUYÊN MỤC: <select name="chuyenmuc" id="">
-						<option value="thethao">Thể thao</option>
-						<option value="thoitrang">Thời trang</option>
-					</select>
-					<br/><br/>
-					TAG:
-					<input type="text" id="tags">
-					<button onclick="return AddTags()">Thêm Tag</button>
-					<div id="add-tag-div"></div>
-					<!-- <input type="text" id="add-tag-textbox"> -->
+
+			</div>
+			<div class="col span-1-of-2">
+				<div class="col-right">
+					<h3>Publish</h3>
+					<div class="col-right-content">
+						<button type="button" class="btn btn-light">Save</button>
+						<button type="button" class="btn btn-light">Preview</button>
+						<br>
+						<button type="button" class="btn btn-light">Delete</button>
+						<button type="button" class="btn btn-light">Publish</button>
+					</div>
+
+				</div>
+				<div class="col-right">
+					<h3>Tags</h3>
+					<div class="col-right-content">
+						<form action="">
+							<input type="text">
+							<button type="button" class="btn btn-light btn-add-tags">Add</button>
+							<p>Separate tags with commas</p>
+						</form>
+					</div>
+
+				</div>
+				<div class="col-right">
+					<h3>Categories</h3>
+					<div class="col-right-content">
+						<form action="" class="form-categories">
+							<!-- <input type="radio" name="the-thao" value="the-thao">Thể thao <br>
+							<input type="radio" name="kinh-te" value="kinh-te">Kinh tế <br>
+							<input type="radio" name="thoi-trang" value="thoi-trang">Thời trang <br> -->
+							<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+							<label class="form-check-label" for="defaultCheck1">
+								Thể thao
+							</label>
+							<br>
+							<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+							<label class="form-check-label" for="defaultCheck1">
+								Kinh tế
+							</label>
+							<br>
+							<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+							<label class="form-check-label" for="defaultCheck1">
+								Thời trang
+							</label>
+						</form>
+					</div>
+
 				</div>
 			</div>
-			<br/>
-			<textarea name="editor1">
-			</textarea>
-			<br/>
-		</form>
-
-		<div class="btn-group">
-				<button type="button" class="btn btn-success">Thêm bài viết</button>
-				<button type="button" class="btn btn-secondary">Xóa bài viết</button>
 		</div>
-
 	</div>
+
+
 
 	<footer>
 		<p>Copy right &copy; 2019 . We are Web8 Team</p>
-	  </footer>
+	</footer>
 
 	<script>
 		CKEDITOR.replace('editor1');
 
-		function AddTags(){
+		function AddTags() {
 			var _tag = document.getElementById('tags').value;
-			if(_tag != null){
+			if (_tag != null) {
 				var para = document.createElement("p");
 				var node = document.createTextNode(_tag);
 				para.appendChild(node);
@@ -137,10 +175,17 @@
 		}
 
 	</script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </body>
+
 </html>
