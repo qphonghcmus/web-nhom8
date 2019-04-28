@@ -10,6 +10,7 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="resource/CSS/ManageEditor.css">
     <link rel="stylesheet" href="vendors/css/grid.css">
@@ -101,19 +102,12 @@
                 </div>
             </nav>
 
-            <div class="input-group" id="inputGroupSearch">
-                <input type="text" class="form-control" placeholder="Nhập tên cần tìm" id="txtSearch">
-                <div class="input-group-append">
-                    <button class="btn btn-secondary" type="button">
-                      <i class="fa fa-search"></i>
-                    </button>
-                  </div>
-            </div>
+           
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" id="main-table">
                     <thead>
                         <tr>
-                            <th scope="col">STT</th>
+                            <th scope="col" class="th-sm">STT</th>
                             <th scope="col">Họ tên</th>
                             <th scope="col">SĐT</th>
                             <th scopr="col"></th>
@@ -174,6 +168,62 @@
                            
                             <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
                         </tr>
+                        
+                        <tr>
+                            <td><p>7</p></td>
+                            <td><p>Lê Hoàng Sang</p></td>
+                           
+                            <td><p>0979279932</p></td>
+                         
+                          
+                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                        </tr>
+                        <tr>
+                            <td><p>8</p></td>
+                            <td><p>Phan Quốc Phong</p></td>
+                            
+                            <td><p>0257863515</p></td>
+                            
+                           
+                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                        </tr>
+                        <tr>
+                            <td><p>9</p></td>
+                            <td><p>Lê Phạm Hoàng Quý</p></td>
+                         
+                            <td><p>0375863368</p></td>
+                            
+                           
+                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                        </tr>
+                        <tr>
+                            <td><p>10</p></td>
+                            <td><p>Nguyễn Quang Lê</p></td>
+                       
+                            <td><p>0257863515</p></td>
+                         
+                           
+                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                        </tr>
+                        <tr>
+                            <td><p>11</p></td>
+                            <td><p>Nguyễn Phú Quý</p></td>
+                           
+                            <td><p>0257812115</p></td>
+                         
+                            
+                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                        </tr>
+                        <tr>
+                            <td><p>12</p></td>
+                            <td><p>Trần Quốc Hào</p></td>
+                          
+                            <td><p>0921562265</p></td>
+                       
+                           
+                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                        </tr>
+
                     </tbody>
                 </table>
 
@@ -181,7 +231,7 @@
                 
             </div>
 
-            <!--Tạo form gia hạn tài khoản độc giả-->
+            
             <div class="modal" id="frmInfo">
                 <form class="modal-content animate">
                     <div class="frmContainer">
@@ -279,7 +329,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+    <!--DataTable JS-->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -288,6 +339,7 @@
             });
         });
     </script>
+    <script src="resource/JS/ManageEditor.js"></script>
 </body>
 
 </html>

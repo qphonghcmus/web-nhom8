@@ -307,6 +307,22 @@ a.article, a.article:hover {
     margin-bottom: 15px;
     
 }
+
+.custom-form-control-search
+{
+    width: 60%;
+    display:inline-block;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.custom-form-control-select
+{
+    display: inline-block;
+    width: 35%;
+    margin-top: 5px;
+}
+
 .name
 {  
     padding-top: 2px;
@@ -336,6 +352,10 @@ a.article, a.article:hover {
 {
     margin-left: 10%;
 }
+
+
+
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
