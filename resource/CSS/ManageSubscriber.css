@@ -311,6 +311,22 @@ a.article, a.article:hover {
     width: 100%;
     text-align: center;
 }
+
+.custom-form-control-search
+{
+    width: 60%;
+    display:inline-block;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.custom-form-control-select
+{
+    display: inline-block;
+    width: 35%;
+    margin-top: 5px;
+}
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
