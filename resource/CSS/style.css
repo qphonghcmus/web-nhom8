@@ -30,7 +30,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.container button {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -40,7 +40,7 @@ button {
   width: 100%;
 }
 
-button:hover {
+.container button:hover {
   opacity: 0.8;
 }
 
@@ -140,246 +140,136 @@ span.psw {
 
 /* ------------------------------------------ */
 /*------------------My_Header-----------------*/
+.main-nav{
+  top: 0;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+#logo{
+  width: 28%;
+  position: relative;
+  top: -30px;
+  border: 0;
+}
+
 .dropbtn {
-    background-color: #F8F8F8;
-    color: black;
-    padding: 10px;
-    font-size: 100%;
-    font-weight: bold;
-    border: none;
-    margin-left: 0;
-    margin-right: 5px;
+  background-color: #343a40;
+ border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  font-size: 100%;
+  font-weight: bold;
+  border: none;
+  margin-left: 0;
+  margin-right: 5px;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    font-weight: 500;
-    font-size: 100%;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  font-weight: 500;
+  font-size: 100%;
+  display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #DCD5D5;
+  color: #4CAF50;
 }
 
 .main-caterogy li {
-    list-style: none;
-    display: inline-block;
-    position: relative;
-    left: -30px;
-    top: 10px;
-    margin-left: 5px;
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  left: -300px;
+  top: 10px;
+  margin-left: 5px;
 }
 
 .btn_log {
-    width: 100px;
-    font-size: 80%;
-    margin-right: 5px;
+  width: 100px;
+  font-size: 80%;
+  margin-right: 5px;
 }
 
 .frm_search {
-    position: relative;
-    right: 10px;
+  position: relative;
+  right: 100px;
 }
 
 .input_search {
-    font-size: 80%;
+  font-size: 100%;
 }
 
 .icon_search {
-    font-size: 150%;
-    margin-left: 5px;
-    cursor: pointer;
-    transition: all .3s;
+  color: white;
+  font-size: 150%;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all .3s;
 }
 
 .icon_search:hover {
-    font-size: 180%;
+  font-size: 180%;
+  color: #4CAF50;
 }
 
-.log .dropdown {
-    display: inline-block;
-}
-header
-{
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.nav_header
-{
-    background-color: #eeeeee;
-    height: 40px;
-    width:100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 900;
-}
-.nav_header img
-{
-    height: 30px;
-    width: 30px;
-    margin-left: 50px;
-    margin-right: 20px;
-    position: relative;
-    top: -30px;
-    margin-top:5px;
-}
-.nav_header ul{
-    margin-left: 0px;
-    padding: 0px;
-    list-style: none;
-    display: inline-block;
-    
-}
-.nav_header ul li
-{
-    float: left;
-    width: 100px;
-    height: 40px;
-    background-color:#eeeeee;
-    opacity: 0.8;
-    line-height: 40px;
-    text-align: center;
-    font-size: 13px;
-    font-family: sans-serif;
-    text-transform: uppercase;
-}
-.nav_header ul li a
-{
-    text-decoration: none;
-    color: black;
-    display: block;
-    transition: all .1s;
-    font-weight: bold;
+.log_icon{
+  margin-right: 50px;
+  font-size: 150%;
+  color: white;
+  cursor: pointer;
+  transition: all .5s;
 }
 
-.nav_header ul li a:hover
-{
-    height: 40px;
-    background-color: #e11b1e;
-  
+.log_icon:hover{
+  font-size: 160%;
+  color: #4CAF50;
 }
-.nav_header ul li ul li
-{
-    display: none;
-    border-bottom: 1px solid gray;
-}
-
-.nav_header ul li:hover ul li
-{
-    
-    display: block;
-    text-transform: none;
-    background-color: #fff;
-}
-.nav_header ul li:hover ul li a:hover
-{
-    background-color: #4285f4;
-    border-bottom: 1px solid gray;
-}
-.fas
-{
-    color:black;
-    font-weight: bold;
-    font-size: 16px;
-}
-.otherChoose
-{
-    width: 50px;
-}
-
-.nav_header div
-{
-    display: inline-block;
-    position: relative;
-    height: 40px;
-}
-#listToolbox
-{
-    list-style-type: none;
-    padding: 0px;
-    display: inline-block;
-    margin-left: 250px;
-}
-
-#listToolbox-search
-{
-    line-height: 40px;
-    width: 250px;
-    display: inline-block;
-}
-
-#search-box
-{
-    transform: translate(-50%, -50%);
-    height: 30px;
-}
-#search-txt
-{
-    height: 30px;
-    padding: 0px 5px;
-    margin-top: 5px;
-    float: left;
-    margin-right: 10px;
-    transition: 0.9s;
-    background-color: #fff; 
-    line-height: 30px;
-    width: 200px;
-    border-radius: 6px;
-	border:hidden;
-	transition: all .10s;
-}
-#search-btn
-{
-    width: 13px;
-    float:right;
-    height: 40px;
-    width: 30px;
-}
-
-#listToolbox-search div a:hover
-{
-  background-color:#4285f4; 
-   
-}
-#listToolbox-login
-{
-    width: 30px;
-}
-#listToolbox-login a:hover
-{
-    background-color: green;
-}
-
 
 /*-----------------------------*/
 /*---------main_news--------*/
+
 .container {
     width: 80%;
+    margin-top: 60px;
+}
+
+#title{
+    margin-top: 30px;
+    background-color:  #f1f1f1;
+    border: 1px solid;
+    padding: 8px;
+    width: 13%;
+    text-align: center;
+    transition: all .5s;
+}
+
+#title:hover, .list_title :hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .img_title img {
-    width: 60%;
+    width: 70%;
     position: relative;
     left: 212px;
     cursor: pointer;
@@ -432,7 +322,7 @@ header
 }
 
 .meta p {
-    background-color: rgb(255, 255, 255);
+  background-color: rgb(241, 225, 225);
 }
 
 .meta h3 {
@@ -446,17 +336,28 @@ header
 }
 .list_col{
     height: 540px;
-    overflow-y: scroll;
     margin-right: 30px;
+    overflow-y: hidden;
+    transition: all
 }
 
+.list_col:hover{
+    overflow-y: scroll;
+}
+
+
+.list_title{
+    background-color:   #f1f1f1;
+    border: 1px solid;
+    transition: all .5s;
+}
 .list_title h2{
     text-align: center;
     margin-top: 20px;
     font-size: 150%;
 }
 .new_news {
-    background-color: rgb(255, 254, 254);
+    background-color: rgb(241, 225, 225);
     height: 270px;
     padding: 20px;
     margin-top: 10px;
