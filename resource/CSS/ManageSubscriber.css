@@ -58,9 +58,9 @@ a, a:hover, a:focus {
 
 
 #sidebar {
-    min-width: 250px;
+    min-width: 230px;
     max-width: 250px;
-    background: #7386D5;
+    background: #2b303b;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
@@ -73,7 +73,7 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px 20px;
-    background: #6d7fcc;
+    background: #3c4352;
 }
 
 #sidebar ul.components {
@@ -97,14 +97,15 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color:#fff;
+    background: rgba(243, 172, 20, 0.788)
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: rgba(23, 172, 23,0.788);
 }
+
 
 
 a[data-toggle="collapse"] {
@@ -122,7 +123,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #3c4352;
 }
 
 ul.CTAs {
@@ -159,10 +160,9 @@ a.article, a.article:hover {
     transition: all 0.3s;
 }
 
-#logout
+.button-logout:hover
 {
-    float:right;
-    height: 50px;
+    color: red;
 }
 
 #sidebarCollapse {
@@ -200,49 +200,20 @@ a.article, a.article:hover {
     background: #555;
 }
 
-
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-        transform: rotateY(90deg);
-    }
-    #sidebar.active {
-        margin-left: 0;
-        transform: none;
-    }
-    #sidebarCollapse span:first-of-type,
-    #sidebarCollapse span:nth-of-type(2),
-    #sidebarCollapse span:last-of-type {
-        transform: none;
-        opacity: 1;
-        margin: 5px auto;
-    }
-    #sidebarCollapse.active span {
-        margin: 0 auto;
-    }
-    #sidebarCollapse.active span:first-of-type {
-        transform: rotate(45deg) translate(2px, 2px);
-    }
-    #sidebarCollapse.active span:nth-of-type(2) {
-        opacity: 0;
-    }
-    #sidebarCollapse.active span:last-of-type {
-        transform: rotate(-45deg) translate(1px, -1px);
-    }
-
-}
-
-
-
 #inputGroupSearch
 {
     width: 30%;
     margin-bottom: 15px;
     float:right;
 }
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+
+
+
 /*Custom for line in table*/
 .table td p
 {
@@ -335,7 +306,48 @@ a.article, a.article:hover {
 {
     margin-left: 2%;
 }
-.form-group input[type="button"]
+.form-group div
 {
-   margin-left: 40%;
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+        transform: rotateY(90deg);
+    }
+    #sidebar.active {
+        margin-left: 0;
+        transform: none;
+      
+    }
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+    #sidebarCollapse.active span {
+        margin: 0 auto;
+    }
+    #sidebarCollapse.active span:first-of-type {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+    #sidebarCollapse.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    #sidebarCollapse.active span:last-of-type {
+        transform: rotate(-45deg) translate(1px, -1px);
+    }
+    #inputGroupSearch
+    {
+        width: 100%;
+        margin-bottom: 15px;
+        float:right;
+    }
+    .modal-content
+    {
+        width: 60%;
+    }
 }

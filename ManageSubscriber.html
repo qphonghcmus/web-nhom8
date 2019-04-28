@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Quản lý độc giả</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -26,7 +26,6 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <p>Sidebar header</p>
-                
             </div>
 
             <ul class="list-unstyled components">
@@ -82,8 +81,10 @@
                         <span></span>
                         <span></span>
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
+                    <button class="btn d-inline-block d-lg-none ml-auto " type="button" data-toggle="collapse"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <a href="#" class="button-logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -91,7 +92,7 @@
                             <li class="nav-item">
                                 <i></i>
                                 <a class="nav-link" href="#">
-                                        <i class="fas fa-sign-out-alt"></i>
+                                        <i class="fas fa-sign-out-alt logout"></i>
                                     Đăng xuất
                                 </a>
                             </li>
@@ -180,21 +181,25 @@
                 </table>
 
 
-                <!--Tạo form gia hạn tài khoản độc giả-->
-                <div class="modal" id="frmGiaHan">
-                    <form class="modal-content animate">
-                        <div class="frmContainer">
-                                <span onclick="document.getElementById('frmGiaHan').style.display='none'" 
-                                class="close" title="Close Modal">&times;</span>            
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="txtTime">Nhập thời gian hết hạn:</label>
-                            <input type="text" class="form-control" name="txtTime" required>
+                
+            </div>
+
+            <!--Tạo form gia hạn tài khoản độc giả-->
+            <div class="modal" id="frmGiaHan">
+                <form class="modal-content animate">
+                    <div class="frmContainer">
+                            <span onclick="document.getElementById('frmGiaHan').style.display='none'" 
+                            class="close" title="Đóng">&times;</span>            
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="txtTime">Nhập thời gian hết hạn:</label>
+                        <input type="text" class="form-control" name="txtTime" required>
+                        <div>
                             <input type="button" class="btn btn-primary" value="Xác nhận">
-                        </div>  
-                    </form>
-                </div>
+                        </div>
+                    </div>  
+                </form>
             </div>
 
         </div>
