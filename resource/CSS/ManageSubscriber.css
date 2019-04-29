@@ -106,6 +106,25 @@ a, a:hover, a:focus {
     background: rgba(23, 172, 23,0.788);
 }
 
+#sidebar div div p
+{
+    margin: 0px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.sidebar-header img
+{
+    margin-left: 0px;
+    width: 48px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.sidebar-header div
+{
+    display: inline-block;
+    vertical-align: middle;
+}
 
 
 a[data-toggle="collapse"] {

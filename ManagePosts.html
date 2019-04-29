@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quản lý biên tập viên</title>
+    <title>Quản lý bài viết</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="resource/CSS/ManageEditor.css">
+    <link rel="stylesheet" href="resource/CSS/ManagePosts.css">
     <link rel="stylesheet" href="vendors/css/grid.css">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -51,13 +51,13 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý người dùng</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="#">Độc giả</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="#">Biên tập viên</a>
                         </li>
                         <li>
@@ -65,7 +65,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                     <a href="#">Quản lý bài viết</a>
                 </li>
                 <li>
@@ -112,121 +112,59 @@
                     <thead>
                         <tr>
                             <th scope="col" class="th-sm">STT</th>
-                            <th scope="col">Họ tên</th>
-                            <th scope="col">SĐT</th>
-                            <th scopr="col"></th>
+                            <th scope="col">Tên bài viết</th>
+                            <th scope="col">Chuyên mục</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><p>1</p></td>
-                            <td><p>Lê Hoàng Sang</p></td>
+                            <td><a href="#">Sài Gòn sắp vào mùa mưa</a></td>
                            
-                            <td><p>0979279932</p></td>
-                         
+                            <td><p>Đời sống</p></td>
+                            <td><p>Đã xuất bản</p></td>
                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
                         </tr>
                         <tr>
                             <td><p>2</p></td>
-                            <td><p>Phan Quốc Phong</p></td>
-                            
-                            <td><p>0257863515</p></td>
-                            
+                            <td><a href="#">Vì sao nhiều người 'mua điểm' cho con vào trường công an, quân đội?</a></td>
                            
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                            <td><p>Giáo dục</p></td>
+                            <td><p>Chờ xuất bản</p></td>
+                          
+                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xuất bản" ></td>
                         </tr>
                         <tr>
                             <td><p>3</p></td>
-                            <td><p>Lê Phạm Hoàng Quý</p></td>
-                         
-                            <td><p>0375863368</p></td>
-                            
+                            <td><a href="#">EVN lên tiếng về 42.000 tỷ đồng gửi không kỳ hạn ở ngân hàng</a></td>
                            
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                            <td><p>Kinh doanh</p></td>
+                            <td><p>Chưa được duyệt</p></td>
+                          
+                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
                         </tr>
                         <tr>
                             <td><p>4</p></td>
-                            <td><p>Nguyễn Quang Lê</p></td>
-                       
-                            <td><p>0257863515</p></td>
-                         
+                            <td><a href="#">63 trường đại học chấm trắc nghiệm tại các cụm thi THPT quốc gia</a></td>
                            
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                            <td><p>Giáo dục</p></td>
+                            <td><p>Bị từ chối</p></td>
+                          
+                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
                         </tr>
                         <tr>
                             <td><p>5</p></td>
-                            <td><p>Nguyễn Phú Quý</p></td>
+                            <td><a href="#">Cháy căn hộ ở Sài Gòn, người dân đập cửa gọi nhau bỏ chạy</a></td>
                            
-                            <td><p>0257812115</p></td>
-                         
-                            
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>6</p></td>
-                            <td><p>Trần Quốc Hào</p></td>
+                            <td><p>Đời sống</p></td>
+                            <td><p>Đã xuất bản</p></td>
                           
-                            <td><p>0921562265</p></td>
-                       
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
                         </tr>
-                        
-                        <tr>
-                            <td><p>7</p></td>
-                            <td><p>Lê Hoàng Sang</p></td>
-                           
-                            <td><p>0979279932</p></td>
-                         
-                          
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>8</p></td>
-                            <td><p>Phan Quốc Phong</p></td>
-                            
-                            <td><p>0257863515</p></td>
-                            
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>9</p></td>
-                            <td><p>Lê Phạm Hoàng Quý</p></td>
-                         
-                            <td><p>0375863368</p></td>
-                            
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>10</p></td>
-                            <td><p>Nguyễn Quang Lê</p></td>
-                       
-                            <td><p>0257863515</p></td>
-                         
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>11</p></td>
-                            <td><p>Nguyễn Phú Quý</p></td>
-                           
-                            <td><p>0257812115</p></td>
-                         
-                            
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>12</p></td>
-                            <td><p>Trần Quốc Hào</p></td>
-                          
-                            <td><p>0921562265</p></td>
-                       
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
+                      
 
                     </tbody>
                 </table>
@@ -343,7 +281,7 @@
             });
         });
     </script>
-    <script src="resource/JS/ManageEditor.js"></script>
+    <script src="resource/JS/ManagePosts.js"></script>
 </body>
 
 </html>

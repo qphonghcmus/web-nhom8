@@ -62,6 +62,8 @@ a, a:hover, a:focus {
 }
 
 
+
+
 #sidebar {
     min-width: 230px;
     max-width: 250px;
@@ -130,6 +132,9 @@ a, a:hover, a:focus {
     display: inline-block;
     vertical-align: middle;
 }
+
+
+
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -247,7 +252,10 @@ a.article, a.article:hover {
 {
     margin-top: 10px;
 }
-
+.btnGiaHan-hidden
+{
+    display: none;
+}
 /*Custom cho form gia han tai khoan*/
 .frmContainer
 {
