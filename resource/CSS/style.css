@@ -148,10 +148,15 @@ span.psw {
 }
 
 #logo{
-  width: 28%;
+  width: 25%;
   position: relative;
   top: -30px;
   border: 0;
+}
+
+#navbar{
+  padding: 30px 10px;
+  transition: all .5s;
 }
 
 .dropbtn {
@@ -250,7 +255,7 @@ span.psw {
 
 .container {
     width: 80%;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 #title{
