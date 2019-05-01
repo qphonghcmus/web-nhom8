@@ -4,26 +4,28 @@
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Writer - Post
   </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="vendors/css/writer/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-    <!-- ckeditor -->
-    <script src="https://cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
-    <!-- css file -->
+  <!-- ckeditor -->
+  <script src="https://cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
+  <!-- css file -->
   <link rel="stylesheet" href="resource/CSS/style-writer-post.css">
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="#">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -93,9 +95,10 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo">Đăng bài viết</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -103,7 +106,7 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
-              <div class="input-group no-border">
+              <div class="input-group no-border" style="display:none">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <button type="submit" class="btn btn-white btn-round btn-just-icon">
                   <i class="material-icons">search</i>
@@ -121,7 +124,8 @@
                 </a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
                   <span class="notification">5</span>
                   <p class="d-lg-none d-md-block">
@@ -137,7 +141,8 @@
                 </div>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
                   <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
@@ -157,71 +162,71 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="main-body">
-            <h1>Đăng bài viết</h1>
-            <div class="row">
-              <div class="col span-1-of-2">
-                <div class="col-left">
-                  <form action="" class="form-add-post">
-                    <input type="text" class="title-name" placeholder="Tiêu đề bài viết">
-                    <textarea name="tomtat" id="tomtat" cols="10" rows="2" placeholder="Tóm tắt của bài viết"></textarea>
-                    <textarea name="editor1" class="ckeditor">
+          <h1>Đăng bài viết</h1>
+          <div class="row">
+            <div class="col span-1-of-2">
+              <div class="col-left">
+                <form action="" class="form-add-post">
+                  <input type="text" class="title-name" placeholder="Tiêu đề bài viết">
+                  <textarea name="tomtat" id="tomtat" cols="10" rows="2" placeholder="Tóm tắt của bài viết"></textarea>
+                  <textarea name="editor1" class="ckeditor">
                         </textarea>
+                </form>
+              </div>
+
+            </div>
+            <div class="col span-1-of-2">
+              <div class="col-right">
+                <h3>Publish</h3>
+                <div class="col-right-content">
+                  <button type="button" class="btn btn-info">Lưu</button>
+                  <button type="button" class="btn btn-info">Xem</button>
+                  <br>
+                  <button type="button" class="btn btn-info">Xóa</button>
+                  <button type="button" class="btn btn-info">Đăng</button>
+                </div>
+
+              </div>
+              <div class="col-right">
+                <h3>Tags</h3>
+                <div class="col-right-content">
+                  <form action="">
+                    <input type="text">
+                    <button type="button" class="btn btn-info btn-add-tags">Thêm</button>
+                    <p>Các tag cách nhau bởi dấu phẩy</p>
                   </form>
                 </div>
-    
+
               </div>
-              <div class="col span-1-of-2">
-                <div class="col-right">
-                  <h3>Publish</h3>
-                  <div class="col-right-content">
-                    <button type="button" class="btn btn-info">Lưu</button>
-                    <button type="button" class="btn btn-info">Xem</button>
-                    <br>
-                    <button type="button" class="btn btn-info">Xóa</button>
-                    <button type="button" class="btn btn-info">Đăng</button>
-                  </div>
-    
-                </div>
-                <div class="col-right">
-                  <h3>Tags</h3>
-                  <div class="col-right-content">
-                    <form action="">
-                      <input type="text">
-                      <button type="button" class="btn btn-info btn-add-tags">Thêm</button>
-                      <p>Các tag cách nhau bởi dấu phẩy</p>
-                    </form>
-                  </div>
-    
-                </div>
-                <div class="col-right">
-                  <h3>Categories</h3>
-                  <div class="col-right-content">
-                    <form action="" class="form-categories">
-                      <!-- <input type="radio" name="the-thao" value="the-thao">Thể thao <br>
+              <div class="col-right">
+                <h3>Categories</h3>
+                <div class="col-right-content">
+                  <form action="" class="form-categories">
+                    <!-- <input type="radio" name="the-thao" value="the-thao">Thể thao <br>
                       <input type="radio" name="kinh-te" value="kinh-te">Kinh tế <br>
                       <input type="radio" name="thoi-trang" value="thoi-trang">Thời trang <br> -->
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                      <label class="form-check-label" for="defaultCheck1">
-                        Thể thao
-                      </label>
-                      <br>
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                      <label class="form-check-label" for="defaultCheck1">
-                        Kinh tế
-                      </label>
-                      <br>
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                      <label class="form-check-label" for="defaultCheck1">
-                        Thời trang
-                      </label>
-                    </form>
-                  </div>
-    
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Thể thao
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Kinh tế
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Thời trang
+                    </label>
+                  </form>
                 </div>
+
               </div>
             </div>
           </div>
-    
+        </div>
+
       </div>
       <footer class="footer">
         <div class="container-fluid">
@@ -244,8 +249,8 @@
   <script src="vendors/js/writer/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
 
   <script>
-    $(document).ready(function() {
-      $().ready(function() {
+    $(document).ready(function () {
+      $().ready(function () {
         $sidebar = $('.sidebar');
 
         $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -265,7 +270,7 @@
 
         }
 
-        $('.switch-sidebar-image input').change(function() {
+        $('.switch-sidebar-image input').change(function () {
           $full_page_background = $('.full-page-background');
 
           $input = $(this);
@@ -297,7 +302,7 @@
           }
         });
 
-        $('.switch-sidebar-mini input').change(function() {
+        $('.switch-sidebar-mini input').change(function () {
           $body = $('body');
 
           $input = $(this);
@@ -312,7 +317,7 @@
 
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
-            setTimeout(function() {
+            setTimeout(function () {
               $('body').addClass('sidebar-mini');
 
               md.misc.sidebar_mini_active = true;
@@ -320,12 +325,12 @@
           }
 
           // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
+          var simulateWindowResize = setInterval(function () {
             window.dispatchEvent(new Event('resize'));
           }, 180);
 
           // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
+          setTimeout(function () {
             clearInterval(simulateWindowResize);
           }, 1000);
 
@@ -334,7 +339,7 @@
     });
   </script>
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
 

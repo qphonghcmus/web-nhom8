@@ -1,8 +1,11 @@
 
 /* ---------------------------------------------- */
 /* ------------------- Body --------------------- */
+
 .main-body{
-    margin-left: 20px;
+    margin:0 auto;
+    /* margin-top: 30px;
+    margin-bottom: 30px; */
     border: 2px solid #8f8c8c;
     border-radius: 5px;
     width: 1000px;
@@ -63,4 +66,3 @@
     border: 2px solid #ece9e9;
     border-radius: 5px;
 }
-

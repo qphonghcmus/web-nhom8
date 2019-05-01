@@ -3,6 +3,10 @@
     font-size: 150%;
 }
 
+.card-body .table-responsive .table tbody tr{
+    transition: all .5s;
+}
+
 .card-body .table-responsive .table tbody tr:hover,
 .card-body .table-responsive .table tbody tr:active{
     cursor: pointer;
