@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: #ecece8;
 }
 
 p {
@@ -229,8 +229,49 @@ a.article, a.article:hover {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
+.content-box-list-subscriber-header
+{
+    background-color: #44e0f8;
+    color:#141414;
+    margin-bottom: 10px;
+}
+.content-box-title
+{
+    float:left;
+}
+.content-box-title p
+{
+    font-weight: 600;
+    font-size: 20px;
+    color: #141414;;
+    padding-top: 10px;
+    padding-left: 25px;
+}
+.content-box-tool
+{
+    float:right;
+    margin-right: 10px;
+    margin-top: 20px;
+}
 
 
+
+
+.animate-close {
+    -webkit-animation: animateclose 0.6s;
+    animation: animateclose 0.6s;
+   display: none;
+  }
+  
+  @-webkit-keyframes animateclose {
+    from {-webkit-transform: scale(1)} 
+    to {-webkit-transform: scale(0)}
+  }
+    
+  @keyframes animateclose {
+    from {transform: scale(1)} 
+    to {transform: scale(0)}
+  }
 
 
 /*Custom for line in table*/
@@ -314,6 +355,13 @@ a.article, a.article:hover {
        width: 100%;
     }
   }
+
+
+.position-button
+{
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
 
 .form-group .form-control
 {

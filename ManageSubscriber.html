@@ -106,81 +106,140 @@
                 </div>
             </nav>
 
-           
-            <div class="table-responsive">
-                <table class="table table-hover"  id="main-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Tên độc giả</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">SĐT</th>
-                            <th scope="col">Thời hạn</th>
-                            <th scopr="col"></th>
-                            <th scopr="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td><p>Lê Hoàng Sang</p></td>
-                            <td><p>lhsanghcmus@gmail.com</p></td>
-                            <td><p>0979279932</p></td>
-                            <td><p>30/04/2019</p></td>
-                            <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                        </tr>
-                        <tr>
-                            <td><p>2</p></td>
-                            <td><p>Phan Quốc Phong</p></td>
-                            <td><p>pqphonghcmus@gmail.com</p></td>
-                            <td><p>0257863515</p></td>
-                            <td><p>30/04/2019</p></td>
-                            <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                        </tr>
-                        <tr>
-                            <td><p>3</p></td>
-                            <td><p>Lê Phạm Hoàng Quý</p></td>
-                            <td><p>quyle0508@gmail.com</p></td>
-                            <td><p>0375863368</p></td>
-                            <td><p>30/04/2019</p></td>
-                            <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                        </tr>
-                        <tr>
-                            <td><p>4</p></td>
-                            <td><p>Nguyễn Quang Lê</p></td>
-                            <td><p>quangle@gmail.com</p></td>
-                            <td><p>0257863515</p></td>
-                            <td><p>30/04/2019</p></td>
-                            <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                        </tr>
-                        <tr>
-                            <td><p>5</p></td>
-                            <td><p>Nguyễn Phú Quý</p></td>
-                            <td><p>quynguyen@gmail.com</p></td>
-                            <td><p>0257812115</p></td>
-                            <td><p>30/04/2019</p></td>
-                            <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                        </tr>
-                        <tr>
-                            <td><p>6</p></td>
-                            <td><p>Trần Quốc Hào</p></td>
-                            <td><p>quochao2810@gmail.com</p></td>
-                            <td><p>0921562265</p></td>
-                            <td><p>30/04/2019</p></td>
-                            <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
+            
+            <div class="content-box-list-subscriber">
+                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm ">
+                    <div class="content-box-title">
+                        <p>Thêm độc giả mới</p>
+                    </div>
+                  
+                    <div class="content-box-tool">
+                        <a href="#toggle-add-form" id="toggle-add-form">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
                 
+                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="add-subscriber-main">
+                   <form>
+                       <label for="txtUserName">Username: </label>
+                       <input class="form-control" type="text" placeholder="UserName" name="txtUserName">
+                        <br>
+                       <label for="txtPassWord">Password: </label>
+                       <input class="form-control" type="password" placeholder="PassWord" name="txtPassWord">
+                       <br>
+                       <label for="txtHoTen">Họ tên: </label>
+                       <input  class="form-control" type="text" placeholder="Nhập họ tên" name="txtHoTen">
+                       <br>
+                       <label for="txtEmail">Email: </label>
+                       <input class="form-control"  type="text" placeholder="Nhập email" name="txtEmail">
+                       <br>
+                       <label for="txtSDT">SĐT: </label>
+                       <input class="form-control" type="text" placeholder="Nhập sđt" name="txtSDT">
+                       <br>
+                       <label for="txtNgayHH">Ngày hết hạn: </label>
+                       <input class="form-control" type="text" placeholder="Nhập ngày hết hạn tài khoản" name="txtNgayHH">
+                       <div class="form-group position-button">
+                            <div>
+                                <input type="button" class="btn btn-primary" value=" Thêm">
+                            </div>
+                        </div>
+                  
+                   </form>
+                </div>
             </div>
+
+            <div class="content-box-list-subscriber">
+                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+                    <div class="content-box-title">
+                        <p>Danh sách độc giả</p>
+                    </div>
+                  
+                    <div class="content-box-tool">
+                        <a href="#toggle-list-subscrber" id="toggle-list-subscriber">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                
+                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-subscriber-main">
+                    <div class="table-responsive">
+                        <table class="table table-hover"  id="main-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Tên độc giả</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">SĐT</th>
+                                    <th scope="col">Thời hạn</th>
+                                    <th scopr="col"></th>
+                                    <th scopr="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>1</p></td>
+                                    <td><p>Lê Hoàng Sang</p></td>
+                                    <td><p>lhsanghcmus@gmail.com</p></td>
+                                    <td><p>0979279932</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>2</p></td>
+                                    <td><p>Phan Quốc Phong</p></td>
+                                    <td><p>pqphonghcmus@gmail.com</p></td>
+                                    <td><p>0257863515</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>3</p></td>
+                                    <td><p>Lê Phạm Hoàng Quý</p></td>
+                                    <td><p>quyle0508@gmail.com</p></td>
+                                    <td><p>0375863368</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>4</p></td>
+                                    <td><p>Nguyễn Quang Lê</p></td>
+                                    <td><p>quangle@gmail.com</p></td>
+                                    <td><p>0257863515</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>5</p></td>
+                                    <td><p>Nguyễn Phú Quý</p></td>
+                                    <td><p>quynguyen@gmail.com</p></td>
+                                    <td><p>0257812115</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>6</p></td>
+                                    <td><p>Trần Quốc Hào</p></td>
+                                    <td><p>quochao2810@gmail.com</p></td>
+                                    <td><p>0921562265</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+
+            
 
             <!--Tạo form gia hạn tài khoản độc giả-->
             <div class="modal" id="frmGiaHan">

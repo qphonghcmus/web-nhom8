@@ -1,4 +1,5 @@
-$(document).ready( function () {
+$(document).ready( function () 
+{
     $('#main-table').DataTable(
     {
         "oLanguage": 
@@ -38,4 +39,20 @@ $(document).ready( function () {
 
    
     $('.dataTables_length label select').addClass('form-control custom-form-control-select');
-} );
+
+
+    $("#toggle-add-form").click(function(){
+      $('#add-subscriber-main').delay(1000).toggle();
+       
+   
+    });
+
+    $("#toggle-list-subscriber").click(function(){
+      $('#list-subscriber-main').delay(1000).toggle();
+       
+   
+    });
+  } 
+  );
+
+
