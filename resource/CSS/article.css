@@ -1,228 +1,239 @@
+
+/* ------------------------------------- */
+/*------------Login Form----------------*/
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  .container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .container button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 7%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  
 /*--------My_Header------------*/
-.dropbtn {
-    background-color: #F8F8F8;
-    color: black;
+
+.main-nav{
+    top: 0;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+  }
+  #logfrm a{
+      font-size: 80%;
+  }
+  #logo{
+    width: 25%;
+    position: relative;
+    top: 1px;
+    left: 10px;
+    border: 0;
+  }
+  
+  #navbar{
+    padding: 5px 5px;
+    transition: all .5s;
+  }
+  
+  .dropbtn {
+    background-color: #343a40;
+   border: none;
+    color: rgb(255, 255, 255);
     padding: 10px;
     font-size: 100%;
     font-weight: bold;
     border: none;
     margin-left: 0;
     margin-right: 5px;
-}
-
-.dropdown-content {
+  }
+  
+  .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-}
-
-.dropdown-content a {
+  }
+  
+  .dropdown-content a {
     color: black;
     padding: 12px 16px;
     font-weight: 500;
     font-size: 100%;
     display: block;
-}
-
-.dropdown-content a:hover {
+  }
+  
+  .dropdown-content a:hover {
     background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
+  }
+  
+  .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #DCD5D5;
-}
-
-.main-caterogy li {
+  }
+  
+  .dropdown:hover .dropbtn {
+    color: #4CAF50;
+  }
+  
+  .main-caterogy li {
     list-style: none;
     display: inline-block;
     position: relative;
-    left: -30px;
+    left: -300px;
     top: 10px;
     margin-left: 5px;
-}
-
-.btn_log {
+  }
+  
+  .btn_log {
     width: 100px;
     font-size: 80%;
     margin-right: 5px;
-}
-
-.frm_search {
+  }
+  
+  .frm_search {
     position: relative;
-    right: 10px;
-}
-
-.input_search {
-    font-size: 80%;
-}
-
-.icon_search {
+    right: 100px;
+  }
+  
+  .input_search {
+    font-size: 100%;
+  }
+  
+  .icon_search {
+    color: white;
     font-size: 150%;
     margin-left: 5px;
     cursor: pointer;
     transition: all .3s;
-}
-
-.icon_search:hover {
-    font-size: 180%;
-}
-
-.log .dropdown {
-    display: inline-block;
-}
-header
-{
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.nav
-{
-    background-color: #eeeeee;
-    height: 40px;
-    width:100%;
-}
-.nav img
-{
-    height: 30px;
-    width: 30px;
-    margin-left: 50px;
-    margin-right: 20px;
-    margin-top:5px;
-}
-.nav ul{
-    margin-left: 0px;
-    padding: 0px;
-    list-style: none;
-    display: inline-block;
-    
-}
-.nav ul li
-{
-    float: left;
-    width: 100px;
-    height: 40px;
-    background-color:#eeeeee;
-    opacity: 0.8;
-    line-height: 40px;
-    text-align: center;
-    font-size: 13px;
-    font-family: sans-serif;
-    text-transform: uppercase;
-}
-.nav ul li a
-{
-    text-decoration: none;
-    color: black;
-    display: block;
-    transition: all .1s;
-    font-weight: bold;
-}
-
-.nav ul li a:hover
-{
-    height: 40px;
-    background-color: #e11b1e;
+  }
   
-}
-.nav ul li ul li
-{
-    display: none;
-    border-bottom: 1px solid gray;
-}
-
-.nav ul li:hover ul li
-{
-    
-    display: block;
-    text-transform: none;
-    background-color: #fff;
-}
-.nav ul li:hover ul li a:hover
-{
-    background-color: #4285f4;
-    border-bottom: 1px solid gray;
-}
-.fas
-{
-    color:black;
-    font-weight: bold;
-    font-size: 16px;
-}
-.otherChoose
-{
-    width: 50px;
-}
-
-.nav div
-{
-    display: inline-block;
-    position: relative;
-    height: 40px;
-}
-#listToolbox
-{
-    list-style-type: none;
-    padding: 0px;
-    display: inline-block;
-    margin-left: 250px;
-}
-
-#listToolbox-search
-{
-    line-height: 40px;
-    width: 250px;
-    display: inline-block;
-}
-
-.search-box
-{
-    transform: translate(-50%, -50%);
-    height: 30px;
-}
-.search-txt
-{
-    height: 30px;
-    padding: 0px 5px;
-    margin-top: 5px;
-    float: left;
-    margin-right: 10px;
-    transition: 0.9s;
-    background-color: #fff; 
-    line-height: 30px;
-    width: 200px;
-    border-radius: 6px;
-	border:hidden;
-	transition: all .10s;
-}
-#search-btn
-{
-    width: 13px;
-    float:right;
-    height: 40px;
-    width: 30px;
-}
-
-#listToolbox-search div a:hover
-{
-  background-color:#4285f4; 
-   
-}
-#listToolbox-login
-{
-    width: 30px;
-}
-#listToolbox-login a:hover
-{
-    background-color: green;
-}
+  .icon_search:hover {
+    font-size: 180%;
+    color: #4CAF50;
+  }
+  
+  .log_icon{
+    margin-right: 50px;
+    font-size: 150%;
+    color: white;
+    cursor: pointer;
+    transition: all .5s;
+  }
+  
+  .log_icon:hover{
+    font-size: 160%;
+    color: #4CAF50;
+  }
 
 /* -------------------------------------------------- */
 /* --------------social-icon--------------------- */
@@ -272,6 +283,10 @@ header
     color: white;
   }
   
+/* -------------------------content-section------------------ */
+.container{
+    margin-top: 100px;
+}
 
 /* ------------------Contact Section------------------ */
 .contact-section{
