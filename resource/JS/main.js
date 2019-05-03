@@ -38,9 +38,16 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.getElementById("navbar").style.padding = "5px 10px";
-    document.getElementById("logo").style.width = "25%";
+    document.getElementById("logo").style.width = "165%";
   } else {
     document.getElementById("navbar").style.padding = "30px 10px";
-    document.getElementById("logo").style.width = "28%";
+    document.getElementById("logo").style.width = "200%";
   }
 }
+
+$('.icon').click(
+  function(){
+    $('.main-caterogy').slideToggle(200);
+  }
+)
+

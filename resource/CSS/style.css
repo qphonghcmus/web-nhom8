@@ -147,10 +147,19 @@ span.psw {
   width: 100%;
 }
 
+.icon{
+  display: none;
+}
+
+.img_logo{
+  width: 100px;
+}
+
 #logo{
-  width: 25%;
+  width: 200%;
   position: relative;
   top: -30px;
+  left: -20px;
   border: 0;
 }
 
@@ -203,9 +212,9 @@ span.psw {
 .main-caterogy li {
   list-style: none;
   display: inline-block;
-  position: relative;
+  /* position: relative;
   left: -300px;
-  top: 10px;
+  top: 10px; */
   margin-left: 5px;
 }
 
@@ -216,8 +225,7 @@ span.psw {
 }
 
 .frm_search {
-  position: relative;
-  right: 100px;
+  margin-right: 50px;
 }
 
 .input_search {
@@ -236,6 +244,10 @@ span.psw {
   font-size: 180%;
   color: #4CAF50;
 }
+.icon_search_hidden{
+  display: none;
+}
+
 
 .log_icon{
   margin-right: 50px;
@@ -253,8 +265,9 @@ span.psw {
 /*-----------------------------*/
 /*---------main_news--------*/
 
+
 .container {
-    width: 80%;
+    width: 100%;
     margin-top: 80px;
 }
 
@@ -263,7 +276,7 @@ span.psw {
     background-color:  #f1f1f1;
     border: 1px solid;
     padding: 8px;
-    width: 13%;
+    width: 18%;
     text-align: center;
     transition: all .5s;
 }
@@ -273,11 +286,16 @@ span.psw {
     cursor: pointer;
 }
 
+.img_title{
+  text-align: center;
+
+}
 .img_title img {
-    width: 70%;
-    position: relative;
-    left: 212px;
-    cursor: pointer;
+  width: 800px;
+  height: 800px;
+  position: relative;
+  left: 150px;
+  cursor: pointer;
 }
 
 .img_title h3 {
