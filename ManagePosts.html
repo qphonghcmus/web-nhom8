@@ -106,72 +106,89 @@
                 </div>
             </nav>
 
-           
-            <div class="table-responsive">
-                <table class="table table-hover" id="main-table">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="th-sm">STT</th>
-                            <th scope="col">Tên bài viết</th>
-                            <th scope="col">Chuyên mục</th>
-                            <th scope="col">Trạng thái</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td><a href="#">Sài Gòn sắp vào mùa mưa</a></td>
-                           
-                            <td><p>Đời sống</p></td>
-                            <td><p>Đã xuất bản</p></td>
-                          
-                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>2</p></td>
-                            <td><a href="#">Vì sao nhiều người 'mua điểm' cho con vào trường công an, quân đội?</a></td>
-                           
-                            <td><p>Giáo dục</p></td>
-                            <td><p>Chờ xuất bản</p></td>
-                          
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xuất bản" ></td>
-                        </tr>
-                        <tr>
-                            <td><p>3</p></td>
-                            <td><a href="#">EVN lên tiếng về 42.000 tỷ đồng gửi không kỳ hạn ở ngân hàng</a></td>
-                           
-                            <td><p>Kinh doanh</p></td>
-                            <td><p>Chưa được duyệt</p></td>
-                          
-                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>4</p></td>
-                            <td><a href="#">63 trường đại học chấm trắc nghiệm tại các cụm thi THPT quốc gia</a></td>
-                           
-                            <td><p>Giáo dục</p></td>
-                            <td><p>Bị từ chối</p></td>
-                          
-                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>5</p></td>
-                            <td><a href="#">Cháy căn hộ ở Sài Gòn, người dân đập cửa gọi nhau bỏ chạy</a></td>
-                           
-                            <td><p>Đời sống</p></td>
-                            <td><p>Đã xuất bản</p></td>
-                          
-                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                      
-
-                    </tbody>
-                </table>
-
-
+            <div class="content-box-list-subscriber">
+                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+                    <div class="content-box-title">
+                        <p>Danh sách bài viết</p>
+                    </div>
+                  
+                    <div class="content-box-tool">
+                        <a href="#toggle-list-post" id="toggle-list-post">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-post-main">
+                    <div class="table-responsive">
+                                <table class="table table-hover" id="main-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="th-sm">STT</th>
+                                            <th scope="col">Tên bài viết</th>
+                                            <th scope="col">Chuyên mục</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><p>1</p></td>
+                                            <td><a href="#">Sài Gòn sắp vào mùa mưa</a></td>
+                                           
+                                            <td><p>Đời sống</p></td>
+                                            <td><p>Đã xuất bản</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>2</p></td>
+                                            <td><a href="#">Vì sao nhiều người 'mua điểm' cho con vào trường công an, quân đội?</a></td>
+                                           
+                                            <td><p>Giáo dục</p></td>
+                                            <td><p>Chờ xuất bản</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xuất bản" ></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>3</p></td>
+                                            <td><a href="#">EVN lên tiếng về 42.000 tỷ đồng gửi không kỳ hạn ở ngân hàng</a></td>
+                                           
+                                            <td><p>Kinh doanh</p></td>
+                                            <td><p>Chưa được duyệt</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>4</p></td>
+                                            <td><a href="#">63 trường đại học chấm trắc nghiệm tại các cụm thi THPT quốc gia</a></td>
+                                           
+                                            <td><p>Giáo dục</p></td>
+                                            <td><p>Bị từ chối</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>5</p></td>
+                                            <td><a href="#">Cháy căn hộ ở Sài Gòn, người dân đập cửa gọi nhau bỏ chạy</a></td>
+                                           
+                                            <td><p>Đời sống</p></td>
+                                            <td><p>Đã xuất bản</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                        </tr>
+                                      
                 
+                                    </tbody>
+                                </table>
+                
+                
+                                
+                    </div>
+                </div>
             </div>
+           
+            
 
             
             <div class="modal" id="frmInfo">

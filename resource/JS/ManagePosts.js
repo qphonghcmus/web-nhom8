@@ -35,4 +35,10 @@ $(document).ready( function () {
 
    
     $('.dataTables_length label select').addClass('form-control custom-form-control-select');
+
+    $("#toggle-list-post").click(function(){
+      $('#list-post-main').delay(1000).toggle();
+       
+   
+    });
 } );
