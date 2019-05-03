@@ -34,4 +34,15 @@ $(document).ready( function () {
 
    
     $('.dataTables_length label select').addClass('form-control custom-form-control-select');
+
+    $("#toggle-add-editor").click(function(){
+      $('#add-editor-main').delay(1000).toggle();
+    });
+
+    $("#toggle-list-editor").click(function(){
+      $('#list-editor-main').delay(1000).toggle();
+       
+   
+    });
+
 } );

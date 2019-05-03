@@ -69,7 +69,7 @@
                     <a href="#">Quản lý bài viết</a>
                 </li>
                 <li>
-                    <a href="#">Quản lý nhãn (chưa hiểu lắm)</a>
+                    <a href="#">Quản lý nhãn &npsp; &npsp;</a>
                 </li>
             </ul>
 
@@ -106,134 +106,250 @@
                 </div>
             </nav>
 
-           
-            <div class="table-responsive">
-                <table class="table table-hover" id="main-table">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="th-sm">STT</th>
-                            <th scope="col">Họ tên</th>
-                            <th scope="col">SĐT</th>
-                            <th scopr="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td><p>Lê Hoàng Sang</p></td>
-                           
-                            <td><p>0979279932</p></td>
-                         
-                          
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>2</p></td>
-                            <td><p>Phan Quốc Phong</p></td>
+            <div class="content-box-list-editor">
+                <div  class="content-box-list-editor-header p-sm-0 shadow-sm">
+                     <div class="content-box-title">
+                         <p>Thêm biên tập viên mới</p>
+                     </div>
+                     <div class="content-box-tool">
+                         <a href="#toggle-add-editor" id="toggle-add-editor">
+                             <i class="fa fa-caret-down" aria-hidden="true"></i>
+                         </a>
+                     </div>
+                     <div class="clearfix"></div>
+                </div>
+                <div class="content-box-list-editor-content shadow p-4 mb-4 bg-white" id="add-editor-main">
+                    <form>
+                        <label for="txtUserName">Username: </label>
+                        <input class="form-control" type="text" placeholder="UserName" name="txtUserName">
+                         <br>
+                        <label for="txtPassWord">Password: </label>
+                        <input class="form-control" type="password" placeholder="PassWord" name="txtPassWord">
+                        <br>
+                        <label for="txtHoTen">Họ tên: </label>
+                        <input  class="form-control" type="text" placeholder="Nhập họ tên" name="txtHoTen">
+                        <br>
+                        <label for="txtEmail">Email: </label>
+                        <input class="form-control"  type="text" placeholder="Nhập email" name="txtEmail">
+                        <br>
+                        <label for="txtSDT">SĐT: </label>
+                        <input class="form-control" type="text" placeholder="Nhập sđt" name="txtSDT">
+                        <br>
+                        <label>Chuyên mục quản lý: </label>
+                        <div class="row">
+                            <div class="col span-1-of-2">
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="kinhDoanh">
+                                    <label class="form-check-label" for="kinhDoanh">
+                                         Kinh doanh
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" id="theThao">
+                                    <label class="form-check-label" for="theThao">
+                                         Thể thao
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" id="duLich">
+                                    <label class="form-check-label" for="duLich">
+                                         Du lịch
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" id="doiSong">
+                                    <label class="form-check-label" for="doiSong">
+                                         Đời sống
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" id="muaSam">
+                                    <label class="form-check-label" for="muaSam">
+                                         Mua sắm
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col span-1-of-2">
+                                    <div class="form-check custom-form-check">
+                                        <input class="form-check-input" type="checkbox" id="dienAnh">
+                                        <label class="form-check-label" for="dienAnh">
+                                             Điện ảnh
+                                        </label>
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" id="sucKhoe">
+                                        <label class="form-check-label" for="sucKhoe">
+                                             Sức khỏe
+                                        </label>
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" id="taiChinh">
+                                        <label class="form-check-label" for="taiChinh">
+                                             Tài chính
+                                        </label>
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" id="congNghe">
+                                        <label class="form-check-label" for="congNghe">
+                                            Công nghệ
+                                        </label>
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" id="phapLuat">
+                                        <label class="form-check-label" for="phapLuat">
+                                            Pháp luật
+                                        </label>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="form-group position-button">
+                             <div>
+                                 <input type="button" class="btn btn-primary" value=" Thêm">
+                             </div>
+                         </div>
+                   
+                    </form>
+                </div>
+             </div>
+
+
+            <div class="content-box-list-editor">
+               <div  class="content-box-list-editor-header p-sm-0 shadow-sm">
+                    <div class="content-box-title">
+                        <p>Danh sách biên tập viên</p>
+                    </div>
+                    <div class="content-box-tool">
+                        <a href="#toggle-list-editor" id="toggle-list-editor">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+               </div>
+               <div class="content-box-list-editor-content shadow p-4 mb-4 bg-white" id="list-editor-main">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="main-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="th-sm">STT</th>
+                                    <th scope="col">Họ tên</th>
+                                    <th scope="col">SĐT</th>
+                                    <th scopr="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>1</p></td>
+                                    <td><p>Lê Hoàng Sang</p></td>
+                                
+                                    <td><p>0979279932</p></td>
+                                
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>2</p></td>
+                                    <td><p>Phan Quốc Phong</p></td>
+                                    
+                                    <td><p>0257863515</p></td>
+                                    
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>3</p></td>
+                                    <td><p>Lê Phạm Hoàng Quý</p></td>
+                                
+                                    <td><p>0375863368</p></td>
+                                    
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>4</p></td>
+                                    <td><p>Nguyễn Quang Lê</p></td>
                             
-                            <td><p>0257863515</p></td>
+                                    <td><p>0257863515</p></td>
+                                
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>5</p></td>
+                                    <td><p>Nguyễn Phú Quý</p></td>
+                                
+                                    <td><p>0257812115</p></td>
+                                
+                                    
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>6</p></td>
+                                    <td><p>Trần Quốc Hào</p></td>
+                                
+                                    <td><p>0921562265</p></td>
                             
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>3</p></td>
-                            <td><p>Lê Phạm Hoàng Quý</p></td>
-                         
-                            <td><p>0375863368</p></td>
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><p>7</p></td>
+                                    <td><p>Lê Hoàng Sang</p></td>
+                                
+                                    <td><p>0979279932</p></td>
+                                
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>8</p></td>
+                                    <td><p>Phan Quốc Phong</p></td>
+                                    
+                                    <td><p>0257863515</p></td>
+                                    
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>9</p></td>
+                                    <td><p>Lê Phạm Hoàng Quý</p></td>
+                                
+                                    <td><p>0375863368</p></td>
+                                    
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>10</p></td>
+                                    <td><p>Nguyễn Quang Lê</p></td>
                             
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>4</p></td>
-                            <td><p>Nguyễn Quang Lê</p></td>
-                       
-                            <td><p>0257863515</p></td>
-                         
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>5</p></td>
-                            <td><p>Nguyễn Phú Quý</p></td>
-                           
-                            <td><p>0257812115</p></td>
-                         
+                                    <td><p>0257863515</p></td>
+                                
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>11</p></td>
+                                    <td><p>Nguyễn Phú Quý</p></td>
+                                
+                                    <td><p>0257812115</p></td>
+                                
+                                    
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+                                <tr>
+                                    <td><p>12</p></td>
+                                    <td><p>Trần Quốc Hào</p></td>
+                                
+                                    <td><p>0921562265</p></td>
                             
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>6</p></td>
-                            <td><p>Trần Quốc Hào</p></td>
-                          
-                            <td><p>0921562265</p></td>
-                       
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
+                                
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                </tr>
+        
+                            </tbody>
+                        </table>
+        
+        
                         
-                        <tr>
-                            <td><p>7</p></td>
-                            <td><p>Lê Hoàng Sang</p></td>
-                           
-                            <td><p>0979279932</p></td>
-                         
-                          
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>8</p></td>
-                            <td><p>Phan Quốc Phong</p></td>
-                            
-                            <td><p>0257863515</p></td>
-                            
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>9</p></td>
-                            <td><p>Lê Phạm Hoàng Quý</p></td>
-                         
-                            <td><p>0375863368</p></td>
-                            
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>10</p></td>
-                            <td><p>Nguyễn Quang Lê</p></td>
-                       
-                            <td><p>0257863515</p></td>
-                         
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>11</p></td>
-                            <td><p>Nguyễn Phú Quý</p></td>
-                           
-                            <td><p>0257812115</p></td>
-                         
-                            
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-                        <tr>
-                            <td><p>12</p></td>
-                            <td><p>Trần Quốc Hào</p></td>
-                          
-                            <td><p>0921562265</p></td>
-                       
-                           
-                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chi tiết" onclick="document.getElementById('frmInfo').style.display='block'"></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-
-                
+                    </div>
+               </div>
             </div>
+
+            
 
             
             <div class="modal" id="frmInfo">
