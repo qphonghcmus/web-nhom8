@@ -24,10 +24,7 @@ $(document).ready( function ()
             },{
                 "targets": 5,
                 "orderable": false
-                }, {
-                    "targets": 6,
-                    "orderable": false
-                    }]
+                }]
     }
     );
 
