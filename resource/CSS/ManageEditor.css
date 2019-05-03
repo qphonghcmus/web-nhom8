@@ -11,7 +11,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: #ecece8;
 }
 
 p {
@@ -63,7 +63,7 @@ a, a:hover, a:focus {
 
 
 #sidebar {
-    min-width: 230px;
+    min-width: 250px;
     max-width: 250px;
     background: #2b303b;
     color: #fff;
@@ -234,7 +234,30 @@ a.article, a.article:hover {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-
+.content-box-list-editor-header
+{
+    background-color: #44e0f8;
+    color:#141414;
+    margin-bottom: 10px;
+}
+.content-box-title
+{
+    float:left;
+}
+.content-box-title p
+{
+    font-weight: 600;
+    font-size: 20px;
+    color: #141414;;
+    padding-top: 10px;
+    padding-left: 25px;
+}
+.content-box-tool
+{
+    float:right;
+    margin-right: 10px;
+    margin-top: 20px;
+}
 
 
 /*Custom for line in table*/
@@ -317,6 +340,13 @@ a.article, a.article:hover {
     .cancelbtn {
        width: 100%;
     }
+  }
+
+  .position-button
+  {
+      margin-top: 25px;
+      margin-bottom: 0px;
+      text-align: center;
   }
 
 .form-group .form-control

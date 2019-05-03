@@ -1,4 +1,5 @@
-$(document).ready( function () {
+$(document).ready( function () 
+{
     $('#main-table').DataTable(
     {
         "oLanguage": 
@@ -8,7 +9,8 @@ $(document).ready( function () {
           "sZeroRecords": "Không tìm thấy kết quả nào",
           "sProcessing": "Đang tìm kiếm...",
           "sInfo": "Hiển thị từ _START_ đến _END_ của _TOTAL_ kết quả",
-          "sInfoFiltered": "(Lọc từ _MAX_ bộ)",
+          "sInfoFiltered": "",
+          "sInfoEmpty":      "Không tìm thấy dòng nào phù hợp",
           "oPaginate": 
           {
             "sNext": "Trang kế",
@@ -17,12 +19,12 @@ $(document).ready( function () {
 
         },
         "columnDefs": [ {
-            "targets": 2,
+            "targets": 3,
             "orderable": false
             },{
-                "targets": 3,
+                "targets": 4,
                 "orderable": false
-                } ]
+                }]
     }
     );
 
@@ -35,14 +37,19 @@ $(document).ready( function () {
    
     $('.dataTables_length label select').addClass('form-control custom-form-control-select');
 
-    $("#toggle-add-editor").click(function(){
-      $('#add-editor-main').delay(1000).toggle();
-    });
 
-    $("#toggle-list-editor").click(function(){
-      $('#list-editor-main').delay(1000).toggle();
+    $("#toggle-add-form").click(function(){
+      $('#add-subscriber-main').delay(1000).toggle();
        
    
     });
 
-} );
+    $("#toggle-list-subscriber").click(function(){
+      $('#list-subscriber-main').delay(1000).toggle();
+       
+   
+    });
+  } 
+  );
+
+

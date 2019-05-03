@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Writer - Waiting for reviewing
+        Writer - Update Profile
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -15,10 +15,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="vendors/css/writer/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-    <!-- Css -->
-    <link rel="stylesheet" href="resource/CSS/style-writer-published.css">
-    <!-- sort and search js -->
-    <script src="resource/JS/writer-sort&searchTable.js"></script>
 </head>
 
 <body class="">
@@ -42,7 +38,7 @@
                             <p>Trang chủ</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
+                    <li class="nav-item active ">
                         <a class="nav-link" href="./writer_updateProfile.html">
                             <i class="material-icons">person</i>
                             <p>Cập nhật thông tin</p>
@@ -72,7 +68,7 @@
                             <p>Bài viết bị từ chối</p>
                         </a>
                     </li>
-                    <li class="nav-item active ">
+                    <li class="nav-item ">
                         <a class="nav-link" href="./writer_waitingReview.html">
                             <i class="material-icons">content_paste</i>
                             <p>Bài viết chờ duyệt</p>
@@ -93,7 +89,7 @@
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="#pablo">Bài viết chờ duyệt</a>
+                        <a class="navbar-brand" href="#pablo">Cập nhật thông tin cá nhân</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -104,13 +100,12 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end">
                         <form class="navbar-form">
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search..." id="myInput"
-                                    onkeyup="searchTable()">
-                                <!-- <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="searchTable()">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button> -->
+                            <div class="input-group no-border" style="display:none">
+                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                    <i class="material-icons">search</i>
+                                    <div class="ripple-container"></div>
+                                </button>
                             </div>
                         </form>
                         <ul class="navbar-nav">
@@ -162,84 +157,79 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Danh sách bài viết chờ được duyệt</h4>
+                                    <h4 class="card-title">Cập nhật thông tin cá nhân</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table" id="myTable">
-                                            <thead class=" text-primary">
-                                                <th onclick="sortTable(0)">
-                                                    STT
-                                                </th>
-                                                <th onclick="sortTable(1)">
-                                                    Tên bài viết
-                                                </th>
-                                                <th onclick="sortTable(2)">
-                                                    Chuyên mục
-                                                </th>
-
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Cuộc đời Nhật hoàng Akihito qua ảnh: Bộ mặt nước Nhật suốt 3
-                                                        thập kỷ
-                                                    </td>
-                                                    <td>
-                                                        Thế giới
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Cư dân mạng Trung Quốc phản đối văn hóa làm việc '996' của Jack
-                                                        Ma
-                                                    </td>
-                                                    <td>
-                                                        Công nghệ
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        CEO Boeing lý giải việc không ai hay biết về hệ thống của 737
-                                                        Max
-                                                    </td>
-                                                    <td>
-                                                        Kinh doanh
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Nghệ sĩ Lê Bình qua đời
-                                                    </td>
-                                                    <td>
-                                                        Giải trí
-                                                    </td>
-
-                                                </tr>
-
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Username</label>
+                                                    <input type="text" class="form-control" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Email</label>
+                                                    <input type="email" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Họ</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Tên</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Địa chỉ</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Ngày sinh</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Bút danh</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Đôi điều về tôi</label>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary pull-right">Cập nhật</button>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +238,7 @@
             </div>
             <footer class="footer">
                 <div class="container-fluid">
-                    <p>Copyright&copy;2019 - We are Web8-Team</p>
+                    <p style="margin-left: 0 auto;">Copyright&copy;2019 - We are Web8-Team</p>
                 </div>
             </footer>
         </div>
@@ -359,7 +349,6 @@
 
         });
     </script>
-
 </body>
 
 </html>

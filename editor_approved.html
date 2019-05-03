@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Writer - Waiting for reviewing
+        Writer - Approved
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -23,65 +23,50 @@
 
 <body class="">
     <div class="wrapper ">
-        <div class="sidebar" data-color="purple" data-background-color="white" data-image="#">
+        <div class="sidebar" data-color="green" data-background-color="white" data-image="#">
             <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
+              Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+      
+              Tip 2: you can also add an image using data-image tag
+          -->
             <div class="logo">
                 <a href="#" class="simple-text logo-normal">
-                    Phóng viên - Writer
+                    Biên tập viên - Editor
+                </a>
+                <a href="#" class="simple-text logo-normal">
+                    Thể thao
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item ">
-                        <a class="nav-link" href="./writer_admin.html">
+                        <a class="nav-link" href="./editor_admin.html">
                             <i class="material-icons">dashboard</i>
                             <p>Trang chủ</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="./writer_updateProfile.html">
+                        <a class="nav-link" href="./editor_updateProfile.html">
                             <i class="material-icons">person</i>
                             <p>Cập nhật thông tin</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="./writer_posting.html">
-                            <i class="material-icons">library_books</i>
-                            <p>Đăng bài viết</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./writer_waitingPublish.html">
+                        <a class="nav-link" href="./editor_waiting.html">
                             <i class="material-icons">content_paste</i>
-                            <p>Bài viết chờ xuất bản</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./writer_published.html">
-                            <i class="material-icons">content_paste</i>
-                            <p>Bài viết đã xuất bản</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./writer_rejected.html">
-                            <i class="material-icons">content_paste</i>
-                            <p>Bài viết bị từ chối</p>
+                            <p>Bài viết chờ xử lý</p>
                         </a>
                     </li>
                     <li class="nav-item active ">
-                        <a class="nav-link" href="./writer_waitingReview.html">
+                        <a class="nav-link" href="./editor_approved.html">
                             <i class="material-icons">content_paste</i>
-                            <p>Bài viết chờ duyệt</p>
+                            <p>Bài viết đã duyệt</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="./writer_edit.html">
-                            <i class="material-icons">edit</i>
-                            <p>Hiệu chỉnh bài viết</p>
+                        <a class="nav-link" href="./editor_rejected.html">
+                            <i class="material-icons">content_paste</i>
+                            <p>Bài viết đã từ chối</p>
                         </a>
                     </li>
 
@@ -93,7 +78,7 @@
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="#pablo">Bài viết chờ duyệt</a>
+                        <a class="navbar-brand" href="#pablo">Bài viết đã duyệt</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -107,10 +92,6 @@
                             <div class="input-group no-border">
                                 <input type="text" value="" class="form-control" placeholder="Search..." id="myInput"
                                     onkeyup="searchTable()">
-                                <!-- <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="searchTable()">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button> -->
                             </div>
                         </form>
                         <ul class="navbar-nav">
@@ -164,8 +145,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Danh sách bài viết chờ được duyệt</h4>
+                                <div class="card-header card-header-success">
+                                    <h4 class="card-title ">Danh sách bài viết đã duyệt</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -177,8 +158,8 @@
                                                 <th onclick="sortTable(1)">
                                                     Tên bài viết
                                                 </th>
-                                                <th onclick="sortTable(2)">
-                                                    Chuyên mục
+                                                <th>
+                                                    Thời điểm xuất bản
                                                 </th>
 
                                             </thead>
@@ -192,7 +173,7 @@
                                                         thập kỷ
                                                     </td>
                                                     <td>
-                                                        Thế giới
+                                                        5/3/2019, 3:48:23 PM
                                                     </td>
 
                                                 </tr>
@@ -205,7 +186,7 @@
                                                         Ma
                                                     </td>
                                                     <td>
-                                                        Công nghệ
+                                                        5/3/2019, 3:48:23 PM
                                                     </td>
 
                                                 </tr>
@@ -218,7 +199,7 @@
                                                         Max
                                                     </td>
                                                     <td>
-                                                        Kinh doanh
+                                                        5/3/2019, 3:48:23 PM
                                                     </td>
 
                                                 </tr>
@@ -230,7 +211,7 @@
                                                         Nghệ sĩ Lê Bình qua đời
                                                     </td>
                                                     <td>
-                                                        Giải trí
+                                                        5/3/2019, 3:48:23 PM
                                                     </td>
 
                                                 </tr>

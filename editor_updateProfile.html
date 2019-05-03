@@ -5,25 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Writer - Rejected
+    Editor - Admin Page 
   </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-    name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="vendors/css/writer/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-  <!-- Css -->
-  <link rel="stylesheet" href="resource/CSS/style-writer-published.css">
-  <!-- sort and search js -->
-  <script src="resource/JS/writer-sort&searchTable.js"></script>
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="#">
+    <div class="sidebar" data-color="green" data-background-color="white" data-image="#">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -31,60 +25,44 @@
     -->
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          Phóng viên - Writer
+          Biên tập viên - Editor
+        </a>
+        <a href="#" class="simple-text logo-normal">
+            Thể thao
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="./writer_admin.html">
+            <a class="nav-link" href="./editor_admin.html">
               <i class="material-icons">dashboard</i>
               <p>Trang chủ</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active ">
             <a class="nav-link" href="./writer_updateProfile.html">
               <i class="material-icons">person</i>
               <p>Cập nhật thông tin</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./writer_posting.html">
-              <i class="material-icons">library_books</i>
-              <p>Đăng bài viết</p>
+            <a class="nav-link" href="./editor_waiting.html">
+              <i class="material-icons">content_paste</i>
+              <p>Bài viết chờ xử lý</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./writer_waitingPublish.html">
+            <a class="nav-link" href="./editor_approved.html">
               <i class="material-icons">content_paste</i>
-              <p>Bài viết chờ xuất bản</p>
+              <p>Bài viết đã duyệt</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./writer_published.html">
+            <a class="nav-link" href="./editor_rejected.html">
               <i class="material-icons">content_paste</i>
-              <p>Bài viết đã xuất bản</p>
+              <p>Bài viết đã từ chối</p>
             </a>
           </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="./writer_rejected.html">
-              <i class="material-icons">content_paste</i>
-              <p>Bài viết bị từ chối</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./writer_waitingReview.html">
-              <i class="material-icons">content_paste</i>
-              <p>Bài viết chờ duyệt</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./writer_edit.html">
-              <i class="material-icons">edit</i>
-              <p>Hiệu chỉnh bài viết</p>
-            </a>
-          </li>
-
         </ul>
       </div>
     </div>
@@ -93,10 +71,9 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Bài viết bị từ chối</a>
+            <a class="navbar-brand" href="#pablo">Cập nhật thông tin</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-            aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -104,13 +81,12 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search..." id="myInput"
-                  onkeyup="searchTable()">
-                <!-- <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="searchTable()">
+              <div class="input-group no-border" style="display:none">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
                   <i class="material-icons">search</i>
                   <div class="ripple-container"></div>
-                </button> -->
+                </button>
               </div>
             </form>
             <ul class="navbar-nav">
@@ -123,8 +99,7 @@
                 </a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
                   <span class="notification">5</span>
                   <p class="d-lg-none d-md-block">
@@ -140,8 +115,7 @@
                 </div>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false">
+                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
@@ -161,101 +135,89 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Danh sách bài viết bị từ chối</h4>
+            <div class="row">
+                <div class="col-md-2">
+
                 </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table" id="myTable">
-                      <thead class=" text-primary">
-                        <th onclick="sortTable(0)">
-                          STT
-                        </th>
-                        <th onclick="sortTable(1)">
-                          Tên bài viết
-                        </th>
-                        <th onclick="sortTable(2)">
-                          Chuyên mục
-                        </th>
-
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Hoàng cung Tokyo, nơi Nhật hoàng mới đăng cơ
-                          </td>
-                          <td>
-                            Thế giới
-                          </td>
-
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Nuốt tai nghe trong lúc ngủ, sáng dậy thấy bụng phát ra nhạc
-                          </td>
-                          <td>
-                            Công nghệ
-                          </td>
-
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            Tăng 100 giờ làm thêm mỗi năm cho người lao động
-                          </td>
-                          <td>
-                            Kinh doanh
-                          </td>
-
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Thí sinh Hoa hậu Mỹ 2019 diện áo tắm, khoe hình thể gợi cảm săn chắc
-                          </td>
-                          <td>
-                            Giải trí
-                          </td>
-
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Những hình thức tra tấn kinh dị nhất trong lịch sử
-                          </td>
-                          <td>
-                            Pháp luật
-                          </td>
-
-                        </tr>
-
-                      </tbody>
-                    </table>
-                  </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-success">
+                            <h4 class="card-title">Cập nhật thông tin cá nhân</h4>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Username</label>
+                                            <input type="text" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Chuyên mục</label>
+                                            <input type="text" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Họ</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Tên</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Địa chỉ</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Ngày sinh</label>
+                                            <input type="email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Email</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Đôi điều về tôi</label>
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success pull-right">Cập nhật</button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
       <footer class="footer">
         <div class="container-fluid">
-          <p>Copyright&copy;2019 - We are Web8-Team</p>
+          <p style="margin-left: 0 auto;">Copyright&copy;2019 - We are Web8-Team</p>
         </div>
       </footer>
     </div>
@@ -270,8 +232,8 @@
   <script src="vendors/js/writer/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
 
   <script>
-    $(document).ready(function () {
-      $().ready(function () {
+    $(document).ready(function() {
+      $().ready(function() {
         $sidebar = $('.sidebar');
 
         $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -291,7 +253,7 @@
 
         }
 
-        $('.switch-sidebar-image input').change(function () {
+        $('.switch-sidebar-image input').change(function() {
           $full_page_background = $('.full-page-background');
 
           $input = $(this);
@@ -323,7 +285,7 @@
           }
         });
 
-        $('.switch-sidebar-mini input').change(function () {
+        $('.switch-sidebar-mini input').change(function() {
           $body = $('body');
 
           $input = $(this);
@@ -338,7 +300,7 @@
 
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
-            setTimeout(function () {
+            setTimeout(function() {
               $('body').addClass('sidebar-mini');
 
               md.misc.sidebar_mini_active = true;
@@ -346,12 +308,12 @@
           }
 
           // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function () {
+          var simulateWindowResize = setInterval(function() {
             window.dispatchEvent(new Event('resize'));
           }, 180);
 
           // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function () {
+          setTimeout(function() {
             clearInterval(simulateWindowResize);
           }, 1000);
 
@@ -360,13 +322,12 @@
     });
   </script>
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
 
     });
   </script>
-
 </body>
 
 </html>

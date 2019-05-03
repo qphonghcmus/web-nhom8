@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quản lý độc giả</title>
+    <title>Quản lý phóng viên</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="resource/CSS/ManageSubscriber.css">
-
+    <link rel="stylesheet" href="resource/CSS/ManageWriter.css">
+    <!--Grid CSS-->
+    <link rel="stylesheet" href="vendors/css/grid.css">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -54,13 +55,13 @@
                 <li class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý người dùng</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li class="active">
+                        <li>
                             <a href="#">Độc giả</a>
                         </li>
                         <li>
                             <a href="#">Biên tập viên</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="#">Phóng viên</a>
                         </li>
                     </ul>
@@ -110,7 +111,7 @@
             <div class="content-box-list-subscriber">
                 <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
                     <div class="content-box-title">
-                        <p>Thêm độc giả mới</p>
+                        <p>Thêm phóng viên mới</p>
                     </div>
                   
                     <div class="content-box-tool">
@@ -138,8 +139,6 @@
                        <label for="txtSDT">SĐT: </label>
                        <input class="form-control" type="text" placeholder="Nhập sđt" name="txtSDT">
                        <br>
-                       <label for="txtNgayHH">Ngày hết hạn: </label>
-                       <input class="form-control" type="text" placeholder="Nhập ngày hết hạn tài khoản" name="txtNgayHH">
                        <div class="form-group position-button">
                             <div>
                                 <input type="button" class="btn btn-primary" value=" Thêm">
@@ -153,7 +152,7 @@
             <div class="content-box-list-subscriber">
                 <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
                     <div class="content-box-title">
-                        <p>Danh sách độc giả</p>
+                        <p>Danh sách phóng viên</p>
                     </div>
                   
                     <div class="content-box-tool">
@@ -170,10 +169,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
-                                    <th scope="col">Tên độc giả</th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col">Họ tên</th>
                                     <th scope="col">SĐT</th>
-                                    <th scope="col">Thời hạn</th>
                                     <th scopr="col"></th>
                                     <th scopr="col"></th>
                                 </tr>
@@ -182,56 +179,23 @@
                                 <tr>
                                     <td><p>1</p></td>
                                     <td><p>Lê Hoàng Sang</p></td>
-                                    <td><p>lhsanghcmus@gmail.com</p></td>
                                     <td><p>0979279932</p></td>
-                                    <td><p>30/04/2019</p></td>
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"  onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></td>
                                 </tr>
                                 <tr>
                                     <td><p>2</p></td>
-                                    <td><p>Phan Quốc Phong</p></td>
-                                    <td><p>pqphonghcmus@gmail.com</p></td>
-                                    <td><p>0257863515</p></td>
-                                    <td><p>30/04/2019</p></td>
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                    <td><p>Lê Phạm Hoàng Quý</p></td>
+                                    <td><p>0979279932</p></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"  onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa" ></td>
                                 </tr>
                                 <tr>
                                     <td><p>3</p></td>
-                                    <td><p>Lê Phạm Hoàng Quý</p></td>
-                                    <td><p>quyle0508@gmail.com</p></td>
-                                    <td><p>0375863368</p></td>
-                                    <td><p>30/04/2019</p></td>
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                                </tr>
-                                <tr>
-                                    <td><p>4</p></td>
-                                    <td><p>Nguyễn Quang Lê</p></td>
-                                    <td><p>quangle@gmail.com</p></td>
-                                    <td><p>0257863515</p></td>
-                                    <td><p>30/04/2019</p></td>
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                                </tr>
-                                <tr>
-                                    <td><p>5</p></td>
-                                    <td><p>Nguyễn Phú Quý</p></td>
-                                    <td><p>quynguyen@gmail.com</p></td>
-                                    <td><p>0257812115</p></td>
-                                    <td><p>30/04/2019</p></td>
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
-                                </tr>
-                                <tr>
-                                    <td><p>6</p></td>
-                                    <td><p>Trần Quốc Hào</p></td>
-                                    <td><p>quochao2810@gmail.com</p></td>
-                                    <td><p>0921562265</p></td>
-                                    <td><p>30/04/2019</p></td>
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Gia hạn" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"></td>
+                                    <td><p>Phan Quốc Phong</p></td>
+                                    <td><p>0979279932</p></td>
+                                    <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xem thông tin"  onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></td>
                                 </tr>
                             </tbody>
                         </table> 
@@ -241,7 +205,7 @@
 
             
 
-            <!--Tạo form gia hạn tài khoản độc giả-->
+           
             <div class="modal" id="frmGiaHan">
                 <form class="modal-content animate">
                     <div class="frmContainer">
@@ -249,11 +213,36 @@
                             class="close" title="Đóng">&times;</span>            
                     </div>
                     <br>
+                    <br>
                     <div class="form-group">
-                        <label for="txtTime">Nhập thời gian hết hạn:</label>
-                        <input type="text" class="form-control" name="txtTime" required>
-                        <div>
-                            <input type="button" class="btn btn-primary" value="Xác nhận">
+                        <label for="txtName" class="basicLabel">Họ tên:</label>
+                        <input type="text" class="form-control name" name="txtName" required>
+                        <div class="clearfix"></div>
+                        <label for="txtEmail"  class="basicLabel">Email:</label>
+                        <input type="email" class="form-control name" name="txtEmail" required>
+                        <div class="clearfix"></div>
+                        <label for="txtPhone"  class="basicLabel">SĐT:</label>
+                        <input type="tel" class="form-control name" name="txtPhone" required>
+                        <div class="clearfix"></div>
+                        <label  class="basicLabel">Số bài viết đã xuất bản: </label>
+                        <input type="text" class="form-control name" disabled>
+                        <div class="clearfix"></div>
+                        <label  class="basicLabel">Số bài viết bị từ chối: </label>
+                        <input type="text" class="form-control name" disabled >
+                        <div class="clearfix"></div>
+                        <label  class="basicLabel">Số bài viết chưa được duyệt: </label>
+                        <input type="text" class="form-control name" disabled >
+                        <div class="clearfix"></div>
+                        <label for="txtUserName_Change" class="basicLabel">UserName:</label>
+                        <input type="text" class="form-control name" name="txtUserName_Change" required>
+                        <div class="clearfix"></div>
+                        <label for="txtPassword_Change" class="basicLabel">Password:</label>
+                        <input type="password" class="form-control name" name="txtUserPassword_Change" required>
+                           
+                        
+                        <div class="clearfix"></div>
+                        <div class="btn-xacnhan-section">
+                            <input type="button" class="btn btn-primary" value="Cập nhật">
                         </div>
                     </div>  
                 </form>
@@ -278,7 +267,7 @@
             });
         });
     </script>
-    <script src="resource/JS/ManageSubscriber.js"></script>
+    <script src="resource/JS/ManageWriter.js"></script>
 </body>
 
 </html>
