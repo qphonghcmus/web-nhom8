@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    
 </head>
 
 <body>
@@ -342,6 +345,20 @@
     </div>
   </section>
 
+  <div class="weather-wrapper" id="weather">
+    <div class="weather-card madrid">
+        <div class="weather-icon sun"></div>
+        <h1>26º</h1>
+        <p>Hà Nội</p>
+    </div>
+    <div class="weather-card london">
+        <div class="weather-icon cloud"></div>
+        <h1>32º</h1>
+        <p>Hồ Chí Minh</p>
+    </div>
+</div>
+  
+
   <section class="contact-section" id="contact">
     <div class="row">
       <ul class="information">
@@ -390,6 +407,20 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+    <script>
+      // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+          document.getElementById("weather").style.display = "block";
+        } 
+        if(document.body.scrollTop >1200 || document.documentElement.scrollTop > 1200){
+          document.getElementById("weather").style.display = "none";
+        }
+      }
+      </script>
 </body>
 
 </html>
