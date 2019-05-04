@@ -4,7 +4,7 @@
 <head>
     <title>Trang thông tin điện tử</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,14 +13,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- file css style -->
-    <link rel="stylesheet" href="vendors/css/grid.css">
     <link rel="stylesheet" href="resource/CSS/style.css">
+    <link rel="stylesheet" href="vendors/css/grid.css">
+    <link rel="stylesheet" href="resource/CSS/Responsive_Index.css">
     
     <!-- file js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="resource/CSS/Responsive_Index.css">
+  
 
 </head>
 
@@ -230,15 +231,15 @@
         </div>
 
         <div class="row">
-            <div class="col span-1-of-2 list_title">
+            <div class="col_ span-1-of-2 list_title">
                 <h2>Xem nhiều nhất</h2>
             </div>
-            <div class="col span-1-of-2 list_title">
+            <div class="col_ span-1-of-2 list_title" id="new">
                 <h2>Tin mới nhất</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col span-1-of-2 list_col">
+            <div class="col_ span-1-of-2 list_col">
                 <ul class="news_list">
                     <li>
                         <div class="new_news">
@@ -457,8 +458,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="col span-1-of-2 list_col">
-                <ul class="news_list">
+            <h2 id="new_hidden">Tin mới nhất</h2>
+            <div class="col_ span-1-of-2 list_col">
+                 <ul class="news_list">
                     <li>
                         <div class="new_news">
                             <img src="http://kenh14cdn.com/thumb_w/250/2019/photo1555207418329-1555207418595-crop-15552074516341755036386.jpg"
@@ -682,7 +684,7 @@
 
     <section class="main_news_category">
         <div class="row">
-            <div class="col span-1-of-2 list_category">
+            <div class="col_ span-1-of-2 list_category">
                 <div class="box">
                     <ul class="nav nav-tabs tab">
                         <li class="nav-item">
@@ -790,7 +792,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col span-1-of-2 list_category">
+            <div class="col_ span-1-of-2 list_category">
                 <div class="box">
                     <ul class="nav nav-tabs tab">
                         <li class="nav-item">
