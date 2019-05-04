@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="resource/CSS/ManageWriter.css">
+    <link rel="stylesheet" href="resource/CSS/Manage_Writer_Detail.css">
     <!--Grid CSS-->
     <link rel="stylesheet" href="vendors/css/grid.css">
     <!-- Font Awesome JS -->
@@ -97,104 +97,37 @@
             <div class="content-box-list-subscriber">
                 <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
                     <div class="content-box-title">
-                        <p>Thêm phóng viên mới</p>
+                        <a href="ManageSubscriber.html#list-subscriber-main">Quản lý phóng viên</a>
+                        <p>/ Thông tin chi tiết</p>
                     </div>
                   
-                    <div class="content-box-tool">
-                        <a href="#toggle-add-form" id="toggle-add-form">
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </a>
-                    </div>
+                   
                     <div class="clearfix"></div>
                 </div>
                 
                 <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="add-subscriber-main">
                    <form>
                        <label for="txtUserName">Username: </label>
-                       <input class="form-control" type="text" placeholder="UserName" name="txtUserName">
+                       <input class="form-control" type="text" value="lhsanghcmus" disabled name="txtUserName">
                         <br>
                        <label for="txtPassWord">Password: </label>
-                       <input class="form-control" type="password" placeholder="PassWord" name="txtPassWord">
+                       <input class="form-control" type="password" value="lhsanghcmus" name="txtPassWord">
                        <br>
                        <label for="txtHoTen">Họ tên: </label>
-                       <input  class="form-control" type="text" placeholder="Nhập họ tên" name="txtHoTen">
+                       <input  class="form-control" type="text" value="Lê Hoàng Sang" name="txtHoTen">
                        <br>
                        <label for="txtEmail">Email: </label>
-                       <input class="form-control"  type="text" placeholder="Nhập email" name="txtEmail">
+                       <input class="form-control"  type="text" value="lhsanghcmus@gmail.com" name="txtEmail">
                        <br>
                        <label for="txtSDT">SĐT: </label>
-                       <input class="form-control" type="text" placeholder="Nhập sđt" name="txtSDT">
+                       <input class="form-control" type="text" value="0979279932" name="txtSDT">
                        <br>
                        <div class="form-group position-button">
                             <div>
-                                <input type="button" class="btn btn-primary" value=" Thêm">
+                                <input type="button" class="btn btn-primary" value="Cập nhật">
                             </div>
                         </div>
-                  
                    </form>
-                </div>
-            </div>
-
-            <div class="content-box-list-subscriber">
-                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
-                    <div class="content-box-title">
-                        <p>Danh sách phóng viên</p>
-                    </div>
-                  
-                    <div class="content-box-tool">
-                        <a href="#toggle-list-subscrber" id="toggle-list-subscriber">
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                
-                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-subscriber-main">
-                    <div class="table-responsive">
-                        <table class="table table-hover"  id="main-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">STT</th>
-                                    <th scope="col">Họ tên</th>
-                                    <th scope="col">SĐT</th>
-                                    <th scopr="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><p>1</p></td>
-                                    <td>
-                                        <div>
-                                            <a href="Manage_Writer_Detail.html" target="_blank" class="link-to-info">Lê Hoàng Sang</a>
-                                        </div>
-                                    </td>  
-                                    <td><p>0979279932</p></td>
-                                  
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></td>
-                                </tr>
-                                <tr>
-                                    <td><p>2</p></td>
-                                    <td>
-                                        <div>
-                                            <a href="Manage_Writer_Detail.html" target="_blank" class="link-to-info">Lê Phạm Hoàng Quý</a>
-                                        </div>
-                                    </td>  
-                                    <td><p>0979279932</p></td>  
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa" ></td>
-                                </tr>
-                                <tr>
-                                    <td><p>3</p></td>
-                                    <td>
-                                        <div>
-                                            <a href="Manage_Writer_Detail.html" target="_blank" class="link-to-info">Phan Quốc Phong</a>
-                                        </div>
-                                    </td>  
-                                    <td><p>0979279932</p></td>     
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></td>
-                                </tr>
-                            </tbody>
-                        </table> 
-                    </div>
                 </div>
             </div>
         </div>
@@ -216,7 +149,6 @@
             });
         });
     </script>
-    <script src="resource/JS/ManageWriter.js"></script>
 </body>
 
 </html>
