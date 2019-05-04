@@ -250,7 +250,21 @@ a.article, a.article:hover {
     font-size: 20px;
     color: #141414;;
     padding-top: 10px;
+    
+    display: inline-block;
+}
+.content-box-title a:hover
+{
+    color:red;
+}
+.content-box-title a
+{
+    font-weight: 600;
+    font-size: 20px;
+    color: #141414;;
+    padding-top: 10px;
     padding-left: 25px;
+    display: inline-block;
 }
 .content-box-tool
 {
@@ -270,22 +284,7 @@ a.article, a.article:hover {
 {
     margin-top: 10px;
 }
-.link-to-info
-{
-    
-        display: block;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        margin-bottom: 1rem;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.1em;
-        font-weight: 300;
-        line-height: 1.7em;
-    color: black;
-    margin-top:11px;
-}
+
 /*Custom cho form gia han tai khoan*/
 .frmContainer
 {
