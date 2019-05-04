@@ -9,6 +9,7 @@
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
+
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -17,6 +18,7 @@
     <link href="vendors/css/writer/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <!-- Css -->
     <link rel="stylesheet" href="resource/CSS/style-writer-published.css">
+    <link rel="stylesheet" href="resource/CSS/style-editor-waiting.css">
     <!-- sort and search js -->
     <script src="resource/JS/writer-sort&searchTable.js"></script>
 </head>
@@ -168,10 +170,10 @@
                                                         thập kỷ
                                                     </td>
                                                     <td>
-                                                        <!-- <button type="submit" class="btn btn-success pull-right">Duyệt</button> -->
-                                                        <!-- <button type="submit" class="btn btn-success pull-right">Từ chối</button> -->
-                                                        <a href="#">Duyệt</a>
-                                                        <a href="#">Từ chối</a>
+                                                        <button type="button" class="btn btn-info"
+                                                            id="btn-duyet">Duyệt</button>
+                                                        <button type="button" class="btn btn-danger" id="btn-tuchoi">Từ
+                                                            chối</button>
                                                     </td>
 
                                                 </tr>
@@ -230,6 +232,94 @@
                     <p>Copyright&copy;2019 - We are Web8-Team</p>
                 </div>
             </footer>
+        </div>
+    </div>
+
+    <div class="bg-modal">
+        <div class="modal-content">
+            <i class="material-icons" id="icon-close">
+                close
+            </i>
+            <h4>Bài viết</h4>
+            <a href="#">Nghệ sĩ Lê Bình qua đời</a>
+            <textarea name="" id="editor-tuchoi-lido" cols="3" rows="5" placeholder="Lí do từ chối bài viết"></textarea>
+            <button type="button" class="btn btn-danger small-btn">Từ chối</button>
+        </div>
+    </div>
+
+    <div class="popup-duyet">
+        <div class="popup-content">
+            <i class="material-icons" id="icon-close2">
+                close
+            </i>
+            <h4>Bài viết</h4>
+            <a href="#">Roger Federer</a>
+
+            <div class="categories">
+                <h3>Chuyên mục</h3>
+                <div class="row">
+                    <div class="col span-1-of-2 element">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+                        <label class="form-check-label" for="defaultCheck1">
+                            Thể thao
+                        </label>
+                    </div>
+                    <div class="col span-1-of-2 element">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Chính trị
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-2 element">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            thời trang
+                        </label>
+                    </div>
+                    <div class="col span-1-of-2 element">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Công nghệ
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-2 element">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Pháp luật
+                        </label>
+                    </div>
+                    <div class="col span-1-of-2 element">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Giải trí
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tags">
+                <h3>Tags</h3>
+                <div class="col-right-content">
+                    <form action="" class="form-tags">
+                        <input type="text" value="The thao, quan vot, roger federer">
+                        <!-- <p>Các tag cách nhau bởi dấu phẩy</p> -->
+                    </form>
+                </div>
+            </div>
+
+            <div class="date-publish">
+                <h3>Ngày xuất bản</h3>
+                <form action="">
+                    <input type="text">
+
+                </form>
+            </div>
+
+            <button type="button" class="btn btn-danger small-btn">Từ chối</button>
         </div>
     </div>
 
@@ -338,6 +428,30 @@
 
         });
     </script>
+
+    <script>
+        document.getElementById('btn-tuchoi').addEventListener('click', function () {
+            document.querySelector('.bg-modal').style.display = 'flex';
+            document.querySelector('.card-header').style.display = 'none';
+        });
+
+        document.getElementById('icon-close').addEventListener('click', function () {
+            document.querySelector('.bg-modal').style.display = 'none';
+            document.querySelector('.card-header').style.display = 'block';
+        });
+
+        document.getElementById('btn-duyet').addEventListener('click', function () {
+            document.querySelector('.popup-duyet').style.display = 'flex';
+            document.querySelector('.card-header').style.display = 'none';
+        });
+
+        document.getElementById('icon-close2').addEventListener('click', function () {
+            document.querySelector('.popup-duyet').style.display = 'none';
+            document.querySelector('.card-header').style.display = 'block';
+        });
+
+    </script>
+
 
 </body>
 

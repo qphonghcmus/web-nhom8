@@ -1,36 +1,15 @@
 
 /* ---------------------------------------------- */
 /* ------------------- Body --------------------- */
-.main-body{
-    margin-left: 20px;
-    border: 2px solid #8f8c8c;
-    border-radius: 5px;
-    width: 1000px;
-    background-color: #ffffff;
-}
-
-.content .main-body h1{
-    background-color: rgb(60, 183, 199);
-    color: white;
-    display: inline-block;
-    padding: 5px;
-    margin-top: 10px;
-    margin-left: 50px;
-}
-
 
 .col-right{
-    background-color: #ffffff;
     width: 250px;
     border: 2px solid #ece9e9;
     border-radius: 5px;
-    /* margin-left: 50px; */
-    margin-bottom: 30px;
-    /* padding: 5px; */
+    margin-bottom: 20px;
 }
 
 .col-right h3{
-    /* background-color: #fcf9f9; */
     margin-top: 5px;
     padding-left: 10px;
     border-bottom: 2px solid  #ece9e9;
@@ -46,19 +25,17 @@
     width: 100px;
 }
 
-
-
-.form-categories{
+.col-right .form-categories{
     margin-left: 20px;
 }
 
 .col-left{
-    margin-left: 50px;
+    margin-left: 40px;
 }
 
 .col-left .form-add-post .title-name,
 #tomtat{
-    width: 600px;
+    width: 100%;
     margin-bottom: 10px;
     border: 2px solid #ece9e9;
     border-radius: 5px;

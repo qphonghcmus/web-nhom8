@@ -1,0 +1,111 @@
+/* Css cho popup nhap noi dung tu choi bai viet */
+
+.bg-modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal-content{
+    width: 500px;
+    height: 270px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content i{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    cursor: pointer;
+}
+
+.modal-content h4{
+    margin-top: 10px;
+}
+.modal-content a{
+    font-size: 150%;
+    font-weight: 400;
+}
+
+.modal-content .small-btn{
+    width: 120px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#editor-tuchoi-lido{
+    margin: 10px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+/* Css cho duyet bai viet */
+.popup-duyet{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.popup-content{
+    width: 500px;
+    height: 550px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-content #icon-close2{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    cursor: pointer;
+}
+
+.popup-content h4{
+    margin-top: 10px;
+}
+.popup-content a{
+    font-size: 150%;
+    font-weight: 400;
+}
+
+.popup-content .small-btn{
+    width: 120px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.popup-duyet .popup-content .categories{
+    width: 50%;
+    border: 1px solid #5e5c5c;
+    border-radius: 4px;
+    
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.popup-duyet .popup-content .categories h3{
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.popup-duyet .popup-content .categories .element{
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
