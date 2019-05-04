@@ -131,7 +131,6 @@ a, a:hover, a:focus {
     vertical-align: middle;
 }
 
-
 a[data-toggle="collapse"] {
     position: relative;
 }
@@ -234,7 +233,8 @@ a.article, a.article:hover {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-.content-box-list-subscriber-header
+
+.content-box-list-editor-header
 {
     background-color: #44e0f8;
     color:#141414;
@@ -250,7 +250,21 @@ a.article, a.article:hover {
     font-size: 20px;
     color: #141414;;
     padding-top: 10px;
+    
+    display: inline-block;
+}
+.content-box-title a:hover
+{
+    color:red;
+}
+.content-box-title a
+{
+    font-weight: 600;
+    font-size: 20px;
+    color: #141414;;
+    padding-top: 10px;
     padding-left: 25px;
+    display: inline-block;
 }
 .content-box-tool
 {
@@ -258,25 +272,6 @@ a.article, a.article:hover {
     margin-right: 10px;
     margin-top: 20px;
 }
-
-
-
-
-.animate-close {
-    -webkit-animation: animateclose 0.6s;
-    animation: animateclose 0.6s;
-   display: none;
-  }
-  
-  @-webkit-keyframes animateclose {
-    from {-webkit-transform: scale(1)} 
-    to {-webkit-transform: scale(0)}
-  }
-    
-  @keyframes animateclose {
-    from {transform: scale(1)} 
-    to {transform: scale(0)}
-  }
 
 
 /*Custom for line in table*/
@@ -289,22 +284,7 @@ a.article, a.article:hover {
 {
     margin-top: 10px;
 }
-.link-to-info
-{
-    
-        display: block;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        margin-bottom: 1rem;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.1em;
-        font-weight: 300;
-        line-height: 1.7em;
-    color: black;
-    margin-top:11px;
-}
+
 /*Custom cho form gia han tai khoan*/
 .frmContainer
 {
@@ -378,7 +358,8 @@ a.article, a.article:hover {
 
   .position-button
   {
-     
+      margin-top: 25px;
+      margin-bottom: 0px;
       text-align: center;
   }
 
@@ -410,7 +391,7 @@ a.article, a.article:hover {
     padding-bottom: 2px;
     float:right;
     margin-right: 5%;
-    width: 50%;
+    width: 80%;
 }
 
 .basicLabel
@@ -433,6 +414,9 @@ a.article, a.article:hover {
 {
     margin-left: 10%;
 }
+
+
+
 
 @media (max-width: 768px) {
     #sidebar {
@@ -471,6 +455,14 @@ a.article, a.article:hover {
     }
     .modal-content
     {
-        width: 60%;
+        width: 80%;
+    }
+    .name
+    {  
+    padding-top: 2px;
+    padding-bottom: 2px;
+    float:right;
+    margin-right: 10%;
+    width: 60%;
     }
 }
