@@ -6,3 +6,4 @@
 # Trang chủ: index.html
 # Trang đăng nhập : login.html
 # Bài viết chi tiết: single_post.html
+# Danh sách bài viết: archive.html
