@@ -2213,6 +2213,15 @@ textarea.form-control {
       .map-area iframe {
         height: 250px; } }
 
+/* logo */
+.mag-main-menu .nav-brand img{
+  width: 120px;
+}
+
+.footer-area .container .footer-widget .foo-logo img{
+  width: 140px;
+}
+
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */
