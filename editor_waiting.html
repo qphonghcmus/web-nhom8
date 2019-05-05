@@ -170,9 +170,8 @@
                                                         thập kỷ
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info"
-                                                            id="btn-duyet">Duyệt</button>
-                                                        <button type="button" class="btn btn-danger" id="btn-tuchoi">Từ
+                                                        <button type="button" class="btn btn-info btn-duyet-click">Duyệt</button>
+                                                        <button type="button" class="btn btn-danger btn-tuchoi-click">Từ
                                                             chối</button>
                                                     </td>
 
@@ -186,9 +185,9 @@
                                                         Ma
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info"
+                                                        <button type="button" class="btn btn-info btn-duyet-click"
                                                             id="btn-duyet">Duyệt</button>
-                                                        <button type="button" class="btn btn-danger" id="btn-tuchoi">Từ
+                                                        <button type="button" class="btn btn-danger btn-tuchoi-click">Từ
                                                             chối</button>
                                                     </td>
 
@@ -202,9 +201,9 @@
                                                         Max
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info"
+                                                        <button type="button" class="btn btn-info btn-duyet-click"
                                                             id="btn-duyet">Duyệt</button>
-                                                        <button type="button" class="btn btn-danger" id="btn-tuchoi">Từ
+                                                        <button type="button" class="btn btn-danger btn-tuchoi-click">Từ
                                                             chối</button>
                                                     </td>
 
@@ -217,9 +216,9 @@
                                                         Nghệ sĩ Lê Bình qua đời
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info"
+                                                        <button type="button" class="btn btn-info btn-duyet-click"
                                                             id="btn-duyet">Duyệt</button>
-                                                        <button type="button" class="btn btn-danger" id="btn-tuchoi">Từ
+                                                        <button type="button" class="btn btn-danger btn-tuchoi-click">Từ
                                                             chối</button>
                                                     </td>
 
@@ -439,25 +438,35 @@
     </script>
 
     <script>
-        document.getElementById('btn-tuchoi').addEventListener('click', function () {
-            document.querySelector('.bg-modal').style.display = 'flex';
-            document.querySelector('.card-header').style.display = 'none';
-        });
-
         document.getElementById('icon-close').addEventListener('click', function () {
             document.querySelector('.bg-modal').style.display = 'none';
             document.querySelector('.card-header').style.display = 'block';
-        });
-
-        document.getElementById('btn-duyet').addEventListener('click', function () {
-            document.querySelector('.popup-duyet').style.display = 'flex';
-            document.querySelector('.card-header').style.display = 'none';
         });
 
         document.getElementById('icon-close2').addEventListener('click', function () {
             document.querySelector('.popup-duyet').style.display = 'none';
             document.querySelector('.card-header').style.display = 'block';
         });
+
+        var btns = document.querySelectorAll('.btn-duyet-click');
+        for (var i = 0; i < btns.length; i++){
+            var btni = btns[i];
+            btni.addEventListener('click', function () {
+                document.querySelector('.popup-duyet').style.display = 'flex';
+            document.querySelector('.card-header').style.display = 'none';
+        });
+        }  
+        
+        btns = document.querySelectorAll('.btn-tuchoi-click');
+        for (var i = 0; i < btns.length; i++){
+            var btni = btns[i];
+            btni.addEventListener('click', function () {
+            document.querySelector('.bg-modal').style.display = 'flex';
+            document.querySelector('.card-header').style.display = 'none';
+        });
+        }  
+
+        
 
     </script>
 
