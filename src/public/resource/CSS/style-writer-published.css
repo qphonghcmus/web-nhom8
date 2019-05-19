@@ -1,0 +1,33 @@
+/* TABLE */
+.card-body .table-responsive .table thead th{
+    font-size: 150%;
+}
+
+.card-body .table-responsive .table tbody tr{
+    transition: all .5s;
+}
+
+.card-body .table-responsive .table tbody tr:hover,
+.card-body .table-responsive .table tbody tr:active{
+    cursor: pointer;
+    background-color: #ece2e2;
+}
+
+.card-body .table-responsive .table thead th:hover,
+.card-body .table-responsive .table thead th:active{
+    cursor: pointer;
+}
+
+.card-body .table-responsive .table tbody tr td{
+    font-weight: 500;
+}
+
+.content .container-fluid .row .col-md-12 .card .card-title{
+    text-transform: uppercase;
+    font-size: 150%;
+    font-weight: 500;
+}
+
+.footer .container-fluid p{
+    margin-left: 0 auto;
+}
