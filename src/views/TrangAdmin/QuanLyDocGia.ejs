@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <%- include('../layouts/TrangAdmin/head') -%>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <%- include('../layouts/TrangAdmin/navbar') -%>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn d-inline-block d-lg-none ml-auto " type="button" data-toggle="collapse"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <a href="#" class="button-logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <i></i>
+                                <a class="nav-link" href="#">
+                                        <i class="fas fa-sign-out-alt logout"></i>
+                                    Đăng xuất
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            
+            <div class="content-box-list-subscriber">
+                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+                    <div class="content-box-title">
+                        <p>Thêm độc giả mới</p>
+                    </div>
+                  
+                    <div class="content-box-tool">
+                        <a href="#toggle-add-form" id="toggle-add-form">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                
+                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="add-subscriber-main">
+                   <form>
+                       <label for="txtUserName">Username: </label>
+                       <input class="form-control" type="text" placeholder="UserName" name="txtUserName">
+                        <br>
+                       <label for="txtPassWord">Password: </label>
+                       <input class="form-control" type="password" placeholder="PassWord" name="txtPassWord">
+                       <br>
+                       <label for="txtHoTen">Họ tên: </label>
+                       <input  class="form-control" type="text" placeholder="Nhập họ tên" name="txtHoTen">
+                       <br>
+                       <label for="txtEmail">Email: </label>
+                       <input class="form-control"  type="text" placeholder="Nhập email" name="txtEmail">
+                       <br>
+                       <label for="txtSDT">SĐT: </label>
+                       <input class="form-control" type="text" placeholder="Nhập sđt" name="txtSDT">
+                       <br>
+                       <label for="txtNgayHH">Ngày hết hạn: </label>
+                       <input class="form-control" type="text" placeholder="Nhập ngày hết hạn tài khoản" name="txtNgayHH">
+                       <div class="form-group position-button">
+                            <div>
+                                <input type="button" class="btn btn-primary" value=" Thêm">
+                            </div>
+                        </div>
+                  
+                   </form>
+                </div>
+            </div>
+
+            <div class="content-box-list-subscriber">
+                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+                    <div class="content-box-title">
+                        <p>Danh sách độc giả</p>
+                    </div>
+                  
+                    <div class="content-box-tool">
+                        <a href="#toggle-list-subscrber" id="toggle-list-subscriber">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                
+                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-subscriber-main">
+                    <div class="table-responsive">
+                        <table class="table table-hover"  id="main-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Tên độc giả</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">SĐT</th>
+                                    <th scope="col">Thời hạn</th>
+                                    <th scopr="col"></th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>1</p></td>
+                                    <td>
+                                        <div>
+                                            <a href="Manage_Subscriber_Detail.html" target="_blank" class="link-to-info">Lê Hoàng Sang</a>
+                                        </div>
+                                    </td>
+                                    <td><p>lhsanghcmus@gmail.com</p></td>
+                                    <td><p>0979279932</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                 
+                                </tr>
+                                <tr>
+                                    <td><p>2</p></td>
+                                    <td>
+                                        <div>
+                                            <a href="Manage_Subscriber_Detail.html" target="_blank" class="link-to-info">Phan Quốc Phong</a>
+                                        </div>
+                                    </td>
+                                    <td><p>pqphonghcmus@gmail.com</p></td>
+                                    <td><p>0257863515</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td><p>3</p></td>
+                                    <td>
+                                    <div>
+                                        <a href="Manage_Subscriber_Detail.html" target="_blank" class="link-to-info">Lê Phạm Hoàng Quý</a>
+                                    </div>
+                                    </td>
+                                    <td><p>quyle0508@gmail.com</p></td>
+                                    <td><p>0375863368</p></td>
+                                    <td><p>30/04/2019</p></td>
+                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <!--Tạo form gia hạn tài khoản độc giả-->
+            <div class="modal" id="frmGiaHan">
+                <form class="modal-content animate">
+                    <div class="frmContainer">
+                            <span onclick="document.getElementById('frmGiaHan').style.display='none'" 
+                            class="close" title="Đóng">&times;</span>            
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="txtTime">Nhập thời gian hết hạn:</label>
+                        <input type="text" class="form-control" name="txtTime" required>
+                        <div>
+                            <input type="button" class="btn btn-primary" value="Xác nhận">
+                        </div>
+                    </div>  
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!--DataTable JS-->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+    <script src="resource/JS/ManageSubscriber.js"></script>
+</body>
+
+</html>

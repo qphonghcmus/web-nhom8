@@ -2,7 +2,6 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/TrangChu/index');
 
 var app = express();
 
@@ -16,7 +15,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
 
-app.use('/', indexRouter);
+app.use('/', require('./routes/TrangChu/index'));
+app.use('/administrator/',require('./routes/TrangAdmin/admin'));
+
 
 app.listen(3000, ()=> "Web server is running");
 
