@@ -95,7 +95,7 @@ function searchTable() {
 }
 
 // add event row click
-function addRowHandlers() {
+$(document).ready(function addRowHandlers() {
 
     var table = document.getElementById("myTable");
     var rows = table.getElementsByTagName("tr");
@@ -103,7 +103,7 @@ function addRowHandlers() {
         var currentRow = table.rows[i];
         var createClickHandler = function (row) {
             return function () {
-                window.open("writer_editPage.html");
+                window.open("/writer/editPage");
             };
         };
         currentRow.onclick = createClickHandler(currentRow);
@@ -115,10 +115,11 @@ function addRowHandlers() {
         var currentRow = table.rows[i];
         var createClickHandler = function (row) {
             return function () {
-                window.open("writer_editPage.html");
+                window.open("/writer/editPage");
             };
         };
         currentRow.onclick = createClickHandler(currentRow);
     }
-}
+});
+
 

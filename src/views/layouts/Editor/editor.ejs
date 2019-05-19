@@ -12,7 +12,13 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="vendors/css/writer/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <link href="../../public/vendors/css/writer/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <% for(var i=0; i < cssfiles.length; i++){%>
+    <% var path = '../../public/resource/CSS/' + cssfiles[i] + '.css'; %>
+    <link rel="stylesheet" href="<%=path%>">
+  <%} %>
+  <!-- sort and search js -->
+  <script src="../../public/resource/JS/writer-sort&searchTable.js"></script>
 </head>
 
 <body class="">
@@ -28,32 +34,32 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="./editor_admin.html">
+          <li class="nav-item <% if( typeof(activeAdmin) != 'undefined' && activeAdmin === true){%> active <%}else{}  %> ">
+            <a class="nav-link" href="../editor/admin">
               <i class="material-icons">dashboard</i>
               <p>Trang chủ</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./editor_updateProfile.html">
+          <li class="nav-item <% if( typeof(activeUpdate) != 'undefined' && activeUpdate === true){%> active <%}else{}  %> ">
+            <a class="nav-link" href="../editor/update">
               <i class="material-icons">person</i>
               <p>Cập nhật thông tin</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./editor_waiting.html">
+          <li class="nav-item <% if( typeof(activeWait) != 'undefined' && activeWait === true){%> active <%}else{}  %> ">
+            <a class="nav-link" href="../editor/wait">
               <i class="material-icons">content_paste</i>
               <p>Bài viết chờ xử lý</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./editor_approved.html">
+          <li class="nav-item <% if( typeof(activeApprove) != 'undefined' && activeApprove === true){%> active <%}else{}  %> ">
+            <a class="nav-link" href="../editor/approve">
               <i class="material-icons">content_paste</i>
               <p>Bài viết đã duyệt</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./editor_rejected.html">
+          <li class="nav-item <% if( typeof(activeReject) != 'undefined' && activeReject === true){%> active <%}else{}  %> ">
+            <a class="nav-link" href="../editor/reject">
               <i class="material-icons">content_paste</i>
               <p>Bài viết đã từ chối</p>
             </a>
@@ -66,7 +72,13 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Trang chủ</a>
+            <a class="navbar-brand" href="#pablo">
+            <% if( typeof(activeAdmin) != 'undefined' && activeAdmin === true){%> Trang chủ <%}else{}  %>
+            <% if( typeof(activeUpdate) != 'undefined' && activeUpdate === true){%> Cập nhật thông tin <%}else{}  %>
+            <% if( typeof(activeWait) != 'undefined' && activeWait === true){%> Bài viết chờ xử lý <%}else{}  %>
+            <% if( typeof(activeApprove) != 'undefined' && activeApprove === true){%> Bài viết đã duyệt <%}else{}  %>
+            <% if( typeof(activeReject) != 'undefined' && activeReject === true){%> Bài viết đã từ chối <%}else{}  %>
+            </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -77,11 +89,9 @@
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
+                <input type="text" value="" class="form-control" placeholder="Search..." id="myInput" 
+                <% if( typeof(activeUpdate) != 'undefined' && activeUpdate === true){%> disabled <%}else{}  %> 
+                onkeyup="searchTable()">
               </div>
             </form>
             <ul class="navbar-nav">
@@ -129,7 +139,7 @@
       </nav>
       <!-- End Navbar -->
       <div class="content">
-
+          <%- include(filename) %>
       </div>
       <footer class="footer">
         <div class="container-fluid">
@@ -139,13 +149,17 @@
     </div>
   </div>
 
+  <% if( typeof(activeWait) != 'undefined' && activeWait === true){%> 
+    <%- include('../../editor/editor_popup.ejs') %>
+  <%}else{}  %> ">
+
   <!--   Core JS Files   -->
-  <script src="vendors/js/writer/jquery.min.js"></script>
-  <script src="vendors/js/writer/popper.min.js"></script>
-  <script src="vendors/js/writer/bootstrap-material-design.min.js"></script>
-  <script src="vendors/js/writer/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../../public/vendors/js/writer/jquery.min.js"></script>
+  <script src="../../public/vendors/js/writer/popper.min.js"></script>
+  <script src="../../public/vendors/js/writer/bootstrap-material-design.min.js"></script>
+  <script src="../../public/vendors/js/writer/perfect-scrollbar.jquery.min.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="vendors/js/writer/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <script src="../../public/vendors/js/writer/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
 
   <script>
     $(document).ready(function() {
@@ -239,11 +253,16 @@
   </script>
   <script>
     $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
 
     });
   </script>
+
+  <% for(var i=0; i < jsfiles.length; i++){%>
+    <% var path = '../../public/resource/js/' + jsfiles[i] + '.js'; %>
+    <script src="<%=path%>"></script>
+  <%} %>
+
 </body>
 
 </html>

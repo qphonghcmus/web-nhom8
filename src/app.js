@@ -18,6 +18,10 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', require('./routes/TrangChu/index'));
 app.use('/administrator/',require('./routes/TrangAdmin/admin'));
 
+app.use('/public/vendors',express.static(__dirname + '/public//vendors'));
+app.use('/public/resource',express.static(__dirname + '/public//resource'));
+app.use('/editor',require('./routes/editor/route.editor'));
+app.use('/writer',require('./routes/writer/route.writer'));
 
 app.listen(3000, ()=> "Web server is running");
 
