@@ -1,47 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-        <%- include('../layouts/Admin/head') -%>
-</head>
-
-<body>
-
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-        <%- include('../layouts/Admin/navbar') -%>
-
-        <!-- Page Content Holder -->
-        <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <button class="btn d-inline-block d-lg-none ml-auto " type="button" data-toggle="collapse"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <a href="#" class="button-logout">
-                            <i class="fas fa-sign-out-alt"></i>
-                        </a>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <i></i>
-                                <a class="nav-link" href="#">
-                                        <i class="fas fa-sign-out-alt logout"></i>
-                                    Đăng xuất
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            
             <div class="content-box-list-subscriber">
                 <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
                     <div class="content-box-title">
@@ -178,27 +134,3 @@
                     </div>  
                 </form>
             </div>
-
-        </div>
-    </div>
-
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!--DataTable JS-->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-                $(this).toggleClass('active');
-            });
-        });
-    </script>
-    <script src="resource/JS/ManageSubscriber.js"></script>
-</body>
-
-</html>

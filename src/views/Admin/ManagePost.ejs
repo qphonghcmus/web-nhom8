@@ -1,0 +1,172 @@
+<div class="content-box-list-subscriber">
+                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+                    <div class="content-box-title">
+                        <p>Danh sách bài viết</p>
+                    </div>
+                  
+                    <div class="content-box-tool">
+                        <a href="#toggle-list-post" id="toggle-list-post">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-post-main">
+                    <div class="table-responsive">
+                                <table class="table table-hover" id="main-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="th-sm">STT</th>
+                                            <th scope="col">Tên bài viết</th>
+                                            <th scope="col">Chuyên mục</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><p>1</p></td>
+                                            <td><a href="#">Sài Gòn sắp vào mùa mưa</a></td>
+                                           
+                                            <td><p>Đời sống</p></td>
+                                            <td><p>Đã xuất bản</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>2</p></td>
+                                            <td><a href="#">Vì sao nhiều người 'mua điểm' cho con vào trường công an, quân đội?</a></td>
+                                           
+                                            <td><p>Giáo dục</p></td>
+                                            <td><p>Chờ xuất bản</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan" type="button" value="Xuất bản" ></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>3</p></td>
+                                            <td><a href="#">EVN lên tiếng về 42.000 tỷ đồng gửi không kỳ hạn ở ngân hàng</a></td>
+                                           
+                                            <td><p>Kinh doanh</p></td>
+                                            <td><p>Chưa được duyệt</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>4</p></td>
+                                            <td><a href="#">63 trường đại học chấm trắc nghiệm tại các cụm thi THPT quốc gia</a></td>
+                                           
+                                            <td><p>Giáo dục</p></td>
+                                            <td><p>Bị từ chối</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>5</p></td>
+                                            <td><a href="#">Cháy căn hộ ở Sài Gòn, người dân đập cửa gọi nhau bỏ chạy</a></td>
+                                           
+                                            <td><p>Đời sống</p></td>
+                                            <td><p>Đã xuất bản</p></td>
+                                          
+                                            <td><input class="btn btn-primary btn-sm btnGiaHan btnGiaHan-hidden" type="button" value="Xuất bản" onclick="document.getElementById('frmInfo').style.display='block'"></td>
+                                        </tr>
+                                      
+                
+                                    </tbody>
+                                </table>
+                
+                
+                                
+                    </div>
+                </div>
+            </div>
+           
+            
+
+            
+            <div class="modal" id="frmInfo">
+                <form class="modal-content animate">
+                    <div class="frmContainer">
+                            <span onclick="document.getElementById('frmInfo').style.display='none'" 
+                            class="close" title="Đóng">&times;</span>            
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <label for="txtName" class="basicLabel">Họ tên:</label>
+                        <input type="text" class="form-control name" name="txtName" required>
+                        <div class="clearfix"></div>
+                        <label for="txtEmail"  class="basicLabel">Email:</label>
+                        <input type="email" class="form-control name" name="txtEmail" required>
+                        <div class="clearfix"></div>
+                        <label for="txtPhone"  class="basicLabel">SĐT:</label>
+                        <input type="tel" class="form-control name" name="txtPhone" required>
+                        <div class="clearfix"></div>
+                        <label for="txtPhone"  class="basicLabel">Chuyên mục quản lý:</label>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col span-1-of-2">
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="kinhDoanh">
+                                    <label class="form-check-label" for="kinhDoanh">
+                                         Kinh doanh
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" id="theThao">
+                                    <label class="form-check-label" for="theThao">
+                                         Thể thao
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" id="duLich">
+                                    <label class="form-check-label" for="duLich">
+                                         Du lịch
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" id="doiSong">
+                                    <label class="form-check-label" for="doiSong">
+                                         Đời sống
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" id="muaSam">
+                                    <label class="form-check-label" for="muaSam">
+                                         Mua sắm
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col span-1-of-2">
+                                    <div class="form-check custom-form-check">
+                                        <input class="form-check-input" type="checkbox" id="dienAnh">
+                                        <label class="form-check-label" for="dienAnh">
+                                             Điện ảnh
+                                        </label>
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" id="sucKhoe">
+                                        <label class="form-check-label" for="sucKhoe">
+                                             Sức khỏe
+                                        </label>
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" id="taiChinh">
+                                        <label class="form-check-label" for="taiChinh">
+                                             Tài chính
+                                        </label>
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" id="congNghe">
+                                        <label class="form-check-label" for="congNghe">
+                                            Công nghệ
+                                        </label>
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" id="phapLuat">
+                                        <label class="form-check-label" for="phapLuat">
+                                            Pháp luật
+                                        </label>
+                                    </div>
+                                </div>
+                           
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="btn-xacnhan-section">
+                            <input type="button" class="btn btn-primary" value="Cập nhật">
+                        </div>
+                    </div>  
+                </form>
+            </div>

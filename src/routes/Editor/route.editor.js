@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
         activeAdmin: true,
         cssfiles:[],
         jsfiles:[],
+        
     });
 });
 
