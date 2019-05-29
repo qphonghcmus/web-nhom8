@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Writer - Admin Page
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+
+    <%- include('./head') -%>
+
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="#">
+            <div class="logo">
+                <a href="#" class="simple-text logo-normal">
+                    Phóng viên - Writer
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li
+                        class="nav-item <% if( typeof(activeAdmin) != 'undefined' && activeAdmin === true){%> active <%}else{}  %>">
+                        <a class="nav-link" href="../writer/admin">
+                            <i class="material-icons">dashboard</i>
+                            <p>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item <% if( typeof(activeUpdate) != 'undefined' && activeUpdate === true){%> active <%}else{}  %>">
+                        <a class="nav-link" href="../writer/update">
+                            <i class="material-icons">person</i>
+                            <p>Cập nhật thông tin</p>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item <% if( typeof(activePost) != 'undefined' && activePost === true){%> active <%}else{}  %>">
+                        <a class="nav-link" href="../writer/post">
+                            <i class="material-icons">library_books</i>
+                            <p>Đăng bài viết</p>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item  <% if( typeof(activeWaitPublish) != 'undefined' && activeWaitPublish === true){%> active <%}else{}  %>">
+                        <a class="nav-link" href="../writer/waitPublish">
+                            <i class="material-icons">content_paste</i>
+                            <p>Bài viết chờ xuất bản</p>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item <% if( typeof(activePublish) != 'undefined' && activePublish === true){%> active <%}else{}  %>">
+                        <a class="nav-link" href="../writer/published">
+                            <i class="material-icons">content_paste</i>
+                            <p>Bài viết đã xuất bản</p>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item <% if( typeof(activeReject) != 'undefined' && activeReject === true){%> active <%}else{}  %>">
+                        <a class="nav-link" href="../writer/rejected">
+                            <i class="material-icons">content_paste</i>
+                            <p>Bài viết bị từ chối</p>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item <% if( typeof(activeWaitReview) != 'undefined' && activeWaitReview === true){%> active <%}else{}  %>">
+                        <a class="nav-link" href="../writer/waitReview">
+                            <i class="material-icons">content_paste</i>
+                            <p>Bài viết chờ duyệt</p>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item <% if( (typeof(activeEdit) != 'undefined' && activeEdit === true) || (typeof(activeEditPage) != 'undefined' && activeEditPage === true)) {%> active <%}else{}  %>">
+                        <a class="nav-link" href="../writer/edit">
+                            <i class="material-icons">edit</i>
+                            <p>Hiệu chỉnh bài viết</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="#pablo">
+                            <% if( typeof(activeAdmin) != 'undefined' && activeAdmin === true){%> Trang chủ
+                            <%}else{}  %>
+                            <% if( typeof(activeUpdate) != 'undefined' && activeUpdate === true){%> Cập nhật thông tin
+                            <%}else{}  %>
+                            <% if( typeof(activePost) != 'undefined' && activePost === true){%> Đăng bài viết
+                            <%}else{}  %>
+                            <% if( typeof(activeWaitPublish) != 'undefined' && activeWaitPublish === true){%> Bài viết
+                            chờ xuất bản <%}else{}  %>
+                            <% if( typeof(activePublish) != 'undefined' && activePublish === true){%> Bài viết đã xuất
+                            bản <%}else{}  %>
+                            <% if( typeof(activeReject) != 'undefined' && activeReject === true){%> Bài viết bị từ chối
+                            <%}else{}  %>
+                            <% if( typeof(activeWaitReview) != 'undefined' && activeWaitReview === true){%> Bài viết chờ
+                            duyệt <%}else{}  %>
+                            <% if( typeof(activeEdit) != 'undefined' && activeEdit === true){%> Hiệu chỉnh bài viết
+                            <%}else{}  %>
+                        </a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <form class="navbar-form">
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" placeholder="Search..." id="myInput"
+                                    <% if( typeof(activeUpdate) != 'undefined' && activeUpdate === true){%> disabled
+                                    <%}else{}  %> onkeyup="searchTable()">
+                            </div>
+                        </form>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">person</i>
+                                    <p class="d-lg-none d-md-block">
+                                        Account
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                                    <a class="dropdown-item" href="../../writer/update">Profile</a>
+                                    <a class="dropdown-item" href="#">Log out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <%- include(filename) %>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <p style="margin-left: 0 auto;">Copyright&copy;2019 - We are Web8-Team</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <%- include('./foot') -%>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<!--   Core JS Files   -->
+<script src="../../../public/vendors/js/writer/jquery.min.js"></script>
+<script src="../../../public/vendors/js/writer/popper.min.js"></script>
+<script src="../../../public/vendors/js/writer/bootstrap-material-design.min.js"></script>
+<script src="../../../public/vendors/js/writer/perfect-scrollbar.jquery.min.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../../../public/vendors/js/writer/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+
+<!-- layout scrip -->
+<script src="../../../public/vendors/js/layout.script.js"></script>
+
+<% if (typeof(jsfiles) != 'undefined') { %>
+    <%jsfiles.forEach(function(element){%>
+        <script src="<%=element%>"></script>
+    <%});%>
+<%}%>

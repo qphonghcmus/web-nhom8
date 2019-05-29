@@ -1,0 +1,19 @@
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<!-- CSS Files -->
+<link href="../../../public/vendors/css/writer/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+<!-- sort and search js -->
+<script src="../../public/resource/JS/writer-sort&searchTable.js"></script>
+
+<!-- ck editor -->
+<% if( (typeof(activePost) != 'undefined' && activePost === true) || ((typeof(activeEditPage) != 'undefined' && activeEditPage === true)) ){%>
+    <script src="https://cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
+    <%}else{}  %>
+
+<% if (typeof(cssfiles) != 'undefined') { %>
+    <%cssfiles.forEach(function(element){%>
+        <link rel="stylesheet" href="<%=element%>">
+    <%});%>
+<%}%>
