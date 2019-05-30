@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-
+var AuToIncrement = require('mongoose-sequence')(mongoose);
 var commentSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    idComment: Number,
     NoiDung: String,
-    idDocGia:mongoose.Schema.Types.ObjectId,
+    idDocGia:Number,
     ngayDang:{
         type:Date,
         default: Date.now
     },
-    idBaiViet: mongoose.Schema.Types.ObjectId
+    idBaiViet: Number,
 });
 
-
+commentSchema.plugin(AuToIncrement,{id:'idComment_Seq',inc_field: 'idComment'});
  mongoose.model('Comment', commentSchema);

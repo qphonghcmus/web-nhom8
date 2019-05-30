@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+var AuToIncrement = require('mongoose-sequence')(mongoose);
 var postSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    idBaiViet:Number,
     tieuDe: {
         type: String
         
@@ -23,5 +23,5 @@ var postSchema = new mongoose.Schema({
     viewNumber: Number
 });
 
-
+postSchema.plugin(AuToIncrement, {id:'idBaiViet_Seq',inc_field: 'idBaiViet'} );
  mongoose.model('Post', postSchema);

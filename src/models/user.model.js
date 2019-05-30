@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+var AuToIncrement = require('mongoose-sequence')(mongoose);
 var userSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    idUser:Number,
     hoTen: String,
     email: String,
     passWord: String,
@@ -9,5 +9,5 @@ var userSchema = new mongoose.Schema({
     tenLoai:String
 });
 
-
+userSchema.plugin(AuToIncrement, {id:'idUser_Seq',inc_field: 'idUser'});
  mongoose.model('User', userSchema);

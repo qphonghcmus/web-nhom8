@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 var subscriberSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    idUser:Number,
     thoiHan: Date
 });
 

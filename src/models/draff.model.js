@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+var AuToIncrement = require('mongoose-sequence')(mongoose);
 var draffSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    idDraff:Number,
     tieuDe: String,
     tomTat: String,
     noiDung: String,
@@ -9,5 +9,5 @@ var draffSchema = new mongoose.Schema({
     tag: String
 });
 
-
+draffSchema.plugin(AuToIncrement,{id:'idDraff_Seq',inc_field: 'idDraff'});
  mongoose.model('Draff', draffSchema);
