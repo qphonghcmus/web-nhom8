@@ -17,6 +17,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.use('/', require('./routes/TrangChu/index'));
+app.use('/cong-nghe',require('./routes/DanhSachBaiViet/route.CongNghe'));
 app.use('/administrator',require('./routes/Admin/route.admin'));
 
 app.use('/public/vendors',express.static(__dirname + '/public//vendors'));

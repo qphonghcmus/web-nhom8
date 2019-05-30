@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Danh sách bài viết</title>
+    <%- include('../layouts/TrangChu/head') -%>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- Navbar Area -->
+        <div class="mag-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="magNav">
+
+                    <!-- Nav brand -->
+                    <a href="index.html" class="nav-brand"><img src="vendors/template/img/core-img/logo1.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Nav Content -->
+                    <div class="nav-content d-flex align-items-center">
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a href="#">Pháp luật</a></li>
+                                    <li><a href="#">Thế giới</a></li>
+                                    <li><a href="#">Kinh doanh</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Nông sản</a></li>
+                                            <li><a href="#">Hải sản</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Giáo dục</a>
+                                       
+                                    </li>
+                                    <li><a href="#">Giải trí</a></li>
+                                    <li><a href="#">Khác</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Đời sống</a></li>
+                                            <li><a href="#">Thể thao</a></li>
+                                            <li><a href="#">Công nghệ</a></li>
+                                            <li><a href="#">Quân sự</a></li>
+                                            <li><a href="#">Du lịch</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <div class="top-meta-data d-flex align-items-center">
+                            <!-- Top Search Area -->
+                            <div class="top-search-area">
+                                <form action="index.html" method="post">
+                                    <input type="search" name="top-search" id="topSearch" placeholder="Tìm kiếm">
+                                    <button type="button" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+                            <!-- Login -->
+                            <a href="login.html" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="mag-breadcrumb" style="padding-top: 1rem;padding-bottom:1rem;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="#">Công nghệ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Danh sách bài viết</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Archive Post Area Start ##### -->
+    <div class="archive-post-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-xl-8">
+                    <div class="archive-posts-area bg-white p-30 mb-30 box-shadow">
+                        <% list.forEach(function(i){%>
+                             <!-- Single Catagory Post -->
+                        <div class="single-catagory-post d-flex flex-wrap">
+                            <div class="post-thumbnail bg-img" style="background-image: url(<%=i.imagePath%>);">   
+                        </div>
+                            <!-- Post Contetnt -->
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <a href="#"><%=moment(i.ngayDang).format("DD-MM-YYYY hh:mm")%></a>
+                                    <a href="#">CÔNG NGHỆ</a>
+                                </div>
+                                <a href="#" class="post-title"><%=i.tieuDe%></a>
+                                <p><%=i.noiDungTomTat%></p>
+                            </div>
+                        </div>
+                        <%});%>
+                       
+                        <!-- Pagination -->
+                        <nav>
+                            <ul class="pagination">
+                                <%if (pages.length == 1){%>
+                                      <li class="page-item active"><a class="page-link">1</a></li>
+                                <%}else{%>
+                                         <li class="page-item"><a class="page-link" href="?page=<%=current-1%>"><i class="ti-angle-left"></i></a></li>
+                                <%pages.forEach(function(i){%>
+                                       <%if (i.active){%>
+                                             <li class="page-item active"><a class="page-link" href="?page=<%=i.value%>"><%=i.value%></a></li>
+                                       <%}else{%>
+                                            <li class="page-item"><a class="page-link" href="?page=<%=i.value%>"><%=i.value%></a></li>
+                                       <%}%>
+                                <%});%>
+                                         <li class="page-item"><a class="page-link" href="?page=<%=current+1%>"><i class="ti-angle-right"></i></a></li>
+                                <%}%>
+                                
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                    <div class="sidebar-area bg-white mb-30 box-shadow">
+                        <!-- Sidebar Widget -->
+                        <div class="single-sidebar-widget p-30">
+                            <!-- Section Title -->
+                            <div class="section-heading">
+                                <h5>CHUYÊN MỤC</h5>
+                            </div>
+
+                            <!-- Catagory Widget -->
+                            <ul class="catagory-widgets">
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Giáo dục</span></a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Pháp luật</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Công nghệ</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Đời sông</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Quân sự</span></a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Thể thao</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Kinh doanh</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Giải trí</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Quân sự</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Du lịch</span> </a></li>
+                            </ul>
+                        </div>
+
+                        <div class="single-sidebar-widget p-30">
+                            <!-- Section Title -->
+                            <div class="section-heading">
+                                <h5>NHÃN</h5>
+                            </div>
+
+                            <!-- Catagory Widget -->
+                            <ul class="catagory-widgets">
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Bóng đá</span></a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Khủng hoảng</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Ca sĩ</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Tai nạn</span> </a></li>
+                            </ul>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Archive Post Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+     <%- include('../layouts/TrangChu/footer') -%>
+    <!-- ##### Footer Area End ##### -->
+
+   <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="vendors/template/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="vendors/template/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="vendors/template/js/active.js"></script>
+</body>
+
+</html>
