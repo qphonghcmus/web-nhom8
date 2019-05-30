@@ -15,7 +15,7 @@ var postSchema = new mongoose.Schema({
         type: String
     },
     tag:{
-        type:String
+        type:[String]
     },
     noiDungTomTat:{
         type:String
