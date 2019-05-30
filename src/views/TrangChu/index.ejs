@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <!-- Preloader -->
+ <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="spinner">
             <div class="double-bounce1"></div>
@@ -15,7 +15,76 @@
     </div>
 
     <!-- ##### Header Area Start ##### -->
-    <%- include('../layouts/TrangChu/header') -%>
+    <header class="header-area">
+
+        <!-- Navbar Area -->
+        <div class="mag-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="magNav">
+
+                    <!-- Nav brand -->
+                    <a href="index.html" class="nav-brand"><img src="vendors/template/img/core-img/logo1.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Nav Content -->
+                    <div class="nav-content d-flex align-items-center">
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a href="#">Pháp luật</a></li>
+                                    <li><a href="#">Thế giới</a></li>
+                                    <li><a href="#">Kinh doanh</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Nông sản</a></li>
+                                            <li><a href="#">Hải sản</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Giáo dục</a>
+                                       
+                                    </li>
+                                    <li><a href="#">Giải trí</a></li>
+                                    <li><a href="#">Khác</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Đời sống</a></li>
+                                            <li><a href="#">Thể thao</a></li>
+                                            <li><a href="#">Công nghệ</a></li>
+                                            <li><a href="#">Quân sự</a></li>
+                                            <li><a href="#">Du lịch</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <div class="top-meta-data d-flex align-items-center">
+                            <!-- Top Search Area -->
+                            <div class="top-search-area">
+                                <form action="index.html" method="post">
+                                    <input type="search" name="top-search" id="topSearch" placeholder="Tìm kiếm">
+                                    <button type="button" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+                            <!-- Login -->
+                            <a href="login.html" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Hero Area Start ##### -->
@@ -29,6 +98,7 @@
                         <div class="post-content text-center">
                             <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
                                 <a href="#">6 NGÀY TRƯỚC</a>
+                                <a> - </a>
                                 <a href="archive.html">CÔNG NGHỆ</a>
                             </div>
                             <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Top 3 smartphone thiết kế đẹp, cấu hình khá, pin trâu, giá chỉ dưới 4 triệu đồng
@@ -48,6 +118,7 @@
                         <div class="post-content text-center">
                             <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
                                 <a href="#">4 NGÀY TRƯỚC</a>
+                                  <a> - </a>
                                 <a href="#">CÔNG NGHỆ</a>
                             </div>
                             <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Trên tay OPPO F11 Pro Avengers Edition: Cực đẹp, cực độc, đậm chất siêu anh hùng</a>
@@ -66,6 +137,7 @@
                         <div class="post-content text-center">
                             <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
                                 <a href="#">5 NGÀY TRƯỚC</a>
+                                <a> - </a>
                                 <a href="#">CÔNG NGHỆ</a>
                             </div>
                             <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Galaxy Fold chưa bán đã lỗi, chuyện gì đang diễn ra và cách giải quyết của Samsung là gì?</a>
@@ -98,7 +170,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">Công an Hà Nội xác minh xe biển xanh gây tai nạn rồi bỏ chạy</a>
-                        <p>Pháp luật - 5 giờ trước</p>
+                        <div class="post-meta">
+                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
 
@@ -109,7 +185,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">Nếu tính giá điện sai, ngành điện sẽ phải xin lỗi và khắc phục</a>
-                        <p>Pháp luật - 2 giờ trước</p>
+                       <div class="post-meta">
+                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
 
@@ -120,7 +200,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">Những bộ phim truyền hình của TVB trong ký ức của 8X, 9X</a>
-                        <p>Giải trí - 4 giờ trước</p>
+                       <div class="post-meta">
+                            <a href="#" class = "post-cata">GIẢI TRÍ</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
 
@@ -131,7 +215,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">Khách Tây thở hổn hển khi ăn thử lẩu cay ở Trung Quốc</a>
-                        <p>Thế giới - 6 giờ trước</p>
+                       <div class="post-meta">
+                            <a href="#" class = "post-cata">THẾ GIỚI</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
 
@@ -142,7 +230,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">HLV Park Hang-seo chỉ gặp Alex Đặng, bỏ qua Filip Nguyễn</a>
-                        <p>Thể thao - 5 giờ trước</p>
+                       <div class="post-meta">
+                            <a href="#" class = "post-cata">THỂ THAO</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
 
@@ -153,7 +245,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">Hương Tràm tuyên bố ngừng đi hát vài năm</a>
-                        <p>Pháp luật - 5 giờ trước</p>
+                      <div class="post-meta">
+                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
 
@@ -164,7 +260,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">Hè này, rich kid Việt rủ nhau check-in sang chảnh, diện bikini gợi cảm</a>
-                        <p>Giải trí - 6 giờ trước</p>
+                     <div class="post-meta">
+                            <a href="#" class = "post-cata">GIẢI TRÍ</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
 
@@ -175,7 +275,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">Đuổi theo xe máy 'kẹp ba', hai cảnh sát cơ động gặp nạn</a>
-                        <p>Pháp luật - 5 giờ trước</p>
+                      <div class="post-meta">
+                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
 
@@ -186,7 +290,11 @@
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title">Nữ sinh TQ vào Stanford nhờ 6,5 triệu USD 'dạy đời' về thực lực </a>
-                        <p>Thế giới - 8 giờ trước</p>
+                        <div class="post-meta">
+                            <a href="#" class = "post-cata">THẾ GIỚI</a>
+                            <a>-</a>
+                            <a href="#">20/04/2019 15:30</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -214,8 +322,13 @@
                    <div class="single-trending-post">
                     <img src="https://znews-photo.zadn.vn/w480/Uploaded/aohunkx/2019_05_04/vang.jpg" alt="">
                     <div class="post-content">
-                        <a href="#" class="post-cata">KINH DOANH</a>
+                        <div class="post-meta">
+                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
+                        </div>
                         <a href="#" class="post-title">Liên doanh 10,5 triệu USD của SJC dừng hoạt động 22 năm chưa giải thể</a>
+                        <div class="post-meta" style="margin-top: 10px">
+                            <a href="#" class = "post-cata">20/04/2019</a>
+                        </div>
                     </div>
                 </div>
 
@@ -242,6 +355,7 @@
                     <img src="https://znews-photo.zadn.vn/w480/Uploaded/unvjhuo/2019_05_03/dongtrunghathao.jpg" alt="">
                     <div class="post-content">
                         <a href="#" class="post-cata">ĐỜI SỐNG</a>
+        
                         <a href="#" class="post-title">Tại sao đông trùng hạ thảo lại quý hiếm và đắt như vậy?</a>
                     </div>
                 </div>
@@ -436,7 +550,11 @@
                             </div>
                             <div class="post-content">
                                 <a href="single-post.html" class="post-title">'Bẫy tử thần' trên dự án mở rộng quốc lộ hơn 760 tỷ</a>
-                                <p>Đời sống - 25/04/2019</p>
+                                <div class="post-meta">
+                                    <a href="#" style="margin-right: 0px;">PHÁP LUẬT</a>
+                                    <a style="margin-right: 0px;">-</a>
+                                    <a href="#">20/04/2019 15:30</a>
+                                </div>
                             </div>
                         </div>
                     </div>

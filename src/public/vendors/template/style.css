@@ -562,10 +562,9 @@ input:focus {
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #ed3974; }
-      .hero-blog-post .post-content .post-meta a:last-child {
-        margin-left: 20px; }
+      
         .hero-blog-post .post-content .post-meta a:last-child::after {
-          content: '/';
+          
           position: absolute;
           top: 0;
           left: -15px;
