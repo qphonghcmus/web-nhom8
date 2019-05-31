@@ -34,9 +34,7 @@ router.get('/post', (req, res) => {
     res.render('./layouts/Writer/main',{
         filename: '../../writer/writer_post.ejs',
         activePost: true,
-        cssfiles:[
-            '../../../public/resource/CSS/style-writer-post.css'
-        ],
+        cssfiles:[],
         jsfiles:[],
     });
 });
@@ -46,9 +44,18 @@ router.get('/waitPublish', (req, res) => {
         filename: '../../writer/writer_waitPublish.ejs',
         activeWaitPublish: true,
         cssfiles:[
-            '../../../public/resource/CSS/style-writer-published.css'
+            'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
+            'https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css'
         ],
-        jsfiles:[],
+        jsfiles:[
+            'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js',
+            'https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js',
+            'https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js'
+        ],
     });
 });
 
@@ -57,9 +64,18 @@ router.get('/published', (req, res) => {
         filename: '../../writer/writer_published.ejs',
         activePublish: true,
         cssfiles:[
-            '../../../public/resource/CSS/style-writer-published.css'
+            'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
+            'https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css'
         ],
-        jsfiles:[],
+        jsfiles:[
+            'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js',
+            'https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js',
+            'https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js'
+        ],
     });
 });
 
@@ -68,9 +84,18 @@ router.get('/rejected', (req, res) => {
         filename: '../../writer/writer_rejected.ejs',
         activeReject: true,
         cssfiles:[
-            '../../../public/resource/CSS/style-writer-published.css'
+            'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
+            'https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css'
         ],
-        jsfiles:[],
+        jsfiles:[
+            'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js',
+            'https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js',
+            'https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js'
+        ],
     });
 });
 
@@ -79,9 +104,18 @@ router.get('/waitReview', (req, res) => {
         filename: '../../writer/writer_waitReview.ejs',
         activeWaitReview: true,
         cssfiles:[
-            '../../../public/resource/CSS/style-writer-published.css'
+            'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
+            'https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css'
         ],
-        jsfiles:[],
+        jsfiles:[
+            'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js',
+            'https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js',
+            'https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js'
+        ],
     });
 });
 
@@ -90,20 +124,26 @@ router.get('/edit', (req, res) => {
         filename: '../../writer/writer_edit.ejs',
         activeEdit: true,
         cssfiles:[
-            '../../../public/resource/CSS/style-writer-published.css'
+            'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
+            'https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css',
+            'https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css'
         ],
         jsfiles:[
-            '../../../public/resource/js/writer-edit.js'],
+            'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js',
+            'https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js',
+            'https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
+            'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js'
+        ],
     });
 });
 
 router.get('/editPage', (req, res) => {
     res.render('./layouts/Writer/main',{
         filename: '../../writer/writer_editPage.ejs',
-        activeEditPage: true,
-        cssfiles:[
-            '../../../public/resource/CSS/style-write-edit.css'
-        ],
+        activePost: true,
+        cssfiles:[],
         jsfiles:[],
     });
 });

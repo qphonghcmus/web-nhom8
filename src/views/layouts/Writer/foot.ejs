@@ -1,16 +1,19 @@
-<!--   Core JS Files   -->
-<script src="../../../public/vendors/js/writer/jquery.min.js"></script>
-<script src="../../../public/vendors/js/writer/popper.min.js"></script>
-<script src="../../../public/vendors/js/writer/bootstrap-material-design.min.js"></script>
-<script src="../../../public/vendors/js/writer/perfect-scrollbar.jquery.min.js"></script>
-<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../../../public/vendors/js/writer/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <!-- jquery latest version -->
+  <script src="../../../public/vendors/js/vendor/jquery-2.2.4.min.js"></script>
+  <!-- bootstrap 4 js -->
+  <script src="../../../public/vendors/js/popper.min.js"></script>
+  <script src="../../../public/vendors/js/bootstrap.min.js"></script>
+  <script src="../../../public/vendors/js/owl.carousel.min.js"></script>
+  <script src="../../public/vendors/js/metisMenu.min.js"></script>
+  <script src="../../../public/vendors/js/jquery.slimscroll.min.js"></script>
+  <script src="../../../public/vendors/js/jquery.slicknav.min.js"></script>
 
-<!-- layout scrip -->
-<script src="../../../public/vendors/js/layout.script.js"></script>
 
 <% if (typeof(jsfiles) != 'undefined') { %>
     <%jsfiles.forEach(function(element){%>
         <script src="<%=element%>"></script>
     <%});%>
 <%}%>
+
+  <!-- others plugins -->
+  <script src="../../../public/vendors/js/scripts.js"></script>

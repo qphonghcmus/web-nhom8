@@ -1,80 +1,72 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
+<!-- table primary start -->
+<div class="col-12 mt-5">
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" id="frmRegister" novalidate>
+                <div class="card shadow">
+                    <h4 class="card-header">
+                        Thông tin cá nhân
+                    </h4>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6 mt-3">
+                                <div class="form-group">
+                                    <label for="txtUsername">Username</label>
+                                    <input required type="text" class="form-control" id="txtUsername" name="username"
+                                        disabled>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mt-3">
+                                <div class="form-group">
+                                    <label for="txtChuyenmuc">Chuyên mục</label>
+                                    <input required type="text" class="form-control" id="txtChuyenmuc" name="chuyenmuc"
+                                        disabled>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mt-3">
+                                <div class="form-group">
+                                    <label for="txtPassword">Họ tên</label>
+                                    <input type="password" class="form-control" id="txtName" name="name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mt-3">
+                                <div class="form-group">
+                                    <label for="txtConfirm">Password</label>
+                                    <input type="password" class="form-control" id="txtPassword" name="password">
+                                </div>
+                            </div>
 
-        </div>
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header card-header-success">
-                    <h4 class="card-title">Cập nhật thông tin cá nhân</h4>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-12 mt-3">
                                 <div class="form-group">
-                                    <label class="bmd-label-floating">Username</label>
-                                    <input type="text" class="form-control" disabled>
+                                    <label for="txtName">Địa chỉ</label>
+                                    <input type="text" class="form-control" id="txtAddress" name="address">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6 mt-3">
+
                                 <div class="form-group">
-                                    <label class="bmd-label-floating">Chuyên mục</label>
-                                    <input type="text" class="form-control" disabled>
+                                    <label for="txtEmail">Email</label>
+                                    <input type="text" class="form-control" id="txtEmail" name="email">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-6 mt-3">
+
                                 <div class="form-group">
-                                    <label class="bmd-label-floating">Họ</label>
-                                    <input type="text" class="form-control">
+                                    <label for="txtDOB">Ngày sinh</label>
+                                    <input type="text" class="form-control" id="txtDOB" name="dob">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Tên</label>
-                                    <input type="text" class="form-control">
-                                </div>
+                            <div class="col-4 mt-5"></div>
+
+                            <div class="col-4 mt-5">
+                                <button type="submit" class="btn btn-lg btn-success btn-block">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                    Cập nhật
+                                </button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Địa chỉ</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Ngày sinh</label>
-                                    <input type="email" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Email</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Đôi điều về tôi</label>
-                                    <div class="form-group">
-                                        <textarea class="form-control" rows="3"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-success pull-right">Cập nhật</button>
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-            </div>
+                    </div>
+            </form>
         </div>
     </div>
 </div>

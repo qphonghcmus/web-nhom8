@@ -1,75 +1,38 @@
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h3 class="card-title ">Đăng bài viết</h4>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <div class="row">
-                <div class="col span-1-of-2 col-md-8">
-                  <div class="col-left">
-                    <form action="" class="form-add-post">
-                      <input type="text" class="title-name" placeholder="Tiêu đề bài viết">
-                      <textarea name="tomtat" id="tomtat" cols="10" rows="2"
-                        placeholder="Tóm tắt của bài viết"></textarea>
-                      <textarea name="editor1" class="ckeditor">
-                                        </textarea>
-                    </form>
-                  </div>
-
-                </div>
-                <div class="col span-1-of-2 col-md-4">
-                  <div class="col-right">
-                    <h3>Publish</h3>
-                    <div class="col-right-content">
-                      <button type="button" class="btn btn-info">Lưu</button>
-                      <button type="button" class="btn btn-info">Xem</button>
-                      <br>
-                      <button type="button" class="btn btn-info">Xóa</button>
-                      <button type="button" class="btn btn-info">Đăng</button>
-                    </div>
-
-                  </div>
-                  <div class="col-right">
-                    <h3>Tags</h3>
-                    <div class="col-right-content">
-                      <form action="">
-                        <input type="text">
-                        <button type="button" class="btn btn-info btn-add-tags">Thêm</button>
-                        <p>Các tag cách nhau bởi dấu phẩy</p>
-                      </form>
-                    </div>
-
-                  </div>
-                  <div class="col-right">
-                    <h3>Categories</h3>
-                    <div class="col-right-content">
-                      <form action="" class="form-categories">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Thể thao
-                        </label>
-                        <br>
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Kinh tế
-                        </label>
-                        <br>
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Thời trang
-                        </label>
-                      </form>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="col-2 mt-3"></div>
+<div class="col-8 mt-3 popup-duyet">
+  <form>
+    <div class="card text-center shadow-sm ">
+      <div class="card-header bg-success">
+        <h4>Đăng bài viết</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="tieude" class="h5">Tiêu đề</label>
+          <input type="text" class="form-control" id="tieude">
         </div>
+        <div class="form-group">
+          <label for="tomtat" class="h5">Tóm tắt nội dung</label>
+          <textarea class="form-control" id="tomtat" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="tags" class="h5">Các tag</label>
+            <input type="text" class="form-control" id="tags">
+        </div>
+        <div class="form-group">
+            <label for="chuyemmuc" class="h5">Chuyên mục</label>
+            <select class="form-control" id="chuyemmuc">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <textarea name="editor1" class="ckeditor">
+        </textarea>
+        <hr>
+        <a href="#" class="btn btn-primary">Đăng bài viết</a>
       </div>
     </div>
-  </div>
+  </form>
+</div>
