@@ -25,7 +25,7 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="vendors/template/img/core-img/logo1.png" alt=""></a>
+                    <a href="index.html" class="nav-brand"><img src="../../../public/vendors/template/img/core-img/logo1.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -98,7 +98,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="#">Công nghệ</a></li>
+                            <li class="breadcrumb-item"><a href="#"><%= tenchuyenmuc %></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Danh sách bài viết</li>
                         </ol>
                     </nav>
@@ -123,7 +123,7 @@
                             <div class="post-content">
                                 <div class="post-meta">
                                     <a href="#"><%=moment(i.ngayDang).format("DD-MM-YYYY hh:mm")%></a>
-                                    <a href="#">CÔNG NGHỆ</a>
+                                    <a href="#"><%= tenchuyenmuc %></a>
                                 </div>
                                 <a href="#" class="post-title"><%=i.tieuDe%></a>
                                 <p><%=i.noiDungTomTat%></p>
@@ -173,7 +173,6 @@
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Thể thao</span> </a></li>
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Kinh doanh</span> </a></li>
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Giải trí</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Quân sự</span> </a></li>
                                 <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Du lịch</span> </a></li>
                             </ul>
                         </div>
@@ -207,15 +206,17 @@
 
    <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+
     <!-- Popper js -->
-    <script src="vendors/template/js/bootstrap/popper.min.js"></script>
+    <script src="../../public/vendors/template/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../public/vendors/template/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="vendors/template/js/plugins/plugins.js"></script>
+    <script src="../../public/vendors/template/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="vendors/template/js/active.js"></script>
+    <script src="../../public/vendors/template/js/active.js"></script>
 </body>
 
 </html>
