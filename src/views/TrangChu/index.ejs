@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-<title>Báo điện tử - Nhóm 8</title>
-  <%- include('../layouts/TrangChu/head') -%>
+    <title>Báo điện tử - Nhóm 8</title>
+    <%- include('../layouts/TrangChu/head') -%>
 </head>
 
 <body>
- <!-- Preloader -->
+    <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="spinner">
             <div class="double-bounce1"></div>
@@ -25,7 +25,8 @@
                 <nav class="classy-navbar justify-content-between" id="magNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="vendors/template/img/core-img/logo1.png" alt=""></a>
+                    <a href="index.html" class="nav-brand"><img src="vendors/template/img/core-img/logo1.png"
+                            alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -53,7 +54,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="#">Giáo dục</a>
-                                       
+
                                     </li>
                                     <li><a href="#">Giải trí</a></li>
                                     <li><a href="#">Khác</a>
@@ -75,7 +76,8 @@
                             <div class="top-search-area">
                                 <form action="index.html" method="post">
                                     <input type="search" name="top-search" id="topSearch" placeholder="Tìm kiếm">
-                                    <button type="button" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button type="button" class="btn"><i class="fa fa-search"
+                                            aria-hidden="true"></i></button>
                                 </form>
                             </div>
                             <!-- Login -->
@@ -91,7 +93,8 @@
     <!-- ##### Hero Area Start ##### -->
     <div class="hero-area owl-carousel custom-carousel">
         <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/DSC6320-1-1140x597.jpg);">
+        <div class="hero-blog-post bg-img bg-overlay"
+            style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/DSC6320-1-1140x597.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
@@ -102,7 +105,8 @@
                                 <a> - </a>
                                 <a href="archive.html">CÔNG NGHỆ</a>
                             </div>
-                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Top 3 smartphone thiết kế đẹp, cấu hình khá, pin trâu, giá chỉ dưới 4 triệu đồng
+                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Top 3 smartphone
+                                thiết kế đẹp, cấu hình khá, pin trâu, giá chỉ dưới 4 triệu đồng
                             </a>
                         </div>
                     </div>
@@ -111,7 +115,8 @@
         </div>
 
         <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/cover-12.jpg);">
+        <div class="hero-blog-post bg-img bg-overlay"
+            style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/cover-12.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
@@ -119,10 +124,11 @@
                         <div class="post-content text-center">
                             <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
                                 <a href="#">4 NGÀY TRƯỚC</a>
-                                  <a> - </a>
+                                <a> - </a>
                                 <a href="#">CÔNG NGHỆ</a>
                             </div>
-                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Trên tay OPPO F11 Pro Avengers Edition: Cực đẹp, cực độc, đậm chất siêu anh hùng</a>
+                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Trên tay OPPO
+                                F11 Pro Avengers Edition: Cực đẹp, cực độc, đậm chất siêu anh hùng</a>
                         </div>
                     </div>
                 </div>
@@ -130,7 +136,8 @@
         </div>
 
         <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/samsung-galaxy-fold-screen-problems-920x690.jpg);">
+        <div class="hero-blog-post bg-img bg-overlay"
+            style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/samsung-galaxy-fold-screen-problems-920x690.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
@@ -141,7 +148,8 @@
                                 <a> - </a>
                                 <a href="#">CÔNG NGHỆ</a>
                             </div>
-                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Galaxy Fold chưa bán đã lỗi, chuyện gì đang diễn ra và cách giải quyết của Samsung là gì?</a>
+                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Galaxy Fold chưa
+                                bán đã lỗi, chuyện gì đang diễn ra và cách giải quyết của Samsung là gì?</a>
                         </div>
                     </div>
                 </div>
@@ -165,139 +173,22 @@
                 </div>
 
                 <!-- Single Blog Post -->
+                <%for(var i=0;i<10;i++){%>
                 <div class="single-blog-post d-flex">
                     <div class="post-thumbnail">
-                        <img src="vendors/template/img/core-img/10baimoinhat-1.jpg" alt="">
+                        <img src="<%=list[i].imagePath%>" alt="">
                     </div>
                     <div class="post-content">
-                        <a href="single-post.html" class="post-title">Công an Hà Nội xác minh xe biển xanh gây tai nạn rồi bỏ chạy</a>
+                        <a href="single-post.html" class="post-title"><%=list[i].tieuDe%></a>
                         <div class="post-meta">
-                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
+                            <a href="#" class="post-cata"><%=list[i].tenChuyenMuc%></a>
                             <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
+                            <a href="#"><%= moment(list[i].ngayDang).format("DD-MM-YYYY hh:mm") %></a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/iutmtn/2019_05_03/32_zi_1_thumb.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Nếu tính giá điện sai, ngành điện sẽ phải xin lỗi và khắc phục</a>
-                       <div class="post-meta">
-                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
-                            <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/gtnzjz/2019_05_02/9535e0db229dcbc3928c.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Những bộ phim truyền hình của TVB trong ký ức của 8X, 9X</a>
-                       <div class="post-meta">
-                            <a href="#" class = "post-cata">GIẢI TRÍ</a>
-                            <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/ryksdreyxq/2019_05_04/lau_cay_tu_xuyen.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Khách Tây thở hổn hển khi ăn thử lẩu cay ở Trung Quốc</a>
-                       <div class="post-meta">
-                            <a href="#" class = "post-cata">THẾ GIỚI</a>
-                            <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/jopluat/2019_05_05/Park_Hangseo.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">HLV Park Hang-seo chỉ gặp Alex Đặng, bỏ qua Filip Nguyễn</a>
-                       <div class="post-meta">
-                            <a href="#" class = "post-cata">THỂ THAO</a>
-                            <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/mdf_dkwvmd/2019_05_02/NGT3.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Hương Tràm tuyên bố ngừng đi hát vài năm</a>
-                      <div class="post-meta">
-                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
-                            <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/gtnzjz/2019_05_04/IMG_3747_1.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Hè này, rich kid Việt rủ nhau check-in sang chảnh, diện bikini gợi cảm</a>
-                     <div class="post-meta">
-                            <a href="#" class = "post-cata">GIẢI TRÍ</a>
-                            <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/ovhpaob/2019_05_05/59183186_2353579534873652_3716027398379012096_n_1.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Đuổi theo xe máy 'kẹp ba', hai cảnh sát cơ động gặp nạn</a>
-                      <div class="post-meta">
-                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
-                            <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="single-blog-post d-flex">
-                    <div class="post-thumbnail">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/lce_vjrcc/2019_05_04/con_gai_ty_phu_trung_quoc.jpg" alt="">
-                    </div>
-                    <div class="post-content">
-                        <a href="single-post.html" class="post-title">Nữ sinh TQ vào Stanford nhờ 6,5 triệu USD 'dạy đời' về thực lực </a>
-                        <div class="post-meta">
-                            <a href="#" class = "post-cata">THẾ GIỚI</a>
-                            <a>-</a>
-                            <a href="#">20/04/2019 15:30</a>
-                        </div>
-                    </div>
-                </div>
+                <%}%>
+                
             </div>
 
             <!-- Sidebar Widget -->
@@ -612,19 +503,19 @@
 
     <!-- ##### Footer Area Start ##### -->
     <%- include('../layouts/TrangChu/footer') -%>
-    <!-- ##### Footer Area End ##### -->
+                <!-- ##### Footer Area End ##### -->
 
-    <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="vendors/template/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="vendors/template/js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="vendors/template/js/active.js"></script>
+                <!-- ##### All Javascript Script ##### -->
+                <!-- jQuery-2.2.4 js -->
+                <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+                <!-- Popper js -->
+                <script src="vendors/template/js/bootstrap/popper.min.js"></script>
+                <!-- Bootstrap js -->
+                <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
+                <!-- All Plugins js -->
+                <script src="vendors/template/js/plugins/plugins.js"></script>
+                <!-- Active js -->
+                <script src="vendors/template/js/active.js"></script>
 </body>
 
 </html>

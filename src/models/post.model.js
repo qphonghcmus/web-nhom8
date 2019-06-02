@@ -73,5 +73,15 @@ module.exports = {
                 else    resolve(res);
             })
         })
+    },
+
+    top10latestnews: ()=>{
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts', postSchema);
+            post.find({}).sort({'ngayDang': -1}).exec((err,res)=>{
+                if(err) reject(err);
+                else resolve(res);
+            })
+        })
     }
 }

@@ -1,10 +1,19 @@
 var express = require('express');
 var router = express.Router();
 var postModel = require('../../models/post.model');
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('./TrangChu/index');
-});
+const moment = require('moment');
+
+router.get('/', (req,res)=>{
+  postModel.top10latestnews()
+  .then((docs)=>{
+    res.render('./TrangChu/index',{
+      list:docs,
+      moment: moment
+    })
+  })
+  .catch(e=>res.json(e));
+})
+
 router.post('/them-bai-viet',(req,res,next)=>{
   themBaiViet(req,res);
 });
