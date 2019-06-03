@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Thông tin cá nhân</title>
+    <%- include('../layouts/TrangChu/head') -%>
+</head>
+
+<body>
+    <%- include('../layouts/TrangChu/navbar')%>
+
+      <!-- ##### Login Area Start ##### -->
+    <div class="mag-login-area py-5">
+        <div class="container">
+            <div class="row justify-content-center" style="margin-bottom: 30px;">
+                <div class="col-12 col-lg-8">
+                    <div class="login-content bg-white p-30 box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>THÔNG TIN CÁ NHÂN</h5>
+                        </div>
+
+                        <form action="login.html" method="post">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="image-upload" style="text-align: center;">
+                                        <label for="file-input">
+                                            <img src="/vendors/template/img/core-img/default-avatar.png" class="avatar">
+                                        </label>
+                                        <input id="file-input" type="file">
+                                    </div>
+                                     
+                                </div>
+                                <div class="col-sm-8">
+                                        <div class="form-group">
+                                                <label>Email:</label>
+                                                <input type="email" class="form-control" name="email" placeholder="Email or User Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password:</label>
+                                            <input type="password" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                </div> 
+                            </div>
+                            
+                            <div class="form-group">
+                                    <label>Họ và tên:</label>
+                                <input type="text" class="form-control" name="password" placeholder="Full name">
+                            </div>
+                            <div class="form-group">
+                                    <label>Số điện thoại:</label>
+                                <input type="tel" class="form-control" name="sdt" placeholder="Phone number">
+                            </div>
+                            <div class="form-group">
+                                    <label>Ngày sinh:</label>
+                                <input type="text" class="form-control" name="birthDay" placeholder="Birth Day">
+                            </div>
+                            <div class="form-group">
+                                    <div style="text-align: center;">
+                                        <button class="btn btn-success">Cập nhật</button>
+                                    </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                        <div class="login-content bg-white p-30 box-shadow">
+                            <!-- Section Title -->
+                            <div class="section-heading">
+                                <h5>GIA HẠN PREMIUM</h5>
+                            </div> 
+                            <div class="form-group">
+                                <label>Ngày hết hạn: <b>28/06/2019</b></label>
+                            </div>
+                            <form method="POST">
+                                 <div class="form-group">
+                                    <label>Nhập ngày muốn gia hạn: </label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <div style="text-align: center">
+                                        <button class="btn-primary btn">Gửi yêu cầu</button>
+                                    </div>
+                                </div>
+                            </form>
+                                
+                            
+                        </div>
+                    </div>
+            </div>
+         
+        </div>
+    </div>
+    <!-- ##### Login Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <%- include('../layouts/TrangChu/footer') -%>
+                <!-- ##### Footer Area End ##### -->
+
+                <!-- ##### All Javascript Script ##### -->
+                <!-- jQuery-2.2.4 js -->
+                <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+                <!-- Popper js -->
+                <script src="vendors/template/js/bootstrap/popper.min.js"></script>
+                <!-- Bootstrap js -->
+                <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
+                <!-- All Plugins js -->
+                <script src="vendors/template/js/plugins/plugins.js"></script>
+                <!-- Active js -->
+                <script src="vendors/template/js/active.js"></script>
+</body>
+
+</html>
