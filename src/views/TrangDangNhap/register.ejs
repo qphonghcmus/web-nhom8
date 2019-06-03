@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Đăng nhập</title>
+    <title>Đăng ký</title>
     <%- include('../layouts/TrangChu/head') -%>
 </head>
 
 <body>
     <%- include('../layouts/TrangChu/navbar') -%>
 
-       <!-- ##### Login Area Start ##### -->
+     <!-- ##### Login Area Start ##### -->
     <div class="mag-login-area py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -17,26 +17,27 @@
                     <div class="login-content bg-white p-30 box-shadow">
                         <!-- Section Title -->
                         <div class="section-heading">
-                            <h5>WELCOME TO WEB NEWS</h5>
+                            <h5>ĐĂNG KÝ TÀI KHOẢN</h5>
                         </div>
 
-                        <form method="post">
+                        <form action="login.html" method="post">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email or User Name">
+                                <input type="email" class="form-control" name="email" placeholder="Email or User Name">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
                             </div>
                             <div class="form-group">
-                                <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                    <label class="custom-control-label" for="customControlAutosizing">Nhớ mật khẩu</label>
-
-                                </div>
+                                <input type="text" class="form-control" name="password" placeholder="Full name">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" name="sdt" placeholder="Phone number">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="birthDay" placeholder="Birth Day">
                             </div>
                             <div style="text-align: center;">
-                                <button class="btn btn-login">Đăng nhập</button>
-                                <button formaction="../register" formmethod="get" class="btn btn-register">Đăng ký</button>
+                                <button type="button" class="btn btn-register">Đăng ký tài khoản</button>
                             </div>
                         </form>
                     </div>
