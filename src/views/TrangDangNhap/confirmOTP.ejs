@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Xác minh SĐT</title>
+    <%- include('../layouts/TrangChu/head') -%>
+</head>
+
+<body>
+    <%- include('../layouts/TrangChu/navbar') -%>
+
+   <!-- ##### Login Area Start ##### -->
+    <div class="mag-login-area py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <div class="login-content bg-white p-30 box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>XÁC MINH SĐT</h5>
+                        </div>
+
+                        <form action="../../login" method="get">
+                            <div class="form-group">
+                                <label for="textConfirm">Nhập mã xác nhận đã được gửi tới số 0979279932</label>
+                                <input type="text" class="form-control" id="textConfirm">
+                            </div>
+                            <div style="text-align: center;">
+                                    <button type="submit" class="btn btn-success">Xác nhận</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Login Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <%- include('../layouts/TrangChu/footer') -%>
+                <!-- ##### Footer Area End ##### -->
+
+                <!-- ##### All Javascript Script ##### -->
+                <!-- jQuery-2.2.4 js -->
+                <script src="/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+                <!-- Popper js -->
+                <script src="/vendors/template/js/bootstrap/popper.min.js"></script>
+                <!-- Bootstrap js -->
+                <script src="/vendors/template/js/bootstrap/bootstrap.min.js"></script>
+                <!-- All Plugins js -->
+                <script src="/vendors/template/js/plugins/plugins.js"></script>
+                <!-- Active js -->
+                <script src="/vendors/template/js/active.js"></script>
+</body>
+
+</html>
