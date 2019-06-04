@@ -9,7 +9,7 @@
 <body>
     <%- include('../layouts/TrangChu/navbar') -%>
 
-       <!-- ##### Login Area Start ##### -->
+    <!-- ##### Login Area Start ##### -->
     <div class="mag-login-area py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -19,24 +19,36 @@
                         <div class="section-heading">
                             <h5>WELCOME TO WEB NEWS</h5>
                         </div>
-
-                        <form method="post" action="../my-information">
+                        <% if (err_message) { %>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                <%=err_message%>
+                              </div>
+                          <% } %>
+                        
+                        <form method="POST" action="">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email or User Name">
+                                <input required autofocus type="email" class="form-control" id="exampleInputEmail1"
+                                    name="username" placeholder="Email or User Name">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input required type="password" class="form-control" name="password"
+                                    id="exampleInputPassword1" placeholder="Password">
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                    <label class="custom-control-label" for="customControlAutosizing">Nhớ mật khẩu</label>
+                                    <label class="custom-control-label" for="customControlAutosizing">Nhớ mật
+                                        khẩu</label>
 
                                 </div>
                             </div>
                             <div style="text-align: center;">
                                 <button class="btn btn-login">Đăng nhập</button>
-                                <button formaction="../register" formmethod="get" class="btn btn-register">Đăng ký</button>
+                                <button formaction="../register" formmethod="get" class="btn btn-register">Đăng
+                                    ký</button>
                             </div>
                         </form>
                     </div>
@@ -48,19 +60,19 @@
 
     <!-- ##### Footer Area Start ##### -->
     <%- include('../layouts/TrangChu/footer') -%>
-                <!-- ##### Footer Area End ##### -->
+    <!-- ##### Footer Area End ##### -->
 
-                <!-- ##### All Javascript Script ##### -->
-                <!-- jQuery-2.2.4 js -->
-                <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
-                <!-- Popper js -->
-                <script src="vendors/template/js/bootstrap/popper.min.js"></script>
-                <!-- Bootstrap js -->
-                <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
-                <!-- All Plugins js -->
-                <script src="vendors/template/js/plugins/plugins.js"></script>
-                <!-- Active js -->
-                <script src="vendors/template/js/active.js"></script>
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="vendors/template/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="vendors/template/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="vendors/template/js/active.js"></script>
 </body>
 
 </html>

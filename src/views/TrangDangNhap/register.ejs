@@ -4,12 +4,14 @@
 <head>
     <title>Đăng ký</title>
     <%- include('../layouts/TrangChu/head') -%>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
 </head>
 
 <body>
     <%- include('../layouts/TrangChu/navbar') -%>
 
-     <!-- ##### Login Area Start ##### -->
+    <!-- ##### Login Area Start ##### -->
     <div class="mag-login-area py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -20,24 +22,30 @@
                             <h5>ĐĂNG KÝ TÀI KHOẢN</h5>
                         </div>
 
-                        <form  method="post" action="/register/confirmOTP">
+                        <form novalidate method="POST" action="" id="registerForm">
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Email or User Name">
+                                <input autofocus type="text" class="form-control" name="username"
+                                    placeholder="User Name or Email">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="Password">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="password" placeholder="Full name">
+                                <input type="password" class="form-control" name="confirm" placeholder="Confirm">
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" name="sdt" placeholder="Phone number">
+                                <input type="text" class="form-control" name="fullname" placeholder="Full name">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="birthDay" placeholder="Birth Day">
+                                <input type="number" class="form-control" id="sdt" name="sdt"
+                                    placeholder="Phone number">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="birthday" id="txtdob"
+                                    placeholder="Birth Day">
                             </div>
                             <div style="text-align: center;">
-                               <button type="submit" class="btn btn-register">Đăng ký tài khoản</button>
+                                <button type="submit" class="btn btn-register">Đăng ký tài khoản</button>
                             </div>
                         </form>
                     </div>
@@ -45,23 +53,102 @@
             </div>
         </div>
     </div>
+
+
     <!-- ##### Login Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
     <%- include('../layouts/TrangChu/footer') -%>
-                <!-- ##### Footer Area End ##### -->
+    <!-- ##### Footer Area End ##### -->
 
-                <!-- ##### All Javascript Script ##### -->
-                <!-- jQuery-2.2.4 js -->
-                <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
-                <!-- Popper js -->
-                <script src="vendors/template/js/bootstrap/popper.min.js"></script>
-                <!-- Bootstrap js -->
-                <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
-                <!-- All Plugins js -->
-                <script src="vendors/template/js/plugins/plugins.js"></script>
-                <!-- Active js -->
-                <script src="vendors/template/js/active.js"></script>
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="vendors/template/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="vendors/template/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="vendors/template/js/active.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#txtdob').datetimepicker({
+                format: 'd/m/Y',
+                timepicker: false,
+                mask: true,
+            });
+
+            $('#registerForm').validate({
+                rules: {
+                    username: {
+                        required: true,
+                        email: true,
+                        remote: {
+                            url: '/register/is-available'
+                        }
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6
+                    },
+                    confirm: {
+                        required: true,
+                        equalTo: $('[name="password"]')
+                    },
+                    fullname: {
+                        required: true
+                    },
+                    sdt: {
+                        required: true,
+                    },
+                    birthday: {
+                        required: true
+                    }
+                },
+                messages: {
+                    username: {
+                        required: 'Your username is required.',
+                        remote: 'Your username has been taken, please take another.',
+                        email: 'Please enter a valid email address.'
+                    },
+                    password: {
+                        required: 'Your password is required.',
+                        minlength: 'Your password must have at least 6 characters.'
+                    },
+                    confirm: {
+                        required: 'Your password does not match.',
+                        equalTo: 'Your password does not match.'
+                    },
+                    fullname: {
+                        required: 'Valid full name is required.',
+                    },
+                    sdt: {
+                        required: 'Valid phone number is required',
+                    },
+                    birthday: {
+                        required: 'Valid date of birth is required.',
+                    },
+                },
+                errorElement: 'small',
+                errorClass: 'help-block text-danger',
+                highlight: function (e) {
+                    $(e).removeClass('is-valid').addClass('is-invalid');
+                },
+                unhighlight: function (e) {
+                    $(e).removeClass('is-invalid').addClass('is-valid');
+                }
+            })
+        })         
+    </script>
+
 </body>
 
 </html>
