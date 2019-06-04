@@ -6,6 +6,7 @@ var userSchema = new mongoose.Schema({
     email: String,
     passWord: String,
     ngaySinh: String,
+    phoneNumber:String,
     tenLoai:String
 });
 

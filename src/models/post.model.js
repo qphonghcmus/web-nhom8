@@ -20,7 +20,8 @@ var postSchema = new mongoose.Schema({
     noiDungTomTat: {
         type: String
     },
-    viewNumber: Number
+    viewNumber: Number,
+    isActive:Boolean
 });
 
 postSchema.plugin(AuToIncrement, { id: 'idBaiViet_Seq', inc_field: 'idBaiViet' });
@@ -37,6 +38,7 @@ module.exports = {
                 tag : entity.tag,
                 noiDungTomTat : entity.noiDungTomTat,
                 viewNumber : entity.viewNumber,
+                isActive: true,
             })
             obj.save((err, res) => {
                 if(err) reject(err)
