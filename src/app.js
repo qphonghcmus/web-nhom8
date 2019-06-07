@@ -9,8 +9,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-require('./middlewares/passport')(app);
 require('./middlewares/session')(app);
+require('./middlewares/passport')(app);
+app.use(require('./middlewares/auth-locals.mdw'));
 
 app.use(logger('dev'));
 app.use(express.json());

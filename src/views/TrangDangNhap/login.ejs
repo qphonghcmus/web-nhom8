@@ -20,14 +20,14 @@
                             <h5>WELCOME TO WEB NEWS</h5>
                         </div>
                         <% if (err_message) { %>
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                                <%=err_message%>
-                              </div>
-                          <% } %>
-                        
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <%=err_message%>
+                        </div>
+                        <% } %>
+
                         <form method="POST" action="">
                             <div class="form-group">
                                 <input required autofocus type="email" class="form-control" id="exampleInputEmail1"
@@ -47,8 +47,9 @@
                             </div>
                             <div style="text-align: center;">
                                 <button class="btn btn-login">Đăng nhập</button>
-                                <button formaction="../register" formmethod="get" class="btn btn-register">Đăng
-                                    ký</button>
+                                <button class="btn btn-register">
+                                    <a href="/register">Đăng ký</a>
+                                </button>
                             </div>
                         </form>
                     </div>
