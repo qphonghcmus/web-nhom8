@@ -6,4 +6,4 @@ var writerSchema = new mongoose.Schema({
 });
 
 
- mongoose.model('Writer', writerSchema);
+ mongoose.model('writers', writerSchema);

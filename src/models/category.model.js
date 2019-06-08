@@ -7,4 +7,4 @@ var CategorySchema = new mongoose.Schema({
 
 
 CategorySchema.plugin(AuToIncrement, {id:'idChuyenMuc_Seq',inc_field: 'idChuyenMuc'} );
-mongoose.model('Category', CategorySchema);
+mongoose.model('categories', CategorySchema);

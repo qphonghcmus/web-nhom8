@@ -1,6 +1,6 @@
 <div class="col-2 mt-3"></div>
 <div class="col-8 mt-3 popup-duyet">
-  <form>
+  <form action="/writer/post" method="POST" id="frmPost">
     <div class="card text-center shadow-sm ">
       <div class="card-header bg-success">
         <h4>Đăng bài viết</h4>
@@ -8,7 +8,7 @@
       <div class="card-body">
         <div class="form-group">
           <label for="tieude" class="h5">Tiêu đề</label>
-          <input type="text" class="form-control" id="tieude">
+          <input type="text" class="form-control" id="tieude" name="tieude">
         </div>
         <div class="form-group">
           <label for="tieude" class="h5">Ảnh đại diện</label>
@@ -16,27 +16,29 @@
             <input id="fuMain" name="fuMain" type="file" multiple>
           </div>
         </div>
+        <input type="hidden" id="imgPath" name="imgPath" value="">
+
         <div class="form-group">
           <label for="tomtat" class="h5">Tóm tắt nội dung</label>
-          <textarea class="form-control" id="tomtat" rows="3"></textarea>
+          <textarea class="form-control" id="tomtat" rows="3" name="tomtat"></textarea>
         </div>
         <div class="form-group">
           <label for="tags" class="h5">Các tag</label>
-          <input type="text" class="form-control" id="tags">
+          <input type="text" class="form-control" id="tags" name="tags">
         </div>
         <div class="form-group">
           <label for="chuyemmuc" class="h5">Chuyên mục</label>
-          <select class="form-control" id="chuyemmuc">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select class="form-control" id="chuyenmuc" name="chuyenmuc">
+            <option>Pháp luật</option>
+            <option>Thế giới</option>
+            <option>Giáo dục</option>
+            <option>Thể thao</option>
+            <option>Đời sống</option>
           </select>
         </div>
         <textarea name="wysiwyg" class="form-control" id="wysiwyg"></textarea>
         <hr>
-        <a href="#" class="btn btn-primary">Đăng bài viết</a>
+        <a href="javascript: $('#frmPost').submit();" class="btn btn-primary">Đăng bài viết</a>
       </div>
     </div>
   </form>
