@@ -34,8 +34,14 @@ router.get('/post', (req, res) => {
     res.render('./layouts/Writer/main',{
         filename: '../../writer/writer_post.ejs',
         activePost: true,
-        cssfiles:[],
-        jsfiles:[],
+        cssfiles:[
+            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'
+        ],
+        jsfiles:[
+            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
+            '../../../public/resource/js/editor.upload.js'
+        ],
     });
 });
 
@@ -142,9 +148,15 @@ router.get('/edit', (req, res) => {
 router.get('/editPage', (req, res) => {
     res.render('./layouts/Writer/main',{
         filename: '../../writer/writer_editPage.ejs',
-        activePost: true,
-        cssfiles:[],
-        jsfiles:[],
+        activeEdit: true,
+        cssfiles:[
+            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'
+        ],
+        jsfiles:[
+            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
+            '../../../public/resource/js/editor.upload.js'
+        ],
     });
 });
 

@@ -17,7 +17,10 @@
 <!-- modernizr css -->
 <script src="../../../public/vendors/js/vendor/modernizr-2.8.3.min.js"></script>
 
-<% if( typeof(activePost) != 'undefined' && activePost === true){%> 
-    <script src="https://cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
+<% if( (typeof(activePost) != 'undefined' && activePost === true) || (typeof(activeEdit) != 'undefined' && activeEdit === true) ){%> 
+    <%# <script src="https://cdn.tiny.cloud/1/rd6qdh8usuhtd2rlk0ov3nvqugv31p07lgjf69j0lk01bf2v/tinymce/5/tinymce.min.js"></script> %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=rd6qdh8usuhtd2rlk0ov3nvqugv31p07lgjf69j0lk01bf2v"></script>
+    <script src="../../../public/resource/JS/editor.tiny.js"></script>
 <%}else{}  %>
 
