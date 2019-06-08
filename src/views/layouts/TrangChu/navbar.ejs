@@ -1,82 +1,89 @@
-  <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="spinner">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
+<!-- Preloader -->
+<div class="preloader d-flex align-items-center justify-content-center">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+
+<!-- ##### Header Area Start ##### -->
+<header class="header-area">
+
+    <!-- Navbar Area -->
+    <div class="mag-main-menu" id="sticker">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Menu -->
+            <nav class="classy-navbar justify-content-between" id="magNav">
+
+                <!-- Nav brand -->
+                <a href="/" class="nav-brand"><img src="/vendors/template/img/core-img/logo1.png" alt=""></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Nav Content -->
+                <div class="nav-content d-flex align-items-center">
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li class="active"><a href="/list/phap-luat">Pháp luật</a></li>
+                                <li><a href="/list/the-gioi">Thế giới</a></li>
+                                <li><a href="/list/kinh-doanh">Kinh doanh</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/list/nong-san">Nông sản</a></li>
+                                        <li><a href="/list/hai-san">Hải sản</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/list/giao-duc">Giáo dục</a>
+
+                                </li>
+                                <li><a href="/list/giai-tri">Giải trí</a></li>
+                                <li><a href="#">Khác</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/list/doi-song">Đời sống</a></li>
+                                        <li><a href="/list/the-thao">Thể thao</a></li>
+                                        <li><a href="/list/cong-nghe">Công nghệ</a></li>
+                                        <li><a href="/list/quan-su">Quân sự</a></li>
+                                        <li><a href="/list/du-lich">Du lịch</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+
+                    <div class="top-meta-data d-flex align-items-center">
+                        <!-- Top Search Area -->
+                        <div class="top-search-area">
+                            <form action="index.html" method="post">
+                                <input type="search" name="top-search" id="topSearch" placeholder="Tìm kiếm">
+                                <button type="button" class="btn"><i class="fa fa-search"
+                                        aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                        <!-- Login -->
+                        <%if (isAuthenticated){%>
+                        <a href="/login" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i>
+                            <%=authUser.hoTen.split(' ').slice(-1).join(' ')%>
+                        </a>
+                        <a href="/logout" class="login-btn"><i class="fa fa-sign-out"></i></a>
+                        <%}else{%>
+                        <a href="/login" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        <%}%>
+
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
-
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-
-        <!-- Navbar Area -->
-        <div class="mag-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off">
-                <!-- Menu -->
-                <nav class="classy-navbar justify-content-between" id="magNav">
-
-                    <!-- Nav brand -->
-                    <a href="/" class="nav-brand"><img src="/vendors/template/img/core-img/logo1.png"
-                            alt=""></a>
-
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Nav Content -->
-                    <div class="nav-content d-flex align-items-center">
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li class="active"><a href="/list/phap-luat">Pháp luật</a></li>
-                                    <li><a href="/list/the-gioi">Thế giới</a></li>
-                                    <li><a href="/list/kinh-doanh">Kinh doanh</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/list/nong-san">Nông sản</a></li>
-                                            <li><a href="/list/hai-san">Hải sản</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/list/giao-duc">Giáo dục</a>
-
-                                    </li>
-                                    <li><a href="/list/giai-tri">Giải trí</a></li>
-                                    <li><a href="#">Khác</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/list/doi-song">Đời sống</a></li>
-                                            <li><a href="/list/the-thao">Thể thao</a></li>
-                                            <li><a href="/list/cong-nghe">Công nghệ</a></li>
-                                            <li><a href="/list/quan-su">Quân sự</a></li>
-                                            <li><a href="/list/du-lich">Du lịch</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Nav End -->
-                        </div>
-
-                        <div class="top-meta-data d-flex align-items-center">
-                            <!-- Top Search Area -->
-                            <div class="top-search-area">
-                                <form action="index.html" method="post">
-                                    <input type="search" name="top-search" id="topSearch" placeholder="Tìm kiếm">
-                                    <button type="button" class="btn"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                </form>
-                            </div>
-                            <!-- Login -->
-                            <a href="/login" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+</header>
+<!-- ##### Header Area End ##### -->
