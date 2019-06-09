@@ -64,22 +64,31 @@ router.get('/update', (req, res, next) => {
 });
 
 router.get('/post', (req, res, next) => {
-    res.render('./layouts/Writer/main', {
-        filename: '../../writer/writer_post.ejs',
-        activePost: true,
-        cssfiles: [
-            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'
-        ],
-        jsfiles: [
-            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
-            'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
-            '../../../public/resource/js/editor.upload.js'
-        ],
-    });
+    categories.load()
+    .then(list => {
+        var listCat = [];
+        list.forEach(function(e){
+            listCat.push(e.tenChuyenMuc);
+        })
+        res.render('./layouts/Writer/main', {
+            filename: '../../writer/writer_post.ejs',
+            activePost: true,
+            cssfiles: [
+                'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'
+            ],
+            jsfiles: [
+                'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
+                '../../../public/resource/js/editor.upload.js'
+            ],
+            listCat: listCat,
+        });
+    })
+    .catch()
+    
 });
 
 router.post('/post', (req, res, next) => {
-
     var entityPost = {
         tieuDe: req.body.tieude,
         tenChuyenMuc: req.body.chuyenmuc,

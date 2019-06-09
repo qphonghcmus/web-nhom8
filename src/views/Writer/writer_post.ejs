@@ -29,11 +29,9 @@
         <div class="form-group">
           <label for="chuyemmuc" class="h5">Chuyên mục</label>
           <select class="form-control" id="chuyenmuc" name="chuyenmuc">
-            <option>Pháp luật</option>
-            <option>Thế giới</option>
-            <option>Giáo dục</option>
-            <option>Thể thao</option>
-            <option>Đời sống</option>
+            <% listCat.forEach(function(e){ %>
+            <option><%= e %></option>
+            <% }) %>
           </select>
         </div>
         <textarea name="wysiwyg" class="form-control" id="wysiwyg"></textarea>
