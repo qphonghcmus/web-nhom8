@@ -4,12 +4,14 @@
 <head>
     <title>Thông tin cá nhân</title>
     <%- include('../layouts/TrangChu/head') -%>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
 </head>
 
 <body>
     <%- include('../layouts/TrangChu/navbar')%>
 
-      <!-- ##### Login Area Start ##### -->
+    <!-- ##### Login Area Start ##### -->
     <div class="mag-login-area py-5">
         <div class="container">
             <div class="row justify-content-center" style="margin-bottom: 30px;">
@@ -20,7 +22,7 @@
                             <h5>THÔNG TIN CÁ NHÂN</h5>
                         </div>
 
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="information-form">
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="image-upload" style="text-align: center;">
@@ -29,91 +31,169 @@
                                         </label>
                                         <input id="file-input" type="file">
                                     </div>
-                                     
+
                                 </div>
                                 <div class="col-sm-8">
-                                        <div class="form-group">
-                                                <label>Email:</label>
-                                                <input type="email" class="form-control" name="email" placeholder="Email or User Name" value="<%=user.email%>">
-                                        </div>       
-                                </div> 
+                                    <div class="form-group">
+                                        <label>Email:</label>
+                                        <input readonly type="email" class="form-control" name="email"
+                                            placeholder="Email or User Name" value="<%=user.email%>">
+                                    </div>
+                                </div>
                             </div>
-                            
+
                             <div class="form-group">
-                                    <label>Họ và tên:</label>
-                                <input type="text" class="form-control" name="password" placeholder="Full name" value="<%=user.hoTen%>">
-                            </div>
-                            <div class="form-group">
-                                    <label>Số điện thoại:</label>
-                                <input type="tel" class="form-control" name="sdt" placeholder="Phone number"  value="<%=user.phoneNumber%>">
+                                <label>Họ và tên:</label>
+                                <input type="text" class="form-control" name="fullname" placeholder="Full name"
+                                    value="<%=user.hoTen%>">
                             </div>
                             <div class="form-group">
-                                    <label>Ngày sinh:</label>
-                                <input type="text" class="form-control" name="birthDay" placeholder="Birth Day" value="<%=moment(user.ngaySinh).format("DD-MM-YYYY")%>">
+                                <label>Số điện thoại:</label>
+                                <input type="number" class="form-control" name="sdt" placeholder="Phone number"
+                                    value="<%=user.phoneNumber%>">
+                            </div>
+                            <div class="form-group">
+                                <label>Ngày sinh:</label>
+                                <input id="txtdob" type="text" class="form-control" name="birthDay"
+                                    placeholder="Birth Day" value="<%=moment(user.ngaySinh).format("DD/MM/YYYY")%>">
                             </div>
                             <label>Đặt lại mật khẩu</label>
                             <div class="form-group">
                                 <label>Mật khẩu hiện tại:</label>
-                                <input type="password" class="form-control" name="password_present" placeholder="Mật khẩu hiện tại">
+                                <input type="password" class="form-control" name="password_present"
+                                    placeholder="Mật khẩu hiện tại">
                             </div>
                             <div class="form-group">
                                 <label>Mật khẩu mới:</label>
-                                <input type="password" class="form-control" name="password_new" placeholder="Mật khẩu mới">
+                                <input type="password" class="form-control" name="password_new"
+                                    placeholder="Mật khẩu mới">
                             </div>
                             <div class="form-group">
-                                    <div style="text-align: center;">
-                                        <button class="btn btn-success">Cập nhật</button>
-                                    </div>
+                                <label>Nhập lại mật khẩu mới:</label>
+                                <input type="password" class="form-control" name="confirm"
+                                    placeholder="Nhập lại mật khẩu mới">
                             </div>
-                           
+                            <div class="form-group">
+                                <div style="text-align: center;">
+                                    <button class="btn btn-success">Cập nhật</button>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
-                        <div class="login-content bg-white p-30 box-shadow">
-                            <!-- Section Title -->
-                            <div class="section-heading">
-                                <h5>GIA HẠN PREMIUM</h5>
-                            </div> 
-                            <div class="form-group">
-                                <label>Ngày hết hạn: <b>28/06/2019</b></label>
-                            </div>
-                            <form method="POST">
-                                 <div class="form-group">
-                                    <label>Nhập ngày muốn gia hạn: </label>
-                                    <input type="date" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <div style="text-align: center">
-                                        <button class="btn-primary btn">Gửi yêu cầu</button>
-                                    </div>
-                                </div>
-                            </form>
-                                
-                            
+                    <div class="login-content bg-white p-30 box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>GIA HẠN PREMIUM</h5>
                         </div>
+                        <div class="form-group">
+                            <label>Ngày hết hạn: <b>28/06/2019</b></label>
+                        </div>
+                        <form method="POST">
+                            <div class="form-group">
+                                <label>Nhập ngày muốn gia hạn: </label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <div style="text-align: center">
+                                    <button class="btn-primary btn">Gửi yêu cầu</button>
+                                </div>
+                            </div>
+                        </form>
+
+
                     </div>
+                </div>
             </div>
-         
+
         </div>
     </div>
     <!-- ##### Login Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
     <%- include('../layouts/TrangChu/footer') -%>
-                <!-- ##### Footer Area End ##### -->
+    <!-- ##### Footer Area End ##### -->
 
-                <!-- ##### All Javascript Script ##### -->
-                <!-- jQuery-2.2.4 js -->
-                <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
-                <!-- Popper js -->
-                <script src="vendors/template/js/bootstrap/popper.min.js"></script>
-                <!-- Bootstrap js -->
-                <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
-                <!-- All Plugins js -->
-                <script src="vendors/template/js/plugins/plugins.js"></script>
-                <!-- Active js -->
-                <script src="vendors/template/js/active.js"></script>
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="vendors/template/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="vendors/template/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="vendors/template/js/active.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <script>
+        $(function () {
+            $('#txtdob').datetimepicker({
+                format: 'd/m/Y',
+                timepicker: false,
+                mask: true,
+            });
+
+            $('#information-form').validate({
+                rules: {
+                    password_present: {
+                        minlength: 6,
+                        remote: {
+                            url: '/my-information/password_correct'
+                        }
+                    },
+                    password_new: {
+                        minlength: 6
+                    },
+                    confirm: {
+                        equalTo: $('[name="password_new"]')
+                    },
+                    fullname: {
+                        required: true
+                    },
+                    sdt: {
+                        required: true,
+                    },
+                    birthday: {
+                        required: true
+                    }
+                },
+                messages: {
+                    password_present: {
+                        minlength: 'Your password must have at least 6 characters.',
+                        remote: 'Your password is wrong'
+                    },
+                    password_new: {
+                        minlength: 'Your password must have at least 6 characters.'
+                    },
+                    confirm: {
+                        equalTo: 'Your password does not match.'
+                    },
+                    fullname: {
+                        required: 'Valid full name is required.',
+                    },
+                    sdt: {
+                        required: 'Valid phone number is required',
+                    },
+                    birthday: {
+                        required: 'Valid date of birth is required.',
+                    },
+                },
+                errorElement: 'small',
+                errorClass: 'help-block text-danger',
+                highlight: function (e) {
+                    $(e).removeClass('is-valid').addClass('is-invalid');
+                },
+                unhighlight: function (e) {
+                    $(e).removeClass('is-invalid').addClass('is-valid');
+                }
+            })
+        })         
+    </script>
 </body>
 
 </html>

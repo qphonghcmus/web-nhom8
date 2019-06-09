@@ -44,5 +44,15 @@ module.exports = {
                 else resolve(res);
             })
         })
+    },
+
+    updateProfile: (entity, Email) => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.findOneAndUpdate({ email: Email }, entity, { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
     }
 }
