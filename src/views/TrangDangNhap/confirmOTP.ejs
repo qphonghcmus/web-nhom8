@@ -17,13 +17,13 @@
                     <div class="login-content bg-white p-30 box-shadow">
                         <!-- Section Title -->
                         <div class="section-heading">
-                            <h5>XÁC MINH SĐT</h5>
+                            <h5>XÁC MINH EMAIL</h5>
                         </div>
 
-                        <form action="../../login" method="get">
+                        <form action="" method="POST">
                             <div class="form-group">
-                                <label for="textConfirm">Nhập mã xác nhận đã được gửi tới số 0979279932</label>
-                                <input type="text" class="form-control" id="textConfirm">
+                                <label for="textConfirm">Nhập mã xác nhận đã được gửi tới <%=mail%></label>
+                                <input name='code' type="text" class="form-control" id="textConfirm">
                             </div>
                             <div style="text-align: center;">
                                     <button type="submit" class="btn btn-success">Xác nhận</button>

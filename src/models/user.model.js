@@ -7,6 +7,11 @@ var userSchema = new mongoose.Schema({
     passWord: String,
     ngaySinh: Date,
     phoneNumber: String,
+    secretToken: String,
+    confirmed: {
+        type: Boolean,
+        default: false
+    },
     // tenLoai: {
     //     type: String,
     //     default: 'guest'
@@ -25,6 +30,7 @@ module.exports = {
                 hoTen: entity.hoTen,
                 email: entity.email,
                 passWord: entity.passWord,
+                secretToken: entity.secretToken,
                 ngaySinh: entity.ngaySinh,
                 phoneNumber: entity.phoneNumber,
                 permission: entity.permission
@@ -50,6 +56,16 @@ module.exports = {
         return new Promise((resolve, reject) => {
             var user = mongoose.model('User', userSchema);
             user.findOneAndUpdate({ email: Email }, entity, { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    turncomfirmded: (Email) => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.findOneAndUpdate({ email: Email }, { confirmed: true }, { new: true }).exec((err, res) => {
                 if (err) reject(err);
                 else resolve(res);
             })

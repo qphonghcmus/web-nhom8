@@ -15,6 +15,9 @@ module.exports = function (app) {
             if (rows.length == 0) {
                 return done(null, false, { message: 'Invalid username.' });
             }
+            else if(!rows[0].confirmed){
+                return done(null, false, { message: 'Please confirm your email.' });
+            }
 
             var user = rows[0];
             var ret = bcrypt.compareSync(password, rows[0].passWord);
