@@ -7,4 +7,50 @@ var CategorySchema = new mongoose.Schema({
 
 
 CategorySchema.plugin(AuToIncrement, {id:'idChuyenMuc_Seq',inc_field: 'idChuyenMuc'} );
-mongoose.model('categories', CategorySchema);
+
+module.exports = {
+    add: chuyenmuc => {
+        return new Promise((resolve, reject) => {
+            var cat = mongoose.model('categories', CategorySchema);
+            var obj = new cat({
+                tenChuyenMuc: chuyenmuc
+            })
+            obj.save((err,res)=>{
+                if(err) reject(err)
+                else    resolve(res.idChuyenMuc);
+            })
+        })
+    },
+
+    update: entity => {
+        return new Promise((resolve,reject)=>{
+            var cat = mongoose.model('categories',CategorySchema);
+            cat.updateOne({idChuyenMuc: entity.idChuyenMuc},{
+                tenChuyenMuc: entity.tenChuyenMuc,
+            }).exec((err,res => {
+                if(err) reject(err)
+                else    resolve(res.changedRowsO)
+            }))
+        })
+    },
+
+    findByChuyenMuc: chuyenmuc => {
+        return new Promise((resolve, reject)=>{
+            var cat = mongoose.model('categories',CategorySchema);
+            cat.find({tenChuyenMuc: chuyenmuc}).exec((err,res)=>{
+                if(err) reject(err)
+                else    resolve(res.idChuyenMuc)
+            })
+        })
+    },
+
+    load: () => {
+        return new Promise((resolve, reject)=>{
+            var cat = mongoose.model('categories',CategorySchema);
+            cat.find().exec((err,res)=>{
+                if(err) reject(err)
+                else    resolve(res)
+            })
+        })
+    }
+}

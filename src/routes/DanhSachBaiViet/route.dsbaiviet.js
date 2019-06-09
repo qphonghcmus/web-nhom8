@@ -39,8 +39,8 @@ function getTenChuyeMuc(chuyenmuc) {
     var tenchuyenmuc;
     if (chuyenmuc === 'cong-nghe')
         tenchuyenmuc = 'Công nghệ';
-    else if (chuyenmuc === 'tai-chinh')
-        tenchuyenmuc = 'Tài chính';
+    else if (chuyenmuc === 'the-gioi')
+        tenchuyenmuc = 'Thế giới';
     else if (chuyenmuc === 'phap-luat')
         tenchuyenmuc = 'Pháp luật';
     else if (chuyenmuc === 'giao-duc')

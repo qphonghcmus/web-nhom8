@@ -33,5 +33,15 @@ module.exports = {
                 else    resolve(res.changedRows)
             })
         })
+    },
+
+    findById: id => {
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('postdetails', postDetailSchema);
+            post.find({idBaiViet: id}).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
     }
 }

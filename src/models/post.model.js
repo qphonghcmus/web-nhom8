@@ -47,6 +47,16 @@ module.exports = {
         })
     },
 
+    findById: id =>{
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({idBaiViet: id}).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
     findByChuyenMuc: chuyenmuc => {
         return new Promise((resolve, reject) => {
             var post = mongoose.model('posts', postSchema);
