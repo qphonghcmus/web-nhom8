@@ -21,6 +21,7 @@ var postSchema = new mongoose.Schema({
         type: String
     },
     viewNumber: Number,
+	chuyenMucCon:String,
     isActive:Boolean
 });
 
@@ -95,5 +96,36 @@ module.exports = {
                 else resolve(res);
             })
         })
+    },
+	
+	 countBySearchString: (searchString, tenChuyenMuc) => {
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts', postSchema);
+            post.count({
+                $and: [
+               { tenChuyenMuc:tenChuyenMuc},
+                 searchString
+                ]
+            }).exec((err,res)=>{
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    findBySearchString: (searchString,tenChuyenMuc,skip,limit) => {
+        return new Promise((resolve,reject) =>{
+            var post = mongoose.model('posts', postSchema);
+            post.find({
+                $and: [
+                    { tenChuyenMuc: tenChuyenMuc },
+                   searchString
+                ]
+            },'idBaiViet tieuDe isActive').skip(Number(skip)).limit(Number(limit)).exec((err,res)=>{
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
     }
+
 }

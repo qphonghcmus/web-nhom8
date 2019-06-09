@@ -1,16 +1,56 @@
 var express = require('express');
 var router = express.Router();
-
+var postModel = require('../../models/post.model');
+var listCategory = ['Công nghệ','Thể thao','Giải trí'];
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('./layouts/Admin/admin.ejs',{
-    title: 'Quản lý chuyên mục',
-    filename: '../../Admin/ManageCategory',
-    activeManageCategory: true,
-    cssfiles: ['ManageCategory'],
-    jsfiles: ['ManageCategory'],
-  });
+  res.render('./layouts/Admin/admin.ejs', {
+      title: 'Quản lý chuyên mục',
+      filename: '../../Admin/ManageCategory',
+      activeManageCategory: true,
+      cssfiles: ['ManageCategory'],
+      jsfiles: ['ManageCategory'],
+      listCategory:listCategory,
+    });
 });
+router.post('/manage-category/:i',(req,res)=>{
+
+  var searchStr = {};
+  var i = req.params.i;
+  if (req.body['search[value]']) { 
+    var regex = new RegExp(req.body['search[value]'], 'i');
+    searchStr = { $or: [{ idBaiViet: req.body['search[value]'] }, { tieuDe: req.body['search[value]'] }] };
+    console.log(searchStr);
+  }
+  else
+  {
+    searchStr = {};
+  }
+  var recordsTotal = 0;
+  var recordsFiltered = 0;
+
+  Promise.all([
+    postModel.countByChuyeMuc(listCategory[i]),
+    postModel.countBySearchString(searchStr,listCategory[i]),
+    postModel.findBySearchString(searchStr, listCategory[i], req.body.start, req.body.length)
+  ]).then(([c,d,docs])=>{
+    recordsTotal = c;
+    console.log(c);
+    recordsFiltered = d;
+    console.log(d);
+    console.log(req.body.start);
+    console.log(req.body.length);
+    var data = JSON.stringify({
+      "draw": req.body.draw,
+      "recordsFiltered": recordsFiltered,
+      "recordsTotal": recordsTotal,
+      "data": docs
+    });
+    console.log(data);
+    res.send(data);
+  }).catch(err => res.json(err));
+
+})
 
 router.get('/manage-category', function(req, res, next) {
   res.render('./layouts/Admin/admin.ejs',{
