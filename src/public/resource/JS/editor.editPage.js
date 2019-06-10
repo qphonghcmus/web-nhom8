@@ -10,14 +10,14 @@ $(function () {
         uploadUrl: '/upload',
         uploadAsync: false,
 
-        initialPreview: [url1],
+        initialPreview: ["/public/resource/img/post/" + url1],
         initialPreviewAsData: true,
         initialPreviewConfig: [
-            {caption: "james.jpg" },
+            {caption: url1 },
         ],
         deleteUrl: "/file-delete",
         overwriteInitial: false,
-        initialCaption: "james.jpg"
+        initialCaption: url1
 
     })
     $('#fuMain').on('fileloaded', function(event, file, previewId, index, reader) {

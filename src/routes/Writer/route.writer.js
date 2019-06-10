@@ -215,6 +215,7 @@ router.get('/editPage/:id', (req, res, next) => {
 
     post.findById(idBaiViet)
         .then(baiviet => {
+            console.log('------------------------')
             postDetail.findById(idBaiViet)
                 .then(noidung => {
 

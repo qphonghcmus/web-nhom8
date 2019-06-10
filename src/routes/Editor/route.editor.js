@@ -99,6 +99,7 @@ router.get('/duyet', (req,res) => {
         ],
         jsfiles:[
         ],
+        listCat: []
     });
 })
 
