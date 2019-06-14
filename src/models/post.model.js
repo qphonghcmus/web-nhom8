@@ -21,7 +21,7 @@ var postSchema = new mongoose.Schema({
         type: String
     },
     viewNumber: Number,
-	chuyenMucCon:String,
+	chuyenMucCon: [String],
     isActive:Boolean
 });
 

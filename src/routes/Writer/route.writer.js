@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var auth = require('../../middlewares/auth');
-var post = require('../../models/post.model');
-var postDetail = require('../../models/postDetail.model');
+// var post = require('../../models/post.model');
+// var postDetail = require('../../models/postDetail.model');
 var categories = require('../../models/category.model');
+var draft = require('../../models/draff.model');
 
 router.get('/', auth, (req, res, next) => {
     res.render('./layouts/Writer/main', {
@@ -89,25 +90,22 @@ router.get('/post', (req, res, next) => {
 });
 
 router.post('/post', (req, res, next) => {
-    var entityPost = {
+    
+    var tagsArr = req.body.tags.split(",");
+
+    var entityDraft = {
         tieuDe: req.body.tieude,
         tenChuyenMuc: req.body.chuyenmuc,
-        imagePath: req.body.imgPath,
+        img: req.body.imgPath,
         tag: tagsArr,
-        noiDungTomTat: req.body.tomtat,
-        viewNumber: 0,
+        tomTat: req.body.tomtat,
+        noiDung: req.body.wysiwyg,
     }
 
-    post.add(entityPost).then(id => {
-        var entityDetail = {
-            idBaiViet: id,
-            noiDung: req.body.wysiwyg
-        }
-        postDetail.add(entityDetail)
-            .then(id => res.redirect('/writer/waitPublish'))
-            .catch(err => console.log(err));
-    })
-        .catch(err => console.log(err));
+    draft.add(entityDraft).then(id => {
+        res.redirect('/writer/post')
+    }).catch(err => console.log(err))
+
 });
 
 router.get('/waitPublish', (req, res, next) => {
@@ -213,56 +211,67 @@ router.get('/edit', (req, res, next) => {
 router.get('/editPage/:id', (req, res, next) => {
     var idBaiViet = req.params.id;
 
-    post.findById(idBaiViet)
-        .then(baiviet => {
-            console.log('------------------------')
-            postDetail.findById(idBaiViet)
-                .then(noidung => {
-
-                    var tags = "";
-                    baiviet[0].tag.forEach(function (e) {
-                        if(tags.length === 0){
-                            tags = e;
-                        }else{
-                            tags += "," + e;
-                        }
-                    })
-
-                    var obj = {
-                        tieuDe: baiviet[0].tieuDe,
-                        tenChuyenMuc: baiviet[0].tenChuyenMuc,
-                        imagePath: baiviet[0].imagePath,
-                        tag: tags,
-                        noiDungTomTat: baiviet[0].noiDungTomTat,
-                        noiDung: noidung[0].noiDung,
-                    }
-
-                    categories.load()
-                        .then(list => {
-                            var listCat = [];
-                            list.forEach(function(e){
-                                listCat.push(e.tenChuyenMuc);
-                            })
-                            res.render('./layouts/Writer/main', {
-                                filename: '../../writer/writer_editPage.ejs',
-                                activeEdit: true,
-                                cssfiles: [
-                                    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'
-                                ],
-                                jsfiles: [
-                                    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
-                                    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
-                                    '../../../public/resource/js/editor.editPage.js',
-                                ],
-                                post: obj,
-                                listCat: listCat,
-                            });
-                        })
-                        .catch()
-                })
-                .catch();
+    draft.findById(idBaiViet).then(baiviet => {
+        var tags = "";
+        baiviet[0].tag.forEach(function (e) {
+            if (tags.length === 0) {
+                tags = e;
+            } else {
+                tags += "," + e;
+            }
         })
-        .catch();
+
+        var obj = {
+            id: idBaiViet,
+            tieuDe: baiviet[0].tieuDe,
+            tenChuyenMuc: baiviet[0].tenChuyenMuc,
+            imagePath: baiviet[0].img,
+            tag: tags,
+            noiDungTomTat: baiviet[0].tomTat,
+            noiDung: baiviet[0].noiDung,
+        }
+
+        categories.load().then(list => {
+            var listCat = [];
+            list.forEach(function (e) {
+                listCat.push(e.tenChuyenMuc);
+            })
+            res.render('./layouts/Writer/main', {
+                filename: '../../writer/writer_editPage.ejs',
+                activeEdit: true,
+                cssfiles: [
+                    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'
+                ],
+                jsfiles: [
+                    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
+                    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
+                    '../../../public/resource/js/editor.editPage.js',
+                ],
+                post: obj,
+                listCat: listCat,
+            });
+        }).catch()
+
+    }).catch();
+
 });
+
+router.post('/editPage/:id',(req,res,next)=>{
+    var tagsArr = req.body.tags.split(",");
+
+    var entityDraft = {
+        idDraff : Number(req.params.id),
+        tieuDe: req.body.tieude,
+        tenChuyenMuc: req.body.chuyenmuc,
+        img: req.body.imgPath,
+        tag: tagsArr,
+        tomTat: req.body.tomtat,
+        noiDung: req.body.wysiwyg,
+    }
+
+    draft.update(entityDraft).then(id => {
+        res.redirect('/writer/post')
+    }).catch(err => console.log(err))
+})
 
 module.exports = router;
