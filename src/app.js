@@ -23,6 +23,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', require('./routes/TrangChu/index'));
 app.use('/login', require('./routes/TrangDangNhap/route.login'));
 app.use('/register', require('./routes/TrangDangNhap/route.register'));
+app.use('/forget-password', require('./routes/TrangDangNhap/route.forgetpassword'));
 app.use('/list', require('./routes/DanhSachBaiViet/route.dsbaiviet'));
 app.use('/administrator', require('./routes/Admin/route.admin'));
 app.use('/my-information', require('./routes/TrangDangNhap/route.subscriberInformation'));

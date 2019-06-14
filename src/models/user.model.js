@@ -70,5 +70,15 @@ module.exports = {
                 else resolve(res);
             })
         })
+    },
+
+    updateSecretToken_Password: (Email, token, pass) => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.findOneAndUpdate({ email: Email }, { secretToken: token, passWord: pass }, { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
     }
 }
