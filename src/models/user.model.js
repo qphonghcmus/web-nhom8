@@ -34,7 +34,7 @@ module.exports = {
                 secretToken: entity.secretToken,
                 ngaySinh: entity.ngaySinh,
                 phoneNumber: entity.phoneNumber,
-                confirmed:entity.confirmed,
+                confirmed: entity.confirmed,
                 permission: entity.permission
             })
             obj.save((err, res) => {
@@ -98,6 +98,16 @@ module.exports = {
         return new Promise((resolve, reject) => {
             var user = mongoose.model('User', userSchema);
             user.find({ permission: 1 }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    DeleteUser: (ID) => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.findByIdAndRemove(ID).exec((err, res) => {
                 if (err) reject(err);
                 else resolve(res);
             })

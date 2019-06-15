@@ -70,14 +70,17 @@
                         </td>
                         <td>
                             <div>
-                                <a href="Manage_Writer_Detail.html" target="_blank" class="link-to-info"><%=i.hoTen%></a>
+                                <a href="Manage_Writer_Detail.html" target="_blank"
+                                    class="link-to-info"><%=i.hoTen%></a>
                             </div>
                         </td>
                         <td>
                             <p><%=i.phoneNumber%></p>
                         </td>
 
-                        <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></td>
+                        <td><a class="icon" href="/administrator/manage-writer/delete/<%=i._id%>"
+                                onclick="return confirm('Are you sure to delete this record ?');"><i
+                                    class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td>
                     </tr>
 
                     <%});%>

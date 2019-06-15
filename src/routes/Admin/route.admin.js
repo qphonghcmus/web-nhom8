@@ -142,4 +142,14 @@ router.post('/manage-writer', function (req, res, next) {
     .catch(e => res.json(e + ''));
 });
 
+router.get('/manage-writer/delete/:id',(req,res)=>{
+  userModel.DeleteUser(req.params.id)
+  .then(rows=>{
+    res.redirect('/administrator/manage-writer');
+  })
+  .catch(err=>{
+    res.json(err+'');
+  })
+})
+
 module.exports = router;
