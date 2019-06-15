@@ -4,14 +4,25 @@ var postModel = require('../../models/post.model');
 const moment = require('moment');
 
 router.get('/', (req,res)=>{
-  postModel.top10latestnews()
-  .then((docs)=>{
+  var p1 = postModel.top10latestnews();
+  var p2 = postModel.top10mostviewsnews();
+  var p3 = postModel.top1newsof10cat();
+  var p4 = postModel.top4mostviewsnews();
+
+  Promise.all([p1,p2,p3,p4]).then(value=>{
+    var daydiff = []
+    value[3].forEach(e => {
+      daydiff.push(moment(new Date()).diff(moment(e.ngayDang),"days"));
+    });
     res.render('./TrangChu/index',{
-      list:docs,
+      list: value[0],
+      mostviews: value[1],
+      top10of10: value[2],
+      top4viewsnews: value[3],
+      daydiff: daydiff,
       moment: moment
     })
   })
-  .catch(e=>res.json(e));
 })
 
 router.post('/them-bai-viet',(req,res,next)=>{

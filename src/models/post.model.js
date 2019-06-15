@@ -103,8 +103,73 @@ module.exports = {
     top10latestnews: ()=>{
         return new Promise((resolve,reject)=>{
             var post = mongoose.model('posts', postSchema);
-            post.find({}).sort({'ngayDang': -1}).exec((err,res)=>{
+            post.find({ngayDang:{$lte: new Date()}}).sort({'ngayDang': -1}).limit(10).exec((err,res)=>{
                 if(err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    top10mostviewsnews: () => {
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts', postSchema);
+            post.find({ngayDang:{$lte: new Date()}}).sort({'viewNumber': -1}).limit(10).exec((err,res)=>{
+                if(err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    top4mostviewsnews: () => {
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts', postSchema);
+            post.find({ngayDang:{$lte: new Date()}}).sort({'viewNumber': -1}).sort({'ngayDang':-1}).limit(4).exec((err,res)=>{
+                if(err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    top1newsof10cat: () => {
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts', postSchema);
+            post.aggregate([
+                {$match: {ngayDang:{$lte: new Date()}}},
+                {   $sort: {'tenChuyenMuc':1}},
+                {
+                    $group:{
+                        _id: '$tenChuyenMuc',
+                        lastId: {$last: '$_id'},
+                        ngayDang: {$last: '$ngayDang'},
+                        tieuDe: {$last: '$tieuDe'},
+                        idBaiViet: {$last: '$idBaiViet'},
+                        imagePath: {$last: '$imagePath'},
+                        tag: {$last: '$tag'},
+                        noiDungTomTat: {$last: '$noiDungTomTat'},
+                        viewNumber: {$last: '$viewNumber'},
+                        chuyenMucCon: {$last: '$chuyenMucCon'},
+                        isActive: {$last: '$isActive'},
+                        idTacGia: {$last: '$idTacGia'},
+                    }
+                },{
+                    $project: {
+                        _id: '$lastId',
+                        idBaiViet: 1,
+                        tieuDe: 1,
+                        tenChuyenMuc: '$_id',
+                        ngayDang: 1,
+                        imagePath: 1,
+                        tag: 1,
+                        noiDungTomTat: 1,
+                        viewNumber: 1,
+                        chuyenMucCon: 1,
+                        isActive:1,
+                        idTacGia: 1,
+                    }
+                }
+                
+            ]).exec((err,res)=>{
+                if (err) reject(err);
                 else resolve(res);
             })
         })

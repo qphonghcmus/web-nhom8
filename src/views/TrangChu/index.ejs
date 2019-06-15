@@ -10,68 +10,28 @@
     <%- include('../layouts/TrangChu/navbar')%>
     <!-- ##### Hero Area Start ##### -->
     <div class="hero-area owl-carousel custom-carousel">
-        <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img bg-overlay"
-            style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/DSC6320-1-1140x597.jpg);">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <!-- Post Contetnt -->
-                        <div class="post-content text-center">
-                            <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                                <a href="#">6 NGÀY TRƯỚC</a>
-                                <a href="archive.html">CÔNG NGHỆ</a>
-                            </div>
-                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Top 3 smartphone
-                                thiết kế đẹp, cấu hình khá, pin trâu, giá chỉ dưới 4 triệu đồng
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img bg-overlay"
-            style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/cover-12.jpg);">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <!-- Post Contetnt -->
-                        <div class="post-content text-center">
-                            <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                                <a href="#">4 NGÀY TRƯỚC</a>
-                       
-                                <a href="#">CÔNG NGHỆ</a>
+        <% for(var i = 0; i < top4viewsnews.length; i++) {%>
+            <!-- Single Blog Post -->
+            <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(<%=top4viewsnews[i].imagePath%>);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <!-- Post Contetnt -->
+                            <div class="post-content text-center">
+                                <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
+                                    <a href="#"><%= daydiff[i] %> Ngày trước</a>
+                                    <a href="archive.html"><%= top4viewsnews[i].tenChuyenMuc %></a>
+                                </div>
+                                <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">
+                                    <%= top4viewsnews[i].tieuDe %>
+                                </a>
                             </div>
-                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Trên tay OPPO
-                                F11 Pro Avengers Edition: Cực đẹp, cực độc, đậm chất siêu anh hùng</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="hero-blog-post bg-img bg-overlay"
-            style="background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2019/04/samsung-galaxy-fold-screen-problems-920x690.jpg);">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <!-- Post Contetnt -->
-                        <div class="post-content text-center">
-                            <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                                <a href="#">5 NGÀY TRƯỚC</a>
-                        
-                                <a href="#">CÔNG NGHỆ</a>
-                            </div>
-                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">Galaxy Fold chưa
-                                bán đã lỗi, chuyện gì đang diễn ra và cách giải quyết của Samsung là gì?</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <% } %>
     </div>
     <!-- ##### Hero Area End ##### -->
 
@@ -127,98 +87,23 @@
                 </div>
 
                 <div class="trending-post-slides owl-carousel">
-                   <!-- Single Trending Post -->
-                   <div class="single-trending-post">
-                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/aohunkx/2019_05_04/vang.jpg" alt="">
+
+                        <% for( var i = 0; i < top10of10.length ; i++){%>
+                <!-- Single Trending Post -->
+                <div class="single-trending-post">
+                    <img src="<%= top10of10[i].imagePath%>" alt="">
                     <div class="post-content">
                         <div class="post-meta">
-                            <a href="#" class = "post-cata">PHÁP LUẬT</a>
+                            <a href="#" class="post-cata"><%= top10of10[i].tenChuyenMuc %></a>
                         </div>
-                        <a href="#" class="post-title">Liên doanh 10,5 triệu USD của SJC dừng hoạt động 22 năm chưa giải thể</a>
+                        <a href="#" class="post-title"><%= top10of10[i].tieuDe %></a>
                         <div class="post-meta" style="margin-top: 10px">
-                            <a href="#" class = "post-cata">20/04/2019</a>
+                            <a href="#"
+                                class="post-cata"><%= moment(top10of10[i].ngayDang).format("DD-MM-YYYY hh:mm") %></a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/kbd_bcvi/2019_05_03/0.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">GIẢI TRÍ</a>
-                        <a href="#" class="post-title">Những chuyện chưa kể về dịch vụ thuê bạn gái ở Nhật Bản</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/pgi_ubnvgunau/2019_05_04/photo15423531354561542353135631crop1542353144951560845582.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">THỂ THAO</a>
-                        <a href="#" class="post-title">Bàn thắng kinh điển từ góc gần 0 độ của Roberto Carlos</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/unvjhuo/2019_05_03/dongtrunghathao.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">ĐỜI SỐNG</a>
-        
-                        <a href="#" class="post-title">Tại sao đông trùng hạ thảo lại quý hiếm và đắt như vậy?</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/jopltui/2019_05_04/Ong_Le_Bach_Hong_WPJW.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">PHÁP LUẬT</a>
-                        <a href="#" class="post-title">Đề nghị truy tố cựu Tổng giám đốc Bảo hiểm Xã hội Việt Nam</a>
-                    </div>
-                </div>
-                 <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/jgtnrz/2019_04_08/tau_chien_nga_1.jpg" alt="">
-                        <div class="post-content">
-                            <a href="#" class="post-cata">QUÂN SỰ</a>
-                            <a href="#" class="post-title">Ba tàu hải quân Nga cập cảng Philippines giữa căng thẳng Biển Đông</a>
-                        </div>
-                </div>
-                 <!-- Single Trending Post -->
-                 <div class="single-trending-post">
-                        <img src="https://znews-photo.zadn.vn/w660/Uploaded/pcckpqmv/2019_05_04/ctmetaustinjonessexuallyexplicitvideos20190201.jpg" alt="">
-                        <div class="post-content">
-                            <a href="#" class="post-cata">CÔNG NGHỆ</a>
-                            <a href="#" class="post-title">Dụ fan nữ gửi video khoe thân, YouTuber ngồi tù 10 năm</a>
-                        </div>  
-                </div>
-                 <!-- Single Trending Post -->
-                 <div class="single-trending-post">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/ryksdreyxq/2019_05_04/lau_cay_tu_xuyen.jpg" alt="">
-                        <div class="post-content">
-                            <a href="#" class="post-cata">THẾ GIỚI</a>
-                            <a href="#" class="post-title">Khách Tây thở hổn hển khi ăn thử lẩu cay ở Trung Quốc</a>
-                        </div>  
-                </div>
-                  <!-- Single Trending Post -->
-                  <div class="single-trending-post">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/Ycgmvlbp/2019_04_29/Yen_2.jpg" alt="">
-                        <div class="post-content">
-                            <a href="#" class="post-cata">GIÁO DỤC</a>
-                            <a href="#" class="post-title">Gian lận thi cử đã tàn phá giáo dục như thế nào?</a>
-                        </div>  
-                </div>
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                        <img src="https://znews-photo.zadn.vn/w480/Uploaded/tngtbn/2019_05_04/a4.jpg" alt="">
-                        <div class="post-content">
-                            <a href="#" class="post-cata">DU LỊCH</a>
-                            <a href="#" class="post-title">Kiệt tác triệu năm, hình thành từ núi lửa phun trào ở Lý Sơn</a>
-                        </div>  
-                </div>
-
-                    
+                <%}%>   
                 </div>
             </div>
 
@@ -236,176 +121,55 @@
                 </div>
 
                 <div class="sports-videos-slides owl-carousel mb-30">
-                    <!-- Single Featured Post -->
-                    <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="https://znews-photo.zadn.vn/w480/Uploaded/lce_vjrcc/2019_05_04/le_thi_thu_hang.jpg" alt="">
-                        </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">30/04/2019</a>
-                                <a href="#">QUÂN SỰ</a>
-                            </div>
-                            <a href="" class="post-title">Việt Nam phản đối Trung Quốc cấm đánh bắt cá ở Biển Đông</a>
-                            <p>Việt Nam phản đối quyết định đơn phương của phía Trung Quốc áp dụng cấm đánh bắt cá từ ngày 1/5-16/8 ở khu vực Biển Đông, trong đó bao gồm một số vùng biển của Việt Nam ....</p>
-                        </div>
-                        <!-- Post Share Area -->
-                        
+
+                    <% for( var i = 0; i < mostviews.length - 4; i++){%>
+                <!-- Single Featured Post -->
+                <div class="single-featured-post">
+                    <!-- Thumbnail -->
+                    <div class="post-thumbnail mb-50">
+                        <% var path = mostviews[i].imagePath%>
+                        <img src="<%= path%>" alt="">
                     </div>
-
-                    <!-- Single Featured Post -->
-                    <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="https://znews-photo.zadn.vn/w480/Uploaded/neg_glyrtla/2019_05_04/dai.jpg" alt="">
+                    <!-- Post Contetnt -->
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY hh:mm") %></a>
+                            <a href="#"><%= mostviews[i].tenChuyenMuc %></a>
                         </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">26/04/2019</a>
-                                <a href="#">ĐỜI SỐNG</a>
-                            </div>
-                            <a href="" class="post-title">Tông vào taluy bên đường, nữ sinh viên tử vong trên núi Sơn Trà</a>
-                            <p>Lái xe máy lên núi Sơn Trà (Đà Nẵng) tham quan cùng bạn, xe của Sang không may tông vào taluy chắn bên đường ....</p>
-                        </div>
-                        <!-- Post Share Area (Da Xoa)-->
-
+                        <a href="" class="post-title"><%= mostviews[i].tieuDe %></a>
+                        <p><%= mostviews[i].noiDungTomTat %></p>
                     </div>
+                    <!-- Post Share Area -->
 
-                    
-
-                    <!-- Single Featured Post -->
-                    <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_05_04/unnamedfile640x360.jpg" alt="">
-                        </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">26/04/2019</a>
-                                <a href="#">CÔNG NGHỆ</a>
-                            </div>
-                            <a href="" class="post-title">Samsung đang tìm cách 'khai tử' camera điện thoại truyền thống</a>
-                            <p>Phó giám đốc mảng nghiên cứu màn hình của Samsung đã xác nhận hãng đang phát triển camera đặt dưới màn hình và có thể ra thị trường sau 2 năm nữa .....</p>
-                        </div>
-                        <!-- Post Share Area (Da Xoa)-->
-                    </div>
-
-                     <!-- Single Featured Post -->
-                     <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="https://znews-photo.zadn.vn/w480/Uploaded/kbd_pilk/2019_05_04/59704312_281505816138058_8347551179256889344_n.jpg" alt="">
-                        </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">26/04/2019</a>
-                                <a href="#">GIẢI TRÍ</a>
-                            </div>
-                            <a href="" class="post-title">Angelababy và dàn sao thần tượng hát trong đêm nhạc của đài quốc gia</a>
-                            <p>Các ngôi sao hàng đầu Trung Quốc như Dương Mịch, Angelababy, Vương Tuấn Khải góp mặt trong chương trình ca nhạc chào mừng ngày hội Ngũ Tứ do đài CCTV tổ chức .....</p>
-                        </div>
-                        <!-- Post Share Area (Da Xoa)-->
-                    </div>
-
-                     <!-- Single Featured Post -->
-                     <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="https://znews-photo.zadn.vn/w480/Uploaded/qhj_jwrscslhfo/2019_05_03/maxresdefault3.jpg" alt="">
-                        </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">26/04/2019</a>
-                                <a href="#">THỂ THAO</a>
-                            </div>
-                            <a href="" class="post-title">Lý do Son Heung-Min là cầu thủ hay nhất lịch sử châu Á</a>
-                            <p>Son Heung-Min đang có màn trình diễn xuất sắc ở mùa giải 2018/19. Anh là người hùng đưa Tottenham vào bán kết Champions League sau chiến thắng trước Man City .....</p>
-                        </div>
-                        <!-- Post Share Area (Da Xoa)-->
-                    </div>
-
-                    <!-- Single Featured Post -->
-                    <div class="single-featured-post">
-                        <!-- Thumbnail -->
-                        <div class="post-thumbnail mb-50">
-                            <img src="https://znews-photo.zadn.vn/w660/Uploaded/chuaplu/2019_05_04/58282165_23843321411620661_2723371666414501888_n.jpg" alt="">
-                        </div>
-                        <!-- Post Contetnt -->
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <a href="#">26/04/2019</a>
-                                <a href="#">THỂ THAO</a>
-                            </div>
-                            <a href="" class="post-title">Web đen hàng đầu thế giới vừa bị Đức đánh sập</a>
-                            <p>Nền tảng mã hóa phi pháp này có hơn 1 triệu tài khoản khách hàng, hơn 5.000 người bán và hơn 60.000 lượt rao bán các mặt hàng cấm .....</p>
-                        </div>
-                        <!-- Post Share Area (Da Xoa)-->
-                    </div>
+                </div>
+                <%}%>
+                   
 
                 </div>
 
                 <div class="row">
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                <img src="https://znews-photo.zadn.vn/w480/Uploaded/Sotntb/2019_04_24/sss.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">'Bẫy tử thần' trên dự án mở rộng quốc lộ hơn 760 tỷ</a>
-                                <div class="post-meta">
-                                    <a href="#" style="margin-right: 0px;">PHÁP LUẬT</a>
-                                    <a style="margin-right: 0px;">-</a>
-                                    <a href="#">20/04/2019 15:30</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                <img src="https://znews-photo.zadn.vn/w480/Uploaded/ycgvpvpc/2019_05_04/5SG_thumb.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">Thời tiết ngày 5/5: Sài Gòn trưa nắng nóng, chiều mưa rào</a>
-                                <p>Đời sống - 05/05/2019</p>
+                        <% for( var i = 6; i < mostviews.length; i++){%>
+                <!-- Single Blog Post -->
+                <div class="col-12 col-lg-6">
+                    <div class="single-blog-post d-flex style-3 mb-30">
+                        <div class="post-thumbnail">
+                            <% var path = mostviews[i].imagePath%>
+                            <img src="<%= path%>" alt="">
+                        </div>
+                        <div class="post-content">
+                            <a href="single-post.html" class="post-title"><%= mostviews[i].tieuDe %></a>
+                            <div class="post-meta">
+                                <a href="#" style="margin-right: 0px;"><%= mostviews[i].tenChuyenMuc %></a>
+                                <a style="margin-right: 0px;">-</a>
+                                <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY hh:mm") %></a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                <img src="https://znews-photo.zadn.vn/w660/Uploaded/kbd_ivdb/2019_05_03/IMG_1968.JPG" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">Nhiều tuyến đường Sài Gòn ngập sau cơn mưa nửa giờ</a>
-                                <p>Đời sống - 23 giờ trước</p>
-                            </div>
-                        </div>
-                    </div>
+                <%}%>
 
-                    <!-- Single Blog Post -->
-                    <div class="col-12 col-lg-6">
-                        <div class="single-blog-post d-flex style-3 mb-30">
-                            <div class="post-thumbnail">
-                                <img src="https://znews-photo.zadn.vn/w480/Uploaded/pwivovlb/2019_05_04/xanh.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">Công an Hà Nội xác minh xe biển xanh gây tai nạn rồi bỏ chạy</a>
-                                <p>Pháp luật - 04/05/2019</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
