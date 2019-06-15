@@ -1,5 +1,4 @@
 var express = require('express');
-
 var router = express.Router();
 var draft = require('../../models/draft.model');
 var drafTuChoi = require('../../models/draftTuChoi.model');
@@ -7,7 +6,7 @@ var category = require('../../models/category.model');
 var moment = require('moment');
 var draftDuyet = require('../../models/draft_Duyet.model');
 
-router.get('/', (req, res) => {
+router.get('/', (req, res,next) => {
     res.render('./layouts/Editor/main',{
         filename: '../../editor/editor_admin',
         activeAdmin: true,
@@ -16,7 +15,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/admin', (req, res) => {
+router.get('/admin', (req, res,next) => {
     res.render('./layouts/Editor/main',{
         filename: '../../editor/editor_admin',
         activeAdmin: true,
@@ -25,7 +24,7 @@ router.get('/admin', (req, res) => {
     });
 });
 
-router.get('/update', (req, res) => {
+router.get('/update', (req, res,next) => {
     res.render('./layouts/Editor/main',{
         filename: '../../editor/editor_updateProfile.ejs',
         activeUpdate: true,
@@ -34,7 +33,7 @@ router.get('/update', (req, res) => {
     });
 });
 
-router.get('/approve', (req, res) => {
+router.get('/approve', (req, res,next) => {
     var chuyenmuc = "Thể thao";
     draftDuyet.findByChuyenMuc(chuyenmuc).then(list =>{
         res.render('./layouts/Editor/main',{
@@ -59,7 +58,7 @@ router.get('/approve', (req, res) => {
     
 });
 
-router.get('/reject', (req, res) => {
+router.get('/reject', (req, res,next) => {
     var chuyenmuc = "Thể thao"
     drafTuChoi.findByChuyenMuc(chuyenmuc).then(list => {
         res.render('./layouts/Editor/main',{
@@ -84,7 +83,7 @@ router.get('/reject', (req, res) => {
     
 });
 
-router.get('/wait', (req, res) => {
+router.get('/wait', (req, res,next) => {
     var chuyenmuc = "Thể thao"
     draft.findByChuyenMuc(chuyenmuc).then(list => {
         res.render('./layouts/Editor/main',{
@@ -110,7 +109,7 @@ router.get('/wait', (req, res) => {
     
 });
 
-router.get('/duyet/:id', (req,res) => {
+router.get('/duyet/:id', (req,res,next) => {
     var id = req.params.id;
     draft.findById(id).then(list => {
         category.findByChuyenMuc(list[0].tenChuyenMuc).then( listCat => {
@@ -142,8 +141,9 @@ router.get('/duyet/:id', (req,res) => {
     
 })
 
-router.post('/duyet/:id', (req,res) => {
+router.post('/duyet/:id', (req,res,next) => {
     var id = req.params.id;
+
     var date = moment(req.body.ngayxuatban,'DD/MM/YYYY hh:mm').format('YYYY-MM-DD hh:mm');
 
     draft.findById(id).then(succ => {
@@ -167,7 +167,7 @@ router.post('/duyet/:id', (req,res) => {
     
 })
 
-router.get('/tuchoi/:id', (req,res) => {
+router.get('/tuchoi/:id', (req,res,next) => {
     var id = req.params.id;
     draft.findById(id).then(list =>{
         res.render('./layouts/Editor/main',{

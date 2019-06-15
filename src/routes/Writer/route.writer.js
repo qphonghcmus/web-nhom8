@@ -46,7 +46,6 @@ router.get('/add/:chuyenmuc', (req, res, next) => {
         }).catch()
 })
 
-
 router.get('/admin', (req, res, next) => {
     res.render('./layouts/Writer/main', {
         filename: '../../writer/writer_admin',
