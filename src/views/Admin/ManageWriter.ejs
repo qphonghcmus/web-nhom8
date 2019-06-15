@@ -1,103 +1,88 @@
 <div class="content-box-list-subscriber">
-                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
-                    <div class="content-box-title">
-                        <p>Thêm phóng viên mới</p>
-                    </div>
-                  
-                    <div class="content-box-tool">
-                        <a href="#toggle-add-form" id="toggle-add-form">
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                
-                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="add-subscriber-main">
-                   <form>
-                       <label for="txtUserName">Username: </label>
-                       <input class="form-control" type="text" placeholder="UserName" name="txtUserName">
-                        <br>
-                       <label for="txtPassWord">Password: </label>
-                       <input class="form-control" type="password" placeholder="PassWord" name="txtPassWord">
-                       <br>
-                       <label for="txtHoTen">Họ tên: </label>
-                       <input  class="form-control" type="text" placeholder="Nhập họ tên" name="txtHoTen">
-                       <br>
-                       <label for="txtEmail">Email: </label>
-                       <input class="form-control"  type="text" placeholder="Nhập email" name="txtEmail">
-                       <br>
-                       <label for="txtSDT">SĐT: </label>
-                       <input class="form-control" type="text" placeholder="Nhập sđt" name="txtSDT">
-                       <br>
-                       <div class="form-group position-button">
-                            <div>
-                                <input type="button" class="btn btn-primary" value=" Thêm">
-                            </div>
-                        </div>
-                  
-                   </form>
+    <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+        <div class="content-box-title">
+            <p>Thêm phóng viên mới</p>
+        </div>
+
+        <div class="content-box-tool">
+            <a href="#toggle-add-form" id="toggle-add-form">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="add-subscriber-main">
+        <form method="POST" id="registerForm">
+            <label for="username">Username: </label>
+            <input class="form-control" type="text" placeholder="Email" name="username">
+            <br>
+            <label for="password">Password: </label>
+            <input class="form-control" type="password" placeholder="PassWord" name="password">
+            <br>
+            <label for="fullname">Họ tên: </label>
+            <input class="form-control" type="text" placeholder="Nhập họ tên" name="fullname">
+            <br>
+            <label for="sdt">SĐT: </label>
+            <input class="form-control" type="text" placeholder="Nhập sđt" name="sdt">
+            <br>
+            <div class="form-group position-button">
+                <div>
+                    <input type="submit" class="btn btn-primary" value=" Thêm">
                 </div>
             </div>
 
-            <div class="content-box-list-subscriber">
-                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
-                    <div class="content-box-title">
-                        <p>Danh sách phóng viên</p>
-                    </div>
-                  
-                    <div class="content-box-tool">
-                        <a href="#toggle-list-subscrber" id="toggle-list-subscriber">
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                
-                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-subscriber-main">
-                    <div class="table-responsive">
-                        <table class="table table-hover"  id="main-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">STT</th>
-                                    <th scope="col">Họ tên</th>
-                                    <th scope="col">SĐT</th>
-                                    <th scopr="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><p>1</p></td>
-                                    <td>
-                                        <div>
-                                            <a href="Manage_Writer_Detail.html" target="_blank" class="link-to-info">Lê Hoàng Sang</a>
-                                        </div>
-                                    </td>  
-                                    <td><p>0979279932</p></td>
-                                  
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></td>
-                                </tr>
-                                <tr>
-                                    <td><p>2</p></td>
-                                    <td>
-                                        <div>
-                                            <a href="Manage_Writer_Detail.html" target="_blank" class="link-to-info">Lê Phạm Hoàng Quý</a>
-                                        </div>
-                                    </td>  
-                                    <td><p>0979279932</p></td>  
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa" ></td>
-                                </tr>
-                                <tr>
-                                    <td><p>3</p></td>
-                                    <td>
-                                        <div>
-                                            <a href="Manage_Writer_Detail.html" target="_blank" class="link-to-info">Phan Quốc Phong</a>
-                                        </div>
-                                    </td>  
-                                    <td><p>0979279932</p></td>     
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></td>
-                                </tr>
-                            </tbody>
-                        </table> 
-                    </div>
-                </div>
-            </div>
+        </form>
+    </div>
+</div>
+
+<div class="content-box-list-subscriber">
+    <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+        <div class="content-box-title">
+            <p>Danh sách phóng viên</p>
+        </div>
+
+        <div class="content-box-tool">
+            <a href="#toggle-list-subscrber" id="toggle-list-subscriber">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-subscriber-main">
+        <div class="table-responsive">
+            <table class="table table-hover" id="main-table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Họ tên</th>
+                        <th scope="col">SĐT</th>
+                        <th scopr="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% list.forEach(function(i){%>
+                    <tr>
+                        <td>
+                            <p><%=i.idUser%></p>
+                        </td>
+                        <td>
+                            <div>
+                                <a href="Manage_Writer_Detail.html" target="_blank" class="link-to-info"><%=i.hoTen%></a>
+                            </div>
+                        </td>
+                        <td>
+                            <p><%=i.phoneNumber%></p>
+                        </td>
+
+                        <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></td>
+                    </tr>
+
+                    <%});%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

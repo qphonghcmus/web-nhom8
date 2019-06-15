@@ -1,30 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var postModel = require('../../models/post.model');
-const auth=require('../../middlewares/auth_login');
-var listCategory = ['Công nghệ','Thể thao','Giải trí'];
+const auth = require('../../middlewares/auth_login');
+var listCategory = ['Công nghệ', 'Thể thao', 'Giải trí'];
+var userModel = require('../../models/user.model');
+var bcrypt = require('bcrypt'); // dùng để hash password
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {
-      title: 'Quản lý chuyên mục',
-      filename: '../../Admin/ManageCategory',
-      activeManageCategory: true,
-      cssfiles: ['ManageCategory'],
-      jsfiles: ['ManageCategory'],
-      listCategory:listCategory,
-    });
+    title: 'Quản lý chuyên mục',
+    filename: '../../Admin/ManageCategory',
+    activeManageCategory: true,
+    cssfiles: ['ManageCategory'],
+    jsfiles: ['ManageCategory'],
+    listCategory: listCategory,
+  });
 });
-router.post('/manage-category/:i',(req,res)=>{
+router.post('/manage-category/:i', (req, res) => {
 
   var searchStr = {};
   var i = req.params.i;
-  if (req.body['search[value]']) { 
+  if (req.body['search[value]']) {
     var regex = new RegExp(req.body['search[value]'], 'i');
     searchStr = { $or: [{ idBaiViet: req.body['search[value]'] }, { tieuDe: req.body['search[value]'] }] };
     console.log(searchStr);
   }
-  else
-  {
+  else {
     searchStr = {};
   }
   var recordsTotal = 0;
@@ -32,9 +33,9 @@ router.post('/manage-category/:i',(req,res)=>{
 
   Promise.all([
     postModel.countByChuyeMuc(listCategory[i]),
-    postModel.countBySearchString(searchStr,listCategory[i]),
+    postModel.countBySearchString(searchStr, listCategory[i]),
     postModel.findBySearchString(searchStr, listCategory[i], req.body.start, req.body.length)
-  ]).then(([c,d,docs])=>{
+  ]).then(([c, d, docs]) => {
     recordsTotal = c;
     console.log(c);
     recordsFiltered = d;
@@ -53,8 +54,8 @@ router.post('/manage-category/:i',(req,res)=>{
 
 })
 
-router.get('/manage-category', function(req, res, next) {
-  res.render('./layouts/Admin/admin.ejs',{
+router.get('/manage-category', function (req, res, next) {
+  res.render('./layouts/Admin/admin.ejs', {
     title: 'Quản lý chuyên mục',
     filename: '../../Admin/ManageCategory',
     activeManageCategory: true,
@@ -63,8 +64,8 @@ router.get('/manage-category', function(req, res, next) {
   });
 });
 
-router.get('/manage-post', function(req, res, next) {
-  res.render('./layouts/Admin/admin.ejs',{
+router.get('/manage-post', function (req, res, next) {
+  res.render('./layouts/Admin/admin.ejs', {
     title: 'Quản lý bài viết',
     filename: '../../Admin/ManagePost',
     activeManagePost: true,
@@ -73,8 +74,8 @@ router.get('/manage-post', function(req, res, next) {
   });
 });
 
-router.get('/manage-tag', function(req, res, next) {
-  res.render('./layouts/Admin/admin.ejs',{
+router.get('/manage-tag', function (req, res, next) {
+  res.render('./layouts/Admin/admin.ejs', {
     title: 'Quản lý nhãn',
     filename: '../../Admin/ManageTag',
     activeManageTag: true,
@@ -83,37 +84,62 @@ router.get('/manage-tag', function(req, res, next) {
   });
 });
 
-router.get('/manage-subscriber', function(req, res, next) {
-  res.render('./layouts/Admin/admin.ejs',{
+router.get('/manage-subscriber', function (req, res, next) {
+  res.render('./layouts/Admin/admin.ejs', {
     title: 'Quản lý độc giả',
     filename: '../../Admin/ManageSubscriber',
     activeManageUser: true,
-    activeManageSubscriber:true,
+    activeManageSubscriber: true,
     cssfiles: ['ManageSubscriber'],
     jsfiles: ['ManageSubscriber'],
   });
 });
 
-router.get('/manage-editor', function(req, res, next) {
-  res.render('./layouts/Admin/admin.ejs',{
+router.get('/manage-editor', function (req, res, next) {
+  res.render('./layouts/Admin/admin.ejs', {
     title: 'Quản lý biên tập viên',
     filename: '../../Admin/ManageEditor',
     activeManageUser: true,
-    activeManageEditor:true,
+    activeManageEditor: true,
     cssfiles: ['ManageEditor'],
     jsfiles: ['ManageEditor'],
   });
 });
 
-router.get('/manage-writer', function(req, res, next) {
-  res.render('./layouts/Admin/admin.ejs',{
-    title: 'Quản lý phóng viên',
-    filename: '../../Admin/ManageWriter',
-    activeManageUser: true,
-    activeManageWriter:true,
-    cssfiles: ['ManageWriter'],
-    jsfiles: ['ManageWriter'],
-  });
+router.get('/manage-writer', function (req, res, next) {
+  userModel.DisplayListWriter()
+    .then(docs => {
+      res.render('./layouts/Admin/admin.ejs', {
+        title: 'Quản lý phóng viên',
+        filename: '../../Admin/ManageWriter',
+        activeManageUser: true,
+        activeManageWriter: true,
+        cssfiles: ['ManageWriter'],
+        jsfiles: ['ManageWriter'],
+        list: docs
+      });
+    })
+    .catch(err => {
+      res.json(err + '');
+    })
+
+});
+
+router.post('/manage-writer', function (req, res, next) {
+  var saltRounds = 10;
+  var hash = bcrypt.hashSync(req.body.password, saltRounds); // hash password
+  var entity = {
+    hoTen: req.body.fullname,
+    email: req.body.username,
+    passWord: hash,
+    phoneNumber: req.body.sdt,
+    confirmed: true,
+    permission: 1
+  } // tạo object thêm vào user trong db
+
+  userModel.add(entity)
+    .then(id => { res.redirect('/administrator/manage-writer') })
+    .catch(e => res.json(e + ''));
 });
 
 module.exports = router;
