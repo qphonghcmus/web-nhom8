@@ -13,13 +13,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="h6">Cuộc đời Nhật hoàng Akihito qua ảnh: Bộ mặt nước Nhật suốt 3 thập kỷ</td>
-                            <td>Đưa sai thông tin
-                            </td>
-
-                        </tr>
+                        <% for(var i = 0; i < listDraft.length; i++){ %>
+                            <td><%= i+1%></td>
+                            <td class="h6"><%= listDraft[i].tieuDe %></td>
+                            <td><%= listDraft[i].lyDo %></td>
+                        <%}%>
                     </tbody>
                 </table>
             </div>

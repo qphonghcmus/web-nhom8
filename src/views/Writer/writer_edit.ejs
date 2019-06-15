@@ -1,7 +1,43 @@
 <div class="col-12 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Bài viết chờ duyệt</h4>
+                <div class="data-tables datatable-dark">
+                    <table id="dataTable3" class="text-center">
+                        <thead class="text-capitalize">
+                            <tr>
+                                <th>Stt</th>
+                                <th>Tên bài viết</th>
+                                <th>Chuyên mục</th>
+    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i = 0; i < drafts.length; i++) { %>
+                            <tr>
+                                <td><%= i+1 %></td>
+                                <td class="h6"><%= drafts[i].tieuDe %></td>
+                                <td>
+                                        <a href="/writer/editPage/<%= drafts[i].idDraft %>&choduyet" class="btn-hieu-chinh"><i
+                                            class="fas fa-edit font-weight-bold h4"></i></a>
+    
+                                    <a href="/writer/delete/<%= drafts[i].idDraft %>&choduyet" class="text-danger btn-xoa"><i
+                                            class="far fa-times-circle font-weight-bold h4"></i></a>
+                                </td>
+                            </tr>
+                            <% } %>
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="col-12 mt-5">
     <div class="card">
         <div class="card-body">
-            <h4 class="header-title">Bài viết chờ duyệt</h4>
+            <h4 class="header-title">Bài viết bị từ chối</h4>
             <div class="table-responsive">
                 <table id="dataTable2" class="text-center">
                     <thead class="text-capitalize bg-dark text-white">
@@ -13,64 +49,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="h6">Cuộc đời Nhật hoàng Akihito qua ảnh: Bộ mặt nước Nhật suốt 3 thập kỷ</td>
-                            <td>
-                                <a href="../writer/editPage" class="btn-hieu-chinh"><i
-                                        class="fas fa-edit font-weight-bold h4"></i></a>
-
-                                <a href="#" class="text-danger btn-xoa"><i
-                                        class="far fa-times-circle font-weight-bold h4"></i></a>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="h6">Lorem ipsum dolor sit amet consectetur </td>
-                            <td>
-                                <a href="../writer/editPage" class="btn-hieu-chinh"><i
-                                        class="fas fa-edit font-weight-bold h4"></i></a>
-
-                                <a href="#" class="text-danger btn-xoa"><i
-                                        class="far fa-times-circle font-weight-bold h4"></i></a>
-                            </td>
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="col-12 mt-5">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="header-title">Bài viết bị từ chối</h4>
-            <div class="table-responsive">
-                <table id="dataTable3" class="text-center">
-                    <thead class="text-capitalize bg-dark text-white">
-                        <tr>
-                            <th>Stt</th>
-                            <th>Tên bài viết</th>
-                            <th>Hiệu chỉnh</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="h6">Cuộc đời Nhật hoàng Akihito qua ảnh: Bộ mặt nước Nhật suốt 3 thập kỷ</td>
-                            <td>
-                                <a href="../writer/editPage" class="btn-hieu-chinh"><i
-                                        class="fas fa-edit font-weight-bold h4"></i></a>
-
-                                <a href="#" class="text-danger btn-xoa"><i
-                                        class="far fa-times-circle font-weight-bold h4"></i></a>
-                            </td>
-
-                        </tr>
+                            <% for(var i = 0; i < draftTuChoi.length; i++) { %>
+                                <tr>
+                                    <td><%= i+1 %></td>
+                                    <td class="h6"><%= draftTuChoi[i].tieuDe %></td>
+                                    <td>
+                                            <a href="/writer/editPage/<%= draftTuChoi[i].idDraft %>&tuchoi" class="btn-hieu-chinh"><i
+                                                class="fas fa-edit font-weight-bold h4"></i></a>
+        
+                                        <a href="/writer/delete/<%= draftTuChoi[i].idDraft %>&tuchoi" class="text-danger btn-xoa"><i
+                                                class="far fa-times-circle font-weight-bold h4"></i></a>
+                                    </td>
+                                </tr>
+                                <% } %>
                     </tbody>
                 </table>
             </div>

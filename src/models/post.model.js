@@ -22,7 +22,8 @@ var postSchema = new mongoose.Schema({
     },
     viewNumber: Number,
 	chuyenMucCon: [String],
-    isActive:Boolean
+    isActive:Boolean,
+    idTacGia: Number,
 });
 
 postSchema.plugin(AuToIncrement, { id: 'idBaiViet_Seq', inc_field: 'idBaiViet' });
@@ -40,6 +41,7 @@ module.exports = {
                 noiDungTomTat : entity.noiDungTomTat,
                 viewNumber : entity.viewNumber,
                 isActive: true,
+                idTacGia: entity.idTacGia
             })
             obj.save((err, res) => {
                 if(err) reject(err)
@@ -63,6 +65,16 @@ module.exports = {
             var post = mongoose.model('posts', postSchema);
             post.find({tenChuyenMuc: chuyenmuc}).exec((err,res) =>{
                 if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
+    findByAuthor: id =>{
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({idTacGia: id}).exec((err,res)=>{
+                if(err) reject(err)
                 else    resolve(res);
             })
         })

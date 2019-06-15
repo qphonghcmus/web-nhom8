@@ -9,15 +9,16 @@
                                 <th>Stt</th>
                                 <th>Tên bài viết</th>
                                 <th>Thời điểm xuất bản</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td class="h6">Cuộc đời Nhật hoàng Akihito qua ảnh: Bộ mặt nước Nhật suốt 3 thập kỷ</td>
-                                <td class="h6">	5/3/2019, 3:48:23 PM</td>
-                            </tr>      
+                                <% for(var i = 0; i < listDraft.length; i++){%>
+                                <tr>
+                                    <td><%= i + 1%></td>
+                                    <td class="h6"><%= listDraft[i].tieuDe %></td>
+                                    <td class="h6"><%= listDraft[i].ngayXuatBan %></td>
+                                </tr>
+                                <%}%>
                         </tbody>
                     </table>
                 </div>

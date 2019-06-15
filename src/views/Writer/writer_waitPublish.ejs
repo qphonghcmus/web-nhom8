@@ -8,18 +8,18 @@
                         <tr>
                             <th>Stt</th>
                             <th>Tên bài viết</th>
-                            <th>Chuyên mục</th>
+                            <th>Ngày xuất bản</th>
 
                         </tr>
                     </thead>
                     <tbody>
+                        <% for(var i = 0; i < listDraft.length; i++){%>
                         <tr>
-                            <td>1</td>
-                            <td class="h6">Cuộc đời Nhật hoàng Akihito qua ảnh: Bộ mặt nước Nhật suốt 3 thập kỷ</td>
-                            <td> Chuyên mục
-                            </td>
-
+                            <td><%= i + 1%>></td>
+                            <td class="h6"><%= listDraft[i].tieuDe %></td>
+                            <td class="h6"><%= listDraft[i].ngayXuatBan %></td>
                         </tr>
+                        <%}%>
                     </tbody>
                 </table>
             </div>

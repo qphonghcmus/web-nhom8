@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 var AuToIncrement = require('mongoose-sequence')(mongoose);
 var CategorySchema = new mongoose.Schema({
     idChuyenMuc:Number,
-    tenChuyenMuc:String
+    tenChuyenMuc:String,
+    chuyenMucCon: [String],
 });
 
 
@@ -39,7 +40,7 @@ module.exports = {
             var cat = mongoose.model('categories',CategorySchema);
             cat.find({tenChuyenMuc: chuyenmuc}).exec((err,res)=>{
                 if(err) reject(err)
-                else    resolve(res.idChuyenMuc)
+                else    resolve(res)
             })
         })
     },

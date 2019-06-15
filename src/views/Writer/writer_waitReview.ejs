@@ -1,28 +1,29 @@
 <div class="col-12 mt-5">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="header-title">Danh sách bài viết</h4>
-                <div class="data-tables datatable-dark">
-                    <table id="dataTable3" class="text-center">
-                        <thead class="text-capitalize">
-                            <tr>
-                                <th>Stt</th>
-                                <th>Tên bài viết</th>
-                                <th>Chuyên mục</th>
-    
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td class="h6">Cuộc đời Nhật hoàng Akihito qua ảnh: Bộ mặt nước Nhật suốt 3 thập kỷ</td>
-                                <td> Chuyên mục
-                                </td>
-    
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="header-title">Danh sách bài viết</h4>
+            <div class="data-tables datatable-dark">
+                <table id="dataTable3" class="text-center">
+                    <thead class="text-capitalize">
+                        <tr>
+                            <th>Stt</th>
+                            <th>Tên bài viết</th>
+                            <th>Chuyên mục</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < drafts.length; i++) { %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td class="h6"><%= drafts[i].tieuDe %></td>
+                            <td><%= drafts[i].tenChuyenMuc%></td>
+                        </tr>
+                        <% } %>
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>

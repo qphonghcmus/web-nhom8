@@ -13,18 +13,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% for(var i = 0; i < listDraft.length; i++) { %>
                         <tr>
-                            <td>1</td>
-                            <td class="h6">Cuộc đời Nhật hoàng Akihito qua ảnh: Bộ mặt nước Nhật suốt 3 thập kỷ</td>
+                            <td><%= i+1 %></td>
+                            <td class="h6"><%= listDraft[i].tieuDe %></td>
                             <td>
-                                <a href="../editor/duyet" class="btn-duyet-click"><i
+                                <a href="/editor/duyet/<%= listDraft[i].idDraft %>" class="btn-duyet-click"><i
                                         class="fas fa-check font-weight-bold h4"></i></a>
-                                
-                                <a href="../editor/tuchoi" class="text-danger btn-tuchoi-click"><i
+
+                                <a href="/editor/tuchoi/<%= listDraft[i].idDraft %>"
+                                    class="text-danger btn-tuchoi-click"><i
                                         class="far fa-times-circle font-weight-bold h4"></i></a>
                             </td>
-
                         </tr>
+                        <% } %>
+
                     </tbody>
                 </table>
             </div>
