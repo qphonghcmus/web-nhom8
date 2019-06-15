@@ -2,8 +2,10 @@ require('./models/db');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-
-
+const auth = require('./middlewares/auth');
+const auth_writer = require('./middlewares/auth_writer');
+const auth_editor = require('./middlewares/auth_editor');
+const auth_admin=require('./middlewares/auth_admin');
 var app = express();
 
 // view engine setup
@@ -25,13 +27,13 @@ app.use('/login', require('./routes/TrangDangNhap/route.login'));
 app.use('/register', require('./routes/TrangDangNhap/route.register'));
 app.use('/forget-password', require('./routes/TrangDangNhap/route.forgetpassword'));
 app.use('/list', require('./routes/DanhSachBaiViet/route.dsbaiviet'));
-app.use('/administrator', require('./routes/Admin/route.admin'));
+app.use('/administrator',auth_admin, require('./routes/Admin/route.admin'));
 app.use('/my-information', require('./routes/TrangDangNhap/route.subscriberInformation'));
-app.use('/logout', require('./routes/TrangDangNhap/route.logout'));
+app.use('/logout', auth, require('./routes/TrangDangNhap/route.logout'));
 app.use('/public/vendors', express.static(__dirname + '/public//vendors'));
 app.use('/public/resource', express.static(__dirname + '/public//resource'));
-app.use('/editor', require('./routes/editor/route.editor'));
-app.use('/writer', require('./routes/writer/route.writer'));
+app.use('/editor', auth_editor, require('./routes/editor/route.editor'));
+app.use('/writer', auth_writer, require('./routes/writer/route.writer'));
 
 app.listen(3000, () => "Web server is running");
 

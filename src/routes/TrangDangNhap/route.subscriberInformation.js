@@ -3,16 +3,27 @@ var router = express.Router();
 const auth = require('../../middlewares/auth');
 const mongoose = require('mongoose');
 var moment = require('moment');
+var multer = require('multer');// upload file
 var bcrypt = require('bcrypt');
 const userModel = require('../../models/user.model');
-var change_password = false;
+var change_password = false; // TH không thay pass
 
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, '../public/resource/img/avatar');
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    }
+});
 
-router.get('/password_correct', (req, res, next) => {
+var upload = multer({ storage: storage });
+
+router.get('/password_correct', (req, res, next) => { //xử lí remote nhập pass cũ đúng chưa
     var pass = req.query.password_present;
     var ret = bcrypt.compareSync(pass, req.user.passWord);
     if (ret) {
-        change_password = true;
+        change_password = true; // TH thay pass
         return res.json(true);
     }
     else
@@ -21,36 +32,37 @@ router.get('/password_correct', (req, res, next) => {
 
 router.get('/', auth, (req, res, next) => {
     res.render('./TrangDangNhap/myInformation', {
-        user: req.user,
+        user: req.user, // truyền thông tin user qua ejs
         moment: moment
     });
 });
 
-router.post('/', (req, res, next) => {
-    var hash = null;
-    if (change_password) {
-        var saltRounds = 10;
-        hash = bcrypt.hashSync(req.body.password_new, saltRounds);
-    }
-    else {
-        hash = req.user.passWord;
-    }
-    var dob = moment(req.body.birthDay, 'DD/MM/YYYY').format('YYYY-MM-DD');
+router.post('/', upload.single('image'), (req, res, next) => {
+    console.log(req.file);
+    // var hash = null;
+    // if (change_password) { // TH thay pass cần hash
+    //     var saltRounds = 10;
+    //     hash = bcrypt.hashSync(req.body.password_new, saltRounds);
+    // }
+    // else {
+    //     hash = req.user.passWord; // Ko thay pass thì lấy pass cũ tạo entity
+    // }
+    // var dob = moment(req.body.birthDay, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
-    var entity = {
-        hoTen: req.body.fullname,
-        email: req.user.email,
-        passWord: hash,
-        ngaySinh: dob,
-        phoneNumber: req.body.sdt,
-        permission: 0
-    }
+    // var entity = {
+    //     hoTen: req.body.fullname,
+    //     email: req.user.email,
+    //     passWord: hash,
+    //     ngaySinh: dob,
+    //     phoneNumber: req.body.sdt,
+    //     permission: 0
+    // }
 
-    userModel.updateProfile(entity, req.user.email)
-        .then(id => {
-            req.logOut();
-            res.redirect('/login');
-        })
-        .catch(e => res.json(e + ''));
+    // userModel.updateProfile(entity, req.user.email)
+    //     .then(id => {
+    //         req.logOut();
+    //         res.redirect('/login');
+    //     })
+    //     .catch(e => res.json(e + ''));
 })
 module.exports = router;

@@ -6,7 +6,7 @@ const randomstring = require('randomstring');
 var bcrypt = require('bcrypt');
 var nodemailer = require('nodemailer');
 var secrettoken = null;
-var email_temp=null;
+var email_temp = null;
 
 router.get('/confirm', (req, res, next) => {
     res.render('./TrangDangNhap/confirmOTP', {
@@ -16,7 +16,7 @@ router.get('/confirm', (req, res, next) => {
 
 router.post('/confirm', (req, res, next) => {
     if (req.body.code == secrettoken) {
-        userModel.turncomfirmded(email_temp)
+        userModel.turnoncomfirmded(email_temp)
             .then(rows => {
                 res.redirect('/login');
             })
@@ -29,12 +29,18 @@ router.post('/confirm', (req, res, next) => {
     }
 })
 
-router.get('/is-unavailable', (req, res, next) => {
+router.get('/is-unavailable', (req, res, next) => { // kt email đã đăng ký chưa, rồi mới cấp lại mk
     var Email = req.query.username;
     userModel.singleByEmail(Email)
         .then(rows => {
-            if (rows.length > 0) {
-                return res.json(true)
+            if (rows.length > 0 && rows[0].confirmed) {
+                userModel.turnoffcomfirmded(Email) // tắt confirm lần trc đợi xác nhận mới
+                    .then(rows => {
+                        return res.json(true);
+                    })
+                    .catch(err => {
+                        res.json(err + '');
+                    })
             }
             else
                 return res.json(false);
@@ -46,7 +52,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    email_temp=req.body.username;
+    email_temp = req.body.username;
     secrettoken = randomstring.generate({
         length: 6,
         charset: 'alphanumeric'

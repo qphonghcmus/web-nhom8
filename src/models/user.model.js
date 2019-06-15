@@ -6,6 +6,7 @@ var userSchema = new mongoose.Schema({
     email: String,
     passWord: String,
     ngaySinh: Date,
+    avatar: String,
     phoneNumber: String,
     secretToken: String,
     confirmed: {
@@ -62,10 +63,20 @@ module.exports = {
         })
     },
 
-    turncomfirmded: (Email) => {
+    turnoncomfirmded: (Email) => {
         return new Promise((resolve, reject) => {
             var user = mongoose.model('User', userSchema);
             user.findOneAndUpdate({ email: Email }, { confirmed: true }, { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    turnoffcomfirmded: (Email) => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.findOneAndUpdate({ email: Email }, { confirmed: false }, { new: true }).exec((err, res) => {
                 if (err) reject(err);
                 else resolve(res);
             })

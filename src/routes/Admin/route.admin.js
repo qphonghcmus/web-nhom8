@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var postModel = require('../../models/post.model');
+const auth=require('../../middlewares/auth_login');
 var listCategory = ['Công nghệ','Thể thao','Giải trí'];
 /* GET home page. */
 router.get('/', function(req, res, next) {
