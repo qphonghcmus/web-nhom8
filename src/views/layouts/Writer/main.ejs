@@ -109,8 +109,9 @@
                                     <%= authUser.hoTen %>
                                     <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
+                                <form id="frmSignout" action="/logout" method="POST"></form>
                                 <a class="dropdown-item" href="/writer/update">Settings</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
+                                <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Log Out</a>
                             </div>
                         </div>
                     </div>

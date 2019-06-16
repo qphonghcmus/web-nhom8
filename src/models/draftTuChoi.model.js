@@ -12,7 +12,8 @@ var draffTuChoiSchema = new mongoose.Schema({
         type: [String]
     },
     img: String,
-    idTacGia: Number
+    idTacGia: Number,
+    idEditor: Number,
 });
 draffTuChoiSchema.plugin(AuToIncrement, { id: 'idDraftTuChoi_Seq', inc_field: 'idDraft' });
 
@@ -24,14 +25,15 @@ draffTuChoiSchema.plugin(AuToIncrement, { id: 'idDraftTuChoi_Seq', inc_field: 'i
         return new Promise((resolve, reject) => {
             var draft =  mongoose.model('drafttuchois', draffTuChoiSchema);
             var obj = new draft({
+                lyDo: entity.lyDo,
                 tieuDe: entity.tieuDe,
-                tenChuyenMuc: entity.tenChuyenMuc,
-                img: entity.img,
-                tag: entity.tag,
                 tomTat: entity.tomTat,
                 noiDung: entity.noiDung,
+                tenChuyenMuc: entity.tenChuyenMuc,
+                tag: entity.tag,
+                img: entity.img,
                 idTacGia: entity.idTacGia,
-                lyDo: entity.lyDo
+                idEditor: entity.idEditor,
             })
             obj.save((err,res)=>{
                 if(err) reject(err)
@@ -70,6 +72,16 @@ draffTuChoiSchema.plugin(AuToIncrement, { id: 'idDraftTuChoi_Seq', inc_field: 'i
         })
     },
 
+    findByEditor: id =>{
+        return new Promise((resolve, reject) => {
+            var draft = mongoose.model('drafttuchois', draffTuChoiSchema);
+            draft.find({idEditor: id}).exec((err,res)=>{
+                if(err) reject(err)
+                else    resolve(res);
+            })
+        })
+    },
+
     findByChuyenMuc: chuyenmuc =>{
         return new Promise((resolve, reject) => {
             var draft = mongoose.model('drafttuchois', draffTuChoiSchema);
@@ -102,14 +114,15 @@ draffTuChoiSchema.plugin(AuToIncrement, { id: 'idDraftTuChoi_Seq', inc_field: 'i
         return new Promise((resolve, reject) => {
             var draft = mongoose.model('drafttuchois', draffTuChoiSchema);
             draft.updateOne({idDraft: entity.idDraft},{
+                lyDo: entity.lyDo,
                 tieuDe: entity.tieuDe,
-                tenChuyenMuc: entity.tenChuyenMuc,
-                img: entity.img,
-                tag: entity.tag,
                 tomTat: entity.tomTat,
                 noiDung: entity.noiDung,
+                tenChuyenMuc: entity.tenChuyenMuc,
+                tag: entity.tag,
+                img: entity.img,
                 idTacGia: entity.idTacGia,
-                lyDo: entity.lyDo
+                idEditor: entity.idEditor,
             }).exec((err,res)=>{
                 if(err) reject(err)
                 else    resolve(res.changedRows);

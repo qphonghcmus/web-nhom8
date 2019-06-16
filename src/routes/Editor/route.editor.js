@@ -5,6 +5,8 @@ var drafTuChoi = require('../../models/draftTuChoi.model');
 var category = require('../../models/category.model');
 var moment = require('moment');
 var draftDuyet = require('../../models/draft_Duyet.model');
+var post = require('../../models/post.model');
+var detail = require('../../models/postDetail.model');
 
 router.get('/', (req, res,next) => {
     res.render('./layouts/Editor/main',{
@@ -34,8 +36,8 @@ router.get('/update', (req, res,next) => {
 });
 
 router.get('/approve', (req, res,next) => {
-    var chuyenmuc = "Thể thao";
-    draftDuyet.findByChuyenMuc(chuyenmuc).then(list =>{
+
+    post.findByEditor(req.user.idUser).then(list =>{
         res.render('./layouts/Editor/main',{
             filename: '../../editor/editor_approved.ejs',
             activeApprove: true,
@@ -52,15 +54,16 @@ router.get('/approve', (req, res,next) => {
                 'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
                 'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js'
             ],
-            listDraft: list
+            listDraft: list,
+            moment: require('moment'),
         });
     }).catch()
     
 });
 
 router.get('/reject', (req, res,next) => {
-    var chuyenmuc = "Thể thao"
-    drafTuChoi.findByChuyenMuc(chuyenmuc).then(list => {
+
+    drafTuChoi.findByEditor(req.user.idUser).then(list => {
         res.render('./layouts/Editor/main',{
             filename: '../../editor/editor_rejected.ejs',
             activeReject: true,
@@ -84,7 +87,7 @@ router.get('/reject', (req, res,next) => {
 });
 
 router.get('/wait', (req, res,next) => {
-    var chuyenmuc = "Thể thao"
+    var chuyenmuc = "Quân sự"
     draft.findByChuyenMuc(chuyenmuc).then(list => {
         res.render('./layouts/Editor/main',{
             filename: '../../editor/editor_waiting.ejs',
@@ -144,25 +147,31 @@ router.get('/duyet/:id', (req,res,next) => {
 router.post('/duyet/:id', (req,res,next) => {
     var id = req.params.id;
 
-    var date = moment(req.body.ngayxuatban,'DD/MM/YYYY hh:mm').format('YYYY-MM-DD hh:mm');
+    var tenChuyenMucCon = null;
+    if(typeof(req.body.chuyenmuccon) !== 'undefined')   tenChuyenMucCon = req.body.chuyenmuccon;
 
     draft.findById(id).then(succ => {
-        var obj = {
+        var obj_post = {
             tieuDe: succ[0].tieuDe,
             tenChuyenMuc: succ[0].tenChuyenMuc,
-            img: succ[0].img,
+            ngayDang: req.body.ngayxuatban,
+            imagePath: succ[0].img,
             tag: succ[0].tag,
-            tomTat: succ[0].tomTat,
-            noiDung: succ[0].noiDung,
+            noiDungTomTat: succ[0].tomTat,
+            chuyenMucCon: tenChuyenMucCon,
             idTacGia: succ[0].idTacGia,
-            ngayXuatBan: date,
-            chuyenMucCon: req.body.chuyenmuccon
+            idEditor: req.user.idUser
         }
-        draftDuyet.add(obj).then(succ => {
-            draft.delete(id).then(id=>{
-                res.redirect('/editor/wait');
-            }).catch()
-        }).catch(err => console.log(err));
+        var obj_detail = {
+            idBaiViet: succ[0].idDraft,
+            noiDung: succ[0].noiDung,
+        }
+        var p1 = post.add(obj_post);
+        var p2 = draft.delete(id);
+        var p3 = detail.add(obj_detail)
+        Promise.all([p1,p2,p3]).then(values => {
+            res.redirect('/editor/wait');
+        })
     }).catch(err => console.log(err))
     
 })
@@ -187,14 +196,15 @@ router.post('/tuchoi/:id', (req,res) => {
     var id = req.params.id;
     draft.findById(id).then(succ => {
         var obj = {
+            lyDo: req.body.lidotuchoi,
             tieuDe: succ[0].tieuDe,
-            tenChuyenMuc: succ[0].tenChuyenMuc,
-            img: succ[0].img,
-            tag: succ[0].tag,
             tomTat: succ[0].tomTat,
             noiDung: succ[0].noiDung,
+            tenChuyenMuc: succ[0].tenChuyenMuc,
+            tag: succ[0].tag,
+            img: succ[0].img,
             idTacGia: succ[0].idTacGia,
-            lyDo: req.body.lidotuchoi
+            idEditor: req.user.idUser,
         }
         drafTuChoi.add(obj).then(succ => {
             draft.delete(id).then(id=>{

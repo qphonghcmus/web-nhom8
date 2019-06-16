@@ -87,12 +87,13 @@
                     <!-- profile info & task notification -->
                     <div class="col-md-6 col-sm-4 clearfix">
                         <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Quoc Phong <i
-                                    class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+                                    <%= authUser.hoTen %>
+                                    <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="../editor/update">Settings</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
+                                <form id="frmSignout" action="/logout" method="POST"></form>
+                                <a class="dropdown-item" href="/editor/update">Settings</a>
+                                <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Log Out</a>
                             </div>
                         </div>
                     </div>

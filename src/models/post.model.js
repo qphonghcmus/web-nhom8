@@ -24,6 +24,7 @@ var postSchema = new mongoose.Schema({
 	chuyenMucCon: [String],
     isActive:Boolean,
     idTacGia: Number,
+    idEditor: Number
 });
 
 postSchema.plugin(AuToIncrement, { id: 'idBaiViet_Seq', inc_field: 'idBaiViet' });
@@ -39,9 +40,11 @@ module.exports = {
                 imagePath : entity.imagePath,
                 tag : entity.tag,
                 noiDungTomTat : entity.noiDungTomTat,
-                viewNumber : entity.viewNumber,
+                viewNumber : 0,
                 isActive: true,
-                idTacGia: entity.idTacGia
+                idTacGia: entity.idTacGia,
+                ngayDang: entity.ngayDang,
+                idEditor: entity.idEditor
             })
             obj.save((err, res) => {
                 if(err) reject(err)
@@ -80,10 +83,20 @@ module.exports = {
         })
     },
 
+    findByEditor: id =>{
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({idEditor: id}).exec((err,res)=>{
+                if(err) reject(err)
+                else    resolve(res);
+            })
+        })
+    },
+
     countByChuyeMuc: chuyenmuc => {
         return new Promise((resolve, reject) => {
             var post = mongoose.model('posts', postSchema);
-            post.countDocuments({tenChuyenMuc: chuyenmuc}).exec((err,res) =>{
+            post.countDocuments({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).exec((err,res) =>{
                 if(err) reject(err);
                 else    resolve(res);
             })
@@ -93,7 +106,7 @@ module.exports = {
     pageByChuyeMuc: (chuyenmuc,limit,offset) => {
         return new Promise((resolve, reject) => {
             var post = mongoose.model('posts', postSchema);
-            post.find({tenChuyenMuc: chuyenmuc}).skip(offset).sort({ 'ngayDang': -1 }).limit(limit).exec((err,res) =>{
+            post.find({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).skip(offset).sort({ 'ngayDang': -1 }).limit(limit).exec((err,res) =>{
                 if(err) reject(err);
                 else    resolve(res);
             })
