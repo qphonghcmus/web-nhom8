@@ -112,5 +112,13 @@ module.exports = {
                 else resolve(res);
             })
         })
+    },
+
+    findByIdUser: id => {
+        var user = mongoose.model('users', userSchema);
+            user.find({ idUser: id }).exec((err, res) => {
+                if (err) reject(err)
+                else resolve(res);
+            })
     }
 }

@@ -7,9 +7,10 @@ router.get('/', (req,res)=>{
   var p1 = postModel.top10latestnews();
   var p2 = postModel.top10mostviewsnews();
   var p3 = postModel.top1newsof10cat();
-  var p4 = postModel.top4mostviewsnews();
+  var p4 = postModel.top4mostviewsnews(10);
 
   Promise.all([p1,p2,p3,p4]).then(value=>{
+
     var daydiff = []
     value[3].forEach(e => {
       daydiff.push(moment(new Date()).diff(moment(e.ngayDang),"days"));

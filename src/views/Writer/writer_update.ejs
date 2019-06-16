@@ -11,16 +11,9 @@
                             <div class="row">
                                 <div class="col-lg-6 mt-3">
                                     <div class="form-group">
-                                        <label for="txtUsername">Username</label>
+                                        <label for="txtUsername">Email</label>
                                         <input required type="text" class="form-control" id="txtUsername" name="username"
-                                            disabled>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mt-3">
-                                    <div class="form-group">
-                                        <label for="txtChuyenmuc">Chuyên mục</label>
-                                        <input required type="text" class="form-control" id="txtChuyenmuc" name="chuyenmuc"
-                                            disabled>
+                                            disabled value="<%= authUser.email %>">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mt-3">
@@ -33,8 +26,8 @@
                                 <div class="col-lg-6 mt-3">
                                     <div class="form-group">
                                         <label for="txtPassword">Họ tên</label>
-                                        <input type="password" class="form-control" id="txtName" name="name">
-                                    </div>
+                                        <input type="text" class="form-control" id="txtName" name="name" value="<%= authUser.hoTen %>">
+                                    </div >
                                 </div>
                                 <div class="col-lg-6 mt-3">
                                     <div class="form-group">
@@ -45,22 +38,15 @@
     
                                 <div class="col-lg-6 mt-3">
                                     <div class="form-group">
-                                        <label for="txtName">Địa chỉ</label>
-                                        <input type="text" class="form-control" id="txtAddress" name="address">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mt-3">
-    
-                                    <div class="form-group">
-                                        <label for="txtEmail">Email</label>
-                                        <input type="text" class="form-control" id="txtEmail" name="email">
+                                        <label for="txtPhone">Số điện thoại</label>
+                                        <input type="text" class="form-control" id="txtPhone" name="phone" value="<%= authUser.phoneNumber %>">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mt-3">
     
                                     <div class="form-group">
                                         <label for="txtDOB">Ngày sinh</label>
-                                        <input type="text" class="form-control" id="txtDOB" name="dob">
+                                        <input type="text" class="form-control" id="txtDOB" name="dob" value="<%=  moment(authUser.Ngaysinh).format("DD-MM-YYYY")%>">
                                     </div>
                                 </div>
                                 <div class="col-4 mt-5"></div>

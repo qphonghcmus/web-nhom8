@@ -6,6 +6,7 @@ var draft = require('../../models/draft.model');
 var draftTuchoi = require('../../models/draftTuChoi.model');
 var draftDuyet = require('../../models/draft_Duyet.model');
 var post = require('../../models/post.model');
+var user = require('../../models/user.model');
 
 router.get('/', auth, (req, res, next) => {
     res.render('./layouts/Writer/main', {
@@ -56,12 +57,17 @@ router.get('/admin', (req, res, next) => {
 });
 
 router.get('/update', (req, res, next) => {
-    res.render('./layouts/Writer/main', {
-        filename: '../../writer/writer_update',
-        activeUpdate: true,
-        cssfiles: [],
-        jsfiles: [],
-    });
+    // var p1 = user.findByIdUser(authUser.idUser);
+
+    // Promise.all([p1]).then(values => {
+        res.render('./layouts/Writer/main', {
+            filename: '../../writer/writer_update',
+            activeUpdate: true,
+            cssfiles: [],
+            jsfiles: [],
+            moment: require('moment')
+        });
+    // }).catch()
 });
 
 router.get('/post', (req, res, next) => {
@@ -100,7 +106,7 @@ router.post('/post', (req, res, next) => {
         tag: tagsArr,
         tomTat: req.body.tomtat,
         noiDung: req.body.wysiwyg,
-        idTacGia: 77
+        idTacGia: req.user.idUser
     }
 
     draft.add(entityDraft).then(id => {
@@ -110,7 +116,7 @@ router.post('/post', (req, res, next) => {
 });
 
 router.get('/waitPublish', (req, res, next) => {
-    var idTacGia = 77;
+    var idTacGia = req.user.idUser;
     draftDuyet.findByAuthor(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
             filename: '../../writer/writer_waitPublish.ejs',
@@ -135,7 +141,7 @@ router.get('/waitPublish', (req, res, next) => {
 });
 
 router.get('/published', (req, res, next) => {
-    var idTacGia = 77;
+    var idTacGia = req.user.idUser;
     post.findByAuthor(idTacGia).then(list=>{
         res.render('./layouts/Writer/main', {
             filename: '../../writer/writer_published.ejs',
@@ -160,7 +166,7 @@ router.get('/published', (req, res, next) => {
 });
 
 router.get('/rejected', (req, res, next) => {
-    var idTacGia = 77;
+    var idTacGia = req.user.idUser;
     draftTuchoi.findByAuthor(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
             filename: '../../writer/writer_rejected.ejs',
@@ -185,7 +191,7 @@ router.get('/rejected', (req, res, next) => {
 });
 
 router.get('/waitReview', (req, res, next) => {
-    var idTacGia = 77
+    var idTacGia = req.user.idUser
     draft.findByAuthor(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
             filename: '../../writer/writer_waitReview.ejs',
@@ -210,7 +216,7 @@ router.get('/waitReview', (req, res, next) => {
 });
 
 router.get('/edit', (req, res, next) => {
-    var idTacGia = 77
+    var idTacGia = req.user.idUser
     draft.findByAuthor(idTacGia).then(list => {
         draftTuchoi.findByAuthor(idTacGia).then(list2 => {
             res.render('./layouts/Writer/main', {
@@ -260,7 +266,7 @@ router.get('/editPage/:id&:type', (req, res, next) => {
                 tag: tags,
                 noiDungTomTat: baiviet[0].tomTat,
                 noiDung: baiviet[0].noiDung,
-                idTacGia: 77
+                idTacGia: req.user.idUser
             }
 
             categories.load().then(list => {
@@ -306,7 +312,7 @@ router.get('/editPage/:id&:type', (req, res, next) => {
                 tag: tags,
                 noiDungTomTat: baiviet[0].tomTat,
                 noiDung: baiviet[0].noiDung,
-                idTacGia: 77
+                idTacGia: req.user.idUser
             }
 
             categories.load().then(list => {
@@ -347,7 +353,7 @@ router.post('/editPage/:id&:type', (req, res, next) => {
         tag: tagsArr,
         tomTat: req.body.tomtat,
         noiDung: req.body.wysiwyg,
-        idTacGia: 77
+        idTacGia: req.user.idUser
     }
     if (type === "tuchoi") {
         draftTuchoi.delete(req.params.id).then(succ => {

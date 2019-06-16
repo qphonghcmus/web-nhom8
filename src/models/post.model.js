@@ -120,10 +120,14 @@ module.exports = {
         })
     },
 
-    top4mostviewsnews: () => {
+    top4mostviewsnews: (days) => {
         return new Promise((resolve,reject)=>{
             var post = mongoose.model('posts', postSchema);
-            post.find({ngayDang:{$lte: new Date()}}).sort({'viewNumber': -1}).sort({'ngayDang':-1}).limit(4).exec((err,res)=>{
+            var moment = require('moment');
+            var end = new Date();
+            var star = new Date(moment(end).subtract(days,'day').toISOString());
+
+            post.find({ngayDang:{$lt: end, $gte: star}}).sort({'viewNumber': -1}).limit(4).exec((err,res)=>{
                 if(err) reject(err);
                 else resolve(res);
             })
