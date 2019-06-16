@@ -96,15 +96,50 @@ router.get('/manage-subscriber', function (req, res, next) {
 });
 
 router.get('/manage-editor', function (req, res, next) {
-  res.render('./layouts/Admin/admin.ejs', {
-    title: 'Quản lý biên tập viên',
-    filename: '../../Admin/ManageEditor',
-    activeManageUser: true,
-    activeManageEditor: true,
-    cssfiles: ['ManageEditor'],
-    jsfiles: ['ManageEditor'],
-  });
+  userModel.DisplayListEditor()
+    .then(docs => {
+      res.render('./layouts/Admin/admin.ejs', {
+        title: 'Quản lý biên tập viên',
+        filename: '../../Admin/ManageEditor',
+        activeManageUser: true,
+        activeManageEditor: true,
+        cssfiles: ['ManageEditor'],
+        jsfiles: ['ManageEditor'],
+        list: docs
+      });
+    })
+    .catch(err => {
+      res.json(err + '');
+    })
+
 });
+
+router.post('/manage-editor', function (req, res, next) {
+  var saltRounds = 10;
+  var hash = bcrypt.hashSync(req.body.password, saltRounds); // hash password
+  var entity = {
+    hoTen: req.body.fullname,
+    email: req.body.username,
+    passWord: hash,
+    phoneNumber: req.body.sdt,
+    confirmed: true,
+    category: req.body.category,
+    permission: 2
+  } // tạo object thêm vào user trong db
+  userModel.add(entity)
+    .then(id => { res.redirect('/administrator/manage-editor') })
+    .catch(e => res.json(e + ''));
+});
+
+router.get('/manage-editor/delete/:id', (req, res) => {
+  userModel.DeleteUser(req.params.id)
+    .then(rows => {
+      res.redirect('/administrator/manage-editor');
+    })
+    .catch(err => {
+      res.json(err + '');
+    })
+})
 
 router.get('/manage-writer', function (req, res, next) {
   userModel.DisplayListWriter()
@@ -142,14 +177,14 @@ router.post('/manage-writer', function (req, res, next) {
     .catch(e => res.json(e + ''));
 });
 
-router.get('/manage-writer/delete/:id',(req,res)=>{
+router.get('/manage-writer/delete/:id', (req, res) => {
   userModel.DeleteUser(req.params.id)
-  .then(rows=>{
-    res.redirect('/administrator/manage-writer');
-  })
-  .catch(err=>{
-    res.json(err+'');
-  })
+    .then(rows => {
+      res.redirect('/administrator/manage-writer');
+    })
+    .catch(err => {
+      res.json(err + '');
+    })
 })
 
 module.exports = router;

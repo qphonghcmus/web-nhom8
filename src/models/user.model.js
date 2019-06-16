@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 var AuToIncrement = require('mongoose-sequence')(mongoose);
+const Schema = mongoose.Schema
 var userSchema = new mongoose.Schema({
     idUser: Number,
     hoTen: String,
@@ -13,10 +14,7 @@ var userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    // tenLoai: {
-    //     type: String,
-    //     default: 'guest'
-    // }
+    category: [String], // đối với editor
     permission: Number
 });
 
@@ -35,6 +33,7 @@ module.exports = {
                 ngaySinh: entity.ngaySinh,
                 phoneNumber: entity.phoneNumber,
                 confirmed: entity.confirmed,
+                category: entity.category,
                 permission: entity.permission
             })
             obj.save((err, res) => {
@@ -104,6 +103,16 @@ module.exports = {
         })
     },
 
+    DisplayListEditor: () => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.find({ permission: 2 }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
     DeleteUser: (ID) => {
         return new Promise((resolve, reject) => {
             var user = mongoose.model('User', userSchema);
@@ -116,9 +125,9 @@ module.exports = {
 
     findByIdUser: id => {
         var user = mongoose.model('users', userSchema);
-            user.find({ idUser: id }).exec((err, res) => {
-                if (err) reject(err)
-                else resolve(res);
-            })
+        user.find({ idUser: id }).exec((err, res) => {
+            if (err) reject(err)
+            else resolve(res);
+        })
     }
 }
