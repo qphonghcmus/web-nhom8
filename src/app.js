@@ -6,6 +6,7 @@ const auth = require('./middlewares/auth');
 const auth_writer = require('./middlewares/auth_writer');
 const auth_editor = require('./middlewares/auth_editor');
 const auth_admin=require('./middlewares/auth_admin');
+const auth_myprofile=require('./middlewares/auth_profile');
 var app = express();
 
 // view engine setup
@@ -28,7 +29,7 @@ app.use('/register', require('./routes/TrangDangNhap/route.register'));
 app.use('/forget-password', require('./routes/TrangDangNhap/route.forgetpassword'));
 app.use('/list', require('./routes/DanhSachBaiViet/route.dsbaiviet'));
 app.use('/administrator',auth_admin, require('./routes/Admin/route.admin'));
-app.use('/my-information', require('./routes/TrangDangNhap/route.subscriberInformation'));
+app.use('/my-information',auth_myprofile, require('./routes/TrangDangNhap/route.subscriberInformation'));
 app.use('/logout', auth, require('./routes/TrangDangNhap/route.logout'));
 app.use('/public/vendors', express.static(__dirname + '/public//vendors'));
 app.use('/public/resource', express.static(__dirname + '/public//resource'));
