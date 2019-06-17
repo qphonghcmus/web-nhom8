@@ -1,4 +1,17 @@
 <% var path = '/public/resource/img/post/'%>
+<% var chuyenmuc%>
+<% switch(tenchuyenmuc) {
+        case 'Kinh doanh': chuyenmuc = 'kinh-doanh'; break; 
+        case 'Thể thao': chuyenmuc = 'the-thao'; break; 
+        case 'Pháp luật': chuyenmuc = 'phap-luat'; break; 
+        case 'Giáo dục': chuyenmuc = 'giao-duc'; break; 
+        case 'Giải trí': chuyenmuc = 'giai-tri'; break; 
+        case 'Đời sống': chuyenmuc = 'doi-song'; break; 
+        case 'Thế giới': chuyenmuc = 'the-gioi'; break; 
+        case 'Công nghệ': chuyenmuc = 'cong-nghe'; break; 
+        case 'Quân sự': chuyenmuc = 'quan-su'; break; 
+        case 'Du lịch': chuyenmuc = 'du-lich'; break; 
+    } %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +31,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"
                                         aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="#"><%= tenchuyenmuc %></a></li>
+                            <li class="breadcrumb-item"><a href="/list/<%=chuyenmuc%>"><%= tenchuyenmuc %></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Danh sách bài viết</li>
                         </ol>
                     </nav>
@@ -44,9 +57,9 @@
                             <div class="post-content">
                                 <div class="post-meta">
                                     <a href="#"><%=moment(i.ngayDang).format("DD-MM-YYYY HH:mm")%></a>
-                                    <a href="#"><%= tenchuyenmuc %></a>
+                                    <a href="/list/<%=chuyenmuc%>"><%= tenchuyenmuc %></a>
                                 </div>
-                                <a href="/post/<%i.idBaiViet%>" class="post-title"><%=i.tieuDe%></a>
+                                <a href="/post/<%= i.idBaiViet%>" class="post-title"><%=i.tieuDe%></a>
                                 <p><%=i.noiDungTomTat%></p>
                             </div>
                         </div>

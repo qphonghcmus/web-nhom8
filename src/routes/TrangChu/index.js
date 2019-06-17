@@ -4,6 +4,7 @@ var postModel = require('../../models/post.model');
 const moment = require('moment');
 var detail = require('../../models/postDetail.model');
 var user = require('../../models/user.model');
+var comment = require('../../models/comment.model');
 
 router.get('/', (req, res) => {
   var p1 = postModel.top10latestnews();
@@ -39,34 +40,34 @@ router.get('/text-search/', (req, res, next) => {
 
   var p1
   var p2 = postModel.countTextSearch(searchString);
-  if(typeof(req.user) !== 'undefined'){
+  if (typeof (req.user) !== 'undefined') {
     var idUser = req.user.idUser;
-    user.findByIdUser(idUser).then(users =>{
-      if(users[0].permission === 0){
-        
-        p1 = postModel.pageByTextSeach_Premium(searchString,limit,offset)
-      }else{
+    user.findByIdUser(idUser).then(users => {
+      if (users[0].permission === 0) {
+
+        p1 = postModel.pageByTextSeach_Premium(searchString, limit, offset)
+      } else {
         p1 = postModel.pageByTextSeach(searchString, limit, offset)
       }
-        Promise.all([p1,p2]).then(([docs, count]) => {
-          var total = count;
-          var nPages = Math.floor(total / limit);
-          if (total % limit > 0) nPages++;
-          var pages = [];
-          for (i = 1; i <= nPages; i++) {
-            var obj = { value: i, active: i === +page };
-            pages.push(obj);
-          }
-      
-          res.render('./TrangChu/search', {
-            list: docs, moment: moment, pages: pages, current: current, search: searchString,
-          });
-        })
-      
+      Promise.all([p1, p2]).then(([docs, count]) => {
+        var total = count;
+        var nPages = Math.floor(total / limit);
+        if (total % limit > 0) nPages++;
+        var pages = [];
+        for (i = 1; i <= nPages; i++) {
+          var obj = { value: i, active: i === +page };
+          pages.push(obj);
+        }
+
+        res.render('./TrangChu/search', {
+          list: docs, moment: moment, pages: pages, current: current, search: searchString,
+        });
+      })
+
     }).catch()
-  }else{
+  } else {
     p1 = postModel.pageByTextSeach(searchString, limit, offset)
-    Promise.all([p1,p2]).then(([docs, count]) => {
+    Promise.all([p1, p2]).then(([docs, count]) => {
       var total = count;
       var nPages = Math.floor(total / limit);
       if (total % limit > 0) nPages++;
@@ -75,39 +76,65 @@ router.get('/text-search/', (req, res, next) => {
         var obj = { value: i, active: i === +page };
         pages.push(obj);
       }
-  
+
       res.render('./TrangChu/search', {
         list: docs, moment: moment, pages: pages, current: current, search: searchString,
       });
     })
   }
 
-  
+
 })
 
-router.get('/post/:id',(req,res,next)=>{
+router.get('/post/:id', (req, res, next) => {
   var idBaiViet = req.params.id;
-  
+
   Promise.all([
     postModel.findById(idBaiViet),
     detail.findById(idBaiViet),
   ]).then(values => {
     Promise.all([
-      postModel.find5News(values[0][0].tenChuyenMuc,idBaiViet),
+      postModel.find5News(values[0][0].tenChuyenMuc, idBaiViet),
       user.findByIdUser(values[0][0].idTacGia),
+      postModel.updateViews(idBaiViet, values[0][0].viewNumber),
+      comment.findByIdBaiViet(idBaiViet),
     ]).then(values2 => {
-      res.render('./BaiViet/main',{
+      res.render('./BaiViet/main', {
         news: values[0][0],
         content: values[1][0].noiDung,
         moment: moment,
         author: values2[1][0].hoTen,
-        top5news: values2[0]
+        top5news: values2[0],
+        comment: values2[3],
       })
     }).catch()
-      
+
   }).catch()
 
-  
+
+})
+
+router.post('/post/cmt/:id', (req, res, next) => {
+
+  if (!req.user) {
+    res.redirect('/login');
+  } else {
+
+    var idUser = req.user.idUser;
+    var message = req.body.message
+
+    var obj_cmt = {
+      NoiDung: message,
+      idDocGia: idUser,
+      tenDoiGia: req.user.hoTen,
+      ngayDang: new Date(),
+      idBaiViet: req.params.id
+    }
+
+    comment.add(obj_cmt).then(id => {
+      res.redirect('/post/' + req.params.id)
+    }).catch()
+  }
 })
 
 router.post('/them-bai-viet', (req, res, next) => {

@@ -105,26 +105,30 @@
                         </div>
 
                         <ol>
+                            <% comment.forEach(e => { %>
                             <!-- Single Comment Area -->
                             <li class="single_comment_area">
                                 <!-- Comment Content -->
+                        
                                 <div class="comment-content d-flex">
                                     <!-- Comment Author -->
-                                    <div class="comment-author">
-                                        <img src="vendors/template/img/bg-img/53.jpg" alt="author">
-                                    </div>
+                        
+                                    <!-- <div class="comment-author">
+                                                                                                <img src="vendors/template/img/bg-img/53.jpg" alt="author">
+                                                                                            </div> -->
                                     <!-- Comment Meta -->
                                     <div class="comment-meta">
-                                        <a href="#" class="comment-date">26/05/2019</a>
-                                        <h6>Quốc Phong</h6>
-                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum ullam aperiam voluptate asperiores, ex provident deleniti odit esse repellendus velit? Exercitationem, est beatae. Exercitationem soluta sunt laudantium. Nam, minima iure!</p>
-                                        
+                                        <a href="#" class="comment-date"><%= moment(e.ngayDang).format("DD/MM/YYYY HH:mm") %></a>
+                                        <h6><%= e.tenDoiGia %></h6>
+                                        <p><%= e.NoiDung %></p>
                                     </div>
+                        
                                 </div>
+                        
                             </li>
+                            <% }) %>
                         </ol>
                     </div>
-
                     <!-- Post A Comment Area -->
                     <div class="post-a-comment-area bg-white mb-30 p-30 box-shadow clearfix">
                         <!-- Section Title -->
@@ -134,19 +138,19 @@
 
                         <!-- Reply Form -->
                         <div class="contact-form-area">
-                            <form action="#" method="post">
+                            <form action="/post/cmt/<%=news.idBaiViet%>" method="post" id="frmCmt">
                                 <div class="row">
-                                    <div class="col-12 col-lg-6">
+                                    <!-- <div class="col-12 col-lg-6">
                                         <input type="text" class="form-control" id="name" placeholder="Your Name*" required>
                                     </div>
                                     <div class="col-12 col-lg-6">
                                         <input type="email" class="form-control" id="email" placeholder="Your Email*" required>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12">
                                         <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message*" required></textarea>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn mag-btn mt-30" type="submit">Submit Comment</button>
+                                        <button class="btn mag-btn mt-30" type="submit" onclick="javascript: $('#frmCmt').submit();">Đăng bình luận</button>
                                     </div>
                                 </div>
                             </form>
@@ -193,10 +197,9 @@
 
                             <!-- Catagory Widget -->
                             <ul class="catagory-widgets">
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Bóng đá</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Khủng hoảng</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Ca sĩ</span> </a></li>
-                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Tai nạn</span> </a></li>
+                                <% news.tag.forEach(e => {  %> 
+                                <li><a href="/text-search?topSearch=<%=e%>"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> <%=e%></span></a></li>
+                                <%}) %>
                             </ul>
                         </div>
 

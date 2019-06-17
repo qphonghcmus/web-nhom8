@@ -112,6 +112,16 @@ module.exports = {
         })
     },
 
+    updateViews: (id,view) => {
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.update({idBaiViet: id},{viewNumber: view + 1}).exec((err,res)=>{
+                if(err) reject(err)
+                else    resolve(res);
+            })
+        })
+    },
+
     countByChuyeMuc: chuyenmuc => {
         return new Promise((resolve, reject) => {
             var post = mongoose.model('posts', postSchema);
