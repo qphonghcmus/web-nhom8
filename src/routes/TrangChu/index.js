@@ -36,23 +36,53 @@ router.get('/text-search/', (req, res, next) => {
   var limit = 5;
   var offset = (page - 1) * limit;
   var current = parseInt(page);
-  Promise.all([
-    postModel.pageByTextSeach(searchString, limit, offset),
-    postModel.countTextSearch(searchString),
-  ]).then(([docs, count]) => {
-    var total = count;
-    var nPages = Math.floor(total / limit);
-    if (total % limit > 0) nPages++;
-    var pages = [];
-    for (i = 1; i <= nPages; i++) {
-      var obj = { value: i, active: i === +page };
-      pages.push(obj);
-    }
 
-    res.render('./TrangChu/search', {
-      list: docs, moment: moment, pages: pages, current: current, search: searchString,
-    });
-  })
+  var p1
+  var p2 = postModel.countTextSearch(searchString);
+  if(typeof(req.user) !== 'undefined'){
+    var idUser = req.user.idUser;
+    user.findByIdUser(idUser).then(users =>{
+      if(users[0].permission === 0){
+        
+        p1 = postModel.pageByTextSeach_Premium(searchString,limit,offset)
+      }else{
+        p1 = postModel.pageByTextSeach(searchString, limit, offset)
+      }
+        Promise.all([p1,p2]).then(([docs, count]) => {
+          var total = count;
+          var nPages = Math.floor(total / limit);
+          if (total % limit > 0) nPages++;
+          var pages = [];
+          for (i = 1; i <= nPages; i++) {
+            var obj = { value: i, active: i === +page };
+            pages.push(obj);
+          }
+      
+          res.render('./TrangChu/search', {
+            list: docs, moment: moment, pages: pages, current: current, search: searchString,
+          });
+        })
+      
+    }).catch()
+  }else{
+    p1 = postModel.pageByTextSeach(searchString, limit, offset)
+    Promise.all([p1,p2]).then(([docs, count]) => {
+      var total = count;
+      var nPages = Math.floor(total / limit);
+      if (total % limit > 0) nPages++;
+      var pages = [];
+      for (i = 1; i <= nPages; i++) {
+        var obj = { value: i, active: i === +page };
+        pages.push(obj);
+      }
+  
+      res.render('./TrangChu/search', {
+        list: docs, moment: moment, pages: pages, current: current, search: searchString,
+      });
+    })
+  }
+
+  
 })
 
 router.get('/post/:id',(req,res,next)=>{
