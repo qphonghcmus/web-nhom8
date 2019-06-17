@@ -1,18 +1,29 @@
-  <!-- jquery latest version -->
-  <script src="../../../public/vendors/js/vendor/jquery-2.2.4.min.js"></script>
-  <!-- bootstrap 4 js -->
-  <script src="../../../public/vendors/js/popper.min.js"></script>
-  <script src="../../../public/vendors/js/bootstrap.min.js"></script>
-  <script src="../../../public/vendors/js/owl.carousel.min.js"></script>
-  <script src="../../public/vendors/js/metisMenu.min.js"></script>
-  <script src="../../../public/vendors/js/jquery.slimscroll.min.js"></script>
-  <script src="../../../public/vendors/js/jquery.slicknav.min.js"></script>
-
+<!-- jquery latest version -->
+<script src="../../../public/vendors/js/vendor/jquery-2.2.4.min.js"></script>
+<!-- bootstrap 4 js -->
+<script src="../../../public/vendors/js/popper.min.js"></script>
+<script src="../../../public/vendors/js/bootstrap.min.js"></script>
+<script src="../../../public/vendors/js/owl.carousel.min.js"></script>
+<script src="../../public/vendors/js/metisMenu.min.js"></script>
+<script src="../../../public/vendors/js/jquery.slimscroll.min.js"></script>
+<script src="../../../public/vendors/js/jquery.slicknav.min.js"></script>
+<!-- datetime picker -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script>
+  $(function () {
+    $('#txtdob').datetimepicker({
+      format: 'd/m/Y',
+      timepicker: false,
+      mask: true,
+    });
+  })
+</script>
 
 <% if (typeof(jsfiles) != 'undefined') { %>
-    <%jsfiles.forEach(function(element){%>
-        <script src="<%=element%>"></script>
-    <%});%>
+<%jsfiles.forEach(function(element){%>
+<script src="<%=element%>"></script>
+<%});%>
 <%}%>
 
   <!-- others plugins -->

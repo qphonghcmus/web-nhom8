@@ -2,11 +2,12 @@
 <link rel="stylesheet" href="../../../public/vendors/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <link rel="stylesheet" href="../../../public/vendors/css/owl.carousel.min.css">
-
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
 <% if (typeof(cssfiles) != 'undefined') { %>
-    <%cssfiles.forEach(function(element){%>
-        <link rel="stylesheet" href="<%=element%>">
-    <%});%>
+<%cssfiles.forEach(function(element){%>
+<link rel="stylesheet" href="<%=element%>">
+<%});%>
 <%}%>
 
 <!-- others css -->
@@ -17,10 +18,10 @@
 <!-- modernizr css -->
 <script src="../../../public/vendors/js/vendor/modernizr-2.8.3.min.js"></script>
 
-<% if( (typeof(activePost) != 'undefined' && activePost === true) || (typeof(activeEdit) != 'undefined' && activeEdit === true) ){%> 
-    <%# <script src="https://cdn.tiny.cloud/1/rd6qdh8usuhtd2rlk0ov3nvqugv31p07lgjf69j0lk01bf2v/tinymce/5/tinymce.min.js"></script> %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=rd6qdh8usuhtd2rlk0ov3nvqugv31p07lgjf69j0lk01bf2v"></script>
-    <script src="../../../public/resource/JS/editor.tiny.js"></script>
+<% if( (typeof(activePost) != 'undefined' && activePost === true) || (typeof(activeEdit) != 'undefined' && activeEdit === true) ){%>
+<%# <script src="https://cdn.tiny.cloud/1/rd6qdh8usuhtd2rlk0ov3nvqugv31p07lgjf69j0lk01bf2v/tinymce/5/tinymce.min.js"></script> %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+    src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=rd6qdh8usuhtd2rlk0ov3nvqugv31p07lgjf69j0lk01bf2v"></script>
+<script src="../../../public/resource/JS/editor.tiny.js"></script>
 <%}else{}  %>
-

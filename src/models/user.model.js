@@ -7,14 +7,14 @@ var userSchema = new mongoose.Schema({
     email: String,
     passWord: String,
     ngaySinh: Date,
-    avatar: String,
+    penName: String, // đối với writer cần bút danh
     phoneNumber: String,
     secretToken: String,
     confirmed: {
         type: Boolean,
         default: false
     },
-    category: [String], // đối với editor
+    category: String, // đối với editor
     permission: Number
 });
 
@@ -31,6 +31,7 @@ module.exports = {
                 passWord: entity.passWord,
                 secretToken: entity.secretToken,
                 ngaySinh: entity.ngaySinh,
+                penName:entity.penName,
                 phoneNumber: entity.phoneNumber,
                 confirmed: entity.confirmed,
                 category: entity.category,
@@ -124,7 +125,7 @@ module.exports = {
     },
 
     findByIdUser: id => {
-        return new Promise((resolve, reject) => {        
+        return new Promise((resolve, reject) => {
             var user = mongoose.model('users', userSchema);
             user.find({ idUser: id }).exec((err, res) => {
                 if (err) reject(err)

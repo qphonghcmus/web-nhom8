@@ -5,6 +5,7 @@ var categories = require('../../models/category.model');
 var draft = require('../../models/draft.model');
 var draftTuchoi = require('../../models/draftTuChoi.model');
 var draftDuyet = require('../../models/draft_Duyet.model');
+var moment = require('moment');
 var post = require('../../models/post.model');
 var user = require('../../models/user.model');
 
@@ -14,6 +15,7 @@ router.get('/', auth, (req, res, next) => {
         activeAdmin: true,
         cssfiles: [],
         jsfiles: [],
+        moment: moment
     });
 });
 
@@ -60,15 +62,36 @@ router.get('/update', (req, res, next) => {
     // var p1 = user.findByIdUser(authUser.idUser);
 
     // Promise.all([p1]).then(values => {
-        res.render('./layouts/Writer/main', {
-            filename: '../../writer/writer_update',
-            activeUpdate: true,
-            cssfiles: [],
-            jsfiles: [],
-            moment: require('moment')
-        });
+    res.render('./layouts/Writer/main', {
+        filename: '../../writer/writer_update',
+        activeUpdate: true,
+        cssfiles: [],
+        jsfiles: [],
+        moment: require('moment')
+    });
     // }).catch()
 });
+
+router.post('/update', (req, res, next) => {
+    var dob = moment(req.body.birthDay, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    var entity = {
+        hoTen: req.body.fullname,
+        email: req.user.email,
+        ngaySinh: dob,
+        phoneNumber: req.body.sdt,
+        permission: 1,
+        penName: req.body.penName
+    }
+    user.updateProfile(entity, req.body.email)
+        .then(docs => {
+            req.logOut()
+            res.redirect('/login');
+        })
+        .catch(err => {
+            res.json(err + '');
+        })
+});
+
 
 router.get('/post', (req, res, next) => {
     categories.load()
@@ -137,12 +160,12 @@ router.get('/waitPublish', (req, res, next) => {
             listDraft: list,
         });
     }).catch()
-    
+
 });
 
 router.get('/published', (req, res, next) => {
     var idTacGia = req.user.idUser;
-    post.findByAuthor(idTacGia).then(list=>{
+    post.findByAuthor(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
             filename: '../../writer/writer_published.ejs',
             activePublish: true,
@@ -162,7 +185,7 @@ router.get('/published', (req, res, next) => {
             listDraft: []
         });
     }).catch()
-    
+
 });
 
 router.get('/rejected', (req, res, next) => {

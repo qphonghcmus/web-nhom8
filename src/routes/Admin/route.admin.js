@@ -167,6 +167,7 @@ router.post('/manage-writer', function (req, res, next) {
     hoTen: req.body.fullname,
     email: req.body.username,
     passWord: hash,
+    penName: '',
     phoneNumber: req.body.sdt,
     confirmed: true,
     permission: 1
