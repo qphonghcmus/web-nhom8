@@ -309,6 +309,53 @@ input:focus {
       height: 30px; } }
 
 /* :: 3.7.0 mag Button */
+.btn-login{
+  margin-right: 20px;
+  background-color: #007bff;
+  -webkit-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 160px;
+  height: 40px;
+  color: #ffffff;
+  border-radius: 0;
+  padding: 0 30px;
+  font-size: 13px;
+  line-height: 40px;
+  font-weight: 500;
+  text-transform: capitalize; }
+  .btn-login:hover, .btn-login:focus {
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #004fc5;
+    color: #ffffff; }
+
+.btn-register{
+  background-color: #28a745;
+  -webkit-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 160px;
+      height: 40px;
+      color: #ffffff;
+      border-radius: 0;
+      padding: 0 30px;
+      font-size: 13px;
+      line-height: 40px;
+      font-weight: 500;
+      text-transform: capitalize; }
+      .btn-register:hover, .btn-register:focus {
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #179233;
+        color: #ffffff; }
+
 .mag-btn {
   background-color: #ed3974;
   -webkit-transition-duration: 500ms;
@@ -534,7 +581,7 @@ input:focus {
   z-index: 1;
   width: 100%;
   height: 720px; }
-  @media only screen and (min-width: 1200px) and (max-width: 1499px) {
+ @media only screen and (min-width: 1200px) and (max-width: 1499px) {
     .hero-blog-post {
       height: 500px; } }
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -647,6 +694,7 @@ input:focus {
 @media only screen and (max-width: 991px) {
   .custom-carousel {
     width: 90%;} } 
+
 
 .pagination .page-item .page-link {
   background-color: #e1e1e1;
@@ -2227,3 +2275,13 @@ textarea.form-control {
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */
+.avatar {
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+.image-upload>input[type="file"] {
+  display: none;
+}
