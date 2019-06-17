@@ -24,7 +24,8 @@ var postSchema = new mongoose.Schema({
 	chuyenMucCon: [String],
     isActive:Boolean,
     idTacGia: Number,
-    idEditor: Number
+    idEditor: Number,
+    isPremium: Boolean
 });
 
 postSchema.index({
@@ -124,7 +125,17 @@ module.exports = {
     pageByChuyeMuc: (chuyenmuc,limit,offset) => {
         return new Promise((resolve, reject) => {
             var post = mongoose.model('posts', postSchema);
-            post.find({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).skip(offset).sort({ 'ngayDang': -1 }).limit(limit).exec((err,res) =>{
+            post.find({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).skip(offset).sort({ 'ngayDang': -1}).limit(limit).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
+    pageByChuyeMuc_Premium: (chuyenmuc,limit,offset) => {
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).skip(offset).sort({ 'isPremium':-1,'ngayDang': -1 }).limit(limit).exec((err,res) =>{
                 if(err) reject(err);
                 else    resolve(res);
             })
@@ -155,6 +166,21 @@ module.exports = {
         })
     },
 
+    pageByTextSeach_Premium: (searchString,limit,offset) =>{
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.find({$text: {$search: searchString}},
+                {score: {$meta: 'textScore'}}
+                ).sort({
+                    'isPremium':-1,
+                    score: {$meta: 'textScore'},
+                }).skip(offset).limit(limit).exec((err,res) =>{
+                if(err) reject(err)
+                else    resolve(res);
+            })
+        })
+    },
+
     textsearch: searchString => {
         return new Promise((resolve,reject)=>{
             var post = mongoose.model('posts',postSchema);
@@ -179,10 +205,35 @@ module.exports = {
         })
     },
 
+    top10latestnews_NonPremium: ()=>{
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts', postSchema);
+            post.find( {
+                $and: [{ngayDang:{$lte: new Date()}},
+                    {isPremium: false}]}
+                ).sort({'ngayDang': -1}).limit(10).exec((err,res)=>{
+                if(err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
     top10mostviewsnews: () => {
         return new Promise((resolve,reject)=>{
             var post = mongoose.model('posts', postSchema);
             post.find({ngayDang:{$lte: new Date()}}).sort({'viewNumber': -1}).limit(10).exec((err,res)=>{
+                if(err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    top10mostviewsnews_Premium: () => {
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts', postSchema);
+            post.find({ $and: [
+                {ngayDang:{$lte: new Date()}},{isPremium: true}
+            ]}).sort({'viewNumber': -1}).limit(10).exec((err,res)=>{
                 if(err) reject(err);
                 else resolve(res);
             })
