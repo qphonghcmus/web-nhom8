@@ -9,6 +9,8 @@ var userSchema = new mongoose.Schema({
     ngaySinh: Date,
     penName: String, // đối với writer cần bút danh
     phoneNumber: String,
+    NgayDK: Date,
+    NgayHetHan: Date,
     secretToken: String,
     confirmed: {
         type: Boolean,
@@ -31,9 +33,11 @@ module.exports = {
                 passWord: entity.passWord,
                 secretToken: entity.secretToken,
                 ngaySinh: entity.ngaySinh,
-                penName:entity.penName,
+                penName: entity.penName,
                 phoneNumber: entity.phoneNumber,
                 confirmed: entity.confirmed,
+                NgayDK:entity.NgayDK,
+                NgayHetHan: entity.NgayHetHan,
                 category: entity.category,
                 permission: entity.permission
             })

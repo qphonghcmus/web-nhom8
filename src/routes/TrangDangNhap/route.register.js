@@ -54,7 +54,11 @@ router.post('/', (req, res, next) => {
         length: 6,
         charset: 'alphanumeric' // cả chữ và số
     });
-
+    var endDate = new Date();
+    var startDate = new Date();
+    var numberOfDaysToAdd = 7;
+    endDate.setDate(endDate.getDate() + numberOfDaysToAdd);
+    console.log(endDate.getDate());
     var saltRounds = 10;
     var hash = bcrypt.hashSync(req.body.password, saltRounds); // hash password
     var dob = moment(req.body.birthday, 'DD/MM/YYYY').format('YYYY-MM-DD'); // format date
@@ -65,10 +69,12 @@ router.post('/', (req, res, next) => {
         passWord: hash,
         secretToken: secrettoken,
         ngaySinh: dob,
+        NgayDK: startDate,
+        NgayHetHan: endDate,
         phoneNumber: req.body.sdt,
         permission: 0
     } // tạo object thêm vào user trong db
-
+    
     userModel.add(entity)
         .then(id => {
         })
