@@ -1,11 +1,8 @@
-<p id="lengthCategory" style="display:none"><%=listCategory.length%></p>
-<%listCategory.forEach(function(val,i){%>
 <div class="content-box-list-subscriber">
     <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
         <div class="content-box-title">
-            <p><%=val%></p>
+            <p>Thêm chuyên mục mới</p>
         </div>
-                  
         <div class="content-box-tool">
             <a>
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -13,26 +10,81 @@
         </div>
         <div class="clearfix"></div>
     </div>
+
     <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white">
-        <div class="table-responsive">
-            <% var path = "table-" + i%>
-            <table class="table table-hover" id="<%=path%>">
-               <thead>
-                    <tr>
-                        <th scope="col" class="th-sm">Mã bài viết</th>
-                        <th scope="col">Tên bài viết</th>
-                        <th scope="col">Trạng thái</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>  
-            </table>         
-        </div>
+        <form method="POST" >
+            <div class="form-group">
+                <label for="tenChuyenMuc">Tên chuyên mục: </label>
+                <input class="form-control" type="text" placeholder="Tên chuyên mục mới" name="tenChuyenMuc">
+            </div>
+           <div class="form-group">
+                <label for="chuyenMucCon1">Chuyên mục con 1: </label>
+                 <input class="form-control" type="text" placeholder="Chuyên mục con" name="chuyenMucCon1">
+            </div>
+            <div class="form-group">
+                <label for="chuyenMucCon1">Chuyên mục con 2: </label>
+                <input class="form-control" type="text" placeholder="Chuyên mục con" name="chuyenMucCon2">
+            </div>
+               <div class="form-group position-button">
+                    <div style="text-align:center;">
+                        <input type="submit" class="btn btn-primary" value="Thêm chuyên mục">
+                    </div>
+               </div>
+        </form>
     </div>
 </div>
 
-<%});%>
+<div class="content-box-list-subscriber">
+    <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+        <div class="content-box-title">
+            <p>Danh sách chuyên mục</p>
+        </div>
 
-            
-            
-       
+        <div class="content-box-tool">
+            <a >
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-subscriber-main">
+        <div class="table-responsive">
+            <table class="table table-hover" id="main-table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Tên chuyên mục</th>
+                        <th scope="col">Chuyên mục con</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%listCategory.forEach(function(value,i){%>
+                        <tr>
+                            <td><%=i+1%></td>
+                            <td><%=value.tenChuyenMuc%></td>
+                            <%if (typeof(value.chuyenMucCon[0]) != 'undefined' && typeof(value.chuyenMucCon[1]) != 'undefined'){%>
+                            <%if (value.chuyenMucCon[0] == '' && value.chuyenMucCon[1] != ''){%>
+                                <td><%=value.chuyenMucCon[1]%></td>
+                            <%}%>
+                             <%if (value.chuyenMucCon[1] == ''&& value.chuyenMucCon[0] != ''){%>
+                                <td><%=value.chuyenMucCon[0]%></td>
+                            <%}else if (value.chuyenMucCon[1] != ''&& value.chuyenMucCon[0] != ''){%>
+                            <td><%=value.chuyenMucCon[0] + ", " + value.chuyenMucCon[1]%></td>
+                            <%}else{%>
+                               <td></td>
+                            <%}%>
+                            <%}else if (typeof(value.chuyenMucCon[0]) != 'undefined' && typeof(value.chuyenMucCon[1]) == 'undefined'){%>
+                            <td><%=value.chuyenMucCon[0]%></td>
+                            <%}else if (typeof(value.chuyenMucCon[0]) == 'undefined' && typeof(value.chuyenMucCon[1]) != 'undefined'){%>
+                            <td><%=value.chuyenMucCon[1]%></td>
+                            <%}else{%>
+                            <td></td>
+                            <%}%>
+                        </tr>
+                    <%});%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

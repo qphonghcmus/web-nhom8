@@ -1,19 +1,23 @@
 var express = require('express');
 var router = express.Router();
 var postModel = require('../../models/post.model');
+var categoryModel = require('../../models/category.model');
 const auth = require('../../middlewares/auth_login');
-var listCategory = ['Công nghệ', 'Thể thao', 'Giải trí'];
+var listCategory;
 var userModel = require('../../models/user.model');
 var bcrypt = require('bcrypt'); // dùng để hash password
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('./layouts/Admin/admin.ejs', {
-    title: 'Quản lý chuyên mục',
-    filename: '../../Admin/ManageCategory',
-    activeManageCategory: true,
-    cssfiles: ['ManageCategory'],
-    jsfiles: ['ManageCategory'],
-    listCategory: listCategory,
+  categoryModel.load().then(docs =>{
+    listCategory = docs;
+    res.render('./layouts/Admin/admin.ejs', {
+      title: 'Quản lý chuyên mục',
+      filename: '../../Admin/ManageCategory',
+      activeManageCategory: true,
+      cssfiles: ['ManageCategory'],
+      jsfiles: ['ManageCategory'],
+      listCategory:listCategory   
+    });
   });
 });
 router.post('/manage-category/:i', (req, res) => {
@@ -37,11 +41,7 @@ router.post('/manage-category/:i', (req, res) => {
     postModel.findBySearchString(searchStr, listCategory[i], req.body.start, req.body.length)
   ]).then(([c, d, docs]) => {
     recordsTotal = c;
-    console.log(c);
     recordsFiltered = d;
-    console.log(d);
-    console.log(req.body.start);
-    console.log(req.body.length);
     var data = JSON.stringify({
       "draw": req.body.draw,
       "recordsFiltered": recordsFiltered,
@@ -55,15 +55,47 @@ router.post('/manage-category/:i', (req, res) => {
 })
 
 router.get('/manage-category', function (req, res, next) {
-  res.render('./layouts/Admin/admin.ejs', {
-    title: 'Quản lý chuyên mục',
-    filename: '../../Admin/ManageCategory',
-    activeManageCategory: true,
-    cssfiles: ['ManageCategory'],
-    jsfiles: ['ManageCategory'],
-    listCategory: listCategory,
+  categoryModel.load().then(docs =>{
+    listCategory = docs;
+    res.render('./layouts/Admin/admin.ejs', {
+      title: 'Quản lý chuyên mục',
+      filename: '../../Admin/ManageCategory',
+      activeManageCategory: true,
+      cssfiles: ['ManageCategory'],
+      jsfiles: ['ManageCategory'],
+      listCategory:listCategory   
+    });
   });
 });
+router.post('/',function(req,res,next) {
+  var chuyenMucCon = new Array(req.body.chuyenMucCon1, req.body.chuyenMucCon2);
+      var entity = {
+        tenChuyenMuc: req.body.tenChuyenMuc,
+        chuyenMucCon: chuyenMucCon
+      };
+       categoryModel.addWithSubCategory(entity).then(docs => {
+        res.redirect('/administrator/manage-category');
+      })
+      .catch(err => {
+        //res.json(err + '');
+        res.json(entity);
+      })
+  });
+router.post('/manage-category',function(req,res,next) {
+var chuyenMucCon = new Array(req.body.chuyenMucCon1, req.body.chuyenMucCon2);
+    var entity = {
+      tenChuyenMuc: req.body.tenChuyenMuc,
+      chuyenMucCon: chuyenMucCon
+    };
+     categoryModel.addWithSubCategory(entity).then(docs => {
+      res.redirect('/manage-category');
+    })
+    .catch(err => {
+      //res.json(err + '');
+      res.json(entity);
+    })
+});
+
 
 router.get('/manage-post-published', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {

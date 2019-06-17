@@ -53,5 +53,20 @@ module.exports = {
                 else    resolve(res)
             })
         })
+    },
+
+    addWithSubCategory: entity => {
+        return new Promise((resolve, reject) => {
+            var cat = mongoose.model('categories', CategorySchema);
+            var obj = new cat({
+                tenChuyenMuc: entity.tenChuyenMuc,
+                chuyenMucCon: entity.chuyenMucCon
+            });
+            obj.save((err,res)=>{
+                if(err) reject(err)
+                else    resolve(res.idChuyenMuc);
+            })
+        })
+
     }
 }
