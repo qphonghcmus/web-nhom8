@@ -18,8 +18,8 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"
                                         aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="#"><%= tenchuyenmuc %></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Danh sách bài viết</li>
+                            <li class="breadcrumb-item">Tìm kiếm</li>
+                            <li class="breadcrumb-item active" aria-current="page"><%=search%></li>
                         </ol>
                     </nav>
                 </div>
@@ -44,7 +44,7 @@
                             <div class="post-content">
                                 <div class="post-meta">
                                     <a href="#"><%=moment(i.ngayDang).format("DD-MM-YYYY HH:mm")%></a>
-                                    <a href="#"><%= tenchuyenmuc %></a>
+                                    <a href="#"><%= i.tenChuyenMuc %></a>
                                 </div>
                                 <a href="#" class="post-title"><%=i.tieuDe%></a>
                                 <p><%=i.noiDungTomTat%></p>
@@ -58,18 +58,22 @@
                                 <%if (pages.length == 1){%>
                                 <li class="page-item active"><a class="page-link">1</a></li>
                                 <%}else{%>
-                                <li class="page-item"><a class="page-link" href="?page=<%=current-1%>"><i
+                                <li class="page-item"><a class="page-link"
+                                        href="/text-search?topSearch=<%=search%>&page=<%=current-1%>"><i
                                             class="ti-angle-left"></i></a></li>
                                 <%pages.forEach(function(i){%>
                                 <%if (i.active){%>
                                 <li class="page-item active"><a class="page-link"
-                                        href="?page=<%=i.value%>"><%=i.value%></a></li>
+                                        href="/text-search?topSearch=<%=search%>&page=<%=i.value%>"><%=i.value%></a>
+                                </li>
                                 <%}else{%>
-                                <li class="page-item"><a class="page-link" href="?page=<%=i.value%>"><%=i.value%></a>
+                                <li class="page-item"><a class="page-link"
+                                        href="/text-search?topSearch=<%=search%>&page=<%=i.value%>"><%=i.value%></a>
                                 </li>
                                 <%}%>
                                 <%});%>
-                                <li class="page-item"><a class="page-link" href="?page=<%=current+1%>"><i
+                                <li class="page-item"><a class="page-link"
+                                        href="/text-search?topSearch=<%=search%>&page=<%=current+1%>"><i
                                             class="ti-angle-right"></i></a></li>
                                 <%}%>
                                 

@@ -67,9 +67,9 @@
                     <div class="top-meta-data d-flex align-items-center">
                         <!-- Top Search Area -->
                         <div class="top-search-area">
-                            <form action="index.html" method="post">
-                                <input type="search" name="top-search" id="topSearch" placeholder="Tìm kiếm">
-                                <button type="button" class="btn"><i class="fa fa-search"
+                            <form action="/text-search/" method="get" id="frmTopSearch">
+                                <input type="search" name="topSearch" id="topSearch" placeholder="Tìm kiếm">
+                                <button type="button" class="btn"><i class="fa fa-search" onclick="javascript: $('#frmTopSearch').submit();"
                                         aria-hidden="true"></i></button>
                             </form>
                         </div>

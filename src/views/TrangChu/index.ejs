@@ -1,3 +1,5 @@
+<% var path = '/public/resource/img/post/'%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,25 +14,40 @@
     <div class="hero-area owl-carousel custom-carousel">
 
         <% for(var i = 0; i < top4viewsnews.length; i++) {%>
-            <!-- Single Blog Post -->
-            <div class="hero-blog-post bg-img bg-overlay" style="background-image: url(<%=top4viewsnews[i].imagePath%>);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <!-- Post Contetnt -->
-                            <div class="post-content text-center">
-                                <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
-                                    <a href="#"><%= daydiff[i] %> Ngày trước</a>
-                                    <a href="archive.html"><%= top4viewsnews[i].tenChuyenMuc %></a>
-                                </div>
-                                <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">
-                                    <%= top4viewsnews[i].tieuDe %>
-                                </a>
+        <% var chuyenmuc%>
+        <% switch(top4viewsnews[i].tenChuyenMuc) {
+                case 'Kinh doanh': chuyenmuc = 'kinh-doanh'; break; 
+                case 'Thể thao': chuyenmuc = 'the-thao'; break; 
+                case 'Pháp luật': chuyenmuc = 'phap-luat'; break; 
+                case 'Giáo dục': chuyenmuc = 'giao-duc'; break; 
+                case 'Giải trí': chuyenmuc = 'giai-tri'; break; 
+                case 'Đời sống': chuyenmuc = 'doi-song'; break; 
+                case 'Thế giới': chuyenmuc = 'the-gioi'; break; 
+                case 'Công nghệ': chuyenmuc = 'cong-nghe'; break; 
+                case 'Quân sự': chuyenmuc = 'quan-su'; break; 
+                case 'Du lịch': chuyenmuc = 'du-lich'; break; 
+            } %>
+
+        <!-- Single Blog Post -->
+        <div class="hero-blog-post bg-img bg-overlay"
+            style="background-image: url(<%=path%><%=top4viewsnews[i].imagePath%>);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Post Contetnt -->
+                        <div class="post-content text-center">
+                            <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
+                                <a href="#"><%= daydiff[i] %> Ngày trước</a>
+                                <a href="/list/<%=chuyenmuc%>"><%= top4viewsnews[i].tenChuyenMuc %></a>
                             </div>
+                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">
+                                <%= top4viewsnews[i].tieuDe %>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         <% } %>
     </div>
     <!-- ##### Hero Area End ##### -->
@@ -51,14 +68,27 @@
 
                 <!-- Single Blog Post -->
                 <%for(var i=0;i<10;i++){%>
+                <% var chuyenmuc2%>
+                <% switch(list[i].tenChuyenMuc) {
+                            case 'Kinh doanh': chuyenmuc2 = 'kinh-doanh'; break; 
+                            case 'Thể thao': chuyenmuc2 = 'the-thao'; break; 
+                            case 'Pháp luật': chuyenmuc2 = 'phap-luat'; break; 
+                            case 'Giáo dục': chuyenmuc2 = 'giao-duc'; break; 
+                            case 'Giải trí': chuyenmuc2 = 'giai-tri'; break; 
+                            case 'Đời sống': chuyenmuc2 = 'doi-song'; break; 
+                            case 'Thế giới': chuyenmuc2 = 'the-gioi'; break; 
+                            case 'Công nghệ': chuyenmuc2 = 'cong-nghe'; break; 
+                            case 'Quân sự': chuyenmuc2 = 'quan-su'; break; 
+                            case 'Du lịch': chuyenmuc2 = 'du-lich'; break; 
+                        } %>
                 <div class="single-blog-post d-flex">
                     <div class="post-thumbnail">
-                        <img src="<%=list[i].imagePath%>" alt="">
+                        <img src="<%=path%><%=list[i].imagePath%>" alt="">
                     </div>
                     <div class="post-content">
                         <a href="single-post.html" class="post-title"><%=list[i].tieuDe%></a>
                         <div class="post-meta">
-                            <a href="#" class="post-cata"><%=list[i].tenChuyenMuc%></a>
+                            <a href="/list/<%=chuyenmuc2%>" class="post-cata"><%=list[i].tenChuyenMuc%></a>
                             <a>-</a>
                             <a href="#"><%= moment(list[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
                         </div>
@@ -88,13 +118,26 @@
 
                 <div class="trending-post-slides owl-carousel">
 
-                        <% for( var i = 0; i < top10of10.length ; i++){%>
+                <% for( var i = 0; i < top10of10.length ; i++){%>
+                <% var chuyenmuc3%>
+                <% switch(top10of10[i].tenChuyenMuc) {
+                            case 'Kinh doanh': chuyenmuc3 = 'kinh-doanh'; break; 
+                            case 'Thể thao': chuyenmuc3 = 'the-thao'; break; 
+                            case 'Pháp luật': chuyenmuc3 = 'phap-luat'; break; 
+                            case 'Giáo dục': chuyenmuc3 = 'giao-duc'; break; 
+                            case 'Giải trí': chuyenmuc3 = 'giai-tri'; break; 
+                            case 'Đời sống': chuyenmuc3 = 'doi-song'; break; 
+                            case 'Thế giới': chuyenmuc3 = 'the-gioi'; break; 
+                            case 'Công nghệ': chuyenmuc3 = 'cong-nghe'; break; 
+                            case 'Quân sự': chuyenmuc3 = 'quan-su'; break; 
+                            case 'Du lịch': chuyenmuc3 = 'du-lich'; break; 
+                        } %>
                 <!-- Single Trending Post -->
                 <div class="single-trending-post">
-                    <img src="<%= top10of10[i].imagePath%>" alt="">
+                    <img src="<%=path%><%= top10of10[i].imagePath%>" alt="">
                     <div class="post-content">
                         <div class="post-meta">
-                            <a href="#" class="post-cata"><%= top10of10[i].tenChuyenMuc %></a>
+                            <a href="/list/<%=chuyenmuc3%>" class="post-cata"><%= top10of10[i].tenChuyenMuc %></a>
                         </div>
                         <a href="#" class="post-title"><%= top10of10[i].tieuDe %></a>
                         <div class="post-meta" style="margin-top: 10px">
@@ -122,19 +165,31 @@
 
                 <div class="sports-videos-slides owl-carousel mb-30">
 
-                    <% for( var i = 0; i < mostviews.length - 4; i++){%>
+                <% for( var i = 0; i < mostviews.length - 4; i++){%>
+                <% var chuyenmuc4%>
+                <% switch(mostviews[i].tenChuyenMuc) {
+                            case 'Kinh doanh': chuyenmuc4 = 'kinh-doanh'; break; 
+                            case 'Thể thao': chuyenmuc4 = 'the-thao'; break; 
+                            case 'Pháp luật': chuyenmuc4 = 'phap-luat'; break; 
+                            case 'Giáo dục': chuyenmuc4 = 'giao-duc'; break; 
+                            case 'Giải trí': chuyenmuc4 = 'giai-tri'; break; 
+                            case 'Đời sống': chuyenmuc4 = 'doi-song'; break; 
+                            case 'Thế giới': chuyenmuc4 = 'the-gioi'; break; 
+                            case 'Công nghệ': chuyenmuc4 = 'cong-nghe'; break; 
+                            case 'Quân sự': chuyenmuc4 = 'quan-su'; break; 
+                            case 'Du lịch': chuyenmuc4 = 'du-lich'; break; 
+                        } %>
                 <!-- Single Featured Post -->
                 <div class="single-featured-post">
                     <!-- Thumbnail -->
                     <div class="post-thumbnail mb-50">
-                        <% var path = mostviews[i].imagePath%>
-                        <img src="<%= path%>" alt="">
+                        <img src="<%=path%><%= mostviews[i].imagePath%>" alt="">
                     </div>
                     <!-- Post Contetnt -->
                     <div class="post-content">
                         <div class="post-meta">
                             <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
-                            <a href="#"><%= mostviews[i].tenChuyenMuc %></a>
+                            <a href="/list/<%=chuyenmuc4%>"><%= mostviews[i].tenChuyenMuc %></a>
                         </div>
                         <a href="" class="post-title"><%= mostviews[i].tieuDe %></a>
                         <p><%= mostviews[i].noiDungTomTat %></p>
@@ -150,6 +205,19 @@
                 <div class="row">
 
                         <% for( var i = 6; i < mostviews.length; i++){%>
+                <% var chuyenmuc5%>
+                <% switch(mostviews[i].tenChuyenMuc) {
+                            case 'Kinh doanh': chuyenmuc5 = 'kinh-doanh'; break; 
+                            case 'Thể thao': chuyenmuc5 = 'the-thao'; break; 
+                            case 'Pháp luật': chuyenmuc5 = 'phap-luat'; break; 
+                            case 'Giáo dục': chuyenmuc5 = 'giao-duc'; break; 
+                            case 'Giải trí': chuyenmuc5 = 'giai-tri'; break; 
+                            case 'Đời sống': chuyenmuc5 = 'doi-song'; break; 
+                            case 'Thế giới': chuyenmuc5 = 'the-gioi'; break; 
+                            case 'Công nghệ': chuyenmuc5 = 'cong-nghe'; break; 
+                            case 'Quân sự': chuyenmuc5 = 'quan-su'; break; 
+                            case 'Du lịch': chuyenmuc5 = 'du-lich'; break; 
+                        } %>
                 <!-- Single Blog Post -->
                 <div class="col-12 col-lg-6">
                     <div class="single-blog-post d-flex style-3 mb-30">
@@ -160,7 +228,8 @@
                         <div class="post-content">
                             <a href="single-post.html" class="post-title"><%= mostviews[i].tieuDe %></a>
                             <div class="post-meta">
-                                <a href="#" style="margin-right: 0px;"><%= mostviews[i].tenChuyenMuc %></a>
+                                <a href="/list/<%=chuyenmuc5%>"
+                                    style="margin-right: 0px;"><%= mostviews[i].tenChuyenMuc %></a>
                                 <a style="margin-right: 0px;">-</a>
                                 <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
                             </div>

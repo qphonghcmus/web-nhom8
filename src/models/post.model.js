@@ -27,6 +27,14 @@ var postSchema = new mongoose.Schema({
     idEditor: Number
 });
 
+postSchema.index({
+    tieuDe: 'text',
+    tenChuyenMuc: 'text',
+    tag: 'text',
+    noiDungTomTat: 'text',
+    chuyenMucCon: 'text'
+});
+
 postSchema.plugin(AuToIncrement, { id: 'idBaiViet_Seq', inc_field: 'idBaiViet' });
 
 module.exports = {
@@ -108,6 +116,44 @@ module.exports = {
             var post = mongoose.model('posts', postSchema);
             post.find({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).skip(offset).sort({ 'ngayDang': -1 }).limit(limit).exec((err,res) =>{
                 if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
+    countTextSearch: searchString =>{
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.countDocuments({$text: {$search: searchString}}).exec((err,res) =>{
+                if(err) reject(err)
+                else    resolve(res);
+            })
+        })
+    },
+
+    pageByTextSeach: (searchString,limit,offset) =>{
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.find({$text: {$search: searchString}},
+                {score: {$meta: 'textScore'}}
+                ).sort(
+                    {score: {$meta: 'textScore'}}
+                    ).skip(offset).limit(limit).exec((err,res) =>{
+                if(err) reject(err)
+                else    resolve(res);
+            })
+        })
+    },
+
+    textsearch: searchString => {
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.find({$text: {$search: searchString}},
+                {score: {$meta: 'textScore'}}
+                ).sort(
+                    {score: {$meta: 'textScore'}}
+                    ).limit(10).exec((err,res) =>{
+                if(err) reject(err)
                 else    resolve(res);
             })
         })
