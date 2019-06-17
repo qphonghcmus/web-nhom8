@@ -88,30 +88,60 @@ router.get('/text-search/', (req, res, next) => {
 
 router.get('/post/:id', (req, res, next) => {
   var idBaiViet = req.params.id;
-
-  Promise.all([
-    postModel.findById(idBaiViet),
-    detail.findById(idBaiViet),
-  ]).then(values => {
     Promise.all([
-      postModel.find5News(values[0][0].tenChuyenMuc, idBaiViet),
-      user.findByIdUser(values[0][0].idTacGia),
-      postModel.updateViews(idBaiViet, values[0][0].viewNumber),
-      comment.findByIdBaiViet(idBaiViet),
-    ]).then(values2 => {
-      res.render('./BaiViet/main', {
-        news: values[0][0],
-        content: values[1][0].noiDung,
-        moment: moment,
-        author: values2[1][0].hoTen,
-        top5news: values2[0],
-        comment: values2[3],
-      })
+      postModel.findById(idBaiViet),
+      detail.findById(idBaiViet),
+    ]).then(values => {
+      if(values[0][0].isPremium === true){
+        if(!req.user){ res.redirect('/')}
+        else{
+        var idDocGia = req.user.idUser
+
+        user.findByIdUser(idDocGia).then(users => {
+          if(users[0].permission === 0) {
+            if(users[0].NgayHetHan <= Date.now() ){
+              res.redirect('/')
+            }else{
+              Promise.all([
+                postModel.find5News(values[0][0].tenChuyenMuc, idBaiViet),
+                user.findByIdUser(values[0][0].idTacGia),
+                postModel.updateViews(idBaiViet, values[0][0].viewNumber),
+                comment.findByIdBaiViet(idBaiViet),
+              ]).then(values2 => {
+                res.render('./BaiViet/main', {
+                  news: values[0][0],
+                  content: values[1][0].noiDung,
+                  moment: moment,
+                  author: values2[1][0].hoTen,
+                  top5news: values2[0],
+                  comment: values2[3],
+                })
+              }).catch()
+            }
+          }else{
+            res.redirect('/')
+          }
+        }).catch()}
+
+      }else{
+
+      Promise.all([
+        postModel.find5News(values[0][0].tenChuyenMuc, idBaiViet),
+        user.findByIdUser(values[0][0].idTacGia),
+        postModel.updateViews(idBaiViet, values[0][0].viewNumber),
+        comment.findByIdBaiViet(idBaiViet),
+      ]).then(values2 => {
+        res.render('./BaiViet/main', {
+          news: values[0][0],
+          content: values[1][0].noiDung,
+          moment: moment,
+          author: values2[1][0].hoTen,
+          top5news: values2[0],
+          comment: values2[3],
+        })
+      }).catch()
+    }
     }).catch()
-
-  }).catch()
-
-
 })
 
 router.post('/post/cmt/:id', (req, res, next) => {

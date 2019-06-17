@@ -21,7 +21,7 @@ var postSchema = new mongoose.Schema({
         type: String
     },
     viewNumber: Number,
-	chuyenMucCon: [String],
+	chuyenMucCon: String,
     isActive:Boolean,
     idTacGia: Number,
     idEditor: Number,
@@ -132,6 +132,16 @@ module.exports = {
         })
     },
 
+    countByChuyenMucCon: chuyenmuc => {
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.countDocuments({ $and: [{chuyenMucCon: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
     pageByChuyeMuc: (chuyenmuc,limit,offset) => {
         return new Promise((resolve, reject) => {
             var post = mongoose.model('posts', postSchema);
@@ -142,10 +152,30 @@ module.exports = {
         })
     },
 
+    pageByChuyenMucCon: (chuyenmuc,limit,offset) => {
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({ $and: [{chuyenMucCon: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).skip(offset).sort({ 'ngayDang': -1}).limit(limit).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
     pageByChuyeMuc_Premium: (chuyenmuc,limit,offset) => {
         return new Promise((resolve, reject) => {
             var post = mongoose.model('posts', postSchema);
             post.find({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).skip(offset).sort({ 'isPremium':-1,'ngayDang': -1 }).limit(limit).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
+    pageByChuyenMucCon_Premium: (chuyenmuc,limit,offset) => {
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({ $and: [{chuyenMucCon: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).skip(offset).sort({ 'isPremium':-1,'ngayDang': -1 }).limit(limit).exec((err,res) =>{
                 if(err) reject(err);
                 else    resolve(res);
             })
