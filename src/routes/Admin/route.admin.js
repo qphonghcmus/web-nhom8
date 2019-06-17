@@ -97,7 +97,7 @@ router.get('/manage-tag', function (req, res, next) {
   });
 });
 
-router.get('/my-information',function (req, res, next) {
+router.get('/my-information', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {
     title: 'Thông tin cá nhân',
     filename: '../../Admin/ManageMyInformation',
@@ -105,6 +105,22 @@ router.get('/my-information',function (req, res, next) {
     cssfiles: ['ManageMyInformation'],
     jsfiles: ['ManageMyInformation'],
   });
+});
+
+router.post('/my-information', function (req, res, next) {
+  var entity = {
+    hoTen: req.body.txtHoTen,
+    email: req.body.txtEmail,
+    phoneNumber: req.body.txtSDT
+  }
+  userModel.updateProfile(entity, req.body.txtEmail)
+    .then(docs => {
+      req.logOut();
+      res.redirect('/login');
+    })
+    .catch(err => {
+      res.json(err + '');
+    })
 });
 router.get('/manage-subscriber', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {
@@ -145,7 +161,7 @@ router.post('/manage-editor', function (req, res, next) {
     passWord: hash,
     phoneNumber: req.body.sdt,
     confirmed: true,
-    ngaySinh:'',
+    ngaySinh: '',
     category: req.body.category,
     permission: 2
   } // tạo object thêm vào user trong db
@@ -191,7 +207,7 @@ router.post('/manage-writer', function (req, res, next) {
     email: req.body.username,
     passWord: hash,
     penName: '',
-    ngaySinh:'',
+    ngaySinh: '',
     phoneNumber: req.body.sdt,
     confirmed: true,
     permission: 1

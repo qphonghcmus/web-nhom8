@@ -13,19 +13,19 @@
                 </div>
                 
                 <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" >
-                   <form>
+                   <form action="" method="POST">
                        <label for="txtHoTen">Họ tên: </label>
-                       <input  class="form-control" type="text" placeholder="Nhập họ tên" name="txtHoTen">
+                       <input  class="form-control" type="text" placeholder="Nhập họ tên" name="txtHoTen" value="<%=authUser.hoTen%>">
                        <br>
                        <label for="txtEmail">Email: </label>
-                       <input class="form-control"  type="text" placeholder="Nhập email" name="txtEmail">
+                       <input readonly class="form-control"  type="text" placeholder="Nhập email" name="txtEmail" value="<%=authUser.email%>" >
                        <br>
                        <label for="txtSDT">SĐT: </label>
-                       <input class="form-control" type="text" placeholder="Nhập sđt" name="txtSDT">
+                       <input class="form-control" type="text" placeholder="Nhập sđt" name="txtSDT" value="<%=authUser.phoneNumber%>">
                        <br>
                        <div class="form-group position-button">
                             <div>
-                                <input type="button" class="btn btn-primary" value="Cập nhật">
+                                <input type="submit" class="btn btn-primary" value="Cập nhật">
                             </div>
                         </div>
          </form>
