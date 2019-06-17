@@ -40,7 +40,7 @@
                                 <a href="#"><%= daydiff[i] %> Ngày trước</a>
                                 <a href="/list/<%=chuyenmuc%>"><%= top4viewsnews[i].tenChuyenMuc %></a>
                             </div>
-                            <a href="#" class="post-title" data-animation="fadeInUp" data-delay="300ms">
+                            <a href="/post/<%= top4viewsnews[i].idBaiViet %>" class="post-title" data-animation="fadeInUp" data-delay="300ms">
                                 <%= top4viewsnews[i].tieuDe %>
                             </a>
                         </div>
@@ -86,7 +86,7 @@
                         <img src="<%=path%><%=list[i].imagePath%>" alt="">
                     </div>
                     <div class="post-content">
-                        <a href="single-post.html" class="post-title"><%=list[i].tieuDe%></a>
+                        <a href="/post/<%= list[i].idBaiViet%>" class="post-title"><%=list[i].tieuDe%></a>
                         <div class="post-meta">
                             <a href="/list/<%=chuyenmuc2%>" class="post-cata"><%=list[i].tenChuyenMuc%></a>
                             <a>-</a>
@@ -139,7 +139,7 @@
                         <div class="post-meta">
                             <a href="/list/<%=chuyenmuc3%>" class="post-cata"><%= top10of10[i].tenChuyenMuc %></a>
                         </div>
-                        <a href="#" class="post-title"><%= top10of10[i].tieuDe %></a>
+                        <a href="/post/<%= top10of10[i].idBaiViet%>" class="post-title"><%= top10of10[i].tieuDe %></a>
                         <div class="post-meta" style="margin-top: 10px">
                             <a href="#"
                                 class="post-cata"><%= moment(top10of10[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
@@ -191,7 +191,7 @@
                             <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
                             <a href="/list/<%=chuyenmuc4%>"><%= mostviews[i].tenChuyenMuc %></a>
                         </div>
-                        <a href="" class="post-title"><%= mostviews[i].tieuDe %></a>
+                        <a href="/post/<%= mostviews[i].idBaiViet%>" class="post-title"><%= mostviews[i].tieuDe %></a>
                         <p><%= mostviews[i].noiDungTomTat %></p>
                     </div>
                     <!-- Post Share Area -->
@@ -226,7 +226,7 @@
                             <img src="<%= path%>" alt="">
                         </div>
                         <div class="post-content">
-                            <a href="single-post.html" class="post-title"><%= mostviews[i].tieuDe %></a>
+                            <a href="/post/<%= mostviews[i].idBaiViet%>" class="post-title"><%= mostviews[i].tieuDe %></a>
                             <div class="post-meta">
                                 <a href="/list/<%=chuyenmuc5%>"
                                     style="margin-right: 0px;"><%= mostviews[i].tenChuyenMuc %></a>
@@ -252,20 +252,20 @@
     <!-- ##### Mag Posts Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-    <%- include('../layouts/TrangChu/footer') -%>
+    <%- include('../layouts/TrangChu/footer') -%>   
                 <!-- ##### Footer Area End ##### -->
 
                 <!-- ##### All Javascript Script ##### -->
                 <!-- jQuery-2.2.4 js -->
-                <script src="vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+                <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
                 <!-- Popper js -->
-                <script src="vendors/template/js/bootstrap/popper.min.js"></script>
+                <script src="../../public/vendors/template/js/bootstrap/popper.min.js"></script>
                 <!-- Bootstrap js -->
-                <script src="vendors/template/js/bootstrap/bootstrap.min.js"></script>
+                <script src="../../public/vendors/template/js/bootstrap/bootstrap.min.js"></script>
                 <!-- All Plugins js -->
-                <script src="vendors/template/js/plugins/plugins.js"></script>
+                <script src="../../public/vendors/template/js/plugins/plugins.js"></script>
                 <!-- Active js -->
-                <script src="vendors/template/js/active.js"></script>
+                <script src="../../public/vendors/template/js/active.js"></script>
 </body>
 
 </html>

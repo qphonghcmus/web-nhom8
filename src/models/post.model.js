@@ -74,7 +74,7 @@ module.exports = {
     findByChuyenMuc: chuyenmuc => {
         return new Promise((resolve, reject) => {
             var post = mongoose.model('posts', postSchema);
-            post.find({tenChuyenMuc: chuyenmuc}).exec((err,res) =>{
+            post.find({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}}]}).exec((err,res) =>{
                 if(err) reject(err);
                 else    resolve(res);
             })
@@ -96,6 +96,16 @@ module.exports = {
             var post = mongoose.model('posts', postSchema);
             post.find({idEditor: id}).exec((err,res)=>{
                 if(err) reject(err)
+                else    resolve(res);
+            })
+        })
+    },
+
+    find5News: (chuyenmuc,idNews) => {
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({ $and: [{tenChuyenMuc: chuyenmuc},{ngayDang:{$lte: new Date()}},{idBaiViet: {$ne:idNews}}]}).sort({ 'ngayDang': -1 }).limit(5).exec((err,res) =>{
+                if(err) reject(err);
                 else    resolve(res);
             })
         })

@@ -1,0 +1,230 @@
+<% var path = '/public/resource/img/post/'%>
+<% var chuyenmuc%>
+<% switch(news.tenChuyenMuc) {
+        case 'Kinh doanh': chuyenmuc = 'kinh-doanh'; break; 
+        case 'Thể thao': chuyenmuc = 'the-thao'; break; 
+        case 'Pháp luật': chuyenmuc = 'phap-luat'; break; 
+        case 'Giáo dục': chuyenmuc = 'giao-duc'; break; 
+        case 'Giải trí': chuyenmuc = 'giai-tri'; break; 
+        case 'Đời sống': chuyenmuc = 'doi-song'; break; 
+        case 'Thế giới': chuyenmuc = 'the-gioi'; break; 
+        case 'Công nghệ': chuyenmuc = 'cong-nghe'; break; 
+        case 'Quân sự': chuyenmuc = 'quan-su'; break; 
+        case 'Du lịch': chuyenmuc = 'du-lich'; break; 
+    } %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= news.tieuDe %></title>
+    <%- include('../layouts/TrangChu/head') -%>
+</head>
+
+<body>
+    <%- include('../layouts/TrangChu/navbar') -%>
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="mag-breadcrumb" style="padding-top: 1rem;padding-bottom:1rem;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"
+                                        aria-hidden="true"></i> Trang chủ</a></li>
+                            <li class="breadcrumb-item">
+                                <a href="/list/<%=chuyenmuc%>"><%= news.tenChuyenMuc %></a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Bài viết</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Archive Post Area Start ##### -->
+    <div class="archive-post-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-xl-8">
+                    <div class="archive-posts-area bg-white p-30 mb-30 box-shadow">
+                        <div class="blog-thumb mb-30">
+                            <img src="<%=path%><%=news.imagePath%>" alt="<%=news.imagePath%>">
+                        </div>
+                        <div class="blog-content">
+                            <div class="post-meta">
+                                <a href="#"><%= moment(news.ngayDang).format("DD/MM/YYYY") %></a>
+                                <a>&nbsp;&nbsp;-&nbsp;&nbsp;</a>
+                                <a href="/list/<%=chuyenmuc%>"><%= news.tenChuyenMuc %></a>
+                            </div>
+                            <br>
+                            <h1 class="post-title"><%= news.tieuDe%></h1>
+                            <br>
+                            <p><b><%= news.noiDungTomTat%></b></p>
+                           <%-content%>
+                           
+
+                            <!-- Post Author -->
+                            <div class="post-author d-flex align-items-center">
+                               <p><%= author%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Related Post Area -->
+                    <div class="related-post-area bg-white mb-30 px-30 pt-30 box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>CÓ THỂ BẠN MUỐN XEM</h5>
+                        </div>
+
+                        <div class="row">
+
+                            <% top5news.forEach(e => { %>
+                                <!-- Single Blog Post -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="single-blog-post style-4 mb-30">
+                                    <div class="post-thumbnail">
+                                        <img src="<%=path%><%=e.imagePath%>" alt="">
+                                    </div>
+                                    <div class="post-content">
+                                        <a href="/post/<%= e.idBaiViet %>" class="post-title"><%= e.tieuDe %></a>
+                                    </div>
+                            
+                                </div>
+                            </div>
+                            <% }) %>
+
+                        </div>
+                    </div>
+
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix bg-white mb-30 p-30 box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>BÌNH LUẬN</h5>
+                        </div>
+
+                        <ol>
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="vendors/template/img/bg-img/53.jpg" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <a href="#" class="comment-date">26/05/2019</a>
+                                        <h6>Quốc Phong</h6>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum ullam aperiam voluptate asperiores, ex provident deleniti odit esse repellendus velit? Exercitationem, est beatae. Exercitationem soluta sunt laudantium. Nam, minima iure!</p>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <!-- Post A Comment Area -->
+                    <div class="post-a-comment-area bg-white mb-30 p-30 box-shadow clearfix">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>ĐỂ LẠI BÌNH LUẬN</h5>
+                        </div>
+
+                        <!-- Reply Form -->
+                        <div class="contact-form-area">
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name*" required>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email*" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message*" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn mag-btn mt-30" type="submit">Submit Comment</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                    <div class="sidebar-area bg-white mb-30 box-shadow">
+                        <!-- Sidebar Widget -->
+                        <div class="single-sidebar-widget p-30">
+                            <!-- Social Followers Info -->
+                            <div class="social-followers-info">
+                                <button type="button" class="btn mag-btn mt-30">Download Bài Viết</button>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar Widget -->
+                        <div class="single-sidebar-widget p-30">
+                            <!-- Section Title -->
+                            <div class="section-heading">
+                                <h5>CHUYÊN MỤC</h5>
+                            </div>
+
+                            <!-- Catagory Widget -->
+                            <ul class="catagory-widgets">
+                                <li><a href="/list/giao-duc"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Giáo dục</span></a></li>
+                                <li><a href="/list/phap-luat"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Pháp luật</span> </a></li>
+                                <li><a href="/list/cong-nghe"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Công nghệ</span> </a></li>
+                                <li><a href="/list/doi-song"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Đời sông</span> </a></li>
+                                <li><a href="/list/quan-su"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Quân sự</span></a></li>
+                                <li><a href="/list/the-thao"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Thể thao</span> </a></li>
+                                <li><a href="/list/kinh-doanh"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Kinh doanh</span> </a></li>
+                                <li><a href="/list/giai-tri"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Giải trí</span> </a></li>
+                                <li><a href="/list/du-lich"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Du lịch</span> </a></li>
+                            </ul>
+                        </div>
+
+                        <div class="single-sidebar-widget p-30">
+                            <!-- Section Title -->
+                            <div class="section-heading">
+                                <h5>NHÃN</h5>
+                            </div>
+
+                            <!-- Catagory Widget -->
+                            <ul class="catagory-widgets">
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Bóng đá</span></a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Khủng hoảng</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Ca sĩ</span> </a></li>
+                                <li><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i>Tai nạn</span> </a></li>
+                            </ul>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Archive Post Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+     <%- include('../layouts/TrangChu/footer') -%>
+                                <!-- ##### Footer Area End ##### -->
+
+                                <!-- ##### All Javascript Script ##### -->
+                                <!-- jQuery-2.2.4 js -->
+                                <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+                                <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+
+                                <!-- Popper js -->
+                                <script src="../../public/vendors/template/js/bootstrap/popper.min.js"></script>
+                                <!-- Bootstrap js -->
+                                <script src="../../public/vendors/template/js/bootstrap/bootstrap.min.js"></script>
+                                <!-- All Plugins js -->
+                                <script src="../../public/vendors/template/js/plugins/plugins.js"></script>
+                                <!-- Active js -->
+                                <script src="../../public/vendors/template/js/active.js"></script>
+</body>
+
+</html>

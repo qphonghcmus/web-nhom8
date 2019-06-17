@@ -162,15 +162,18 @@ router.post('/duyet/:id', (req,res,next) => {
             idTacGia: succ[0].idTacGia,
             idEditor: req.user.idUser
         }
-        var obj_detail = {
-            idBaiViet: succ[0].idDraft,
-            noiDung: succ[0].noiDung,
-        }
+       
         var p1 = post.add(obj_post);
         var p2 = draft.delete(id);
-        var p3 = detail.add(obj_detail)
-        Promise.all([p1,p2,p3]).then(values => {
+        Promise.all([p1,p2]).then(values => {
+            var obj_detail = {
+                idBaiViet: values[0],
+                noiDung: succ[0].noiDung,
+            }
+            detail.add(obj_detail).then( succ => {
             res.redirect('/editor/wait');
+
+            }).catch()
         })
     }).catch(err => console.log(err))
     

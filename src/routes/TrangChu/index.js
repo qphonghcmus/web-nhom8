@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var postModel = require('../../models/post.model');
 const moment = require('moment');
+var detail = require('../../models/postDetail.model');
+var user = require('../../models/user.model');
 
 router.get('/', (req, res) => {
   var p1 = postModel.top10latestnews();
@@ -53,6 +55,30 @@ router.get('/text-search/', (req, res, next) => {
   })
 })
 
+router.get('/post/:id',(req,res,next)=>{
+  var idBaiViet = req.params.id;
+  
+  Promise.all([
+    postModel.findById(idBaiViet),
+    detail.findById(idBaiViet),
+  ]).then(values => {
+    Promise.all([
+      postModel.find5News(values[0][0].tenChuyenMuc,idBaiViet),
+      user.findByIdUser(values[0][0].idTacGia),
+    ]).then(values2 => {
+      res.render('./BaiViet/main',{
+        news: values[0][0],
+        content: values[1][0].noiDung,
+        moment: moment,
+        author: values2[1][0].hoTen,
+        top5news: values2[0]
+      })
+    }).catch()
+      
+  }).catch()
+
+  
+})
 
 router.post('/them-bai-viet', (req, res, next) => {
   themBaiViet(req, res);

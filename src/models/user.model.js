@@ -124,10 +124,12 @@ module.exports = {
     },
 
     findByIdUser: id => {
-        var user = mongoose.model('users', userSchema);
-        user.find({ idUser: id }).exec((err, res) => {
-            if (err) reject(err)
-            else resolve(res);
+        return new Promise((resolve, reject) => {        
+            var user = mongoose.model('users', userSchema);
+            user.find({ idUser: id }).exec((err, res) => {
+                if (err) reject(err)
+                else resolve(res);
+            })
         })
     }
 }
