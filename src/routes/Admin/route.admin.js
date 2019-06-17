@@ -61,16 +61,29 @@ router.get('/manage-category', function (req, res, next) {
     activeManageCategory: true,
     cssfiles: ['ManageCategory'],
     jsfiles: ['ManageCategory'],
+    listCategory: listCategory,
   });
 });
 
-router.get('/manage-post', function (req, res, next) {
+router.get('/manage-post-published', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {
     title: 'Quản lý bài viết',
-    filename: '../../Admin/ManagePost',
-    activeManagePost: true,
-    cssfiles: ['ManagePosts'],
-    jsfiles: ['ManagePosts'],
+    filename: '../../Admin/ManagePostPublished',
+    activeManagePostPublished: true,
+    cssfiles: ['ManagePostPublished'],
+    jsfiles: ['ManagePostPublished'],
+    listCategory: listCategory,
+  });
+});
+
+router.get('/manage-post-draff', function (req, res, next) {
+  res.render('./layouts/Admin/admin.ejs', {
+    title: 'Quản lý bài viết',
+    filename: '../../Admin/ManagePostDraff',
+    activeManagePostDraff: true,
+    cssfiles: ['ManagePostDraff'],
+    jsfiles: ['ManagePostDraff'],
+    listCategory: listCategory,
   });
 });
 
@@ -84,6 +97,15 @@ router.get('/manage-tag', function (req, res, next) {
   });
 });
 
+router.get('/my-information',function (req, res, next) {
+  res.render('./layouts/Admin/admin.ejs', {
+    title: 'Thông tin cá nhân',
+    filename: '../../Admin/ManageMyInformation',
+    activeManageMyInformation: true,
+    cssfiles: ['ManageMyInformation'],
+    jsfiles: ['ManageMyInformation'],
+  });
+});
 router.get('/manage-subscriber', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {
     title: 'Quản lý độc giả',

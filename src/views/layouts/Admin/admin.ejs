@@ -64,11 +64,26 @@
                         </li>
                     </ul>
                 </li>
-                <li class="<% if (typeof(activeManagePost) != 'undefined' && activeManagePost == true){%>active<%} %>">
-                    <a href="/administrator/manage-post">Quản lý bài viết</a>
+                  <li class="<% if (typeof(activeManagePost) != 'undefined' && activeManagePost == true){%>active<%} %>">
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý
+                        bài viết</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li
+                            class="<% if (typeof(activeManagePostPublished) != 'undefined' && activeManagePostPublished == true){%>active<%} %>">
+                            <a href="/administrator/manage-post-published">Đã xuất bản</a>
+                        </li>
+                        <li
+                            class="<% if (typeof(activeManagePostDraff) != 'undefined' && activeManagePostDraff == true){%>active<%} %>">
+                            <a href="/administrator/manage-post-draff">Đang chờ duyệt</a>
+                        </li>
+                    </ul>
                 </li>
+                
                 <li class="<% if (typeof(activeManageTag) != 'undefined' && activeManageTag == true){%>active<%} %>">
                     <a href="/administrator/manage-tag">Quản lý nhãn</a>
+                </li>
+                <li class="<% if (typeof(activeManageMyInformation) != 'undefined' && activeManageMyInformation == true){%>active<%} %>">
+                    <a href="/administrator/my-information">Thông tin cá nhân</a>
                 </li>
             </ul>
         </nav>
