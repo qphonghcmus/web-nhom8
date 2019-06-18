@@ -28,8 +28,7 @@
             <div class="row">
                 <div class="col span-1-of-2">
                     <div class="form-check custom-form-check">
-                        <input value="Kinh doanh" name="category" class="form-check-input" type="radio"
-                            id="kinhDoanh">
+                        <input value="Kinh doanh" name="category" class="form-check-input" type="radio" id="kinhDoanh">
                         <label class="form-check-label" for="kinhDoanh">
                             Kinh doanh
                         </label>
@@ -127,17 +126,16 @@
                         </td>
                         <td>
                             <div>
-                                <a href="Manage_Writer_Detail.html" target="_blank"
-                                    class="link-to-info"><%=i.hoTen%></a>
+                                <a class="link-to-info"><%=i.hoTen%></a>
                             </div>
                         </td>
                         <td>
                             <p><%=i.phoneNumber%></p>
                         </td>
 
-                        <td><a class="icon" href="/administrator/manage-editor/delete/<%=i._id%>"
-                                onclick="return confirm('Are you sure to delete this record ?');"><i
-                                    class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td>
+                        <td><a onclick="return confirm('Are you sure to delete this record ?');"
+                                href="/administrator/manage-editor/delete/<%=i._id%>"><input
+                                    class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa"></a></td>
                     </tr>
 
                     <%});%>
