@@ -1,6 +1,10 @@
-$(document).ready( function () {
-    $('#tuyensinh-table').DataTable(
+$(document).ready( function () 
+{
+    $('#main-table').DataTable(
     {
+      "paging": true,
+          "aLengthMenu": [[5, 10, 15], [5, 10, 15]],
+          "iDisplayLength": 5,
         "oLanguage": 
         {
           "sSearch": "Tìm kiếm",
@@ -8,7 +12,7 @@ $(document).ready( function () {
           "sZeroRecords": "Không tìm thấy kết quả nào",
           "sProcessing": "Đang tìm kiếm...",
           "sInfo": "Hiển thị từ _START_ đến _END_ của _TOTAL_ kết quả",
-          "sInfoFiltered": "(Lọc từ _MAX_ bộ)",
+          "sInfoFiltered": "",
           "sInfoEmpty":      "Không tìm thấy dòng nào phù hợp",
           "oPaginate": 
           {
@@ -18,48 +22,14 @@ $(document).ready( function () {
 
         },
         "columnDefs": [ {
-            "targets": 2,
-            "orderable": false
+            "targets": 0,
+            "orderable": true
             },{
-                "targets": 3,
-                "orderable": false
-                },{
-                  "targets": 4,
-                  "orderable": false
-                  } ]
+                "targets": 1,
+                "orderable": true
+                }]
     }
     );
-
-    $('#xetnghiem-table').DataTable(
-      {
-          "oLanguage": 
-          {
-            "sSearch": "Tìm kiếm",
-            "sLengthMenu": "Hiển thị _MENU_ kết quả",
-            "sZeroRecords": "Không tìm thấy kết quả nào",
-            "sProcessing": "Đang tìm kiếm...",
-            "sInfo": "Hiển thị từ _START_ đến _END_ của _TOTAL_ kết quả",
-            "sInfoFiltered": "(Lọc từ _MAX_ bộ)",
-            "sInfoEmpty":      "Không tìm thấy dòng nào phù hợp",
-            "oPaginate": 
-            {
-              "sNext": "Trang kế",
-              "sPrevious": "Trang trước"
-            }
-  
-          },
-          "columnDefs": [ {
-              "targets": 2,
-              "orderable": false
-              },{
-                  "targets": 3,
-                  "orderable": false
-                  },{
-                    "targets": 4,
-                    "orderable": false
-                    } ]
-      }
-      );
 
    
     
@@ -70,9 +40,13 @@ $(document).ready( function () {
    
     $('.dataTables_length label select').addClass('form-control custom-form-control-select');
 
-  
-    $(".content-box-tool a").click(function(){
+
+    $(".content-box-tool a").click(function () {
+      $(this).parent().parent().next().fadeToggle();
        
-        $(this).parent().parent().next().toggle();
     });
-} );
+  } 
+  );
+
+
+

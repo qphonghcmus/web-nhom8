@@ -123,13 +123,30 @@ router.get('/manage-post-draff', function (req, res, next) {
 });
 
 router.get('/manage-tag', function (req, res, next) {
-  res.render('./layouts/Admin/admin.ejs', {
-    title: 'Quản lý nhãn',
-    filename: '../../Admin/ManageTag',
-    activeManageTag: true,
-    cssfiles: ['ManageTag'],
-    jsfiles: ['ManageTag'],
-  });
+  tagModel.loadAll().then(docs=>{
+    var listTag = docs;
+    res.render('./layouts/Admin/admin.ejs', {
+      title: 'Quản lý nhãn',
+      filename: '../../Admin/ManageTag',
+      activeManageTag: true,
+      cssfiles: ['ManageTag'],
+      jsfiles: ['ManageTag'],
+      listTag:listTag
+    });
+  }).catch(err=>{
+    res.json(err + '');
+  })
+});
+router.post('/manage-tag',function(req,res,next){
+  if (req.body.tenTag!= "")
+  {
+    var entity = {
+      tenTag:req.body.tenTag
+    }
+    tagModel.add(entity).then(docs=>{
+      res.redirect('/administrator/manage-tag');
+    }).catch(err => {res.json(err + '')})
+  }
 });
 
 router.get('/my-information', function (req, res, next) {
