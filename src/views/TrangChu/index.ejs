@@ -43,6 +43,7 @@
                             <a href="/post/<%= top4viewsnews[i].idBaiViet %>" class="post-title" data-animation="fadeInUp" data-delay="300ms">
                                 <%= top4viewsnews[i].tieuDe %>
                             </a>
+                            <p class="premium-noibat" data-animation="fadeInUp" data-delay="300ms">Premium</p>
                         </div>
                     </div>
                 </div>
@@ -88,9 +89,13 @@
                     <div class="post-content">
                         <a href="/post/<%= list[i].idBaiViet%>" class="post-title"><%=list[i].tieuDe%></a>
                         <div class="post-meta">
-                            <a href="/list/<%=chuyenmuc2%>" class="post-cata"><%=list[i].tenChuyenMuc%></a>
-                            <a>-</a>
-                            <a href="#"><%= moment(list[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                            <div>
+                                <a href="/list/<%=chuyenmuc2%>" class="post-cata"><%=list[i].tenChuyenMuc%></a>
+                                <a>-</a>
+                                <a href="#"><%= moment(list[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                                <p class="premium" style="display: 11px;">Premium</p>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -139,10 +144,15 @@
                         <div class="post-meta">
                             <a href="/list/<%=chuyenmuc3%>" class="post-cata"><%= top10of10[i].tenChuyenMuc %></a>
                         </div>
-                        <a href="/post/<%= top10of10[i].idBaiViet%>" class="post-title"><%= top10of10[i].tieuDe %></a>
+                   
+                             <a href="/post/<%= top10of10[i].idBaiViet%>" class="post-title"><%= top10of10[i].tieuDe %></a>
+                             
+                        
+
                         <div class="post-meta" style="margin-top: 10px">
                             <a href="#"
-                                class="post-cata"><%= moment(top10of10[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                                class="post-cata" style="float:left;"><%= moment(top10of10[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                            <p class="premium">Premium</p>
                         </div>
                     </div>
                 </div>
@@ -190,6 +200,7 @@
                         <div class="post-meta">
                             <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
                             <a href="/list/<%=chuyenmuc4%>"><%= mostviews[i].tenChuyenMuc %></a>
+                            <p class="premium">Premium</p>
                         </div>
                         <a href="/post/<%= mostviews[i].idBaiViet%>" class="post-title"><%= mostviews[i].tieuDe %></a>
                         <p><%= mostviews[i].noiDungTomTat %></p>
@@ -232,6 +243,7 @@
                                     style="margin-right: 0px;"><%= mostviews[i].tenChuyenMuc %></a>
                                 <a style="margin-right: 0px;">-</a>
                                 <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                                <p class="premium" style="font-size: 10px;">Premium</p>
                             </div>
                         </div>
                     </div>
