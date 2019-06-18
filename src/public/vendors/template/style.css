@@ -2285,3 +2285,12 @@ textarea.form-control {
 .image-upload>input[type="file"] {
   display: none;
 }
+.tag-link
+{
+  background-color: #ece1e1;
+  border-radius: 5px;
+}
+.tag-link:hover
+{
+  color:red;
+}

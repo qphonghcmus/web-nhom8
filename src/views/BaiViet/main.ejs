@@ -46,8 +46,8 @@
     <div class="archive-post-area">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-xl-8">
-                    <div class="archive-posts-area bg-white p-30 mb-30 box-shadow">
+                <div class="" id="postContent">
+                    <div class="post-details-content bg-white mb-30 p-30 box-shadow">
                         <div class="blog-thumb mb-30">
                             <img src="<%=path%><%=news.imagePath%>" alt="<%=news.imagePath%>">
                         </div>
@@ -70,6 +70,20 @@
                             </div>
                         </div>
                     </div>
+
+                     <div class="related-post-area bg-white mb-30 pt-30 px-30 box-shadow"style="padding-bottom: 18px;">
+                        <p><button class="btn btn-primary"><a>Download bài viết</a></button></p>
+                    </div>
+
+                    <div class="related-post-area bg-white mb-30 pt-30 px-30 box-shadow" style="padding-bottom: 20px;">
+                        <div style="display:inline-flex;">
+                            <p>Từ khoá tìm kiếm: &nbsp;</p>
+                            <p><a href= "#" class="tag-link">Xiaomi</a></p>
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                            <p><a  href= "#" class="tag-link">Smartphone</a></p>
+                        </div>
+                    </div>
+
                     <!-- Related Post Area -->
                     <div class="related-post-area bg-white mb-30 px-30 pt-30 box-shadow">
                         <!-- Section Title -->
@@ -158,54 +172,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-5 col-xl-4">
-                    <div class="sidebar-area bg-white mb-30 box-shadow">
-                        <!-- Sidebar Widget -->
-                        <div class="single-sidebar-widget p-30">
-                            <!-- Social Followers Info -->
-                            <div class="social-followers-info">
-                                <button type="button" class="btn mag-btn mt-30">Download Bài Viết</button>
-                            </div>
-                        </div>
-
-                        <!-- Sidebar Widget -->
-                        <div class="single-sidebar-widget p-30">
-                            <!-- Section Title -->
-                            <div class="section-heading">
-                                <h5>CHUYÊN MỤC</h5>
-                            </div>
-
-                            <!-- Catagory Widget -->
-                            <ul class="catagory-widgets">
-                                <li><a href="/list/giao-duc"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Giáo dục</span></a></li>
-                                <li><a href="/list/phap-luat"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Pháp luật</span> </a></li>
-                                <li><a href="/list/cong-nghe"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Công nghệ</span> </a></li>
-                                <li><a href="/list/doi-song"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Đời sông</span> </a></li>
-                                <li><a href="/list/quan-su"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Quân sự</span></a></li>
-                                <li><a href="/list/the-thao"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Thể thao</span> </a></li>
-                                <li><a href="/list/kinh-doanh"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Kinh doanh</span> </a></li>
-                                <li><a href="/list/giai-tri"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Giải trí</span> </a></li>
-                                <li><a href="/list/du-lich"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> Du lịch</span> </a></li>
-                            </ul>
-                        </div>
-
-                        <div class="single-sidebar-widget p-30">
-                            <!-- Section Title -->
-                            <div class="section-heading">
-                                <h5>NHÃN</h5>
-                            </div>
-
-                            <!-- Catagory Widget -->
-                            <ul class="catagory-widgets">
-                                <% news.tag.forEach(e => {  %> 
-                                <li><a href="/text-search?topSearch=<%=e%>"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> <%=e%></span></a></li>
-                                <%}) %>
-                            </ul>
-                        </div>
-
-                        
-                    </div>
-                </div>
+             
             </div>
         </div>
     </div>
@@ -228,6 +195,8 @@
                                 <script src="../../public/vendors/template/js/plugins/plugins.js"></script>
                                 <!-- Active js -->
                                 <script src="../../public/vendors/template/js/active.js"></script>
+                                <!-- Reposive js-->
+                                <script src="../../public/resource/JS/postDetail.js"></script>
 </body>
 
 </html>
