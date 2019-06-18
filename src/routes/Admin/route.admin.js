@@ -226,6 +226,16 @@ router.get('/manage-subscriber/accept/:id', (req, res) => {
     })
 })
 
+router.get('/manage-subscriber/unaccept/:id', (req, res) => {
+  userModel.UnAcceptPremium(req.params.id)
+    .then(docs => {
+      res.redirect('/administrator/manage-subscriber');
+    })
+    .catch(err => {
+      res.json(err + '');
+    })
+})
+
 router.get('/manage-subscriber/delete/:id', (req, res) => {
   userModel.DeleteUser(req.params.id)
     .then(docs => {

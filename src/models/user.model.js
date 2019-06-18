@@ -85,6 +85,16 @@ module.exports = {
         })
     },
 
+    UnAcceptPremium: (ID) => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.findByIdAndUpdate(ID, { wait_extension: false }, { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
     singleByEmail: Email => {
         return new Promise((resolve, reject) => {
             var user = mongoose.model('User', userSchema);
