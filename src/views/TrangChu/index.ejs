@@ -263,6 +263,32 @@
             </div>
         </div>
 
+        <!-- Popup thong bao -->
+        <% if(typeof(typeMsg) !== 'undefined') {%>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >
+            Launch demo modal
+          </button>
+        <div id="myModal"  class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Thông báo</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                   <% if(typeof(typeMsg) !== 'undefined' && typeMsg === 1) { %> 
+                  <p>Bài viết chỉ dành cho Subriber</p>
+                  <%} %>
+                  <% if(typeof(typeMsg) !== 'undefined' && typeMsg === 2) { %> 
+                  <p>Gia hạn để đọc bài viết</p>
+                  <%}%>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+          <%}%>
         <!-- >>>>>>>>>>>>>>>>>>>>
          Post Right Sidebar Area
         <<<<<<<<<<<<<<<<<<<<< -->
