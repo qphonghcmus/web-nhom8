@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 var AuToIncrement = require('mongoose-sequence')(mongoose);
 var tagSchema = new mongoose.Schema({
     idTag:Number,
@@ -7,4 +6,27 @@ var tagSchema = new mongoose.Schema({
 
 
 tagSchema.plugin(AuToIncrement, {id:'idTag_Seq',inc_field: 'idTag'} );
-mongoose.model('Tag', tagSchema);
+const tag = mongoose.model('tags', tagSchema);
+
+module.exports = {
+    loadAll: ()=>{
+        return new Promise((resolve,reject)=>{
+            tag.find().exec((err,res)=>{
+                if (err) reject(err);
+                else resolve(res);
+            });
+        });
+    },
+
+    add: entity =>{
+        return new Promise((resolve,reject)=>{
+            var obj = new tag({
+                tenTag: entity.tenTag
+            });
+            obj.save((err,res)=>{
+                if (err) reject (err)
+                else resolve(res.idTag)
+            });
+        });
+    }
+}
