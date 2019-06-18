@@ -7,6 +7,7 @@
 <script src="../../public/vendors/js/metisMenu.min.js"></script>
 <script src="../../../public/vendors/js/jquery.slimscroll.min.js"></script>
 <script src="../../../public/vendors/js/jquery.slicknav.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 <script>
@@ -16,6 +17,61 @@
       timepicker: false,
       mask: true,
     });
+  })
+
+  $('#information-form').validate({
+    rules: {
+      password_present: {
+        minlength: 6,
+        remote: {
+          url: '/editor/update/password_correct'
+        }
+      },
+      password_new: {
+        minlength: 6
+      },
+      confirm: {
+        equalTo: $('[name="password_new"]')
+      },
+      fullname: {
+        required: true
+      },
+      sdt: {
+        required: true,
+      },
+      birthDay: {
+        required: true
+      }
+    },
+    messages: {
+      password_present: {
+        minlength: 'Your password must have at least 6 characters.',
+        remote: 'Your password is wrong'
+      },
+      password_new: {
+        minlength: 'Your password must have at least 6 characters.'
+      },
+      confirm: {
+        equalTo: 'Your password does not match.'
+      },
+      fullname: {
+        required: 'Valid full name is required.',
+      },
+      sdt: {
+        required: 'Valid phone number is required',
+      },
+      birthDay: {
+        required: 'Valid date of birth is required.',
+      },
+    },
+    errorElement: 'small',
+    errorClass: 'help-block text-danger',
+    highlight: function (e) {
+      $(e).removeClass('is-valid').addClass('is-invalid');
+    },
+    unhighlight: function (e) {
+      $(e).removeClass('is-invalid').addClass('is-valid');
+    }
   })
 </script>
 <% if (typeof(jsfiles) != 'undefined') { %>

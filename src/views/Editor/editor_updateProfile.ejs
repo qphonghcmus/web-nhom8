@@ -2,43 +2,58 @@
 <div class="col-12 mt-5">
     <div class="card">
         <div class="card-body">
-                <form action="/editor/update" method="POST" id="information-form">
+            <form action="/editor/update" method="POST" id="information-form">
 
-                    <div class="form-group">
-                        <label>Email:</label>
-                        <input readonly type="email" class="form-control" name="email" placeholder="Email or User Name"
-                            value="<%=authUser.email%>">
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input readonly type="text" class="form-control" name="email" placeholder="Email or User Name"
+                        value="<%=authUser.email%>">
+                </div>
+                <div class="form-group">
+                    <label>Chuyên mục:</label>
+                    <input readonly type="text" class="form-control" name="category" placeholder="Email or User Name"
+                        value="<%=authUser.category%>">
+                </div>
+
+                <div class="form-group">
+                    <label>Họ và tên:</label>
+                    <input type="text" class="form-control" name="fullname" placeholder="Full name"
+                        value="<%=authUser.hoTen%>">
+                </div>
+
+                <div class="form-group">
+                    <label>Số điện thoại:</label>
+                    <input type="number" class="form-control" name="sdt" placeholder="Phone number"
+                        value="<%=authUser.phoneNumber%>">
+                </div>
+                <div class="form-group">
+                    <label>Ngày sinh:</label>
+                    <input id="txtdob" type="text" class="form-control" name="birthDay" placeholder="Birth Day"
+                        value="<%=moment(authUser.ngaySinh).format("DD/MM/YYYY")%>">
+                </div>
+
+                <label>Đặt lại mật khẩu</label>
+                <div class="form-group">
+                    <label>Mật khẩu hiện tại:</label>
+                    <input type="password" class="form-control" name="password_present" placeholder="Mật khẩu hiện tại">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu mới:</label>
+                    <input type="password" class="form-control" name="password_new" placeholder="Mật khẩu mới">
+                </div>
+                <div class="form-group">
+                    <label>Nhập lại mật khẩu mới:</label>
+                    <input type="password" class="form-control" name="confirm" placeholder="Nhập lại mật khẩu mới">
+                </div>
+
+                <div class="form-group">
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-success">Cập nhật</button>
                     </div>
-                    <div class="form-group">
-                            <label>Chuyên mục:</label>
-                            <input readonly type="email" class="form-control" name="category" placeholder="Email or User Name"
-                                value="<%=authUser.category%>">
-                        </div>
-    
-                    <div class="form-group">
-                        <label>Họ và tên:</label>
-                        <input type="text" class="form-control" name="fullname" placeholder="Full name"
-                            value="<%=authUser.hoTen%>">
-                    </div>
-    
-                    <div class="form-group">
-                        <label>Số điện thoại:</label>
-                        <input type="number" class="form-control" name="sdt" placeholder="Phone number"
-                            value="<%=authUser.phoneNumber%>">
-                    </div>
-                    <div class="form-group">
-                        <label>Ngày sinh:</label>
-                        <input id="txtdob" type="text" class="form-control" name="birthDay" placeholder="Birth Day"
-                            value="<%=moment(authUser.ngaySinh).format("DD/MM/YYYY")%>">
-                    </div>
-    
-                    <div class="form-group">
-                        <div style="text-align: center;">
-                            <button type="submit" class="btn btn-success">Cập nhật</button>
-                        </div>
-                    </div>
-    
-                </form>
+                </div>
+
+
+            </form>
         </div>
     </div>
 </div>

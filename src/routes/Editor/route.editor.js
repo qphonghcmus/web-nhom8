@@ -7,7 +7,9 @@ var moment = require('moment');
 var draftDuyet = require('../../models/draft_Duyet.model');
 var post = require('../../models/post.model');
 var detail = require('../../models/postDetail.model');
-var user=require('../../models/user.model');
+var user = require('../../models/user.model');
+var bcrypt=require('bcrypt');
+var change_password = false; // TH không thay pass
 
 router.get('/', (req, res, next) => {
     res.render('./layouts/Editor/main', {
@@ -38,15 +40,26 @@ router.get('/update', (req, res, next) => {
 });
 
 router.post('/update', (req, res, next) => {
+    var hash = null;
+    if (change_password) { // TH thay pass cần hash
+        var saltRounds = 10;
+        hash = bcrypt.hashSync(req.body.password_new, saltRounds);
+    }
+    else {
+        hash = req.user.passWord; // Ko thay pass thì lấy pass cũ tạo entity
+    }
     var dob = moment(req.body.birthDay, 'DD/MM/YYYY').format('YYYY-MM-DD');
+
     var entity = {
         hoTen: req.body.fullname,
-        email: req.body.email,
+        email: req.user.email,
+        passWord: hash,
         ngaySinh: dob,
         phoneNumber: req.body.sdt,
         permission: 2,
         category: req.body.category
     }
+
     user.updateProfile(entity, req.body.email)
         .then(docs => {
             req.logOut()
@@ -57,6 +70,16 @@ router.post('/update', (req, res, next) => {
         })
 });
 
+router.get('/update/password_correct', (req, res, next) => { //xử lí remote nhập pass cũ đúng chưa
+    var pass = req.query.password_present;
+    var ret = bcrypt.compareSync(pass, req.user.passWord);
+    if (ret) {
+        change_password = true; // TH thay pass
+        return res.json(true);
+    }
+    else
+        return res.json(false);
+});
 router.get('/approve', (req, res, next) => {
 
     post.findByEditor(req.user.idUser).then(list => {

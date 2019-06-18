@@ -6,7 +6,7 @@
 
                 <div class="form-group">
                     <label>Email:</label>
-                    <input readonly type="email" class="form-control" name="email" placeholder="Email or User Name"
+                    <input readonly type="text" class="form-control" name="email" placeholder="Email or User Name"
                         value="<%=authUser.email%>">
                 </div>
 
@@ -32,6 +32,20 @@
                     <label>Ngày sinh:</label>
                     <input id="txtdob" type="text" class="form-control" name="birthDay" placeholder="Birth Day"
                         value="<%=moment(authUser.ngaySinh).format("DD/MM/YYYY")%>">
+                </div>
+                
+                <label>Đặt lại mật khẩu</label>
+                <div class="form-group">
+                    <label>Mật khẩu hiện tại:</label>
+                    <input type="password" class="form-control" name="password_present" placeholder="Mật khẩu hiện tại">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu mới:</label>
+                    <input type="password" class="form-control" name="password_new" placeholder="Mật khẩu mới">
+                </div>
+                <div class="form-group">
+                    <label>Nhập lại mật khẩu mới:</label>
+                    <input type="password" class="form-control" name="confirm" placeholder="Nhập lại mật khẩu mới">
                 </div>
 
                 <div class="form-group">

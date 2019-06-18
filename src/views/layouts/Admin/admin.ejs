@@ -153,10 +153,10 @@
                 rules: {
                     username: {
                         required: true,
-                        email: true,
                         remote: {
                             url: '/register/is-available'
-                        }
+                        },
+                        minlength: 6
                     },
                     password: {
                         required: true,
@@ -173,7 +173,7 @@
                     username: {
                         required: 'Your username is required.',
                         remote: 'Your username has been taken, please take another.',
-                        email: 'Please enter a valid email address.'
+                        minlength: 'Your password must have at least 6 characters.'
                     },
                     password: {
                         required: 'Your password is required.',
