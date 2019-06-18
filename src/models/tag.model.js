@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 var AuToIncrement = require('mongoose-sequence')(mongoose);
 var tagSchema = new mongoose.Schema({
     idTag:Number,
