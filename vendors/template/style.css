@@ -2223,7 +2223,16 @@ textarea.form-control {
 .footer-area .container .footer-widget .foo-logo img{
   width: 140px;
 }
-
+.premium
+{
+  color:white;
+  font-weight:15px;
+  background-color: rgb(228, 35, 35);
+  float:right;
+  border-radius: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */

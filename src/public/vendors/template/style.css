@@ -2294,3 +2294,13 @@ textarea.form-control {
 {
   color:red;
 }
+.premium
+{
+  color:white;
+  font-weight:15px;
+  background-color: rgb(228, 35, 35);
+  float:right;
+  border-radius: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
