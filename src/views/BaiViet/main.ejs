@@ -78,9 +78,10 @@
                     <div class="related-post-area bg-white mb-30 pt-30 px-30 box-shadow" style="padding-bottom: 20px;">
                         <div style="display:inline-flex;">
                             <p>Từ khoá tìm kiếm: &nbsp;</p>
-                            <p><a href= "#" class="tag-link">Xiaomi</a></p>
+                            <% news.tag.forEach(e => { %> 
+                            <p><a href= "/text-search/?topSearch=<%=e %>" class="tag-link"><%= e%></a></p>
                             <p>&nbsp;&nbsp;&nbsp;</p>
-                            <p><a  href= "#" class="tag-link">Smartphone</a></p>
+                            <%}) %>
                         </div>
                     </div>
 
