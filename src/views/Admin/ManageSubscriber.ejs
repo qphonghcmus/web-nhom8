@@ -1,80 +1,111 @@
- <div class="content-box-list-subscriber">
-                <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
-                    <div class="content-box-title">
-                        <p>Danh sách chờ duyệt</p>
-                    </div>
-                  
-                    <div class="content-box-tool">
-                        <a>
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                
-                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" >
-                    <div class="table-responsive">
-                        <table class="table table-hover" id="listChoDuyet">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Tên độc giả</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Thời hạn mong muốn</th>
-                                    <th scopr="col"></th>
-                                     <th scopr="col"></th>
-                                </tr>
-                            </thead>
-                        </table> 
-                    </div>
-                </div>
-            </div>
-
-            
 <div class="content-box-list-subscriber">
     <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
-         <div class="content-box-title">
+        <div class="content-box-title">
+            <p>Danh sách chờ duyệt</p>
+        </div>
+
+        <div class="content-box-tool">
+            <a>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover" id="main-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Họ tên</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Thời hạn</th>
+                        <th scopr="col"></th>
+                        <th scopr="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% list.forEach(function(i){%>
+                    <tr>
+                        <td>
+                            <div>
+                                <a class="link-to-info"><%=i.hoTen%></a>
+                            </div>
+                        </td>
+                        <td>
+                            <p><%=i.email%></p>
+                        </td>
+                        <td>
+                            <p><%=moment(i.NgayHetHan_Temp).format("DD/MM/YYYY")%></p>
+                        </td>
+
+                        <td>
+                            <a href="/administrator/manage-subscriber/accept/<%=i._id%>"><input
+                                    class="btn btn-primary btn-sm btnGiaHan" type="button" value="Chấp nhận"></a>
+                        </td>
+                        <td>
+                            <a href="/administrator/manage-subscriber/unaccept/<%=i._id%>"><input
+                                    class="btn btn-danger btn-sm btnGiaHan" type="button" value="Không chấp nhận"></a>
+                        </td>
+                    </tr>
+
+                    <%});%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-box-list-subscriber">
+    <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+        <div class="content-box-title">
             <p>Danh sách độc giả</p>
-         </div>
-                  
-               <div class="content-box-tool">
-                        <a>
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                
-                <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" >
-                    <div class="table-responsive">
-                        <table class="table table-hover" id="listDocGia">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Tên độc giả</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">SĐT</th>
-                                    <th scope="col">Thời hạn</th>
-                                    <th scopr="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div>
-                                            <a href="#" target="_blank" class="link-to-info">Lê Hoàng Sang</a>
-                                        </div>
-                                    </td>
-                                    <td><p>lhsanghcmus@gmail.com</p></td>
-                                    <td><p>0979279932</p></td>
-                                    <td><p>30/04/2019</p></td>
-                                    <td><input class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa" onclick="document.getElementById('frmGiaHan').style.display='block'"></td>
-                                 
-                                </tr>
-                               
-                            </tbody>
-                        </table> 
-                    </div>
-                </div>
-            </div>
+        </div>
 
-            
+        <div class="content-box-tool">
+            <a>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
 
+    <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover" id="main-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Họ tên</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Thời hạn</th>
+                        <th scopr="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% list_premium.forEach(function(i){%>
+                    <tr>
+                        <td>
+                            <div>
+                                <a class="link-to-info"><%=i.hoTen%></a>
+                            </div>
+                        </td>
+                        <td>
+                            <p><%=i.email%></p>
+                        </td>
+                        <td>
+                            <p><%=moment(i.NgayHetHan).format("DD/MM/YYYY")%></p>
+                        </td>
+
+                        <td>
+                            <a href="/administrator/manage-subscriber/unaccept/<%=i._id%>"><input
+                                    class="btn btn-danger btn-sm btnGiaHan" type="button" value="Xóa "></a>
+                        </td>
+                    </tr>
+
+                    <%});%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

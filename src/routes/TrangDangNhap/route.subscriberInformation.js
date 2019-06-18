@@ -21,8 +21,24 @@ router.get('/password_correct', (req, res, next) => { //xử lí remote nhập p
 router.get('/', auth, (req, res, next) => {
     res.render('./TrangDangNhap/myInformation', {
         user: req.user, // truyền thông tin user qua ejs
-        moment: moment
+        moment: moment,
     });
+});
+
+router.post('/extend-premium', (req, res, next) => {
+    var now = new Date();
+    var end = new Date(req.user.NgayHetHan);
+    if (!req.user.wait_extension && end < now) {//nếu chưa trong ds chờ và đã hết hạn mới đc đk
+        userModel.addListWaitAcceptPremium(req.user.email)
+            .then(docs => {
+                req.logOut();
+                res.redirect('/login');
+            })
+            .catch(err => res.json(err + ''));
+    }
+    else {
+        res.redirect('/my-information');
+    }
 });
 
 router.post('/', (req, res, next) => {

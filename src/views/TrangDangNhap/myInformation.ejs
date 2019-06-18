@@ -77,12 +77,17 @@
                             <h5>GIA HẠN PREMIUM</h5>
                         </div>
                         <div class="form-group">
-                            <label>Ngày hết hạn: <b><%=moment(user.NgayHetHan).format("DD/MM/YYYY")%></b></label>
+                            <label>Ngày hết hạn: <b><%=moment(authUser.NgayHetHan).format("DD/MM/YYYY")%></b></label>
                         </div>
-                        <form method="POST">
+                        <form method="POST" action="/my-information/extend-premium">
                             <div class="form-group">
                                 <div style="text-align: center">
-                                    <button class="btn-primary btn">Gửi yêu cầu gia hạn</button>
+                                    <% if(!authUser.wait_extension){ %>
+                                    <button type="submit" class="btn-primary btn">Gửi yêu cầu gia hạn</button>
+                                    <% } else{ %>
+                                        <button type="button" class="btn-primary btn">Đang chờ phê duyệt</button>
+                                    <% } %>
+
                                 </div>
                             </div>
                         </form>

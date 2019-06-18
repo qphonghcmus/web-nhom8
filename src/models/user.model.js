@@ -10,7 +10,16 @@ var userSchema = new mongoose.Schema({
     penName: String, // đối với writer cần bút danh
     phoneNumber: String,
     NgayDK: Date,
-    NgayHetHan: Date,
+    wait_extension: {
+        type: Boolean,
+        default: false
+    },
+    accept_extension: {
+        type: Boolean,
+        default: false
+    },
+    NgayHetHan: Date, // ngày hết hạn chính thức
+    NgayHetHan_Temp: Date, // dùng để hiển thị trong ds chờ phê duyệt, ngày hết hạn => chính thức khi đc chấp nhận 
     secretToken: String,
     confirmed: {
         type: Boolean,
@@ -36,14 +45,42 @@ module.exports = {
                 penName: entity.penName,
                 phoneNumber: entity.phoneNumber,
                 confirmed: entity.confirmed,
-                NgayDK:entity.NgayDK,
+                NgayDK: entity.NgayDK,
                 NgayHetHan: entity.NgayHetHan,
+                NgayHetHan_Temp: entity.NgayHetHan_Temp,
                 category: entity.category,
                 permission: entity.permission
             })
             obj.save((err, res) => {
                 if (err) reject(err)
                 else resolve(res.idUser)
+            })
+        })
+    },
+
+    addListWaitAcceptPremium: (Email) => {
+        var endDate = new Date();
+        var numberOfDaysToAdd = 7;
+        endDate.setDate(endDate.getDate() + numberOfDaysToAdd);
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.findOneAndUpdate({ email: Email }, { wait_extension: true, NgayHetHan_Temp: endDate }, { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    AcceptPremium: (ID) => {
+        var startDate = new Date();
+        var endDate = new Date();
+        var numberOfDaysToAdd = 7;
+        endDate.setDate(endDate.getDate() + numberOfDaysToAdd);
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.findByIdAndUpdate(ID, { wait_extension: false, NgayDK: startDate, accept_extension: true, NgayHetHan: endDate }, { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
             })
         })
     },
@@ -102,6 +139,26 @@ module.exports = {
         return new Promise((resolve, reject) => {
             var user = mongoose.model('User', userSchema);
             user.find({ permission: 1 }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    DisplayListSubcriber: () => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.find({ accept_extension: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        })
+    },
+
+    DisplayListSubcriberWaitAccept: () => {
+        return new Promise((resolve, reject) => {
+            var user = mongoose.model('User', userSchema);
+            user.find({ wait_extension: true }).exec((err, res) => {
                 if (err) reject(err);
                 else resolve(res);
             })

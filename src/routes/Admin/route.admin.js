@@ -7,6 +7,7 @@ var listCategory;
 var userModel = require('../../models/user.model');
 var bcrypt = require('bcrypt'); // dùng để hash password
 var change_password = false; // TH không đổi mật khẩu 
+var moment = require('moment');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -178,15 +179,35 @@ router.get('/my-information/password_correct', (req, res, next) => { //xử lí 
     return res.json(false);
 });
 router.get('/manage-subscriber', function (req, res, next) {
-  res.render('./layouts/Admin/admin.ejs', {
-    title: 'Quản lý độc giả',
-    filename: '../../Admin/ManageSubscriber',
-    activeManageUser: true,
-    activeManageSubscriber: true,
-    cssfiles: ['ManageSubscriber'],
-    jsfiles: ['ManageSubscriber'],
-  });
+  var list1 = null;
+  userModel.DisplayListSubcriber()
+    .then(docs => {
+      userModel.DisplayListSubcriberWaitAccept()
+        .then(rows => {
+          res.render('./layouts/Admin/admin.ejs', {
+            title: 'Quản lý độc giả',
+            filename: '../../Admin/ManageSubscriber',
+            activeManageUser: true,
+            activeManageSubscriber: true,
+            cssfiles: ['ManageSubscriber'],
+            jsfiles: ['ManageSubscriber'],
+            list: rows,
+            list_premium: docs,
+            moment: moment
+          });
+        })
+    })
 });
+
+router.get('/manage-subscriber/accept/:id', (req, res) => {
+  userModel.AcceptPremium(req.params.id)
+    .then(docs => {
+      res.redirect('/administrator/manage-subscriber');
+    })
+    .catch(err => {
+      res.json(err + '');
+    })
+})
 
 router.get('/manage-editor', function (req, res, next) {
   userModel.DisplayListEditor()
