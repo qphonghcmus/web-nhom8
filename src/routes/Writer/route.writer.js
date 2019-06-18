@@ -13,7 +13,7 @@ var change_password = false; // TH không thay pass
 
 router.get('/', auth, (req, res, next) => {
     res.render('./layouts/Writer/main', {
-        filename: '../../writer/writer_admin',
+        filename: '../../Writer/writer_admin',
         activeAdmin: true,
         cssfiles: [],
         jsfiles: [],
@@ -53,7 +53,7 @@ router.get('/add/:chuyenmuc', (req, res, next) => {
 
 router.get('/admin', (req, res, next) => {
     res.render('./layouts/Writer/main', {
-        filename: '../../writer/writer_admin',
+        filename: '../../Writer/writer_admin',
         activeAdmin: true,
         cssfiles: [],
         jsfiles: [],
@@ -65,7 +65,7 @@ router.get('/update', (req, res, next) => {
 
     // Promise.all([p1]).then(values => {
     res.render('./layouts/Writer/main', {
-        filename: '../../writer/writer_update',
+        filename: '../../Writer/writer_update',
         activeUpdate: true,
         cssfiles: [],
         jsfiles: [],
@@ -123,7 +123,7 @@ router.get('/post', (req, res, next) => {
                 listCat.push(e.tenChuyenMuc);
             })
             res.render('./layouts/Writer/main', {
-                filename: '../../writer/writer_post.ejs',
+                filename: '../../Writer/writer_post.ejs',
                 activePost: true,
                 cssfiles: [
                     'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'
@@ -165,7 +165,7 @@ router.get('/waitPublish', (req, res, next) => {
     post.findByNewsWaitPublish(idTacGia).then(list => {
     // draftDuyet.findByAuthor(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
-            filename: '../../writer/writer_waitPublish.ejs',
+            filename: '../../Writer/writer_waitPublish.ejs',
             activeWaitPublish: true,
             cssfiles: [
                 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
@@ -190,7 +190,7 @@ router.get('/published', (req, res, next) => {
     var idTacGia = req.user.idUser;
     post.findByNewsPublished(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
-            filename: '../../writer/writer_published.ejs',
+            filename: '../../Writer/writer_published.ejs',
             activePublish: true,
             cssfiles: [
                 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
@@ -215,7 +215,7 @@ router.get('/rejected', (req, res, next) => {
     var idTacGia = req.user.idUser;
     draftTuchoi.findByAuthor(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
-            filename: '../../writer/writer_rejected.ejs',
+            filename: '../../Writer/writer_rejected.ejs',
             activeReject: true,
             cssfiles: [
                 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
@@ -240,7 +240,7 @@ router.get('/waitReview', (req, res, next) => {
     var idTacGia = req.user.idUser
     draft.findByAuthor(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
-            filename: '../../writer/writer_waitReview.ejs',
+            filename: '../../Writer/writer_waitReview.ejs',
             activeWaitReview: true,
             cssfiles: [
                 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
@@ -266,7 +266,7 @@ router.get('/edit', (req, res, next) => {
     draft.findByAuthor(idTacGia).then(list => {
         draftTuchoi.findByAuthor(idTacGia).then(list2 => {
             res.render('./layouts/Writer/main', {
-                filename: '../../writer/writer_edit.ejs',
+                filename: '../../Writer/writer_edit.ejs',
                 activeEdit: true,
                 cssfiles: [
                     'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
@@ -321,7 +321,7 @@ router.get('/editPage/:id&:type', (req, res, next) => {
                     listCat.push(e.tenChuyenMuc);
                 })
                 res.render('./layouts/Writer/main', {
-                    filename: '../../writer/writer_editPage.ejs',
+                    filename: '../../Writer/writer_editPage.ejs',
                     activeEdit: true,
                     cssfiles: [
                         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'
@@ -367,7 +367,7 @@ router.get('/editPage/:id&:type', (req, res, next) => {
                     listCat.push(e.tenChuyenMuc);
                 })
                 res.render('./layouts/Writer/main', {
-                    filename: '../../writer/writer_editPage.ejs',
+                    filename: '../../Writer/writer_editPage.ejs',
                     activeEdit: true,
                     cssfiles: [
                         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css'

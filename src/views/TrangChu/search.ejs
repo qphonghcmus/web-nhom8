@@ -48,6 +48,9 @@
                                 </div>
                                 <a href="#" class="post-title"><%=i.tieuDe%></a>
                                 <p><%=i.noiDungTomTat%></p>
+                                <% if(i.isPremium === true){%>
+                                <p class="premium">Premium</p>
+                                <%}%>
                             </div>
                         </div>
                         <%});%>

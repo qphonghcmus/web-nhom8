@@ -39,7 +39,8 @@
                             <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"
                                         aria-hidden="true"></i> Trang chủ</a></li>
                             <li class="breadcrumb-item"><a href="/list/<%=chuyenmuccha%>"><%= father %></a></li>
-                            <li class="breadcrumb-item"><a href="/list/<%=chuyenmuccha%>/<%=chuyenmuc%>"><%= tenchuyenmuc %></a></li>
+                            <li class="breadcrumb-item"><a
+                                    href="/list/<%=chuyenmuccha%>/<%=chuyenmuc%>"><%= tenchuyenmuc %></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Danh sách bài viết</li>
                         </ol>
                     </nav>
@@ -69,30 +70,34 @@
                                 </div>
                                 <a href="/post/<%= i.idBaiViet%>" class="post-title"><%=i.tieuDe%></a>
                                 <p><%=i.noiDungTomTat%></p>
+                                <% if(i.isPremium === true){%>
+                                <p class="premium">Premium</p>
+                                <%}%>
                             </div>
                         </div>
                         <%});%>
 
-                        <!-- Pagination -->
-                        <nav>
-                            <ul class="pagination">
-                                <%if (pages.length == 1){%>
-                                <li class="page-item active"><a class="page-link">1</a></li>
-                                <%}else{%>
-                                <li class="page-item"><a class="page-link" href="?page=<%=current-1%>"><i
-                                            class="ti-angle-left"></i></a></li>
-                                <%pages.forEach(function(i){%>
-                                <%if (i.active){%>
-                                <li class="page-item active"><a class="page-link"
-                                        href="?page=<%=i.value%>"><%=i.value%></a></li>
-                                <%}else{%>
-                                <li class="page-item"><a class="page-link" href="?page=<%=i.value%>"><%=i.value%></a>
-                                </li>
-                                <%}%>
+                                <!-- Pagination -->
+                                <nav>
+                                    <ul class="pagination">
+                                        <%if (pages.length == 1){%>
+                                        <li class="page-item active"><a class="page-link">1</a></li>
+                                        <%}else{%>
+                                        <li class="page-item"><a class="page-link" href="?page=<%=current-1%>"><i
+                                                    class="ti-angle-left"></i></a></li>
+                                        <%pages.forEach(function(i){%>
+                                        <%if (i.active){%>
+                                        <li class="page-item active"><a class="page-link"
+                                                href="?page=<%=i.value%>"><%=i.value%></a></li>
+                                        <%}else{%>
+                                        <li class="page-item"><a class="page-link"
+                                                href="?page=<%=i.value%>"><%=i.value%></a>
+                                        </li>
+                                        <%}%>
                                 <%});%>
-                                <li class="page-item"><a class="page-link" href="?page=<%=current+1%>"><i
-                                            class="ti-angle-right"></i></a></li>
-                                <%}%>
+                                        <li class="page-item"><a class="page-link" href="?page=<%=current+1%>"><i
+                                                    class="ti-angle-right"></i></a></li>
+                                        <%}%>
                                 
                             </ul>
                         </nav>
@@ -148,21 +153,24 @@
 
     <!-- ##### Footer Area Start ##### -->
      <%- include('../layouts/TrangChu/footer') -%>
-                                <!-- ##### Footer Area End ##### -->
+                                        <!-- ##### Footer Area End ##### -->
 
-                                <!-- ##### All Javascript Script ##### -->
-                                <!-- jQuery-2.2.4 js -->
-                                <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
-                                <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+                                        <!-- ##### All Javascript Script ##### -->
+                                        <!-- jQuery-2.2.4 js -->
+                                        <script
+                                            src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+                                        <script
+                                            src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
 
-                                <!-- Popper js -->
-                                <script src="../../public/vendors/template/js/bootstrap/popper.min.js"></script>
-                                <!-- Bootstrap js -->
-                                <script src="../../public/vendors/template/js/bootstrap/bootstrap.min.js"></script>
-                                <!-- All Plugins js -->
-                                <script src="../../public/vendors/template/js/plugins/plugins.js"></script>
-                                <!-- Active js -->
-                                <script src="../../public/vendors/template/js/active.js"></script>
+                                        <!-- Popper js -->
+                                        <script src="../../public/vendors/template/js/bootstrap/popper.min.js"></script>
+                                        <!-- Bootstrap js -->
+                                        <script
+                                            src="../../public/vendors/template/js/bootstrap/bootstrap.min.js"></script>
+                                        <!-- All Plugins js -->
+                                        <script src="../../public/vendors/template/js/plugins/plugins.js"></script>
+                                        <!-- Active js -->
+                                        <script src="../../public/vendors/template/js/active.js"></script>
 </body>
 
 </html>

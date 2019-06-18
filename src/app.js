@@ -33,8 +33,8 @@ app.use('/my-information',auth_myprofile, require('./routes/TrangDangNhap/route.
 app.use('/logout', auth, require('./routes/TrangDangNhap/route.logout'));
 app.use('/public/vendors', express.static(__dirname + '/public//vendors'));
 app.use('/public/resource', express.static(__dirname + '/public//resource'));
-app.use('/editor', auth_editor, require('./routes/editor/route.editor'));
-app.use('/writer', auth_writer, require('./routes/writer/route.writer'));
+app.use('/editor', auth_editor, require('./routes/Editor/route.editor'));
+app.use('/writer', auth_writer, require('./routes/Writer/route.writer'));
 
 app.listen(3000, () => "Web server is running");
 
