@@ -6,9 +6,11 @@ const auth = require('../../middlewares/auth_login');
 var listCategory;
 var userModel = require('../../models/user.model');
 var bcrypt = require('bcrypt'); // dùng để hash password
+var change_password = false; // TH không đổi mật khẩu 
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  categoryModel.load().then(docs =>{
+  categoryModel.load().then(docs => {
     listCategory = docs;
     res.render('./layouts/Admin/admin.ejs', {
       title: 'Quản lý chuyên mục',
@@ -16,7 +18,7 @@ router.get('/', function (req, res, next) {
       activeManageCategory: true,
       cssfiles: ['ManageCategory'],
       jsfiles: ['ManageCategory'],
-      listCategory:listCategory   
+      listCategory: listCategory
     });
   });
 });
@@ -55,7 +57,7 @@ router.post('/manage-category/:i', (req, res) => {
 })
 
 router.get('/manage-category', function (req, res, next) {
-  categoryModel.load().then(docs =>{
+  categoryModel.load().then(docs => {
     listCategory = docs;
     res.render('./layouts/Admin/admin.ejs', {
       title: 'Quản lý chuyên mục',
@@ -63,33 +65,33 @@ router.get('/manage-category', function (req, res, next) {
       activeManageCategory: true,
       cssfiles: ['ManageCategory'],
       jsfiles: ['ManageCategory'],
-      listCategory:listCategory   
+      listCategory: listCategory
     });
   });
 });
-router.post('/',function(req,res,next) {
+router.post('/', function (req, res, next) {
   var chuyenMucCon = new Array(req.body.chuyenMucCon1, req.body.chuyenMucCon2);
-      var entity = {
-        tenChuyenMuc: req.body.tenChuyenMuc,
-        chuyenMucCon: chuyenMucCon
-      };
-       categoryModel.addWithSubCategory(entity).then(docs => {
-        res.redirect('/administrator/manage-category');
-      })
-      .catch(err => {
-        //res.json(err + '');
-        res.json(entity);
-      })
-  });
-router.post('/manage-category',function(req,res,next) {
-var chuyenMucCon = new Array(req.body.chuyenMucCon1, req.body.chuyenMucCon2);
-    var entity = {
-      tenChuyenMuc: req.body.tenChuyenMuc,
-      chuyenMucCon: chuyenMucCon
-    };
-     categoryModel.addWithSubCategory(entity).then(docs => {
-      res.redirect('/manage-category');
+  var entity = {
+    tenChuyenMuc: req.body.tenChuyenMuc,
+    chuyenMucCon: chuyenMucCon
+  };
+  categoryModel.addWithSubCategory(entity).then(docs => {
+    res.redirect('/administrator/manage-category');
+  })
+    .catch(err => {
+      //res.json(err + '');
+      res.json(entity);
     })
+});
+router.post('/manage-category', function (req, res, next) {
+  var chuyenMucCon = new Array(req.body.chuyenMucCon1, req.body.chuyenMucCon2);
+  var entity = {
+    tenChuyenMuc: req.body.tenChuyenMuc,
+    chuyenMucCon: chuyenMucCon
+  };
+  categoryModel.addWithSubCategory(entity).then(docs => {
+    res.redirect('/manage-category');
+  })
     .catch(err => {
       //res.json(err + '');
       res.json(entity);
@@ -140,12 +142,22 @@ router.get('/my-information', function (req, res, next) {
 });
 
 router.post('/my-information', function (req, res, next) {
-  var entity = {
-    hoTen: req.body.txtHoTen,
-    email: req.body.txtEmail,
-    phoneNumber: req.body.txtSDT
+  var hash = null;
+  if (change_password) { // TH thay pass cần hash
+    var saltRounds = 10;
+    hash = bcrypt.hashSync(req.body.password_new, saltRounds);
   }
-  userModel.updateProfile(entity, req.body.txtEmail)
+  else {
+    hash = req.user.passWord; // Ko thay pass thì lấy pass cũ tạo entity
+  }
+  var entity = {
+    hoTen: req.body.fullname,
+    email: req.user.email,
+    passWord: hash,
+    phoneNumber: req.body.sdt,
+    permission: 3,
+  }
+  userModel.updateProfile(entity, req.body.email)
     .then(docs => {
       req.logOut();
       res.redirect('/login');
@@ -153,6 +165,17 @@ router.post('/my-information', function (req, res, next) {
     .catch(err => {
       res.json(err + '');
     })
+});
+
+router.get('/my-information/password_correct', (req, res, next) => { //xử lí remote nhập pass cũ đúng chưa
+  var pass = req.query.password_present;
+  var ret = bcrypt.compareSync(pass, req.user.passWord);
+  if (ret) {
+    change_password = true; // TH thay pass
+    return res.json(true);
+  }
+  else
+    return res.json(false);
 });
 router.get('/manage-subscriber', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {

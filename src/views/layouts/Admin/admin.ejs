@@ -64,7 +64,7 @@
                         </li>
                     </ul>
                 </li>
-                  <li class="<% if (typeof(activeManagePost) != 'undefined' && activeManagePost == true){%>active<%} %>">
+                <li class="<% if (typeof(activeManagePost) != 'undefined' && activeManagePost == true){%>active<%} %>">
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý
                         bài viết</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
@@ -78,11 +78,12 @@
                         </li>
                     </ul>
                 </li>
-                
+
                 <li class="<% if (typeof(activeManageTag) != 'undefined' && activeManageTag == true){%>active<%} %>">
                     <a href="/administrator/manage-tag">Quản lý nhãn</a>
                 </li>
-                <li class="<% if (typeof(activeManageMyInformation) != 'undefined' && activeManageMyInformation == true){%>active<%} %>">
+                <li
+                    class="<% if (typeof(activeManageMyInformation) != 'undefined' && activeManageMyInformation == true){%>active<%} %>">
                     <a href="/administrator/my-information">Thông tin cá nhân</a>
                 </li>
             </ul>
@@ -146,38 +147,88 @@
             });
         </script>
 
-        
-    <script>
-        $(function () {
-            $('#registerForm').validate({
-                rules: {
-                    username: {
-                        required: true,
-                        remote: {
-                            url: '/register/is-available'
+
+        <script>
+            $(function () {
+                $('#registerForm').validate({
+                    rules: {
+                        username: {
+                            required: true,
+                            remote: {
+                                url: '/register/is-available'
+                            },
+                            minlength: 6
                         },
+                        password: {
+                            required: true,
+                            minlength: 6
+                        },
+                        fullname: {
+                            required: true
+                        },
+                        sdt: {
+                            required: true,
+                        }
+                    },
+                    messages: {
+                        username: {
+                            required: 'Your username is required.',
+                            remote: 'Your username has been taken, please take another.',
+                            minlength: 'Your password must have at least 6 characters.'
+                        },
+                        password: {
+                            required: 'Your password is required.',
+                            minlength: 'Your password must have at least 6 characters.'
+                        },
+                        fullname: {
+                            required: 'Valid full name is required.',
+                        },
+                        sdt: {
+                            required: 'Valid phone number is required',
+                        },
+                    },
+                    errorElement: 'small',
+                    errorClass: 'help-block text-danger',
+                    highlight: function (e) {
+                        $(e).removeClass('is-valid').addClass('is-invalid');
+                    },
+                    unhighlight: function (e) {
+                        $(e).removeClass('is-invalid').addClass('is-valid');
+                    }
+                })
+            })
+
+            $('#information-form').validate({
+                rules: {
+                    password_present: {
+                        minlength: 6,
+                        remote: {
+                            url: '/administrator/my-information/password_correct'
+                        }
+                    },
+                    password_new: {
                         minlength: 6
                     },
-                    password: {
-                        required: true,
-                        minlength: 6
+                    confirm: {
+                        equalTo: $('[name="password_new"]')
                     },
                     fullname: {
                         required: true
                     },
                     sdt: {
                         required: true,
-                    }
+                    },
                 },
                 messages: {
-                    username: {
-                        required: 'Your username is required.',
-                        remote: 'Your username has been taken, please take another.',
+                    password_present: {
+                        minlength: 'Your password must have at least 6 characters.',
+                        remote: 'Your password is wrong'
+                    },
+                    password_new: {
                         minlength: 'Your password must have at least 6 characters.'
                     },
-                    password: {
-                        required: 'Your password is required.',
-                        minlength: 'Your password must have at least 6 characters.'
+                    confirm: {
+                        equalTo: 'Your password does not match.'
                     },
                     fullname: {
                         required: 'Valid full name is required.',
@@ -195,8 +246,7 @@
                     $(e).removeClass('is-invalid').addClass('is-valid');
                 }
             })
-        })         
-    </script>
+        </script>
 
         <% for(var i=0;i<jsfiles.length;i++){%>
         <% var path = '/resource/JS/' + jsfiles[i] + '.js'; %>
