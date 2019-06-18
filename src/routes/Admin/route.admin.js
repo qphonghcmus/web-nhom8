@@ -123,31 +123,25 @@ router.get('/manage-post-draff', function (req, res, next) {
 });
 
 router.get('/manage-tag', function (req, res, next) {
-  tagModel.loadAll().then(docs=>{
-    var listTag = docs;
+  postModel.findToManageTag().then(docs=>{
+    var listResult = docs;
     res.render('./layouts/Admin/admin.ejs', {
       title: 'Quản lý nhãn',
       filename: '../../Admin/ManageTag',
       activeManageTag: true,
       cssfiles: ['ManageTag'],
       jsfiles: ['ManageTag'],
-      listTag:listTag
+      listResult: listResult,
     });
   }).catch(err=>{
-    res.json(err + '');
-  })
+
+  });
 });
-router.post('/manage-tag',function(req,res,next){
-  if (req.body.tenTag!= "")
-  {
-    var entity = {
-      tenTag:req.body.tenTag
-    }
-    tagModel.add(entity).then(docs=>{
-      res.redirect('/administrator/manage-tag');
-    }).catch(err => {res.json(err + '')})
-  }
-});
+
+/*router.get('/manage-tag/:idBaiViet',function(req,res,next){
+  var idBaiViet = req.params.idBaiViet;
+
+});*/
 
 router.get('/my-information', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {

@@ -388,6 +388,23 @@ module.exports = {
                 else resolve(res);
             })
         })
+    },
+    findToManageTag: ()=>{
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.find({},'idBaiViet tieuDe tag').exec((err,res)=>{
+                if (err) reject(err);
+                else resolve(res);
+            });
+        });
+    },
+   findByIDToManageTag: idBaiViet => {
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.find({idBaiViet:idBaiViet},'idBaiViet tieuDe tag').exec((err,res)=>{
+                if (err) reject(err);
+                else resolve(res);
+            });
+        });
     }
-
 }

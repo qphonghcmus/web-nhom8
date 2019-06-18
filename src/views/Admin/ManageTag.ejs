@@ -1,35 +1,7 @@
 <div class="content-box-list-subscriber">
     <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
         <div class="content-box-title">
-            <p>Thêm tag mới</p>
-        </div>
-        <div class="content-box-tool">
-            <a>
-                <i class="fa fa-caret-down" aria-hidden="true"></i>
-            </a>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-
-    <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white">
-        <form method="POST" >
-            <div class="form-group">
-                <label for="tenTag">Tên tag mới: </label>
-                <input class="form-control" type="text" placeholder="Tên tag" name="tenTag">
-            </div>
-               <div class="form-group position-button">
-                    <div style="text-align:center;">
-                        <input type="submit" class="btn btn-primary" value="Thêm">
-                    </div>
-               </div>
-        </form>
-    </div>
-</div>
-
-<div class="content-box-list-subscriber">
-    <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
-        <div class="content-box-title">
-            <p>Danh sách tag</p>
+            <p>Danh sách bài viết</p>
         </div>
 
         <div class="content-box-tool">
@@ -46,14 +18,25 @@
                 <thead>
                     <tr>
                         <th scope="col">STT</th>
-                        <th scope="col">Tên tag</th>
+                        <th scope="col">Tên tài viết</th>
+                        <th scope="col">Danh sách tag</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%listTag.forEach(function(value,i){%>
+                    <%listResult.forEach(function(value,i){%>
                         <tr>
-                            <td><%=i+1%></td>
-                            <td><%=value.tenTag%></td>
+                            <td><a href="/Administrator/ManageTag/<%=value.idBaiViet%>"><%=i+1%></a></td>
+                            <td><a href="/Administrator/ManageTag/<%=value.idBaiViet%>"><%=value.tieuDe%></a></td>
+                            <td>
+                                <%value.tag.forEach(function(valueTag,j){%>
+                                    <%if (j != value.tag.length - 1){%>
+                                        <a href="/Administrator/ManageTag/<%=value.idBaiViet%>"><%=valueTag + ", "%></a>
+                                    <%}else{%>
+                                        <a href="/Administrator/ManageTag/<%=value.idBaiViet%>"><%=valueTag%></a>
+                                    <%}%>
+                                <%});%>
+                            </td>
+                            
                         </tr>
                     <%});%>
                 </tbody>
