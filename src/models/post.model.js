@@ -398,13 +398,23 @@ module.exports = {
             });
         });
     },
-   findByIDToManageTag: idBaiViet => {
+   findByIDToManageTag: id => {
         return new Promise((resolve,reject)=>{
             var post = mongoose.model('posts',postSchema);
-            post.find({idBaiViet:idBaiViet},'idBaiViet tieuDe tag').exec((err,res)=>{
+            post.find({idBaiViet:id},'idBaiViet tieuDe tag').exec((err,res)=>{
                 if (err) reject(err);
                 else resolve(res);
             });
+        });
+    },
+
+    updateTag: (id,newTag) =>{
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.findOneAndUpdate({ idBaiViet: id },{$set:{tag:newTag}} , { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
         });
     }
 }

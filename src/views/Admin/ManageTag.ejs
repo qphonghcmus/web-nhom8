@@ -25,14 +25,14 @@
                 <tbody>
                     <%listResult.forEach(function(value,i){%>
                         <tr>
-                            <td><a href="/Administrator/ManageTag/<%=value.idBaiViet%>"><%=i+1%></a></td>
-                            <td><a href="/Administrator/ManageTag/<%=value.idBaiViet%>"><%=value.tieuDe%></a></td>
+                            <td><a href="/administrator/manage-tag/<%=value.idBaiViet%>"><%=i+1%></a></td>
+                            <td><a href="/administrator/manage-tag/<%=value.idBaiViet%>"><%=value.tieuDe%></a></td>
                             <td>
                                 <%value.tag.forEach(function(valueTag,j){%>
                                     <%if (j != value.tag.length - 1){%>
-                                        <a href="/Administrator/ManageTag/<%=value.idBaiViet%>"><%=valueTag + ", "%></a>
+                                        <a href="/administrator/manage-tag/<%=value.idBaiViet%>"><%=valueTag + ", "%></a>
                                     <%}else{%>
-                                        <a href="/Administrator/ManageTag/<%=value.idBaiViet%>"><%=valueTag%></a>
+                                        <a href="/administrator/manage-tag/<%=value.idBaiViet%>"><%=valueTag%></a>
                                     <%}%>
                                 <%});%>
                             </td>

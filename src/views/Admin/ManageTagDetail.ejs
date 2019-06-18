@@ -1,0 +1,85 @@
+<p style="display:none;" id="idBaiViet"><%=result[0].idBaiViet%></p>
+<div class="content-box-list-subscriber">
+    <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+        <div class="content-box-title">
+            <p>Thêm tag cho bài viết</p>
+        </div>
+
+        <div class="content-box-tool">
+            <a href="#toggle-add-form" id="toggle-add-form">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="add-subscriber-main">
+       <form method="POST">
+    <div class="form-group">
+        <label for="txtTieuDe">Tên bài viết</label>
+        <input type="text" class="form-control" name="txtTieuDe" value ="<%=result[0].tieuDe%>" readonly>
+    </div>
+    <div class="form-group">
+        <label for="txtNewTag">Tag mới</label>
+        <input type="text" class="form-control" name="txtNewTag">
+    </div>
+   <div class="form-group position-button">
+        <div>
+            <input type="submit" class="btn btn-primary" value="Thêm tag">
+        </div>
+    </div>
+</form>
+    </div>
+</div>
+
+
+<div class="content-box-list-subscriber">
+    <div class="content-box-list-subscriber-header p-sm-0 shadow-sm">
+        <div class="content-box-title">
+            <p>Danh sách tag</p>
+        </div>
+
+        <div class="content-box-tool">
+            <a href="#toggle-list-subscrber" id="toggle-list-subscriber">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="content-box-list-subscriber-content shadow p-4 mb-4 bg-white" id="list-subscriber-main">
+        <div class="table-responsive">
+            <table class="table table-hover" id="main-table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Tên tag</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%result[0].tag.forEach(function(value,i){%>
+                        <tr>
+                            <td><%=i+1%></td>
+                            <td>
+                                <input type="hidden" class="form-control" readonly value="<%=value%>" id="idTag-<%=i%>">
+                                <p><%=value%></p>
+                            </td>
+                            <td>
+                                
+                                <a href="/administrator/manage-tag/delete/<%= result[0].idBaiViet %>&<%= i %>"><button class="btn btn-danger btn-sm btnGiaHan">Xoá</button></a>
+                            </td>
+                            <td>
+                                <form method="POST">
+                                    <input type="hidden" name="txtTag-<%=i%>">
+                                    <input type="button" class="btn btn-success btn-sm btnGiaHan" value="Chỉnh sửa">
+                                </form>
+                            </td>
+                        </tr>
+                    <%});%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

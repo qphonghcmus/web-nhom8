@@ -138,10 +138,66 @@ router.get('/manage-tag', function (req, res, next) {
   });
 });
 
-/*router.get('/manage-tag/:idBaiViet',function(req,res,next){
-  var idBaiViet = req.params.idBaiViet;
 
-});*/
+
+router.get('/manage-tag/:idBaiViet',function(req,res,next){
+  var idBaiViet = parseInt(req.params.idBaiViet);
+ 
+  postModel.findByIDToManageTag(idBaiViet).then(docs=>{
+    var result = docs;
+  
+    res.render('./layouts/Admin/admin.ejs',{
+      title: 'Quản lý nhãn',
+      filename: '../../Admin/ManageTagDetail',
+      activeManageTag:true,
+      cssfiles: ['ManageTag'],
+      jsfiles: ['ManageTagDetail'],
+      result:result,
+    });
+  });
+});
+
+router.post('/manage-tag/:idBaiViet',function(req,res,next){
+  var idBaiViet = parseInt(req.params.idBaiViet);
+  var newTag = req.body.txtNewTag;
+  postModel.findByIDToManageTag(idBaiViet).then(docs1=>{
+    var baiViet = docs1;
+    baiViet[0].tag.push(newTag);
+    postModel.updateTag(idBaiViet,baiViet[0].tag).then(doc2=>{
+      res.redirect('/administrator/manage-tag/'+idBaiViet);
+    });
+  });
+});
+
+router.get('/manage-tag/delete/:id&:tag',function(req,res,next){
+  var idBaiViet = parseInt(req.params.id);
+  var tagCanXoa = parseInt(req.params.tag);
+  postModel.findByIDToManageTag(idBaiViet).then(docs1=>{
+    var baiViet = docs1;
+    baiViet[0].tag.splice(tagCanXoa,1);
+    postModel.updateTag(idBaiViet,baiViet[0].tag).then(doc2=>{
+      res.redirect('/administrator/manage-tag/'+idBaiViet);
+    });
+  });
+});
+
+router.post('/manage-tag/modify/:idBaiViet&:vitri',function(req,res,next){
+  var idBaiViet = parseInt(req.params.idBaiViet);
+  var index = parseInt(req.params.vitri);
+  var newTag =req.body["txtTag-" + index];
+  console.log("ID BaiViet: "+idBaiViet);
+  console.log("Vi tri: "+index);
+  console.log("New tag: " + newTag);
+  postModel.findByIDToManageTag(idBaiViet).then(docs1=>{
+    var baiViet = docs1;
+    baiViet[0].tag[index] = newTag;
+    console.log(baiViet[0].tag);
+    postModel.updateTag(idBaiViet,baiViet[0].tag).then(doc2=>{
+      res.redirect('/administrator/manage-tag/'+idBaiViet);
+    });
+  });
+});
+
 
 router.get('/my-information', function (req, res, next) {
   res.render('./layouts/Admin/admin.ejs', {
