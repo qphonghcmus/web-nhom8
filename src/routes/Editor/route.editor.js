@@ -132,7 +132,7 @@ router.get('/reject', (req, res, next) => {
 });
 
 router.get('/wait', (req, res, next) => {
-    var chuyenmuc = "Quân sự"
+    var chuyenmuc = req.user.category
     draft.findByChuyenMuc(chuyenmuc).then(list => {
         res.render('./layouts/Editor/main', {
             filename: '../../editor/editor_waiting.ejs',
@@ -193,7 +193,7 @@ router.post('/duyet/:id', (req, res, next) => {
     var id = req.params.id;
 
     var tenChuyenMucCon = null;
-    if (typeof (req.body.chuyenmuccon) !== 'undefined') tenChuyenMucCon = req.body.chuyenmuccon;
+    if (typeof (req.body.chuyenmuccon) !== 'undefined') tenChuyenMucCon = req.body.chuyemmuccon;
 
     draft.findById(id).then(succ => {
         var obj_post = {

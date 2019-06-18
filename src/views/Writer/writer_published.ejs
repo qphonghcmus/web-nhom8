@@ -17,7 +17,7 @@
                             <tr>
                                 <td><%= i + 1%>></td>
                                 <td class="h6"><%= listDraft[i].tieuDe %></td>
-                                <td class="h6"><%= listDraft[i].ngayXuatBan %></td>
+                                <td class="h6"><%= moment(listDraft[i].ngayDang).format("DD-MM-YYYY HH:mm")%></td>
                             </tr>
                             <%}%>
                     </tbody>

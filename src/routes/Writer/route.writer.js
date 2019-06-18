@@ -162,7 +162,8 @@ router.post('/post', (req, res, next) => {
 
 router.get('/waitPublish', (req, res, next) => {
     var idTacGia = req.user.idUser;
-    draftDuyet.findByAuthor(idTacGia).then(list => {
+    post.findByNewsWaitPublish(idTacGia).then(list => {
+    // draftDuyet.findByAuthor(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
             filename: '../../writer/writer_waitPublish.ejs',
             activeWaitPublish: true,
@@ -179,7 +180,7 @@ router.get('/waitPublish', (req, res, next) => {
                 'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
                 'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js'
             ],
-            listDraft: list,
+            listDraft: list, moment: require('moment')
         });
     }).catch()
 
@@ -187,7 +188,7 @@ router.get('/waitPublish', (req, res, next) => {
 
 router.get('/published', (req, res, next) => {
     var idTacGia = req.user.idUser;
-    post.findByAuthor(idTacGia).then(list => {
+    post.findByNewsPublished(idTacGia).then(list => {
         res.render('./layouts/Writer/main', {
             filename: '../../writer/writer_published.ejs',
             activePublish: true,
@@ -204,7 +205,7 @@ router.get('/published', (req, res, next) => {
                 'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
                 'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js'
             ],
-            listDraft: []
+            listDraft: list, moment: require('moment')
         });
     }).catch()
 

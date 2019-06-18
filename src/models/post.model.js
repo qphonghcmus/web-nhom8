@@ -53,11 +53,32 @@ module.exports = {
                 isActive: true,
                 idTacGia: entity.idTacGia,
                 ngayDang: entity.ngayDang,
-                idEditor: entity.idEditor
+                idEditor: entity.idEditor,
+                chuyenMucCon: entity.chuyenMucCon
             })
             obj.save((err, res) => {
                 if(err) reject(err)
                 else    resolve(res.idBaiViet)
+            })
+        })
+    },
+
+    findByNewsWaitPublish: id =>{
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({ $and: [{idTacGia: id},{ngayDang:{$gt: new Date()}}]}).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
+    findByNewsPublished: id =>{
+        return new Promise((resolve, reject) => {
+            var post = mongoose.model('posts', postSchema);
+            post.find({ $and: [{idTacGia: id},{ngayDang:{$lte: new Date()}}]}).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
             })
         })
     },

@@ -112,7 +112,7 @@ router.get('/post/:id', (req, res, next) => {
                   news: values[0][0],
                   content: values[1][0].noiDung,
                   moment: moment,
-                  author: values2[1][0].hoTen,
+                  author: values2[1][0].penName,
                   top5news: values2[0],
                   comment: values2[3],
                 })
@@ -135,7 +135,7 @@ router.get('/post/:id', (req, res, next) => {
           news: values[0][0],
           content: values[1][0].noiDung,
           moment: moment,
-          author: values2[1][0].hoTen,
+          author: values2[1][0].penName,
           top5news: values2[0],
           comment: values2[3],
         })
