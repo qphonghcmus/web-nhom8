@@ -158,7 +158,7 @@ module.exports = {
     DisplayListSubcriber: () => {
         return new Promise((resolve, reject) => {
             var user = mongoose.model('User', userSchema);
-            user.find({ accept_extension: true }).exec((err, res) => {
+            user.find({ permission:0 }).exec((err, res) => {
                 if (err) reject(err);
                 else resolve(res);
             })
