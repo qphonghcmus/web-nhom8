@@ -87,6 +87,13 @@ router.get('/text-search/', (req, res, next) => {
 })
 
 router.get('/post/:id', (req, res, next) => {
+
+  var page = req.query.page || 1;
+  if (page < 1) page = 1;
+  var limit = 5;
+  var offset = (page - 1) * limit;
+  var current = parseInt(page);
+
   var idBaiViet = req.params.id;
     Promise.all([
       postModel.findById(idBaiViet),
@@ -107,12 +114,22 @@ router.get('/post/:id', (req, res, next) => {
                 postModel.find5News(values[0][0].tenChuyenMuc, idBaiViet),
                 user.findByIdUser(values[0][0].idTacGia),
                 postModel.updateViews(idBaiViet, values[0][0].viewNumber),
-                comment.findByIdBaiViet(idBaiViet),
+                // comment.findByIdBaiViet(idBaiViet),
+                comment.pageByIdBaiViet(idBaiViet,limit,offset),
+                comment.countByIdBaiViet(idBaiViet)
               ]).then(values2 => {
+                var total = values2[4];
+                var nPages = Math.floor(total / limit);
+                if (total % limit > 0) nPages++;
+                var pages = [];
+                for (i = 1; i <= nPages; i++) {
+                    var obj = { value: i, active: i === +page };
+                    pages.push(obj);
+                }
                 res.render('./BaiViet/main', {
                   news: values[0][0],
                   content: values[1][0].noiDung,
-                  moment: moment,
+                  moment: moment,pages: pages, current: current,
                   author: values2[1][0].penName,
                   top5news: values2[0],
                   comment: values2[3],
@@ -130,12 +147,22 @@ router.get('/post/:id', (req, res, next) => {
         postModel.find5News(values[0][0].tenChuyenMuc, idBaiViet),
         user.findByIdUser(values[0][0].idTacGia),
         postModel.updateViews(idBaiViet, values[0][0].viewNumber),
-        comment.findByIdBaiViet(idBaiViet),
+        // comment.findByIdBaiViet(idBaiViet),
+                comment.pageByIdBaiViet(idBaiViet,limit,offset),
+                comment.countByIdBaiViet(idBaiViet)
       ]).then(values2 => {
+        var total = values2[4];
+                var nPages = Math.floor(total / limit);
+                if (total % limit > 0) nPages++;
+                var pages = [];
+                for (i = 1; i <= nPages; i++) {
+                    var obj = { value: i, active: i === +page };
+                    pages.push(obj);
+                }
         res.render('./BaiViet/main', {
           news: values[0][0],
           content: values[1][0].noiDung,
-          moment: moment,
+          moment: moment,pages: pages, current: current,
           author: values2[1][0].penName,
           top5news: values2[0],
           comment: values2[3],

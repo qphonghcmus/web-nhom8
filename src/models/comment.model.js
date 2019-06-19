@@ -40,4 +40,22 @@ module.exports = {
             })
         })
     },
+
+    countByIdBaiViet: id => {
+        return new Promise((resolve, reject) => {
+            cmt.countDocuments({ idBaiViet: id }).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
+
+    pageByIdBaiViet: (id,limit,offset) => {
+        return new Promise((resolve, reject) => {
+            cmt.find({idBaiViet: id}).skip(offset).sort({ 'ngayDang': -1}).limit(limit).exec((err,res) =>{
+                if(err) reject(err);
+                else    resolve(res);
+            })
+        })
+    },
 }

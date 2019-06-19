@@ -29,8 +29,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"
-                                        aria-hidden="true"></i> Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Trang
+                                    chủ</a></li>
                             <li class="breadcrumb-item">
                                 <a href="/list/<%=chuyenmuc%>"><%= news.tenChuyenMuc %></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Bài viết</li>
@@ -54,32 +54,32 @@
                         <div class="blog-content">
                             <div class="post-meta">
                                 <a href="#"><%= moment(news.ngayDang).format("DD/MM/YYYY") %></a>
-                             
+
                                 <a href="/list/<%=chuyenmuc%>"><%= news.tenChuyenMuc %></a>
                             </div>
                             <br>
                             <h1 class="post-title"><%= news.tieuDe%></h1>
                             <br>
                             <p><b><%= news.noiDungTomTat%></b></p>
-                           <%-content%>
-                           
+                            <%-content%>
+
 
                             <!-- Post Author -->
                             <div class="post-author d-flex align-items-center">
-                               <p>Theo <strong> <%= author%></strong></p>
+                                <p>Theo <strong> <%= author%></strong></p>
                             </div>
                         </div>
                     </div>
 
-                     <div class="related-post-area bg-white mb-30 pt-30 px-30 box-shadow"style="padding-bottom: 18px;">
+                    <div class="related-post-area bg-white mb-30 pt-30 px-30 box-shadow" style="padding-bottom: 18px;">
                         <p><button class="btn btn-primary"><a>Download bài viết</a></button></p>
                     </div>
 
                     <div class="related-post-area bg-white mb-30 pt-30 px-30 box-shadow" style="padding-bottom: 20px;">
                         <div style="display:inline-flex;">
                             <p>Từ khoá tìm kiếm: &nbsp;</p>
-                            <% news.tag.forEach(e => { %> 
-                            <p><a href= "/text-search/?topSearch=<%=e %>" class="tag-link"><%= e%></a></p>
+                            <% news.tag.forEach(e => { %>
+                            <p><a href="/text-search/?topSearch=<%=e %>" class="tag-link"><%= e%></a></p>
                             <p>&nbsp;&nbsp;&nbsp;</p>
                             <%}) %>
                         </div>
@@ -95,7 +95,7 @@
                         <div class="row">
 
                             <% top5news.forEach(e => { %>
-                                <!-- Single Blog Post -->
+                            <!-- Single Blog Post -->
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="single-blog-post style-4 mb-30">
                                     <div class="post-thumbnail">
@@ -104,7 +104,7 @@
                                     <div class="post-content">
                                         <a href="/post/<%= e.idBaiViet %>" class="post-title"><%= e.tieuDe %></a>
                                     </div>
-                            
+
                                 </div>
                             </div>
                             <% }) %>
@@ -124,25 +124,53 @@
                             <!-- Single Comment Area -->
                             <li class="single_comment_area">
                                 <!-- Comment Content -->
-                        
+
                                 <div class="comment-content d-flex">
                                     <!-- Comment Author -->
-                        
+
                                     <!-- <div class="comment-author">
                                                                                                 <img src="vendors/template/img/bg-img/53.jpg" alt="author">
                                                                                             </div> -->
                                     <!-- Comment Meta -->
                                     <div class="comment-meta">
-                                        <a href="#" class="comment-date"><%= moment(e.ngayDang).format("DD/MM/YYYY HH:mm") %></a>
+                                        <a href="#"
+                                            class="comment-date"><%= moment(e.ngayDang).format("DD/MM/YYYY HH:mm") %></a>
                                         <h6><%= e.tenDoiGia %></h6>
                                         <p><%= e.NoiDung %></p>
                                     </div>
-                        
+
                                 </div>
-                        
+
                             </li>
+                            <hr>
                             <% }) %>
                         </ol>
+
+                        <!-- Phan trang binh luan -->
+                        <!-- Pagination -->
+                        <nav>
+                            <ul class="pagination">
+                                <%if (pages.length == 1){%>
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <%}else{%>
+                                <li class="page-item"><a class="page-link" href="?page=<%=current-1%>"><i
+                                            class="ti-angle-left"></i></a></li>
+                                <%pages.forEach(function(i){%>
+                                <%if (i.active){%>
+                                <li class="page-item active"><a class="page-link"
+                                        href="?page=<%=i.value%>"><%=i.value%></a></li>
+                                <%}else{%>
+                                <li class="page-item"><a class="page-link" href="?page=<%=i.value%>"><%=i.value%></a>
+                                </li>
+                                <%}%>
+<%});%>
+                                <li class="page-item"><a class="page-link" href="?page=<%=current+1%>"><i
+                                            class="ti-angle-right"></i></a></li>
+                                <%}%>
+
+</ul>
+</nav>
+
                     </div>
                     <!-- Post A Comment Area -->
                     <div class="post-a-comment-area bg-white mb-30 p-30 box-shadow clearfix">
@@ -162,42 +190,44 @@
                                         <input type="email" class="form-control" id="email" placeholder="Your Email*" required>
                                     </div> -->
                                     <div class="col-12">
-                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message*" required></textarea>
+                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10"
+                                            placeholder="Message*" required></textarea>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn mag-btn mt-30" type="submit" onclick="javascript: $('#frmCmt').submit();">Đăng bình luận</button>
+                                        <button class="btn mag-btn mt-30" type="submit"
+                                            onclick="javascript: $('#frmCmt').submit();">Đăng bình luận</button>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                                </form>
                     </div>
                 </div>
-
-             
             </div>
+
+
         </div>
+    </div>
     </div>
     <!-- ##### Archive Post Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-     <%- include('../layouts/TrangChu/footer') -%>
-                                <!-- ##### Footer Area End ##### -->
+    <%- include('../layouts/TrangChu/footer') -%>
+    <!-- ##### Footer Area End ##### -->
 
-                                <!-- ##### All Javascript Script ##### -->
-                                <!-- jQuery-2.2.4 js -->
-                                <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
-                                <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../../public/vendors/template/js/jquery/jquery-2.2.4.min.js"></script>
 
-                                <!-- Popper js -->
-                                <script src="../../public/vendors/template/js/bootstrap/popper.min.js"></script>
-                                <!-- Bootstrap js -->
-                                <script src="../../public/vendors/template/js/bootstrap/bootstrap.min.js"></script>
-                                <!-- All Plugins js -->
-                                <script src="../../public/vendors/template/js/plugins/plugins.js"></script>
-                                <!-- Active js -->
-                                <script src="../../public/vendors/template/js/active.js"></script>
-                                <!-- Reposive js-->
-                                <script src="../../public/resource/JS/postDetail.js"></script>
+    <!-- Popper js -->
+    <script src="../../public/vendors/template/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="../../public/vendors/template/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="../../public/vendors/template/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="../../public/vendors/template/js/active.js"></script>
+    <!-- Reposive js-->
+    <script src="../../public/resource/JS/postDetail.js"></script>
 </body>
 
 </html>
