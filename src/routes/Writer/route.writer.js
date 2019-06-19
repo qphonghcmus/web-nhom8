@@ -132,7 +132,7 @@ router.get('/post', (req, res, next) => {
                 jsfiles: [
                     'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
                     'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
-                    '../../../public/resource/js/editor.upload.js'
+                    '../../../public/resource/JS/editor.upload.js'
                 ],
                 listCat: listCat,
             });
@@ -330,7 +330,7 @@ router.get('/editPage/:id&:type', (req, res, next) => {
                     jsfiles: [
                         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
                         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
-                        '../../../public/resource/js/editor.editPage.js',
+                        '../../../public/resource/JS/editor.editPage.js',
                     ],
                     post: obj,
                     listCat: listCat,
@@ -376,7 +376,7 @@ router.get('/editPage/:id&:type', (req, res, next) => {
                     jsfiles: [
                         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js',
                         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js',
-                        '../../../public/resource/js/editor.editPage.js',
+                        '../../../public/resource/JS/editor.editPage.js',
                     ],
                     post: obj,
                     typeDraft: type,

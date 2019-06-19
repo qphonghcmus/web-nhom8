@@ -150,7 +150,7 @@ router.get('/wait', (req, res, next) => {
                 'https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js',
                 'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js',
                 'https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js',
-                '../../../public/resource/js/editor_waiting.js'
+                '../../../public/resource/JS/editor_waiting.js'
             ],
             listDraft: list
         });
@@ -171,14 +171,14 @@ router.get('/duyet/:id', (req, res, next) => {
                 }
             })
             res.render('./layouts/Editor/main', {
-                filename: '../../editor/editor_duyet.ejs',
+                filename: '../../Editor/editor_duyet.ejs',
                 activeWait: true,
                 cssfiles: [
                     'https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css'
                 ],
                 jsfiles: [
                     'https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js',
-                    '../../../public/resource/js/editor_duyetbai.js',
+                    '../../../public/resource/JS/editor_duyetbai.js',
                 ],
                 listCat: listCat,
                 draft: list[0],
