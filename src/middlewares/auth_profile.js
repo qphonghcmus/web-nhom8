@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
         res.redirect('/editor/update')
     }
     else if(req.user.permission==3){
-        res.redirect('/administrator')
+        res.redirect('/administrator/my-information')
     }
     else next();
   }
