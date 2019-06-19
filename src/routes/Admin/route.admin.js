@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var postModel = require('../../models/post.model');
 var categoryModel = require('../../models/category.model');
+var draffModel = require('../../models/draft.model');
 const auth = require('../../middlewares/auth_login');
 var listCategory;
 var userModel = require('../../models/user.model');
@@ -23,39 +24,7 @@ router.get('/', function (req, res, next) {
     });
   });
 });
-router.post('/manage-category/:i', (req, res) => {
 
-  var searchStr = {};
-  var i = req.params.i;
-  if (req.body['search[value]']) {
-    var regex = new RegExp(req.body['search[value]'], 'i');
-    searchStr = { $or: [{ idBaiViet: req.body['search[value]'] }, { tieuDe: req.body['search[value]'] }] };
-    console.log(searchStr);
-  }
-  else {
-    searchStr = {};
-  }
-  var recordsTotal = 0;
-  var recordsFiltered = 0;
-
-  Promise.all([
-    postModel.countByChuyeMuc(listCategory[i]),
-    postModel.countBySearchString(searchStr, listCategory[i]),
-    postModel.findBySearchString(searchStr, listCategory[i], req.body.start, req.body.length)
-  ]).then(([c, d, docs]) => {
-    recordsTotal = c;
-    recordsFiltered = d;
-    var data = JSON.stringify({
-      "draw": req.body.draw,
-      "recordsFiltered": recordsFiltered,
-      "recordsTotal": recordsTotal,
-      "data": docs
-    });
-    console.log(data);
-    res.send(data);
-  }).catch(err => res.json(err));
-
-})
 
 router.get('/manage-category', function (req, res, next) {
   categoryModel.load().then(docs => {
@@ -124,13 +93,18 @@ router.get('/manage-post-published/delete/:idBaiViet',function(req,res,next){
 });
 
 router.get('/manage-post-draff', function (req, res, next) {
-  res.render('./layouts/Admin/admin.ejs', {
-    title: 'Quản lý bài viết',
-    filename: '../../Admin/ManagePostDraff',
-    activeManagePostDraff: true,
-    cssfiles: ['ManagePostDraff'],
-    jsfiles: ['ManagePostDraff'],
-    listCategory: listCategory,
+  draffModel.findToManagePostDraff().then(docs=>{
+    var listBaiViet = docs;
+    res.render('./layouts/Admin/admin.ejs', {
+      title: 'Quản lý bài viết',
+      filename: '../../Admin/ManagePostDraff',
+      activeManagePostDraff: true,
+      cssfiles: ['ManagePostDraff'],
+      jsfiles: ['ManagePostDraff'],
+      listBaiViet: listBaiViet
+    });
+  }).catch(err=>{
+    res.json(err);
   });
 });
 
