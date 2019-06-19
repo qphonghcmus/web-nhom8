@@ -3,6 +3,7 @@ var router = express.Router();
 var postModel = require('../../models/post.model');
 var categoryModel = require('../../models/category.model');
 var draffModel = require('../../models/draft.model');
+var postDetail = require('../../models/postDetail.model');
 const auth = require('../../middlewares/auth_login');
 var listCategory;
 var userModel = require('../../models/user.model');
@@ -129,7 +130,14 @@ router.get('/manage-post-draff/published/:idDraft',function(req,res,next) {
       var p1 = postModel.add(obj_post);
       var p2 = draffModel.delete(idDraft);
       Promise.all([p1, p2]).then(values => {
-        res.redirect('/administrator/manage-post-draff');
+        var obj_detail = {
+          idBaiViet: values[0],
+          noiDung: succ[0].noiDung,
+      }
+      postDetail.add(obj_detail).then(succ => {
+          res.redirect('/administrator/manage-post-draff');
+
+      }).catch()
       })
   }).catch(err => console.log(err))
 
