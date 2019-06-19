@@ -9,7 +9,7 @@ module.exports = function (app) {
     var fs = new FacebookStrategy({
         clientID: "1589358014531607",
         clientSecret: "0bffdad081b2808a0123c0647009dbc5",
-        callbackURL: "http://localhost:3000/login/fb/cb",
+        callbackURL: "http://localhost:5000/login/fb/cb",
         profileFields: ['displayName', 'email'],
     }, (accessToken, refreshToken, profile, done) => {
         userModel.singleByEmail(profile._json.email)

@@ -42,6 +42,6 @@ app.use('/public/resource', express.static(__dirname + '/public//resource'));
 app.use('/editor', auth_editor, require('./routes/Editor/route.editor'));
 app.use('/writer', auth_writer, require('./routes/Writer/route.writer'));
 
-app.listen(3000, () => "Web server is running");
+app.listen(5000, () => "Web server is running");
 
 module.exports = app;
