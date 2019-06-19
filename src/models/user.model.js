@@ -53,7 +53,7 @@ module.exports = {
             })
             obj.save((err, res) => {
                 if (err) reject(err)
-                else resolve(res.idUser)
+                else resolve(res)
             })
         })
     },
