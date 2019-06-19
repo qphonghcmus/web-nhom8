@@ -7,8 +7,8 @@ module.exports = function (app) {
     app.use(passport.session());
 
     var fs = new FacebookStrategy({
-        clientID: "1589358014531607",
-        clientSecret: "0bffdad081b2808a0123c0647009dbc5",
+        clientID: "672764693183159",
+        clientSecret: "9d6ec0cecf7627b6b920459438e39a9a",
         callbackURL: "http://localhost:5000/login/fb/cb",
         profileFields: ['displayName', 'email'],
     }, (accessToken, refreshToken, profile, done) => {
