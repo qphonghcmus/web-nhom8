@@ -19,17 +19,18 @@
                     <tr>
                         <th scope="col">STT</th>
                          <th scope="col">Tên bài viết</th>
-                        <th scope="col"></th>
+                         <th scope="col"></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     <%listBaiViet.forEach(function(value,i){%>
                         <tr>
                             <td><%=i + 1%></td>
-                           
                             <td><%=value.tieuDe%></td>
+
                             <td>
-                                <a href="/administrator/manage-post-draff/published/<%=value.idBaiViet%>"><button class="btn btn-primary btn-sm btnGiaHan">Xuất bản</button></a>
+                                <a href="/administrator/manage-post-draff/published/<%= value.idDraft %>"><button class="btn btn-primary btn-sm btnGiaHan">Xuất bản</button></a>
                             </td>
                         </tr>
                     <%});%>

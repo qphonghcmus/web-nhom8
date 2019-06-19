@@ -83,6 +83,8 @@ router.get('/manage-post-published', function (req, res, next) {
   });
 });
 
+
+
 router.get('/manage-post-published/delete/:idBaiViet',function(req,res,next){
   var idBaiViet = parseInt(req.params.idBaiViet);
   postModel.deleteById(idBaiViet).then(doc=>{
@@ -106,6 +108,32 @@ router.get('/manage-post-draff', function (req, res, next) {
   }).catch(err=>{
     res.json(err);
   });
+});
+
+router.get('/manage-post-draff/published/:idDraft',function(req,res,next) {
+  var idDraft = parseInt(req.params.idDraft);
+  console.log("ID Draft: "+ idDraft);
+  draffModel.findById(idDraft).then(succ => {
+      var obj_post = {
+          tieuDe: succ[0].tieuDe,
+          tenChuyenMuc: succ[0].tenChuyenMuc,
+          ngayDang: Date.now(),
+          imagePath: succ[0].img,
+          tag: succ[0].tag,
+          noiDungTomTat: succ[0].tomTat,
+          chuyenMucCon: "",
+          idTacGia: succ[0].idTacGia,
+          idEditor: ""
+      }
+
+      var p1 = postModel.add(obj_post);
+      var p2 = draffModel.delete(idDraft);
+      Promise.all([p1, p2]).then(values => {
+        res.redirect('/administrator/manage-post-draff');
+      })
+  }).catch(err => console.log(err))
+
+
 });
 
 router.get('/manage-tag', function (req, res, next) {

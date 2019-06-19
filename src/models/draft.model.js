@@ -106,7 +106,7 @@ module.exports = {
     findToManagePostDraff: () => {
         return new Promise((resolve, reject) => {
             var draft = mongoose.model('drafts', draffSchema);
-            draft.find({},'idDraff tieuDe tenChuyenMuc').exec((err,res)=>{
+            draft.find({},'idDraft tieuDe tenChuyenMuc').exec((err,res)=>{
                 if(err) reject(err)
                 else    resolve(res);
             })
