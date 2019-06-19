@@ -43,6 +43,9 @@
                             <a href="/post/<%= top4viewsnews[i].idBaiViet %>" class="post-title" data-animation="fadeInUp" data-delay="300ms">
                                 <%= top4viewsnews[i].tieuDe %>
                             </a>
+                            <% if(top4viewsnews[i].isPremium === true){%>
+                                <p class="premium-noibat" data-animation="fadeInUp" data-delay="300ms"> Premium </p>
+                            <%} %>
                         </div>
                     </div>
                 </div>
@@ -88,9 +91,15 @@
                     <div class="post-content">
                         <a href="/post/<%= list[i].idBaiViet%>" class="post-title"><%=list[i].tieuDe%></a>
                         <div class="post-meta">
-                            <a href="/list/<%=chuyenmuc2%>" class="post-cata"><%=list[i].tenChuyenMuc%></a>
-                            <a>-</a>
-                            <a href="#"><%= moment(list[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                            <div>
+                                <a href="/list/<%=chuyenmuc2%>" class="post-cata"><%=list[i].tenChuyenMuc%></a>
+                                <a>-</a>
+                                <a href="#"><%= moment(list[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                                <% if(list[i].isPremium === true){%>
+                                <p class="premium" style="display: 11px;">Premium</p>
+                                <%}%>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -139,10 +148,14 @@
                         <div class="post-meta">
                             <a href="/list/<%=chuyenmuc3%>" class="post-cata"><%= top10of10[i].tenChuyenMuc %></a>
                         </div>
-                        <a href="/post/<%= top10of10[i].idBaiViet%>" class="post-title"><%= top10of10[i].tieuDe %></a>
+                             <a href="/post/<%= top10of10[i].idBaiViet%>" class="post-title"><%= top10of10[i].tieuDe %></a>
                         <div class="post-meta" style="margin-top: 10px">
                             <a href="#"
-                                class="post-cata"><%= moment(top10of10[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                                class="post-cata" style="float:left;"><%= moment(top10of10[i].ngayDang).format("DD-MM-YYYY HH:mm") %>
+                            </a>
+                            <% if(top10of10[i].isPremium === true){%>
+                            <p class="premium">Premium</p>
+                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -190,6 +203,9 @@
                         <div class="post-meta">
                             <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
                             <a href="/list/<%=chuyenmuc4%>"><%= mostviews[i].tenChuyenMuc %></a>
+                            <% if(mostviews[i].isPremium === true){%>
+                            <p class="premium">Premium</p>
+                            <%}%>
                         </div>
                         <a href="/post/<%= mostviews[i].idBaiViet%>" class="post-title"><%= mostviews[i].tieuDe %></a>
                         <p><%= mostviews[i].noiDungTomTat %></p>
@@ -232,6 +248,9 @@
                                     style="margin-right: 0px;"><%= mostviews[i].tenChuyenMuc %></a>
                                 <a style="margin-right: 0px;">-</a>
                                 <a href="#"><%= moment(mostviews[i].ngayDang).format("DD-MM-YYYY HH:mm") %></a>
+                                <% if(mostviews[i].isPremium === true){%>
+                                <p class="premium" style="font-size: 10px;">Premium</p>
+                                <%}%>
                             </div>
                         </div>
                     </div>
@@ -244,6 +263,32 @@
             </div>
         </div>
 
+        <!-- Popup thong bao -->
+        <% if(typeof(typeMsg) !== 'undefined') {%>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >
+            Launch demo modal
+          </button>
+        <div id="myModal"  class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Thông báo</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                   <% if(typeof(typeMsg) !== 'undefined' && typeMsg === 1) { %> 
+                  <p>Bài viết chỉ dành cho Subriber</p>
+                  <%} %>
+                  <% if(typeof(typeMsg) !== 'undefined' && typeMsg === 2) { %> 
+                  <p>Gia hạn để đọc bài viết</p>
+                  <%}%>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+          <%}%>
         <!-- >>>>>>>>>>>>>>>>>>>>
          Post Right Sidebar Area
         <<<<<<<<<<<<<<<<<<<<< -->

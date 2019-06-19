@@ -13,7 +13,7 @@ var change_password = false; // TH không thay pass
 
 router.get('/', (req, res, next) => {
     res.render('./layouts/Editor/main', {
-        filename: '../../editor/editor_admin',
+        filename: '../../Editor/editor_admin',
         activeAdmin: true,
         cssfiles: [],
         jsfiles: [],
@@ -22,7 +22,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/admin', (req, res, next) => {
     res.render('./layouts/Editor/main', {
-        filename: '../../editor/editor_admin',
+        filename: '../../Editor/editor_admin',
         activeAdmin: true,
         cssfiles: [],
         jsfiles: [],
@@ -31,7 +31,7 @@ router.get('/admin', (req, res, next) => {
 
 router.get('/update', (req, res, next) => {
     res.render('./layouts/Editor/main', {
-        filename: '../../editor/editor_updateProfile.ejs',
+        filename: '../../Editor/editor_updateProfile.ejs',
         activeUpdate: true,
         cssfiles: [],
         jsfiles: [],
@@ -84,7 +84,7 @@ router.get('/approve', (req, res, next) => {
 
     post.findByEditor(req.user.idUser).then(list => {
         res.render('./layouts/Editor/main', {
-            filename: '../../editor/editor_approved.ejs',
+            filename: '../../Editor/editor_approved.ejs',
             activeApprove: true,
             cssfiles: [
                 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
@@ -110,7 +110,7 @@ router.get('/reject', (req, res, next) => {
 
     drafTuChoi.findByEditor(req.user.idUser).then(list => {
         res.render('./layouts/Editor/main', {
-            filename: '../../editor/editor_rejected.ejs',
+            filename: '../../Editor/editor_rejected.ejs',
             activeReject: true,
             cssfiles: [
                 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
@@ -135,7 +135,7 @@ router.get('/wait', (req, res, next) => {
     var chuyenmuc = req.user.category
     draft.findByChuyenMuc(chuyenmuc).then(list => {
         res.render('./layouts/Editor/main', {
-            filename: '../../editor/editor_waiting.ejs',
+            filename: '../../Editor/editor_waiting.ejs',
             activeWait: true,
             cssfiles: [
                 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css',
@@ -228,7 +228,7 @@ router.get('/tuchoi/:id', (req, res, next) => {
     var id = req.params.id;
     draft.findById(id).then(list => {
         res.render('./layouts/Editor/main', {
-            filename: '../../editor/editor_tuchoi.ejs',
+            filename: '../../Editor/editor_tuchoi.ejs',
             activeWait: true,
             cssfiles: [
             ],

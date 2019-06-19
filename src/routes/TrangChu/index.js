@@ -93,7 +93,8 @@ router.get('/post/:id', (req, res, next) => {
       detail.findById(idBaiViet),
     ]).then(values => {
       if(values[0][0].isPremium === true){
-        if(!req.user){ res.redirect('/')}
+        if(!req.user){ res.redirect('/')
+        }
         else{
         var idDocGia = req.user.idUser
 

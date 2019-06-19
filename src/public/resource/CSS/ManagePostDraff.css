@@ -4,9 +4,9 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 .clearfix::after{
-	content: " ";
-	display: table;
-	clear: both;
+    content: " ";
+    display: table;
+    clear: both;
 }
 
 body {
@@ -454,4 +454,8 @@ a.article, a.article:hover {
     margin-right: 10%;
     width: 60%;
     }
+}
+.btnGiaHan
+{
+    margin-top: 10px;
 }
