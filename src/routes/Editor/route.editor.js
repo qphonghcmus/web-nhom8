@@ -12,12 +12,13 @@ var bcrypt=require('bcrypt');
 var change_password = false; // TH không thay pass
 
 router.get('/', (req, res, next) => {
-    res.render('./layouts/Editor/main', {
-        filename: '../../Editor/editor_admin',
-        activeAdmin: true,
-        cssfiles: [],
-        jsfiles: [],
-    });
+    // res.render('./layouts/Editor/main', {
+    //     filename: '../../Editor/editor_admin',
+    //     activeAdmin: true,
+    //     cssfiles: [],
+    //     jsfiles: [],
+    // });
+    res.redirect('/editor/update')
 });
 
 router.get('/admin', (req, res, next) => {

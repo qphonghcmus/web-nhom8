@@ -12,13 +12,14 @@ var bcrypt = require('bcrypt');
 var change_password = false; // TH không thay pass
 
 router.get('/', auth, (req, res, next) => {
-    res.render('./layouts/Writer/main', {
-        filename: '../../Writer/writer_admin',
-        activeAdmin: true,
-        cssfiles: [],
-        jsfiles: [],
-        moment: moment
-    });
+    // res.render('./layouts/Writer/main', {
+    //     filename: '../../Writer/writer_admin',
+    //     activeAdmin: true,
+    //     cssfiles: [],
+    //     jsfiles: [],
+    //     moment: moment
+    // });
+    res.redirect('/writer/update');
 });
 
 router.get('/add/:chuyenmuc', (req, res, next) => {
