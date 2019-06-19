@@ -101,14 +101,26 @@ router.post('/manage-category', function (req, res, next) {
 
 
 router.get('/manage-post-published', function (req, res, next) {
-  res.render('./layouts/Admin/admin.ejs', {
-    title: 'Quản lý bài viết',
-    filename: '../../Admin/ManagePostPublished',
-    activeManagePostPublished: true,
-    cssfiles: ['ManagePostPublished'],
-    jsfiles: ['ManagePostPublished'],
-    listCategory: listCategory,
+  postModel.findToManageTag().then(docs=>{
+    var listBaiViet = docs;
+    res.render('./layouts/Admin/admin.ejs', {
+      title: 'Quản lý bài viết',
+      filename: '../../Admin/ManagePostPublished',
+      activeManagePostPublished: true,
+      cssfiles: ['ManagePostPublished'],
+      jsfiles: ['ManagePostPublished'],
+      listBaiViet: listBaiViet,
+    });
   });
+});
+
+router.get('/manage-post-published/delete/:idBaiViet',function(req,res,next){
+  var idBaiViet = parseInt(req.params.idBaiViet);
+  postModel.deleteById(idBaiViet).then(doc=>{
+    res.redirect('/administrator/manage-post-published');
+  }).catch(err=>{
+    res.json(err);
+  })
 });
 
 router.get('/manage-post-draff', function (req, res, next) {

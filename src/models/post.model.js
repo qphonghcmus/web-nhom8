@@ -21,7 +21,7 @@ var postSchema = new mongoose.Schema({
         type: String
     },
     viewNumber: Number,
-	chuyenMucCon: String,
+    chuyenMucCon: String,
     isActive:Boolean,
     idTacGia: Number,
     idEditor: Number,
@@ -359,8 +359,8 @@ module.exports = {
             })
         })
     },
-	
-	 countBySearchString: (searchString, tenChuyenMuc) => {
+    
+     countBySearchString: (searchString, tenChuyenMuc) => {
         return new Promise((resolve,reject)=>{
             var post = mongoose.model('posts', postSchema);
             post.count({
@@ -412,6 +412,25 @@ module.exports = {
         return new Promise((resolve,reject)=>{
             var post = mongoose.model('posts',postSchema);
             post.findOneAndUpdate({ idBaiViet: id },{$set:{tag:newTag}} , { new: true }).exec((err, res) => {
+                if (err) reject(err);
+                else resolve(res);
+            })
+        });
+    },
+    findToManagePostPublished: ()=>{
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.find({},'idBaiViet tieuDe tenChuyenMuc').exec((err,res)=>{
+                if (err) reject(err);
+                else resolve(res);
+            });
+        });
+    },
+
+    deleteById: id => {
+        return new Promise((resolve,reject)=>{
+            var post = mongoose.model('posts',postSchema);
+            post.remove({idBaiViet:id}).exec((err,res)=>{
                 if (err) reject(err);
                 else resolve(res);
             })
