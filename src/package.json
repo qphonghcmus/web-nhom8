@@ -6,7 +6,7 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
-    "async": "^3.0.1",
+    "async": "^3.2.2",
     "bcrypt": "^3.0.6",
     "connect-redis": "^3.4.1",
     "ejs": "^2.6.1",
